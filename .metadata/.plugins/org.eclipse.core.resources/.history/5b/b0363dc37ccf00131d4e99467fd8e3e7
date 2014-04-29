@@ -1,0 +1,7 @@
+package com.example.itlog.services;
+
+import android.os.AsyncTask;
+
+public class GetSessionInformationService extends AsyncTask<String, String, String>{
+
+}

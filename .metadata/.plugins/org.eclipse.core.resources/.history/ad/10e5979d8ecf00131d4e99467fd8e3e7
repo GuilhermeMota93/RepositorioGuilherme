@@ -1,0 +1,7 @@
+package com.example.itlog.requestobjects;
+
+public class GetSessionInformationRequest {
+	
+	private String username;
+
+}

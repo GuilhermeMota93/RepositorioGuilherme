@@ -1,0 +1,27 @@
+package com.example.itlog.services;
+
+import android.os.AsyncTask;
+
+import com.example.itlog.communication.CallbackInterface;
+import com.example.itlog.requestobjects.LoginRequest;
+
+public class LoginService extends AsyncTask<String, String, String> {
+	
+	private CallbackInterface<String> callback;
+	
+	String nomeServico;
+	LoginRequest lr;
+	
+	public LoginService(String nomeServico, LoginRequest lr){
+		this.nomeServico = nomeServico;
+		this.lr = lr;
+	}
+	
+	@Override
+	protected String doInBackground(String... params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

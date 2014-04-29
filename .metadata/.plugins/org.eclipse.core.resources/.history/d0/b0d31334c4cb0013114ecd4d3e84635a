@@ -1,0 +1,74 @@
+package Servicos;
+
+import java.io.InputStream;
+
+import objects.Funcionario;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONObject;
+
+import android.provider.Telephony.Sms.Conversations;
+import android.util.Log;
+
+public class Login {
+
+	public static String POST(String url, Funcionario funcionario) {
+		InputStream inputStream = null;
+		String result = "";
+		try {
+			// Criacao do HTTPCLIENT
+			HttpClient httpclient = new DefaultHttpClient();
+
+			// POST request
+			HttpPost httpPost = new HttpPost(url);
+
+			String json = "";
+
+			// Construir objecto JSON
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.accumulate("nome", funcionario.getNome());
+			jsonObject.accumulate("mail", funcionario.getMail());
+			jsonObject.accumulate("id", funcionario.getID());
+
+			// Definir JSON para StringEntity
+			StringEntity se = new StringEntity(json);
+
+			// definir HTTP POST Entity
+			httpPost.setEntity(se);
+
+			// definir headers para tipo do conteudo
+			//
+			httpPost.setHeader("Accept", "application/json");
+			httpPost.setHeader("Content-type", "application/json");
+
+			// fazer pedido POST para o URL fornecido
+			HttpResponse httpResponse = httpclient.execute(httpPost);
+
+			// recebe resposta como INPUTSTREAM
+			inputStream = httpResponse.getEntity().getContent();
+
+			// converter INPUTSTREAM para String
+			if (inputStream != null) {
+				result = convertInputStreamToString(inputStream);
+			} else {
+				result = "ERRO!";
+			}
+		} catch (Exception e) {
+			Log.d("InputStream", e.getLocalizedMessage());
+		}
+		return result;
+	}
+
+	public boolean isConnected() {
+		ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE);
+		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+		if (networkInfo != null && networkInfo.isConnected())
+			return true;
+		else
+			return false;
+	}
+}

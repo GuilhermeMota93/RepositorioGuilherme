@@ -1,0 +1,31 @@
+package Servicos;
+
+import java.io.InputStream;
+
+import objects.Funcionario;
+
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import android.util.Log;
+
+public class Login {
+
+	public static String POST (String url, Funcionario funcionario) {
+		InputStream inputStream = null;
+		String result = "";
+		try{
+			//Criacao do HTTPCLIENT
+			HttpClient httpclient = new DefaultHttpClient();
+			
+			//POST request
+			HttpPost httpPost = new HttpPost();
+			
+			
+		}catch (Exception e) {
+            Log.d("InputStream", e.getLocalizedMessage());
+        }
+		return result;
+	}
+}

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ITLOG</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="cliente_select">Selecione Cliente</string>
+	 <color name="text_color">#31D1F1</color>
+	<color name="white">#ffffff</color>
+    <string-array name="clientes_array">
+        <item>Cliente A</item>
+        <item>Cliente B</item>
+    </string-array>
+    <string-array name="projectoA">
+        <item>Projecto #1</item>
+        <item>Projecto #2</item>
+        <item>Projecto #3</item>
+        <item>Projecto #4</item>
+        <item>Projecto #5</item>
+        <item>Projecto #6</item>
+        <item>Projecto #7</item>
+        <item>Projecto #8</item>
+        <item>Projecto #9</item>
+        <item>Projecto #10</item>
+        <item>Projecto #11</item>
+        <item>Projecto #12</item>
+        <item>Projecto #13</item>
+        <item>Projecto #14</item>
+        <item>Projecto #15</item>
+        <item>Projecto #16</item>
+    </string-array>
+    <string-array name="projectoB">
+        <item>Projecto #17</item>
+        <item>Projecto #18</item>
+        <item>Projecto #19</item>
+        <item>Projecto #20</item>
+        <item>Projecto #21</item>
+        <item>Projecto #22</item>
+        <item>Projecto #23</item>
+        <item>Projecto #24</item>
+        <item>Projecto #25</item>
+        <item>Projecto #26</item>
+        <item>Projecto #27</item>
+        <item>Projecto #28</item>
+        <item>Projecto #29</item>
+        <item>Projecto #30</item>
+        <item>Projecto #31</item>
+        <item>Projecto #32</item>
+        <item>Projecto #33</item>
+        <item>Projecto #34</item>
+    </string-array>
+    <string-array name="meusProjectos">
+        <item>Meu Proj 1</item>
+        <item>Meu Proj 2</item>
+        <item>Meu Proj 3</item>
+    </string-array>
+    <string-array name="meusProjectos2">
+        <item>Meu Proj 4</item>
+        <item>Meu Proj 5</item>
+        <item>Meu Proj 6</item>
+    </string-array>
+    <string-array name="ausencia">
+        <item>Ausente</item>
+    </string-array>
+    <string-array name="opcoesHoras">
+        <item>Clientes</item>
+        <item>Motivo Ausência</item>
+    </string-array>
+
+</resources>

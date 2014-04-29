@@ -1,0 +1,15 @@
+package com.example.itlog.services;
+
+import com.example.itlog.responseobjects.GetSessionInformationResponse;
+
+import android.os.AsyncTask;
+
+public class GetSessionInformationService extends AsyncTask<String, String, GetSessionInformationResponse>{
+
+	@Override
+	protected GetSessionInformationResponse doInBackground(String... params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

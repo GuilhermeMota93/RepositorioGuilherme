@@ -1,0 +1,11 @@
+package objects;
+
+import java.util.ArrayList;
+
+public class Clientes extends Projetos {
+	ArrayList<Projetos> listaProj = new ArrayList<Projetos>();
+	
+	public Clientes (ArrayList<Projetos> listaProj){
+		this.listaProj = listaProj;
+	}
+}

@@ -1,0 +1,28 @@
+1398694136852	Rename package 'objects'
+1398694159531	Rename package 'Servicos'
+1398694179292	Rename package 'com.example.itlog'
+1398695308251	Rename type 'AddProject'
+1398695315781	Rename package 'com.example.itlog.servicos'
+1398695327228	Rename type 'AllocateHours'
+1398695334049	Rename type 'GetCalendar'
+1398695340973	Rename type 'GetSessionInformation'
+1398695349563	Rename type 'ListAllProjects'
+1398695357392	Rename type 'ListProjectsUser'
+1398695363059	Rename type 'ListProjectsUserServices'
+1398695372752	Rename type 'ListAllProjectsServices'
+1398695377914	Rename type 'GetSessionInformationServices'
+1398695384402	Rename type 'GetCalendarServices'
+1398695390447	Rename type 'AllocateHoursServices'
+1398695403387	Rename type 'ListTotalHoursCompany'
+1398695409999	Rename type 'ListTotalHoursProject'
+1398695415769	Rename type 'Login'
+1398695756078	Rename package 'com.example.itlog.communicationcenter'
+1398695886090	Delete element
+1398696073405	Rename package 'com.example.itlog.communication'
+1398696106518	Move compilation unit
+1398696142180	Delete element
+1398696313953	Delete element
+1398762016225	Delete element
+1398764371666	Copy compilation unit
+1398764407396	Rename type 'LoginRequest'
+1398764684233	Rename local variable 'NomeServico'

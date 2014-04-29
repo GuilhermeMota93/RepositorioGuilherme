@@ -1,0 +1,15 @@
+package objects;
+
+public class Funcionario {
+	String nome, mail;
+	int id;
+	
+	public Funcionario(){
+		
+	}
+	
+	public Funcionario(n, m, ident){
+		nome=nome.this;
+	}
+	
+}

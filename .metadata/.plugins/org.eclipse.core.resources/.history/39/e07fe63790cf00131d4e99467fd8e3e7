@@ -1,0 +1,8 @@
+package com.example.itlog.responseobjects;
+
+public class GetSessionInformationResponse {
+	
+	private String username, fullname, email;
+	private int userid;
+	
+}

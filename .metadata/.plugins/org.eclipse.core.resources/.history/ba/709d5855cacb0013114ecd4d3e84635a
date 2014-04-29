@@ -1,0 +1,21 @@
+package objects;
+
+public class Projetos {
+	String nome, gestor, descricao;
+	int id, horas;
+
+	public Projetos() {
+
+	}
+
+	public Projetos(String nome, String gestor, String descricao, int id,
+			int horas) {
+		this.nome = nome;
+		this.gestor = gestor;
+		this.descricao = descricao;
+		this.id = id;
+		this.horas = horas;
+
+	}
+
+}

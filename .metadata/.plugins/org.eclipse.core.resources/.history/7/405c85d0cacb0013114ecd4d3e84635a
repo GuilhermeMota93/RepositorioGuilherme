@@ -1,0 +1,25 @@
+package objects;
+
+import java.util.ArrayList;
+
+public class Clientes extends Projetos {
+	
+	ArrayList<Projetos> listaProj = new ArrayList<Projetos>();
+	
+	public Clientes (ArrayList<Projetos> listaProj){
+		this.listaProj = listaProj;
+	}
+	
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		return super.clone();
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+
+}
