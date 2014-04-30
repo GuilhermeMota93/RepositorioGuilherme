@@ -1,0 +1,24 @@
+package com.example.itlog.services;
+
+import com.example.itlog.communication.CallbackInterface;
+import com.example.itlog.responseobjects.AddProjectResponse;
+
+import android.os.AsyncTask;
+
+public class AddProjectService extends AsyncTask<String, String, AddProjectResponse>{
+	
+	private CallbackInterface<String> callback;
+	
+	@Override
+	protected AddProjectResponse doInBackground(String... params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected void onPostExecute(AddProjectResponse result) {
+		// TODO Auto-generated method stub
+		super.onPostExecute(result);
+	}
+
+}

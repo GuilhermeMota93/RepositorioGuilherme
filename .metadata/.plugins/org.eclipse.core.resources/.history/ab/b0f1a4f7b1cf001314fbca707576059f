@@ -1,0 +1,15 @@
+package com.example.itlog.services;
+
+import android.os.AsyncTask;
+
+import com.example.itlog.responseobjects.ListAllProjectsResponse;
+
+public class ListAllProjectsService extends AsyncTask<String, String, ListAllProjectsResponse>{
+
+	@Override
+	protected ListAllProjectsResponse doInBackground(String... params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,12 @@
+package com.example.itlog.responseobjects;
+
+import java.util.ArrayList;
+
+import com.example.itlog.requestobjects.Project;
+
+public class ListAllProjectsResponse {
+	
+	private String username;
+	private ArrayList<Project> projects = new ArrayList<Project>();
+	
+}

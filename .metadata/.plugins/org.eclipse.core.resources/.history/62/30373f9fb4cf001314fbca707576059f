@@ -1,0 +1,41 @@
+package com.example.itlog.requestobjects;
+
+public class Funcionario {
+	String name, mail;
+	int id;
+	
+	public Funcionario(){
+		
+	}
+	
+	public Funcionario(String nome, String mail, int id){
+		this.name = nome;
+		this.mail = mail;
+		this.id = id;
+	}
+	
+	public String getNome(){
+		return name;
+	}
+	
+	public void setNome(String nome){
+		this.name = nome;
+	}
+	
+	public String getMail(){
+		return mail;
+	}
+	
+	public void setMail(String mail){
+		this.mail = mail;
+	}
+	
+	public int getID(){
+		return id;
+	}
+	
+	public void setID(int id){
+		this.id = id;
+	}
+	
+}

@@ -1,0 +1,16 @@
+package com.example.itlog.requestobjects;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class AllocateHoursRequest {
+	
+	private String username;
+	private String day;
+	private int[] hours = { 4, 8 };
+	private Map<int, int[]> allocate = new HashMap<int, int[]>();
+
+	
+	
+	
+}

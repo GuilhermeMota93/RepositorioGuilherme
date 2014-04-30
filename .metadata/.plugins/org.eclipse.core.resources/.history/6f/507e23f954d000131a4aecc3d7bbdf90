@@ -1,0 +1,18 @@
+package com.example.itlog.requestobjects;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import android.R.integer;
+
+public class AllocateHoursRequest {
+	
+	private String username;
+	private int day;
+	private int[] hours = { 4, 8 };
+	private Map<integer, int[]> allocate = new HashMap<integer, int[]>();
+
+	
+	
+	
+}

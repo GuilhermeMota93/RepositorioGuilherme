@@ -1,0 +1,9 @@
+package com.example.itlog.services;
+
+import com.example.itlog.responseobjects.AllocateHoursResponse;
+
+import android.os.AsyncTask;
+
+public class AllocateHoursService extends AsyncTask<String, String, AllocateHoursResponse>{
+
+}

@@ -1,0 +1,14 @@
+package com.example.itlog.services;
+
+import android.os.AsyncTask;
+
+import com.example.itlog.communication.CallbackInterface;
+import com.example.itlog.responseobjects.ListTotalHoursCompanyResponse;
+
+public class ListTotalHoursCompanyService extends AsyncTask<String, String, ListTotalHoursCompanyResponse> {
+	
+	private CallbackInterface<String> callback;
+
+	String nomeServico;
+	
+}

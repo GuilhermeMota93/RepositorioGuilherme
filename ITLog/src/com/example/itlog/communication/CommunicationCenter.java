@@ -21,19 +21,33 @@ public class CommunicationCenter {
 	private static final String TAG = "CommunicationCenter";
 	private static String BaseUrl = "";
 
+	// GetSessionInformation é GET
+	public static final String GetSessionInformationService = "getsession.php?";
+	public static final String ListProjectsOfTheUser = "listprojectsuser.php?";
+	public static final String ListAllProjects = "listallprojects.php?";
+	public static final String GetCalendar = "getcalendar.php?";
+	public static final String ListTotalHoursPerCompany = "listtotalhourscompany.php?";
+	public static final String ListTotalHoursPerProject = "listtotalhoursproject.php?";
+
 	// Login é POST
 	public static final String LoginService = "login.php?";
 
-	// GetSessionInformation é GET
-	public static final String GetSessionInformationService = "getsession.php?";
-	
 	private static int timeoutConnection = 10000;
 
-	
 	public static <T> T callGetService(String nomeServico, String[] info,
 			Class<T> resposta) {
 
+		// GET
 		boolean isGetSession = nomeServico.equals(GetSessionInformationService);
+		boolean isListProjectUser = nomeServico.equals(ListProjectsOfTheUser);
+		boolean isListAllProjects = nomeServico.equals(ListAllProjects);
+		boolean isGetCalendar = nomeServico.equals(GetCalendar);
+		boolean isListTotalHoursCompany = nomeServico
+				.equals(ListTotalHoursPerCompany);
+		boolean isListTotalHoursProject = nomeServico
+				.equals(ListTotalHoursPerProject);
+
+		// POST
 		boolean isLogin = nomeServico.equals(LoginService);
 
 		BufferedReader readerBuffer = null;
@@ -54,18 +68,47 @@ public class CommunicationCenter {
 		if (info != null && info.length > 0) {
 			if (isGetSession) {
 				builder.append("username=" + info[0]).append('&')
-						.append("fullname=" + info[1]).append('&')
+						.append("projects=" + info[1]).append('&')
 						.append("userid=" + info[2]).append('&')
 						.append("email=" + info[3]);
+			} else if (isListProjectUser) {
+				builder.append("username=" + info[0]).append('&')
+						.append("projects=" + info[1]).append('&')
+						.append("fullname=" + info[2]).append('&')
+						.append("projectid=" + info[3]).append('&')
+						.append("company=" + info[4])
+						.append("manager=" + info[5])
+						.append("descritption=" + info[6]);
+			} else if (isListAllProjects) {
+				builder.append("projects=" + info[0]).append('&')
+						.append("fullname=" + info[1]).append('&')
+						.append("projectid=" + info[2]).append('&')
+						.append("company=" + info[3])
+						.append("manager=" + info[4])
+						.append("descritption=" + info[5]);
+			} else if (isGetCalendar) {
+				builder.append("month=" + info[0]).append('&')
+						.append("business days=" + info[1]).append('&')
+						.append("holidays=" + info[2]).append('&');
+			} else if (isListTotalHoursCompany) {
+				builder.append("username=" + info[0]).append('&')
+						.append("companies=" + info[1]).append('&')
+						.append("company=" + info[2]).append('&')
+						.append("hours=" + info[2]).append('&');
+			} else if (isListTotalHoursProject) {
+				builder.append("username=" + info[0]).append('&')
+						.append("projects=" + info[1]).append('&')
+						.append("project=" + info[2]).append('&')
+						.append("hours=" + info[2]).append('&');
 			}
 		}
 
-		if (isGetSession) {
+		if (isGetSession || isListProjectUser || isListAllProjects || isGetCalendar || isListTotalHoursCompany || isListTotalHoursProject) {
 			try {
 
 				URL url = new URL(builder.toString());
 				connection = (HttpURLConnection) url.openConnection();
-				// connection = setConnectTimeout (timeoutConnection);
+				//connection = setConnectTimeout (timeoutConnection);
 				connection.setRequestMethod("GET");
 				connection.setDoInput(true);
 
@@ -107,7 +150,7 @@ public class CommunicationCenter {
 			return null;
 	}
 
-	//url do serviço, objecto, class resposta
+	// url do serviço, objecto, class resposta
 	public static <T> T callPostService(String targetURL, Object object,
 			Class<T> resposta) {
 		URL url;
@@ -118,7 +161,12 @@ public class CommunicationCenter {
 			url = new URL(targetURL);
 			connection2 = (HttpURLConnection) url.openConnection();
 			connection2.setRequestMethod("POST");
-		    connection2.addRequestProperty("Content-Type", "application/x-www-form-urlencoded"); //add the content type of the request, most post data is of this type
+			connection2.addRequestProperty("Content-Type",
+					"application/x-www-form-urlencoded"); // add the content
+															// type of the
+															// request, most
+															// post data is of
+															// this type
 			connection2.setUseCaches(false);
 			connection2.setDoInput(true);
 			connection2.setDoOutput(true);
@@ -132,15 +180,17 @@ public class CommunicationCenter {
 
 			// Get Response -> de JSON para JAVA
 			InputStream is = connection2.getInputStream();
-			BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+			BufferedReader br = new BufferedReader(new InputStreamReader(is));
 			String line;
 			StringBuffer response = new StringBuffer();
-			while ((line = rd.readLine()) != null) {
+			while ((line = br.readLine()) != null) {
 				response.append(line);
 				response.append('\r');
 			}
-			rd.close();
-			return (T) gson2.toJson(object);
+			br.close();
+
+			// ???? ta certo ????
+			return (T) gson2.fromJson(line, Object.class);
 
 		} catch (Exception e) {
 

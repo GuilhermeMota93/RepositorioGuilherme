@@ -1,0 +1,6 @@
+package com.example.itlog.requestobjects;
+
+public class AddProjectRequest {
+	private String username;
+	private int projectid;
+}

@@ -1,0 +1,32 @@
+package com.example.itlog.requestobjects;
+
+import java.util.ArrayList;
+
+public class Clientes extends Projetos {
+	String name;
+	ArrayList<Projetos> listaProj = new ArrayList<Projetos>();
+	
+	public Clientes (String nome, ArrayList<Projetos> listaProj){
+		this.name = nome;
+		this.listaProj = listaProj;
+	}
+	
+	public String getNome(){
+		return name;
+	}
+	
+	public void setNome(String nome){
+		this.name = nome;
+	}	
+	
+	public ArrayList<Projetos> getProjetos(){
+		return listaProj;
+	}
+	
+	public void setProjetos(ArrayList<Projetos> listaProjetos){
+		this.listaProj = listaProjetos;
+	}
+	
+	
+	
+}

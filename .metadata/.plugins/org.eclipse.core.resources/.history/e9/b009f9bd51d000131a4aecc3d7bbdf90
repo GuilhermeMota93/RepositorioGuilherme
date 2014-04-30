@@ -1,0 +1,13 @@
+package com.example.itlog.responseobjects;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.example.itlog.requestobjects.Projetos;
+
+public class ListTotalHoursProjectResponse {
+
+	private String username;
+	private Map<String, int[]> allocate = new HashMap<String, int[]>();
+	
+}

@@ -1,0 +1,10 @@
+package com.example.itlog.requestobjects;
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+public class GetCalendarRequest {
+	
+	private String month;
+	
+}

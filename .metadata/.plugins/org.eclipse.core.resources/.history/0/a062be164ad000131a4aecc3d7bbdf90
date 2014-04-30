@@ -1,0 +1,11 @@
+package com.example.itlog.communication;
+
+public interface AllocateHours {
+	
+	
+	
+	public class Days implements AllocateHours{
+		
+	}
+	
+}

@@ -1,0 +1,35 @@
+package com.example.itlog.responseobjects;
+
+import java.util.ArrayList;
+
+import com.example.itlog.requestobjects.Projetos;
+
+public class ListProjectsUserResponse {
+
+	private String username;
+	private ArrayList<Projetos> listaProjetosUser = new ArrayList<Projetos>();
+
+	public ListProjectsUserResponse(String username,
+			ArrayList<Projetos> listaProjetosUser) {
+		super();
+		this.username = username;
+		this.listaProjetosUser = listaProjetosUser;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public ArrayList<Projetos> getListaProjetosUser() {
+		return listaProjetosUser;
+	}
+
+	public void setListaProjetosUser(ArrayList<Projetos> listaProjetosUser) {
+		this.listaProjetosUser = listaProjetosUser;
+	}
+
+}
