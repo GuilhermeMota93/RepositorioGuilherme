@@ -1,7 +1,0 @@
-package objects;
-
-public class Funcionario {
-	String nome;
-	int id, horas;
-
-}

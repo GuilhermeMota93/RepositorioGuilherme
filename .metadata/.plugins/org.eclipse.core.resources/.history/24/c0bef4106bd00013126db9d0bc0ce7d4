@@ -21,19 +21,16 @@ public class CommunicationCenter {
 	private static final String TAG = "CommunicationCenter";
 	private static String BaseUrl = "";
 
-	// String de GETs
+	// GetSessionInformation é GET
 	public static final String GetSessionInformationService = "getsession.php?";
 	public static final String ListProjectsOfTheUser = "listprojectsuser.php?";
 	public static final String ListAllProjects = "listallprojects.php?";
 	public static final String GetCalendar = "getcalendar.php?";
 	public static final String ListTotalHoursPerCompany = "listtotalhourscompany.php?";
 	public static final String ListTotalHoursPerProject = "listtotalhoursproject.php?";
-	
 
-	// String de POSTs
+	// Login é POST
 	public static final String LoginService = "login.php?";
-	public static final String AddProject = "addproject.php?";
-	public static final String AllocateHours = "allocatehours.php?";
 
 	private static int timeoutConnection = 10000;
 
@@ -154,55 +151,55 @@ public class CommunicationCenter {
 	public static <T> T callPostService(String nomeServico, Object object,
 			Class<T> resposta) {
 		
-				// POST
-			boolean isLogin = nomeServico.equals(LoginService);
-			boolean isAddProject = nomeServico.equals(AddProject);
-			boolean isAllocateHours = nomeServico.equals(AllocateHours);
-			
-			URL url;
-			HttpURLConnection connection2 = null;
-			Gson gson2 = new Gson();
-			if(isLogin){
-				try {
-						// Create connection
-					url = new URL(nomeServico);
-					connection2 = (HttpURLConnection) url.openConnection();
-					connection2.setRequestMethod("POST");
-					// add the content type of the request, most post data is of this type
-					connection2.addRequestProperty("Content-Type",
-							"application/x-www-form-urlencoded"); 
-					connection2.setUseCaches(false);
-					connection2.setDoInput(true);
-					connection2.setDoOutput(true);
+		// POST
+				boolean isLogin = nomeServico.equals(LoginService);
 		
-					// Send request -> de JAVA para JSON
-					DataOutputStream wr = new DataOutputStream(
-							connection2.getOutputStream());
-					wr.writeBytes(gson2.toJson(object));
-					wr.flush();
-					wr.close();
+		if(isLogin)
+			try {
 		
-					// Get Response -> de JSON para JAVA
-					InputStream is = connection2.getInputStream();
-					BufferedReader br = new BufferedReader(new InputStreamReader(is));
-					String line;
-					StringBuffer response = new StringBuffer();
-					while ((line = br.readLine()) != null) {
-						response.append(line);
-						response.append('\r');
-					}
-					br.close();
+		URL url;
+		HttpURLConnection connection2 = null;
+		Gson gson2 = new Gson();
 		
-					// ???? ta certo ????
-					return (T) gson2.fromJson(line, Object.class);
-				} catch (Exception e) {
-					e.printStackTrace();
-					return null;
-				} finally {
-					if (connection2 != null) {
-						connection2.disconnect();
-					}
-				}
-		}else return null;			
+			// Create connection
+			url = new URL(nomeServico);
+			connection2 = (HttpURLConnection) url.openConnection();
+			connection2.setRequestMethod("POST");
+			// add the content type of the request, most post data is of this type
+			connection2.addRequestProperty("Content-Type",
+					"application/x-www-form-urlencoded"); 
+			connection2.setUseCaches(false);
+			connection2.setDoInput(true);
+			connection2.setDoOutput(true);
+
+			// Send request -> de JAVA para JSON
+			DataOutputStream wr = new DataOutputStream(
+					connection2.getOutputStream());
+			wr.writeBytes(gson2.toJson(object));
+			wr.flush();
+			wr.close();
+
+			// Get Response -> de JSON para JAVA
+			InputStream is = connection2.getInputStream();
+			BufferedReader br = new BufferedReader(new InputStreamReader(is));
+			String line;
+			StringBuffer response = new StringBuffer();
+			while ((line = br.readLine()) != null) {
+				response.append(line);
+				response.append('\r');
 			}
+			br.close();
+
+			// ???? ta certo ????
+			return (T) gson2.fromJson(line, Object.class);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			if (connection2 != null) {
+				connection2.disconnect();
+			}
+		}
+	}
 }

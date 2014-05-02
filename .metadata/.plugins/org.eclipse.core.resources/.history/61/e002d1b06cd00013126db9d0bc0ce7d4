@@ -156,9 +156,6 @@ public class CommunicationCenter {
 		
 				// POST
 			boolean isLogin = nomeServico.equals(LoginService);
-			boolean isAddProject = nomeServico.equals(AddProject);
-			boolean isAllocateHours = nomeServico.equals(AllocateHours);
-			
 			URL url;
 			HttpURLConnection connection2 = null;
 			Gson gson2 = new Gson();
