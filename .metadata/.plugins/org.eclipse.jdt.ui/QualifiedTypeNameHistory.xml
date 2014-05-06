@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.example.itlog.InputHoras_Activity"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView.OnItemSelectedListener"/>
 <fullyQualifiedTypeName name="android.widget.ListView"/>
 <fullyQualifiedTypeName name="com.example.itlog.PopUp_AddProj"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="android.R.integer"/>
 <fullyQualifiedTypeName name="com.example.itlog.requestobjects.Project"/>
+<fullyQualifiedTypeName name="com.example.itlog.requestobjects.Allocate"/>
 </qualifiedTypeNameHistroy>

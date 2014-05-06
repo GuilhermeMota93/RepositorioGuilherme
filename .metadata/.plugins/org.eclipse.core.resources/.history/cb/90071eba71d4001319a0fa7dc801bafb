@@ -1,0 +1,14 @@
+package com.example.itlog.requestobjects;
+
+
+public class AllocateHoursRequest {
+
+	private String username;
+	private int day;
+	//mudar usti de array para int só. Pq o input vai ser de 4 ou 8, assim ta a passar 4 E 8
+	private int hours;
+	private ArrayList<Allocate> allocate = new ArrayList<Allocate> ();
+
+	
+
+}

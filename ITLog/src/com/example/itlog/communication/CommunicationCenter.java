@@ -162,7 +162,7 @@ public class CommunicationCenter {
 			URL url;
 			HttpURLConnection connection2 = null;
 			Gson gson2 = new Gson();
-			if(isLogin){
+			if(isLogin || isAddProject || isAllocateHours){
 				try {
 						// Create connection
 					url = new URL(nomeServico);

@@ -1,5 +1,0 @@
-package com.example.itlog.communication;
-
-public class CallbackInterface {
-	
-}
