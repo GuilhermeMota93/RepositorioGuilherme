@@ -1,9 +1,0 @@
-package com.example.itlog.services;
-
-import com.example.itlog.responseobjects.ListAllProjectsResponse;
-
-import android.os.AsyncTask;
-
-public class ListAllProjectsService extends AsyncTask<String, String, ListAllProjectsResponse>{
-
-}

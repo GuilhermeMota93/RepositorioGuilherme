@@ -1,7 +1,0 @@
-package com.example.itlog.responseobjects;
-
-import java.io.Serializable;
-
-public class AddProjectResponse implements Serializable {
-
-}
