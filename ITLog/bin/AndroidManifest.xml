@@ -71,7 +71,18 @@
             android:name="com.example.itlog.activities.ConfirmaHoras_Activity"
             android:label="@string/app_name" >
         </activity>
-         
+        <activity
+            android:name="com.example.itlog.TesteAosServicos"
+            android:label="@string/title_activity_teste_aos_servicos" >
+        </activity>
+        <activity
+            android:name="com.example.itlog.GetDeviceActivity"
+            android:label="@string/title_activity_teste_aos_servicos" >
+        </activity>
+        <activity
+            android:name="com.example.itlog.AddDeviceActivity"
+            android:label="@string/title_activity_teste_aos_servicos" >
+        </activity>
     </application>
 
 </manifest>

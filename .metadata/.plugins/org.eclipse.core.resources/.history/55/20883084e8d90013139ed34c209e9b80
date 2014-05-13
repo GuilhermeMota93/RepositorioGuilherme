@@ -1,0 +1,25 @@
+package com.example.itlog;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class GetDeviceActivity extends Activity{
+	
+	TextView txtV;
+	Button bt1;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.get_device_layout);
+		
+		
+		txtV = (TextView) findViewById(R.id.textView1);
+		bt1 = (Button)	findViewById(R.id.buttonGet);
+				
+		
+	}
+}

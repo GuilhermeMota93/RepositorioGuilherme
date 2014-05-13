@@ -1,0 +1,17 @@
+package com.example.itlog;
+
+import android.os.AsyncTask;
+
+import com.example.itlog.communication.CallbackInterface;
+
+public class AddDevice_Service extends AsyncTask<String, Void, AddDevice_Response> {
+	
+	private CallbackInterface<String> callback;
+	
+	@Override
+	protected AddDevice_Response doInBackground(String... params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

@@ -1,6 +1,7 @@
 package com.example.itlog.activities;
 
 import com.example.itlog.R;
+import com.example.itlog.TesteAosServicos;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,7 +14,7 @@ import android.widget.TextView;
 public class InfoActivity extends Activity {
 
 	TextView nrCred, nomeP, mail;
-	Button meuProj, maisProj, addHoras;
+	Button meuProj, maisProj, addHoras, testarServicos;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,8 @@ public class InfoActivity extends Activity {
 		meuProj = (Button) findViewById(R.id.meusProj);
 		maisProj = (Button) findViewById(R.id.addProj);
 		addHoras = (Button) findViewById(R.id.inputHoras);
+		testarServicos = (Button) findViewById(R.id.testarServicos);
+		
 		
 		meuProj.setOnClickListener(new OnClickListener() {
 
@@ -56,6 +59,16 @@ public class InfoActivity extends Activity {
 			public void onClick(View v) {//accao ao clicar ao ADICIONAR PROJECTO
 				// TODO Auto-generated method stub
 				Intent intencao = new Intent(InfoActivity.this, InputHoras_Activity.class);//ao carregar no botao IMPUTAR HORAS vai para InputHoras
+				InfoActivity.this.startActivity(intencao);
+			}
+		});
+		
+		testarServicos.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {//accao ao clicar ao ADICIONAR PROJECTO
+				// TODO Auto-generated method stub
+				Intent intencao = new Intent(InfoActivity.this, TesteAosServicos.class);//ao carregar no botao IMPUTAR HORAS vai para InputHoras
 				InfoActivity.this.startActivity(intencao);
 			}
 		});

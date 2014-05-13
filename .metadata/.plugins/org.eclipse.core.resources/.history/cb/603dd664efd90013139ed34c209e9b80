@@ -1,0 +1,9 @@
+package com.example.itlog;
+
+import com.example.itlog.responseobjects.LoginResponse;
+
+import android.os.AsyncTask;
+
+public class AddDevice_Service extends AsyncTask<String, Void, AddDevice_Response> {
+	
+}

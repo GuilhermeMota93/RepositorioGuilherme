@@ -61,6 +61,13 @@
             android:paddingLeft="83dp"
             android:paddingRight="83dp"
             android:text="Imputar Horas" />
+
+        <Button
+            android:id="@+id/testarServicos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Testar" />
+
     </LinearLayout>
 
 </LinearLayout>

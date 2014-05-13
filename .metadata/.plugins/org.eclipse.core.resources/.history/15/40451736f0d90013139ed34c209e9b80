@@ -1,0 +1,7 @@
+package com.example.itlog;
+
+import android.os.AsyncTask;
+
+public class GetDevice_Service extends AsyncTask<String, Void, GetDevice_Response>{
+
+}

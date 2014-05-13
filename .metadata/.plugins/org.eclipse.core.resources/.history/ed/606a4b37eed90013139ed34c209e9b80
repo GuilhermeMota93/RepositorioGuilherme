@@ -1,0 +1,10 @@
+package com.example.itlog;
+
+import java.util.ArrayList;
+
+import com.example.itlog.requestobjects.Project;
+
+public class GetDevice_Response {
+	
+	private ArrayList<ResponseArrayObject> response = new ArrayList<Project>();	
+}

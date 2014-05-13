@@ -19,7 +19,14 @@ import com.google.gson.Gson;
 public class CommunicationCenter {
 
 	private static final String TAG = "CommunicationCenter";
-	private static String BaseUrl = "";
+	private static String BaseUrl = "http://192.168.16.87:8080/millenniumNotificationServer/services";
+
+	// SERVIÇOS PARA TESTES
+
+	// PARA GET E POST
+	public static final String GetDevices = "getDevices.php";
+	// PARA POST
+	public static final String AddDevice = "addDevice.php";
 
 	// String de GETs
 	public static final String GetSessionInformationService = "getsession.php?";
@@ -28,13 +35,11 @@ public class CommunicationCenter {
 	public static final String GetCalendar = "getcalendar.php?";
 	public static final String ListTotalHoursPerCompany = "listtotalhourscompany.php?";
 	public static final String ListTotalHoursPerProject = "listtotalhoursproject.php?";
-	
 
 	// String de POSTs
 	public static final String LoginService = "login.php?";
 	public static final String AddProject = "addproject.php?";
 	public static final String AllocateHours = "allocatehours.php?";
-
 	private static int timeoutConnection = 10000;
 
 	public static <T> T callGetService(String nomeServico, String[] info,
@@ -49,6 +54,9 @@ public class CommunicationCenter {
 				.equals(ListTotalHoursPerCompany);
 		boolean isListTotalHoursProject = nomeServico
 				.equals(ListTotalHoursPerProject);
+
+		// TESTES AQUI
+		boolean isGetDevices = nomeServico.equals(GetDevices);
 
 		BufferedReader readerBuffer = null;
 		HttpURLConnection connection = null;
@@ -94,115 +102,137 @@ public class CommunicationCenter {
 				builder.append("username=" + info[0]).append('&')
 						.append("companies=" + info[1]).append('&')
 						.append("company=" + info[2]).append('&')
-						.append("hours=" + info[2]).append('&');
+						.append("hours=" + info[3]).append('&');
 			} else if (isListTotalHoursProject) {
 				builder.append("username=" + info[0]).append('&')
 						.append("projects=" + info[1]).append('&')
 						.append("project=" + info[2]).append('&')
-						.append("hours=" + info[2]).append('&');
+						.append("hours=" + info[3]).append('&');
+				// } else if (isGetDevices) {
+				// builder.append("response=" + info[0]).append('&')
+				// .append("gcmId=" + info[1]).append('&')
+				// .append("number=" + info[2]).append('&');
+				// }
 			}
-		}
 
-		if (isGetSession || isListProjectUser || isListAllProjects || isGetCalendar || isListTotalHoursCompany || isListTotalHoursProject) {
-			try {
+			if (isGetSession || isListProjectUser || isListAllProjects
+					|| isGetCalendar || isListTotalHoursCompany
+					|| isListTotalHoursProject || isGetDevices) {
+				try {
 
-				URL url = new URL(builder.toString());
-				connection = (HttpURLConnection) url.openConnection();
-				//connection = setConnectTimeout (timeoutConnection);
-				connection.setRequestMethod("GET");
-				connection.setDoInput(true);
+					URL url = new URL(builder.toString());
+					connection = (HttpURLConnection) url.openConnection();
+					// connection = setConnectTimeout (timeoutConnection);
+					connection.setRequestMethod("GET");
+					connection.setDoInput(true);
 
-				InputStream inputStream = null;
+					InputStream inputStream = null;
 
-				if (connection instanceof HttpURLConnection) {
-					HttpURLConnection httpConnection = (HttpURLConnection) connection;
-					int statusCode = httpConnection.getResponseCode();
-					if (statusCode != 200)
-						return null;
-					else
-						inputStream = httpConnection.getInputStream();
+					if (connection instanceof HttpURLConnection) {
+						HttpURLConnection httpConnection = (HttpURLConnection) connection;
+						int statusCode = httpConnection.getResponseCode();
+						if (statusCode != 200)
+							return null;
+						else
+							inputStream = httpConnection.getInputStream();
+					}
+
+					readerBuffer = new BufferedReader(new InputStreamReader(
+							inputStream));
+
+					StringWriter stringWriter = new StringWriter();
+					char[] buffer = new char[1024 * 4];
+					int n = 0;
+					while (-1 != (n = readerBuffer.read(buffer))) {
+						stringWriter.write(buffer, 0, n);
+					}
+
+					String resultString = stringWriter.toString();
+
+					return (T) gson.fromJson(resultString, resposta);
+
+				} catch (ClientProtocolException e) {
+					Log.e(TAG,
+							"Got an ClientProtocolException: " + e.getMessage());
+					e.printStackTrace();
+					return null;
+				} catch (IOException e) {
+					Log.e(TAG, "Got an IOException: " + e.getMessage());
+					e.printStackTrace();
+					return null;
 				}
-
-				readerBuffer = new BufferedReader(new InputStreamReader(
-						inputStream));
-
-				StringWriter stringWriter = new StringWriter();
-				char[] buffer = new char[1024 * 4];
-				int n = 0;
-				while (-1 != (n = readerBuffer.read(buffer))) {
-					stringWriter.write(buffer, 0, n);
-				}
-
-				String resultString = stringWriter.toString();
-
-				return (T) gson.fromJson(resultString, resposta);
-
-			} catch (ClientProtocolException e) {
-				Log.e(TAG, "Got an ClientProtocolException: " + e.getMessage());
-				e.printStackTrace();
-				return null;
-			} catch (IOException e) {
-				Log.e(TAG, "Got an IOException: " + e.getMessage());
-				e.printStackTrace();
-				return null;
 			}
-		} else
-			return null;
+		}	
+		//isto esta bem?!
+		return (T) resposta;
 	}
 
 	// url do serviço, objecto, class resposta
 	public static <T> T callPostService(String nomeServico, Object object,
 			Class<T> resposta) {
-		
-				// POST
-			boolean isLogin = nomeServico.equals(LoginService);
-			boolean isAddProject = nomeServico.equals(AddProject);
-			boolean isAllocateHours = nomeServico.equals(AllocateHours);
-			
-			URL url;
-			HttpURLConnection connection2 = null;
-			Gson gson2 = new Gson();
-			if(isLogin || isAddProject || isAllocateHours){
-				try {
-						// Create connection
-					url = new URL(nomeServico);
-					connection2 = (HttpURLConnection) url.openConnection();
-					connection2.setRequestMethod("POST");
-					// add the content type of the request, most post data is of this type
-					connection2.addRequestProperty("Content-Type",
-							"application/x-www-form-urlencoded"); 
-					connection2.setUseCaches(false);
-					connection2.setDoInput(true);
-					connection2.setDoOutput(true);
-		
-					// Send request -> de JAVA para JSON
-					DataOutputStream wr = new DataOutputStream(
-							connection2.getOutputStream());
-					wr.writeBytes(gson2.toJson(object));
-					wr.flush();
-					wr.close();
-		
-					// Get Response -> de JSON para JAVA
-					InputStream is = connection2.getInputStream();
-					BufferedReader br = new BufferedReader(new InputStreamReader(is));
-					String line;
-					StringBuffer response = new StringBuffer();
-					while ((line = br.readLine()) != null) {
-						response.append(line);
-						response.append('\r');
-					}
-					br.close();
-		
-					// ???? ta certo ????
-					return (T) gson2.fromJson(line, Object.class);
-				} catch (Exception e) {
-					e.printStackTrace();
-					return null;
-				} finally {
-					if (connection2 != null) {
-						connection2.disconnect();
-					}
+
+		// POST
+		boolean isLogin = nomeServico.equals(LoginService);
+		boolean isAddProject = nomeServico.equals(AddProject);
+		boolean isAllocateHours = nomeServico.equals(AllocateHours);
+
+		// TESTE AQUI
+		boolean isAddDevices = nomeServico.equals(AddDevice);
+		boolean isGetDevices = nomeServico.equals(GetDevices);
+
+		URL url;
+		HttpURLConnection connection2 = null;
+		Gson gson2 = new Gson();
+		if (isLogin || isAddProject || isAllocateHours || isAddDevices
+				|| isGetDevices) {
+			try {
+				// Create connection
+				StringBuilder builder = new StringBuilder(BaseUrl).append("/").append(
+						nomeServico);
+				Log.d("builder", builder.toString());
+				url = new URL(builder.toString());
+				connection2 = (HttpURLConnection) url.openConnection();
+				connection2.setRequestMethod("POST");
+				// add the content type of the request, most post data is of
+				// this type
+				connection2.addRequestProperty("Content-Type",
+						"application/x-www-form-urlencoded");
+				connection2.setUseCaches(false);
+				connection2.setDoInput(true);
+				connection2.setDoOutput(true);
+
+				// Send request -> de JAVA para JSON
+				DataOutputStream wr = new DataOutputStream(
+						connection2.getOutputStream());
+				String abc = gson2.toJson(object);
+				wr.writeBytes(gson2.toJson(object));
+				//escrever
+				Log.d("print object", abc);
+				wr.flush();
+				wr.close();
+
+				// Get Response -> de JSON para JAVA
+				InputStream is = connection2.getInputStream();
+				BufferedReader br = new BufferedReader(
+						new InputStreamReader(is));
+				String line="";
+				StringBuffer response = new StringBuffer();
+				while ((line = br.readLine()) != null) {
+					response.append(line);
+					response.append('\r');
 				}
-		}else return null;			
+				Log.d("print line", response.toString());
+				br.close();
+				return (T) gson2.fromJson(response.toString(), resposta);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			} finally {
+				if (connection2 != null) {
+					connection2.disconnect();
+				}
 			}
+		} else
+			return null;
+	}
 }

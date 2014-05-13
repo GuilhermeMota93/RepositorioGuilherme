@@ -1,0 +1,19 @@
+package com.example.itlog;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
+
+public class TesteAosServicos extends Activity {
+
+	Button btadd, btget;
+	
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_teste_aos_servicos);
+		
+		
+	}
+
+}

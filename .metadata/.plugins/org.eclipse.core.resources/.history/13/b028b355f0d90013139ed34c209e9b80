@@ -1,0 +1,19 @@
+package com.example.itlog;
+
+import android.os.AsyncTask;
+
+import com.example.itlog.communication.CallbackInterface;
+
+public class GetDevice_Service extends AsyncTask<String, Void, GetDevice_Response>{
+	
+	private CallbackInterface<String> callback;
+	String nomeServico;
+	GetDevice_RequestObj gdro;
+	
+	@Override
+	protected GetDevice_Response doInBackground(String... params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}
