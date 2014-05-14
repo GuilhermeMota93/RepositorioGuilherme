@@ -2,6 +2,8 @@ package com.example.itlog.requestobjects;
 
 public class GetSessionInformationRequest {
 	
+	
+	//username pq é o login que vem de tras
 	private String username;
 
 	public GetSessionInformationRequest(String username) {

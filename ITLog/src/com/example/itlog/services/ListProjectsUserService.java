@@ -3,11 +3,12 @@ package com.example.itlog.services;
 import android.os.AsyncTask;
 
 import com.example.itlog.communication.CallbackInterface;
+import com.example.itlog.communication.CommunicationCenter;
 import com.example.itlog.requestobjects.ListProjectUserRequest;
 import com.example.itlog.responseobjects.ListProjectsUserResponse;
 
 public class ListProjectsUserService extends
-		AsyncTask<String, String, ListProjectsUserResponse> {
+		AsyncTask<String, Void, ListProjectsUserResponse> {
 
 	private CallbackInterface<String> callback;
 
@@ -23,7 +24,12 @@ public class ListProjectsUserService extends
 
 	@Override
 	protected ListProjectsUserResponse doInBackground(String... params) {
-		// TODO Auto-generated method stub
+
+		//que fazer aqui? GET receber um String [] info ?!
+//		ListProjectsUserResponse listProjectUser = CommunicationCenter.callGetService(
+//				nomeServico, CommunicationCenter.info, ListProjectsUserResponse.class);
+//		
+//		return listProjectUser;
 		return null;
 	}
 

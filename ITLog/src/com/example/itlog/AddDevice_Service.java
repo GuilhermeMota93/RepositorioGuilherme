@@ -23,9 +23,8 @@ public class AddDevice_Service extends AsyncTask<String, Void, AddDevice_Respons
 	@Override
 	protected AddDevice_Response doInBackground(String... params) {
 		
-		AddDevice_Response cba = CommunicationCenter.callPostService(nomeServico, adro, AddDevice_Response.class);
-		
-		return null;
+		AddDevice_Response cba = CommunicationCenter.callPostService(nomeServico, adro, AddDevice_Response.class);		
+		return cba;
 	}
 
 	@Override

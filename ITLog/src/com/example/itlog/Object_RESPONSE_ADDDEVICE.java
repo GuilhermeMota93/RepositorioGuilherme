@@ -9,6 +9,10 @@ public class Object_RESPONSE_ADDDEVICE {
 		this.success = success;
 	}
 
+	public Object_RESPONSE_ADDDEVICE() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public boolean isSuccess() {
 		return success;
 	}

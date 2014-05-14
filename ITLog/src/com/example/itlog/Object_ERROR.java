@@ -2,12 +2,16 @@ package com.example.itlog;
 
 public class Object_ERROR {
 	int id;
-	String msg;
+	String msg=" ";
 
 	public Object_ERROR(int id, String msg) {
 		super();
 		this.id = id;
 		this.msg = msg;
+	}
+
+	public Object_ERROR() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {

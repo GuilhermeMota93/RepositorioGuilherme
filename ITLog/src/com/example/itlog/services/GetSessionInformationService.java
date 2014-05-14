@@ -20,8 +20,8 @@ public class GetSessionInformationService extends AsyncTask<String, String, GetS
 	@Override
 	protected GetSessionInformationResponse doInBackground(String... params) {
 		// TODO Auto-generated method stub
-		CommunicationCenter.callPostService(nomeServico, gsis, GetSessionInformationResponse.class);
-		return null;
+		GetSessionInformationResponse getSesResponse = CommunicationCenter.callPostService(nomeServico, gsis, GetSessionInformationResponse.class);
+		return getSesResponse;
 	}
 
 	@Override

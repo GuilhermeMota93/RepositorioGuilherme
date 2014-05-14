@@ -43,10 +43,9 @@ public class MeusProj_Activity extends ListActivity implements
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);
 
-		// ADAPTER ara o Spinner - 2
+		// ADAPTER para o Spinner 
 		ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this,
 				R.array.clientes_array, R.layout.spinner_item);
-		spinner.setAdapter(adapter);
 		adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter2);
 		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -101,7 +100,7 @@ public class MeusProj_Activity extends ListActivity implements
 		ArrayList<SingleRow> listSR;
 		Context context;
 
-		public Adaptador(Context c) {
+		public Adaptador(Context  c) {
 			// TODO Auto-generated constructor stub
 			context = c;
 			listSR = new ArrayList<SingleRow>();
@@ -149,7 +148,6 @@ public class MeusProj_Activity extends ListActivity implements
 			return i;
 		}
 
-
 		class MyViewHolder {
 			TextView tV;
 
@@ -166,15 +164,16 @@ public class MeusProj_Activity extends ListActivity implements
 			MyViewHolder holder = null;
 
 			if (row == null) {
-				// Inflater -> vai ao xml, le propriedades e cria objecto com
-				// essas propriedades!
-				// new object everytime: layout inflater || same object
-				// everytime: findViewById
+				/* Inflater -> vai ao xml, le propriedades e cria objecto com
+				essas propriedades!
+				new object everytime: layout inflater || same object
+				everytime: findViewById*/
 				LayoutInflater inflater = (LayoutInflater) context
 						.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				// referencia para o RelativeLayout
 
-				row = inflater.inflate(R.layout.single_row_listview, viewGroup, false);
+				row = inflater.inflate(R.layout.single_row_listview, viewGroup,
+						false);
 				holder = new MyViewHolder(row);
 				row.setTag(holder);
 
