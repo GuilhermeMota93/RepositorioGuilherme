@@ -1,6 +1,7 @@
 package com.example.itlog.services;
 
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import com.example.itlog.communication.CallbackInterface;
 import com.example.itlog.communication.CommunicationCenter;
@@ -36,12 +37,15 @@ public class LoginService extends AsyncTask<String, Void, LoginResponse> {
 	
 		/*if(status.equals("OK")){
      //navigate to Main Menu
-    Intent i = new Intent(LoginActivity.this, MainMenuActivity.class);
+    Intent i = new Intent(LoginActivity.this, InfoActivity.class);
      startActivity(i);
     }
     else{
-     //dar em POPUP msg de erro("Sorry!! Incorrect Username or Password"); 
-    }*/  
+     //dar em POPUP msg de erro("Sorry!! Incorrect Username or Password");
+       */  
+//		Toast.makeText(/*context aqui*/, "Wrong Credentials",
+//			      Toast.LENGTH_SHORT).show();
+//	}
 	}
 
 }

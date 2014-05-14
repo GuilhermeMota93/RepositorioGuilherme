@@ -1,0 +1,35 @@
+package com.example.itlog;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class GetDevice_Response {
+
+	Object_ERROR error;
+	Object_RESPONSE response;
+
+	public GetDevice_Response(Object_ERROR error, Object_RESPONSE response) {
+		super();
+		this.error = error;
+		this.response = response;
+	}
+
+	public Object_ERROR getError() {
+		return error;
+	}
+
+	public void setError(Object_ERROR error) {
+		this.error = error;
+	}
+
+	public Object_RESPONSE getResponse() {
+		return response;
+	}
+
+	public void setResponse(Object_RESPONSE response) {
+		this.response = response;
+	}
+
+	
+	
+}

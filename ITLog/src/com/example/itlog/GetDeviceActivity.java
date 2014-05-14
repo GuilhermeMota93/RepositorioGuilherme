@@ -44,13 +44,16 @@ public class GetDeviceActivity extends Activity implements
 	}
 
 	public void callbackCall(GetDevice_Response t) {
-		// TODO Auto-generated method stub
-		// so para primeiro elemento do array:
-		// txtV.setText(t.getResponse().get(0).getGcmId());
-		
-		//para todos os elementos
-		for (int i = 0; i < t.response.size(); i++) {
-			txtV.setText(t.getResponse().get(i).getGcmId());
+		// para todos os elementos
+		StringBuilder sb = new StringBuilder();
+		int tamanho = t.response.devices.size();
+		boolean separador = false;
+		for (int i = 0; i < tamanho; i++) {
+			if (separador)
+				sb.append(',');
+			separador = true;
+			//sb.append(t.response.get(i));
+			txtV.setText(sb.append(t.response.devices.get(i).getGcmId()));
 		}
 	}
 }

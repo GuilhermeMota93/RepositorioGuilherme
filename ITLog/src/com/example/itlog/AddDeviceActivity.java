@@ -10,7 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class AddDeviceActivity extends Activity {
+public class AddDeviceActivity extends Activity implements CallbackInterface<AddDevice_Response> {
 
 	EditText edT1;
 	Button bt1;
@@ -30,17 +30,19 @@ public class AddDeviceActivity extends Activity {
 			@SuppressWarnings("unchecked")
 			@Override
 			public void onClick(View v) {
-				//esta bem????
 				new AddDevice_Service((CallbackInterface<AddDevice_Response>) AddDeviceActivity.this, CommunicationCenter.AddDevice,
-						new AddDevice_RequestObj(null)).execute(new String[0]);
+						new AddDevice_RequestObj(edT1.getText().toString())).execute(new String[0]);
 				
 			}
 		});
 		
 	}	
-	
-	public void callbackCall(GetDevice_Response t) {
-		// TODO Auto-generated method stub
+
+
+	@Override
+	public void callbackCall(AddDevice_Response t) {
+		//pop ups com msg de erros aqui
+		//validar
 		
 	}
 }

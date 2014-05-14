@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.example.itlog.responseobjects.GetCalendarResponse"/>
-<fullyQualifiedTypeName name="com.example.itlog.requestobjects.GetCalendarRequest"/>
-<fullyQualifiedTypeName name="java.util.Calendar"/>
-<fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.AllocateHoursResponse"/>
 <fullyQualifiedTypeName name="com.example.itlog.requestobjects.AllocateHoursRequest"/>
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.ListTotalHoursCompanyResponse"/>
@@ -47,7 +43,6 @@
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="android.os.AsyncTask"/>
 <fullyQualifiedTypeName name="com.example.itlog.GetDevice_Service"/>
-<fullyQualifiedTypeName name="com.example.itlog.communication.CallbackInterface"/>
 <fullyQualifiedTypeName name="com.example.itlog.GetDeviceActivity"/>
 <fullyQualifiedTypeName name="android.content.Loader.ForceLoadContentObserver"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -59,5 +54,10 @@
 <fullyQualifiedTypeName name="com.example.itlog.AddDeviceActivity"/>
 <fullyQualifiedTypeName name="com.example.itlog.communication.CommunicationCenter"/>
 <fullyQualifiedTypeName name="com.example.itlog.GetDevice_RequestObj"/>
+<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+<fullyQualifiedTypeName name="com.example.itlog.Object_RESPONSE"/>
+<fullyQualifiedTypeName name="com.example.itlog.communication.CallbackInterface"/>
+<fullyQualifiedTypeName name="com.example.itlog.Object_ERROR"/>
+<fullyQualifiedTypeName name="com.example.itlog.Object_RESPONSE_ADDDEVICE"/>
 <fullyQualifiedTypeName name="com.example.itlog.AddDevice_RequestObj"/>
 </qualifiedTypeNameHistroy>

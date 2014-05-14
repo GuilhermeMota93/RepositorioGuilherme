@@ -2,23 +2,32 @@ package com.example.itlog;
 
 import java.io.Serializable;
 
-public class AddDevice_Response implements Serializable{
+public class AddDevice_Response implements Serializable {
 
-	private String status;
+	Object_ERROR error;
+	Object_RESPONSE_ADDDEVICE response;
 
-	public AddDevice_Response(String status) {
+	public AddDevice_Response(Object_ERROR error,
+			Object_RESPONSE_ADDDEVICE response) {
 		super();
-		this.status = status;
+		this.error = error;
+		this.response = response;
 	}
 
-	public String getStatus() {
-		return status;
+	public Object_ERROR getError() {
+		return error;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setError(Object_ERROR error) {
+		this.error = error;
 	}
-	
-	
-	
+
+	public Object_RESPONSE_ADDDEVICE getResponse() {
+		return response;
+	}
+
+	public void setResponse(Object_RESPONSE_ADDDEVICE response) {
+		this.response = response;
+	}
+
 }

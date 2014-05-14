@@ -1,0 +1,12 @@
+package com.example.itlog;
+
+import java.io.Serializable;
+
+public class AddDevice_Response implements Serializable{
+
+	Object_ERROR error;
+	Object_RESPONSE_ADDDEVICE response;
+	
+	
+	
+}
