@@ -11,9 +11,9 @@ import java.net.URL;
 
 import org.apache.http.client.ClientProtocolException;
 
+import Objects_General.Funcionario;
 import android.util.Log;
 
-import com.example.itlog.requestobjects.Funcionario;
 import com.google.gson.Gson;
 
 public class CommunicationCenter {

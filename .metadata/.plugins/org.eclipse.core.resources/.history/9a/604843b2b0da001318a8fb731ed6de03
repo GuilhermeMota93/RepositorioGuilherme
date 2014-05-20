@@ -1,9 +1,0 @@
-package com.example.itlog;
-
-import java.util.ArrayList;
-
-public class Object_RESPONSE {
-	
-	public ArrayList<ResponseArrayObject> devices = new ArrayList<ResponseArrayObject>();
-	
-}

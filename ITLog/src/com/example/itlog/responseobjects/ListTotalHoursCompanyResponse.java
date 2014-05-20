@@ -3,9 +3,9 @@ package com.example.itlog.responseobjects;
 import java.util.HashMap;
 import java.util.Map;
 
+import Objects_General.Company;
 import android.R.integer;
 
-import com.example.itlog.requestobjects.Company;
 
 public class ListTotalHoursCompanyResponse {
 	

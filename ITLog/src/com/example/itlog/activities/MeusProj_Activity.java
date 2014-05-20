@@ -1,10 +1,9 @@
 package com.example.itlog.activities;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import com.example.itlog.R;
-import com.example.itlog.activities.ConfirmaHoras_Activity.Adaptador;
-
+import Objects_General.Company;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -22,11 +21,15 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.itlog.R;
+
 public class MeusProj_Activity extends ListActivity implements
 		AdapterView.OnItemSelectedListener {
 	String[] meusprojectos;
 	ListView listV;
 	Spinner spinner;
+	ArrayList<Project> projects = new ArrayList<Project>();
+	public ArrayList<Company> company = new ArrayList<Company>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +41,15 @@ public class MeusProj_Activity extends ListActivity implements
 		spinner = (Spinner) findViewById(R.id.spinner3);
 		listV.setAdapter(new Adaptador(this));
 
-		ArrayAdapter adapter = ArrayAdapter.createFromResource(this,
-				R.array.clientes_array, R.layout.spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spinner.setAdapter(adapter);
+		// ADAPTER para o Spinner
+		// tem que entrar um array de company/clientes
 
-		// ADAPTER para o Spinner 
+		// e assim?! depois no callback faz-se o t.projects.company.name ????
+
+		// ArrayAdapter<Project> adapter2 = new
+		// ArrayAdapter<Project>(MeusProj_Activity.this,
+		// android.R.layout.simple_spinner_item, projects);
+
 		ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this,
 				R.array.clientes_array, R.layout.spinner_item);
 		adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -95,19 +101,49 @@ public class MeusProj_Activity extends ListActivity implements
 
 	}
 
+	// é preciso isto?!
+	class Project {
+		String name;
+
+		public Project(String name) {
+			super();
+			this.name = name;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+	}
+
+	
+
 	public class Adaptador extends BaseAdapter {
 
 		ArrayList<SingleRow> listSR;
+		// isto, e preciso???
+		ArrayList<Project> projects;
 		Context context;
 
-		public Adaptador(Context  c) {
+		public Adaptador(Context c) {
 			// TODO Auto-generated constructor stub
 			context = c;
 			listSR = new ArrayList<SingleRow>();
+			// é preciso???
+			projects = new ArrayList<Project>();
 
 			Resources res = c.getResources();
-			// busca info de meusProjectos
+			// busca info de meusProjectos ----> mudar para o arraylist
+			// "projects" ???????
 			String[] projecto = res.getStringArray(R.array.meusProjectos);
+
+			// VER ISTO!//
+			// aqui como faço para ir buscar os Projects????
+			ArrayList<Project> abc = new ArrayList<Project>();
 
 			for (int i = 0; i < projecto.length; i++) {
 				// percorre o array de projectos e manda para a ListView
@@ -123,8 +159,10 @@ public class MeusProj_Activity extends ListActivity implements
 			listSR.clear();// clear à informação
 			for (int i = 0; i < projecto.length; i++) {
 				listSR.add(new SingleRow(projecto[i]));
-				// informa que a informação foi modificada e é preciso fazer
-				// 'refresh' para mostrar a nova info
+				/*
+				 * informa que a informação foi modificada e é preciso fazer
+				 * 'refresh' para mostrar a nova info
+				 */
 				notifyDataSetChanged();
 			}
 
@@ -164,10 +202,11 @@ public class MeusProj_Activity extends ListActivity implements
 			MyViewHolder holder = null;
 
 			if (row == null) {
-				/* Inflater -> vai ao xml, le propriedades e cria objecto com
-				essas propriedades!
-				new object everytime: layout inflater || same object
-				everytime: findViewById*/
+				/*
+				 * Inflater -> vai ao xml, le propriedades e cria objecto com
+				 * essas propriedades! new object everytime: layout inflater ||
+				 * same object everytime: findViewById
+				 */
 				LayoutInflater inflater = (LayoutInflater) context
 						.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				// referencia para o RelativeLayout
@@ -185,6 +224,7 @@ public class MeusProj_Activity extends ListActivity implements
 			holder.tV.setText(temp.projecto);
 			return row;
 		}
+
 	}
 
 	@Override

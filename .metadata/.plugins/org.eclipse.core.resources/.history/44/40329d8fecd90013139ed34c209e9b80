@@ -1,7 +1,0 @@
-package com.example.itlog;
-
-public class ResponseArrayObject {
-	
-	private String gcmId;
-	
-}

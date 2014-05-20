@@ -1,0 +1,5 @@
+package com.example.itlog.activities;
+
+public class CalendarioAdapter2_Activity extends BaseAdapter{
+
+}

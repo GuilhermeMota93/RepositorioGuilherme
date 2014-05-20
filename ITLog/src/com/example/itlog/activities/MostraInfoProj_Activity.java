@@ -25,6 +25,8 @@ public class MostraInfoProj_Activity extends Activity {
 		textHoras = (TextView) findViewById(id.textHoras);
 		inputH = (Button) findViewById(id.btInput);
 		eliminaProj = (Button) findViewById(id.btEliminar);
+		
+		
 
 	}
 

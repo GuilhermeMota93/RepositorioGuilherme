@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.5" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" language="java" name="com.example.itlog.activities.LoginActivity" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/LoginActivity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="188" x="7276" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.example.itlog.activities.AddProj_Activity.Adaptador.MyViewHolder" 
+    project="ITLog" file="/ITLog/src/com/example/itlog/activities/AddProj_Activity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6862" y="828"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.example.itlog.activities.InputHoras_Activity" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/InputHoras_Activity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="315" width="157" x="1460" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.example.itlog.requestobjects.Funcionario" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/requestobjects/Funcionario.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="163" x="350" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.example.itlog.requestobjects.ListTotalHoursProjectRequest" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/requestobjects/ListTotalHoursProjectRequest.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="7743" y="475"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.example.itlog.responseobjects.LoginResponse" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/responseobjects/LoginResponse.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="157" x="553" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.example.itlog.requestobjects.Project" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/requestobjects/Project.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5162" y="677"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.example.itlog.activities.MostraInfoProj_Activity" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/MostraInfoProj_Activity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="156" x="750" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.example.itlog.requestobjects.ListProjectUserRequest" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/requestobjects/ListProjectUserRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6105" y="460"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.example.itlog.responseobjects.GetSessionInformationResponse" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/responseobjects/GetSessionInformationResponse.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="297" width="296" x="946" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.example.itlog.requestobjects.GetCalendarRequest" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/requestobjects/GetCalendarRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="9035" y="430"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="com.example.itlog.activities.SplashScreen" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/SplashScreen.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="138" x="1282" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="Objects_General.Company" project="ITLog" 
+    file="/ITLog/src/Objects_General/Company.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="201" x="4846" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="com.example.itlog.activities.MeusProj_Activity" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/MeusProj_Activity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="278" x="4528" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="com.example.itlog.services.ListProjectsUserService" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/services/ListProjectsUserService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="294" x="6009" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="com.example.itlog.activities.ConfirmaHoras_Activity" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/ConfirmaHoras_Activity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="278" x="5691" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="com.example.itlog.activities.MeusProj_Activity.Adaptador" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/MeusProj_Activity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="202" x="4305" y="565"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="com.example.itlog.activities.MainActivity" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/MainActivity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="134" x="1657" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="19" language="java" name="com.example.itlog.communication.CallbackInterface" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/communication/CallbackInterface.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="7276" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="20" language="java" name="com.example.itlog.responseobjects.ListTotalHoursProjectResponse" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/responseobjects/ListTotalHoursProjectResponse.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="243" width="330" x="1831" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.example.itlog.services.LoginService" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/services/LoginService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="224" x="6694" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="com.example.itlog.responseobjects.ListProjectsUserResponse" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/responseobjects/ListProjectsUserResponse.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="171" width="283" x="5087" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="com.example.itlog.requestobjects.GetSessionInformationRequest" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/requestobjects/GetSessionInformationRequest.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="211" x="2201" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.example.itlog.services.ListTotalHoursCompanyService" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/services/ListTotalHoursCompanyService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="311" x="6343" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="com.example.itlog.requestobjects.LoginRequest" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/requestobjects/LoginRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6718" y="494"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="com.example.itlog.requestobjects.ListTotalHoursCompanyRequest" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/requestobjects/ListTotalHoursCompanyRequest.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6451" y="452"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="com.example.itlog.services.AllocateHoursService" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/services/AllocateHoursService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="404" x="8014" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="com.example.itlog.activities.AddProj_Activity.Adaptador" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/AddProj_Activity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6948" y="556"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="com.example.itlog.activities.ConfirmaHoras_Activity.SingleRow" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/ConfirmaHoras_Activity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5798" y="820"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="com.example.itlog.activities.AddProj_Activity" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/AddProj_Activity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="278" x="6958" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="com.example.itlog.requestobjects.AllocateHoursRequest" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/requestobjects/AllocateHoursRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="8228" y="585"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="com.example.itlog.activities.Calendario_Adapter" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/Calendario_Adapter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="585" width="213" x="1460" y="565"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="com.example.itlog.activities.ConfirmaHoras_Activity.Adaptador" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/ConfirmaHoras_Activity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="202" x="5468" y="565"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="com.example.itlog.services.GetSessionInformationService" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/services/GetSessionInformationService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="357" x="2452" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="com.example.itlog.activities.PopUp_AddProj" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/PopUp_AddProj.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="134" x="2859" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="com.example.itlog.activities.InfoProjecto_Activity" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/InfoProjecto_Activity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="141" x="3033" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="com.example.itlog.responseobjects.GetCalendarResponse" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/responseobjects/GetCalendarResponse.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="199" x="3214" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="com.example.itlog.activities.InfoActivity" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/InfoActivity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="134" x="3453" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="com.example.itlog.responseobjects.ListTotalHoursCompanyResponse" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/responseobjects/ListTotalHoursCompanyResponse.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="297" width="384" x="3627" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="com.example.itlog.responseobjects.AllocateHoursResponse" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/responseobjects/AllocateHoursResponse.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="179" x="4051" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="com.example.itlog.requestobjects.AddProjectRequest" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/requestobjects/AddProjectRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="8610" y="510"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="com.example.itlog.requestobjects.ListAllProjectsRequest" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/requestobjects/ListAllProjectsRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="9452" y="425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="com.example.itlog.services.AddProjectService" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/services/AddProjectService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="374" x="8458" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="44" language="java" name="com.example.itlog.responseobjects.ListAllProjectsResponse" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/responseobjects/ListAllProjectsResponse.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="241" x="5410" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="45" language="java" name="com.example.itlog.services.ListTotalHoursProjectService" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/services/ListTotalHoursProjectService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="470" x="7504" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="46" language="java" name="com.example.itlog.activities.AddProj_Activity.SingleRow" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/AddProj_Activity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="7121" y="773"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="47" language="java" name="com.example.itlog.communication.CommunicationCenter" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/communication/CommunicationCenter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="333" width="218" x="4270" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="48" language="java" name="com.example.itlog.services.ListAllProjectsService" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/services/ListAllProjectsService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="404" x="9300" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="49" language="java" name="com.example.itlog.activities.MeusProj_Activity.Adaptador.MyViewHolder" 
+    project="ITLog" file="/ITLog/src/com/example/itlog/activities/MeusProj_Activity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4263" y="864"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="50" language="java" name="com.example.itlog.activities.ConfirmaHoras_Activity.Adaptador.MyViewHolder" 
+    project="ITLog" file="/ITLog/src/com/example/itlog/activities/ConfirmaHoras_Activity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5517" y="849"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="51" language="java" name="com.example.itlog.services.GetCalendarService" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/services/GetCalendarService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="388" x="8872" y="192"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="52" language="java" name="com.example.itlog.activities.MeusProj_Activity.SingleRow" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/MeusProj_Activity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4597" y="831"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="53">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="54" name="adapter"/>      
+      <multiplicity id="55" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="56">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="50"/>  
+  </nesting>  
+  <association id="57">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="58" name="listSR"/>      
+      <multiplicity id="59" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="60">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="61">    
+    <end type="SOURCE" refId="45" navigable="false">      
+      <attribute id="62" name="lthpr"/>      
+      <multiplicity id="63" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="64">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="17"/>  
+  </nesting>  
+  <nesting id="65">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="49"/>  
+  </nesting>  
+  <association id="66">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="67" name="listSR"/>      
+      <multiplicity id="68" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="52" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="69">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="70" name="gcr"/>      
+      <multiplicity id="71" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="72">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="73" name="listSR"/>      
+      <multiplicity id="74" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="46" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="75">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="76" name="lr"/>      
+      <multiplicity id="77" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="78">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="28"/>  
+  </nesting>  
+  <association id="79">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="80" name="callback"/>      
+      <multiplicity id="81" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="82">    
+    <bendpoint x="5700" y="565"/>    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="29"/>  
+  </nesting>  
+  <association id="83">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="84" name="gsis"/>      
+      <multiplicity id="85" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="86">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="87" name="callback"/>      
+      <multiplicity id="88" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="89">    
+    <end type="SOURCE" refId="48" navigable="false">      
+      <attribute id="90" name="callback"/>      
+      <multiplicity id="91" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="92">    
+    <end type="SOURCE" refId="44" navigable="false">      
+      <attribute id="93" name="projects"/>      
+      <multiplicity id="94" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="95">    
+    <bendpoint x="4537" y="565"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="52"/>  
+  </nesting>  
+  <association id="96">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="97" name="projects"/>      
+      <multiplicity id="98" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="99">    
+    <bendpoint x="7063" y="565"/>    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="46"/>  
+  </nesting>  
+  <association id="100">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="101" name="lthcr"/>      
+      <multiplicity id="102" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="103">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="104" name="lpur"/>      
+      <multiplicity id="105" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="106">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="107" name="callback"/>      
+      <multiplicity id="108" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="109">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="110" name="callback"/>      
+      <multiplicity id="111" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="112">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="113" name="ahr"/>      
+      <multiplicity id="114" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="115">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="19"/>  
+  </realization>  
+  <association id="116">    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="117" name="callback"/>      
+      <multiplicity id="118" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="119">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="2"/>  
+  </nesting>  
+  <association id="120">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="121" name="callback"/>      
+      <multiplicity id="122" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="123">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="33"/>  
+  </nesting>  
+  <association id="124">    
+    <end type="SOURCE" refId="48" navigable="false">      
+      <attribute id="125" name="lapr"/>      
+      <multiplicity id="126" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="42" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="127">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="128" name="projects"/>      
+      <multiplicity id="129" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="130">    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="131" name="apr"/>      
+      <multiplicity id="132" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="133">    
+    <end type="SOURCE" refId="45" navigable="false">      
+      <attribute id="134" name="callback"/>      
+      <multiplicity id="135" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

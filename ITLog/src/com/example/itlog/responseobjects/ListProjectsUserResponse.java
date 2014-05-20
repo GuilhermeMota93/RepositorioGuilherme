@@ -2,18 +2,21 @@ package com.example.itlog.responseobjects;
 
 import java.util.ArrayList;
 
-import com.example.itlog.requestobjects.Project;
+import Objects_General.Company;
+import Objects_General.Project;
 
 public class ListProjectsUserResponse {
 
-	private String username;
-	private ArrayList<Project> projects = new ArrayList<Project>();
+	public String username;
+	public ArrayList<Project> projects = new ArrayList<Project>();
+	public ArrayList<Company> company = new ArrayList<Company>();
 
 	public ListProjectsUserResponse(String username,
-			ArrayList<Project> listaProjetosUser) {
+			ArrayList<Project> projects, ArrayList<Company> company) {
 		super();
 		this.username = username;
-		this.projects = listaProjetosUser;
+		this.projects = projects;
+		this.company = company;
 	}
 
 	public String getUsername() {
@@ -24,12 +27,28 @@ public class ListProjectsUserResponse {
 		this.username = username;
 	}
 
-	public ArrayList<Project> getListaProjetosUser() {
+	public ArrayList<Project> getProjects() {
 		return projects;
 	}
 
-	public void setListaProjetosUser(ArrayList<Project> listaProjetosUser) {
-		this.projects = listaProjetosUser;
+	public void setProjects(ArrayList<Project> projects) {
+		this.projects = projects;
+	}
+
+	public ArrayList<Company> getCompany() {
+		return company;
+	}
+
+	public void setCompany(ArrayList<Company> company) {
+		this.company = company;
+	}
+
+	@Override
+	public String toString() {
+		return "ListProjectsUserResponse [username=" + username + ", projects="
+				+ projects + ", company=" + company + ", getUsername()="
+				+ getUsername() + ", getProjects()=" + getProjects()
+				+ ", getCompany()=" + getCompany() + "]";
 	}
 
 }
