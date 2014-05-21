@@ -28,6 +28,12 @@ public class Company extends Project {
 	public void setProjetos(ArrayList<Project> listaProjetos){
 		this.projects = listaProjetos;
 	}
+
+	@Override
+	public String toString() {
+		return "Company [name=" + name + "]";
+	}
+
 	
 	
 	

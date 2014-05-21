@@ -76,4 +76,9 @@ public class Project {
 		this.hours = hours;
 	}
 
+	@Override
+	public String toString() {
+		return "Project [name=" + name + "]";
+	}
+
 }

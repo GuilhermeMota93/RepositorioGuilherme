@@ -21,15 +21,21 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.itlog.*;
 import com.example.itlog.R;
+import com.example.itlog.adapters.MeusProj_ListView_Adapter;
+import com.example.itlog.adapters.MeusProj_Spinner_Adapter;
 
 public class MeusProj_Activity extends ListActivity implements
 		AdapterView.OnItemSelectedListener {
 	String[] meusprojectos;
 	ListView listV;
 	Spinner spinner;
-	ArrayList<Project> projects = new ArrayList<Project>();
-	public ArrayList<Company> company = new ArrayList<Company>();
+	//pq assim????????????????????????? Objects General é preciso????
+	ArrayList<Project> projects;
+	ArrayList<Company> company ;
+	MeusProj_ListView_Adapter  listVAdapter;
+	MeusProj_Spinner_Adapter spinnerAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +46,23 @@ public class MeusProj_Activity extends ListActivity implements
 		listV = (ListView) findViewById(android.R.id.list);
 		spinner = (Spinner) findViewById(R.id.spinner3);
 		listV.setAdapter(new Adaptador(this));
+		projects = new ArrayList<MeusProj_Activity.Project>();
+		
 
 		// ADAPTER para o Spinner
 		// tem que entrar um array de company/clientes
 
-		// e assim?! depois no callback faz-se o t.projects.company.name ????
-
 		// ArrayAdapter<Project> adapter2 = new
 		// ArrayAdapter<Project>(MeusProj_Activity.this,
 		// android.R.layout.simple_spinner_item, projects);
+
+		// CRIAÇAO DOS ADAPTERS????
+		// ArrayAdapter<Project> listViewAdapter = new
+		// ArrayAdapter<Project>(this, R.layout.single_row_listview);
+
+		// ERRO AQUI PQ??? NAO FUNCIONA SEM O OBJECTS GENERAL EM CIMA
+		listVAdapter = new MeusProj_ListView_Adapter(this, projects);
+		spinnerAdapter = new MeusProj_Spinner_Adapter(this,R.layout.spinner_item, company);
 
 		ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this,
 				R.array.clientes_array, R.layout.spinner_item);
@@ -119,8 +133,6 @@ public class MeusProj_Activity extends ListActivity implements
 		}
 
 	}
-
-	
 
 	public class Adaptador extends BaseAdapter {
 

@@ -1020,7 +1020,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050067;
+        public static final int action_settings=0x7f050068;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int addDevice=0x7f05003e;
         public static final int addProj=0x7f050043;
@@ -1100,6 +1100,7 @@ containing a value of this type.
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
         public static final int testarServicos=0x7f050056;
+        public static final int text1=0x7f050067;
         public static final int textCliente=0x7f05005d;
         public static final int textDescr=0x7f050060;
         public static final int textGestor=0x7f05005f;

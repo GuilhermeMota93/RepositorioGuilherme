@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.example.itlog.adapters.ViewHolder&apos; to &apos;ViewHolderListView&apos;&#x0D;&#x0A;- Original project: &apos;ITLog&apos;&#x0D;&#x0A;- Original element: &apos;com.example.itlog.adapters.ViewHolder&apos;&#x0D;&#x0A;- Renamed element: &apos;com.example.itlog.adapters.ViewHolderListView&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ViewHolder&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.example.itlog.adapters{MeusProj_ListView_Adapter.java[ViewHolder" matchStrategy="1" name="ViewHolderListView" qualified="false" references="true" similarDeclarations="false" stamp="1400670258571" textual="false" version="1.0"/>
+</session>
