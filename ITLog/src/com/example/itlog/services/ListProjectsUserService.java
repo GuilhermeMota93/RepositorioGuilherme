@@ -25,12 +25,12 @@ public class ListProjectsUserService extends
 	@Override
 	protected ListProjectsUserResponse doInBackground(String... params) {
 
-		//que fazer aqui? GET receber um String [] info ?!
-//		ListProjectsUserResponse listProjectUser = CommunicationCenter.callGetService(
-//				nomeServico, CommunicationCenter.info, ListProjectsUserResponse.class);
-//		
-//		return listProjectUser;
-		return null;
+		//que fazer aqui? Se for callGetServoce receber um String [] info ?!
+		ListProjectsUserResponse listProjectUser = CommunicationCenter.callPostService(
+				nomeServico, lpur, ListProjectsUserResponse.class);
+		
+		return listProjectUser;
+		
 	}
 
 	@Override

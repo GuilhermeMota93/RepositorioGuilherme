@@ -19,6 +19,13 @@ public class ListProjectsUserResponse {
 		this.company = company;
 	}
 
+	public ListProjectsUserResponse(ArrayList<Project> projects, ArrayList<Company> company) {
+		super();
+		this.projects = projects;
+		this.company = company;
+	}
+	
+	
 	public String getUsername() {
 		return username;
 	}

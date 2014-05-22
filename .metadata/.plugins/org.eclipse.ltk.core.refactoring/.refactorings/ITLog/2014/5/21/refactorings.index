@@ -1,1 +1,6 @@
 1400670258571	Rename type 'ViewHolder'
+1400768094366	Rename resource 'single_row.xml'
+1400768106708	Rename resource 'single_row_addproj.xml'
+1400768117687	Rename resource 'single_row_listview.xml'
+1400768895277	Rename type 'ViewHolderListView'
+1400769993409	Rename type 'ViewHolderSpinner'

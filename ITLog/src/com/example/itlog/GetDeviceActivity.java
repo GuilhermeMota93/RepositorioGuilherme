@@ -29,7 +29,6 @@ public class GetDeviceActivity extends Activity implements
 
 		txtV = (TextView) findViewById(R.id.textView1);
 		bt1 = (Button) findViewById(R.id.buttonGet);
-
 		bt1.setOnClickListener(new OnClickListener() {
 
 			@Override

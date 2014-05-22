@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.json.JSONObject"/>
-<fullyQualifiedTypeName name="com.android.volley.toolbox.Volley"/>
-<fullyQualifiedTypeName name="android.widget.ListView"/>
-<fullyQualifiedTypeName name="com.android.volley.Request"/>
-<fullyQualifiedTypeName name="com.android.volley.Request.Method"/>
 <fullyQualifiedTypeName name="com.android.volley.Response.ErrorListener"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="org.json.JSONArray"/>
@@ -39,25 +34,30 @@
 <fullyQualifiedTypeName name="com.example.itlog.activities.InfoActivity"/>
 <fullyQualifiedTypeName name="com.example.itlog.requestobjects.GetSessionInformationRequest"/>
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.GetSessionInformationResponse"/>
-<fullyQualifiedTypeName name="com.example.itlog.communication.CommunicationCenter"/>
 <fullyQualifiedTypeName name="com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.Adapter"/>
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.ListAllProjectsResponse"/>
-<fullyQualifiedTypeName name="Objects_General.Project"/>
-<fullyQualifiedTypeName name="com.example.itlog.responseobjects.ListProjectsUserResponse"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.MeusProj_Activity.ViewHolder"/>
 <fullyQualifiedTypeName name="android.R"/>
-<fullyQualifiedTypeName name="android.support.v7.appcompat.R"/>
-<fullyQualifiedTypeName name="Objects_General.Company"/>
 <fullyQualifiedTypeName name="android.content.Context"/>
-<fullyQualifiedTypeName name="com.example.itlog.R"/>
-<fullyQualifiedTypeName name="android.view.LayoutInflater"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="com.example.itlog.adapters.ViewHolder"/>
 <fullyQualifiedTypeName name="com.example.itlog.R.id"/>
 <fullyQualifiedTypeName name="com.example.itlog.adapters.MeusProj_Spinner_Adapter"/>
 <fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
-<fullyQualifiedTypeName name="com.example.itlog.adapters.MeusProj_ListView_Adapter"/>
+<fullyQualifiedTypeName name="Objects_General.Project"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.MostraInfoProj_Activity"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.MeusProj_Activity"/>
+<fullyQualifiedTypeName name="Objects_General.Company"/>
+<fullyQualifiedTypeName name="com.example.itlog.adapters.MeusProj_ListView_Adapter"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.MeusProj_Activity.Project"/>
+<fullyQualifiedTypeName name="com.example.itlog.communication.CommunicationCenter"/>
+<fullyQualifiedTypeName name="com.example.itlog.responseobjects.ListTotalHoursProjectResponse"/>
+<fullyQualifiedTypeName name="com.example.itlog.responseobjects.ListProjectsUserResponse"/>
+<fullyQualifiedTypeName name="android.view.LayoutInflater"/>
+<fullyQualifiedTypeName name="com.example.itlog.adapters.AddProject_ListView_Adapter"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.example.itlog.R.layout"/>
+<fullyQualifiedTypeName name="android.support.v7.appcompat.R"/>
+<fullyQualifiedTypeName name="com.example.itlog.R"/>
 </qualifiedTypeNameHistroy>

@@ -1,6 +1,7 @@
 package com.example.itlog.services;
 
 import com.example.itlog.communication.CallbackInterface;
+import com.example.itlog.communication.CommunicationCenter;
 import com.example.itlog.requestobjects.ListTotalHoursProjectRequest;
 import com.example.itlog.responseobjects.ListTotalHoursProjectResponse;
 
@@ -25,8 +26,8 @@ public class ListTotalHoursProjectService extends
 
 	@Override
 	protected ListTotalHoursProjectResponse doInBackground(String... params) {
-		// TODO Auto-generated method stub
-		return null;
+		ListTotalHoursProjectResponse abc = CommunicationCenter.callPostService(nomeServico, lthpr, ListTotalHoursProjectResponse.class);
+		return abc;
 	}
 
 	@Override

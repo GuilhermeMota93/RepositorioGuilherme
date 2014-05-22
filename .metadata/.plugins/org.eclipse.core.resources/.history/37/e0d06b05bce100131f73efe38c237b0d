@@ -1,0 +1,5 @@
+package com.example.itlog.adapters;
+
+public class AddProject_ListView_Adapter extends ArrayAdapter{
+
+}

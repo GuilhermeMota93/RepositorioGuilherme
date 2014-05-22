@@ -25,16 +25,16 @@ public class MeusProj_Spinner_Adapter extends ArrayAdapter<Company> {
 		super(context, R.layout.spinner_item);
 		this.context = context;
 		this.company = new ArrayList<Company>(company);
-		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		this.inflater = (LayoutInflater) context
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 
-	public MeusProj_Spinner_Adapter(Context context,
-			ArrayList<Company> company) {
+	public MeusProj_Spinner_Adapter(Context context, ArrayList<Company> company) {
 		super(context, R.layout.spinner_item);
 		this.context = context;
 		this.company = new ArrayList<Company>(company);
 	}
-	
+
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
@@ -60,13 +60,23 @@ public class MeusProj_Spinner_Adapter extends ArrayAdapter<Company> {
 	}
 
 	@Override
+	public int getViewTypeCount() {
+		return 1; // Number of types + 1 !!!!!!!!
+	}
+
+	@Override
+	public int getItemViewType(int position) {
+		return 1;
+	}
+
+	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
 		Company c = company.get(position);
-		final ViewHolderSpinner holder;
+		final ViewHolderSpinnerMeusProj holder;
 		int type = getItemViewType(position);
 		if (convertView == null) {
-			holder = new ViewHolderSpinner();
+			holder = new ViewHolderSpinnerMeusProj();
 			switch (type) {
 			case 1:
 				convertView = inflater.inflate(R.layout.spinner_item, parent,
@@ -75,8 +85,8 @@ public class MeusProj_Spinner_Adapter extends ArrayAdapter<Company> {
 				break;
 			}
 			convertView.setTag(holder);
-		}else{
-			holder = (ViewHolderSpinner) convertView.getTag();
+		} else {
+			holder = (ViewHolderSpinnerMeusProj) convertView.getTag();
 		}
 		holder.name.setText(c.getNome());
 		holder.pos = position;
@@ -97,10 +107,10 @@ public class MeusProj_Spinner_Adapter extends ArrayAdapter<Company> {
 		super.setNotifyOnChange(notifyOnChange);
 	}
 
-	class ViewHolderSpinner {
+	class ViewHolderSpinnerMeusProj {
 
 		TextView name;
 		int pos; // to store the position of the item within the list
 	}
-	
+
 }

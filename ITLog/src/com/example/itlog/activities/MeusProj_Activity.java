@@ -22,19 +22,21 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.itlog.*;
-import com.example.itlog.R;
 import com.example.itlog.adapters.MeusProj_ListView_Adapter;
 import com.example.itlog.adapters.MeusProj_Spinner_Adapter;
+import com.example.itlog.communication.CallbackInterface;
+import com.example.itlog.responseobjects.ListProjectsUserResponse;
+import com.example.itlog.responseobjects.ListTotalHoursProjectResponse;
 
 public class MeusProj_Activity extends ListActivity implements
-		AdapterView.OnItemSelectedListener {
+		CallbackInterface<ListProjectsUserResponse> {
 	String[] meusprojectos;
 	ListView listV;
 	Spinner spinner;
-	//pq assim????????????????????????? Objects General é preciso????
-	ArrayList<Project> projects;
-	ArrayList<Company> company ;
-	MeusProj_ListView_Adapter  listVAdapter;
+	// pq assim????????????????????????? Objects General é preciso????
+	ArrayList<Objects_General.Project> projects = new ArrayList<Objects_General.Project>();
+	ArrayList<Company> company = new ArrayList<Company>();
+	MeusProj_ListView_Adapter listVAdapter;
 	MeusProj_Spinner_Adapter spinnerAdapter;
 
 	@Override
@@ -46,23 +48,10 @@ public class MeusProj_Activity extends ListActivity implements
 		listV = (ListView) findViewById(android.R.id.list);
 		spinner = (Spinner) findViewById(R.id.spinner3);
 		listV.setAdapter(new Adaptador(this));
-		projects = new ArrayList<MeusProj_Activity.Project>();
-		
-
-		// ADAPTER para o Spinner
-		// tem que entrar um array de company/clientes
-
-		// ArrayAdapter<Project> adapter2 = new
-		// ArrayAdapter<Project>(MeusProj_Activity.this,
-		// android.R.layout.simple_spinner_item, projects);
-
-		// CRIAÇAO DOS ADAPTERS????
-		// ArrayAdapter<Project> listViewAdapter = new
-		// ArrayAdapter<Project>(this, R.layout.single_row_listview);
 
 		// ERRO AQUI PQ??? NAO FUNCIONA SEM O OBJECTS GENERAL EM CIMA
 		listVAdapter = new MeusProj_ListView_Adapter(this, projects);
-		spinnerAdapter = new MeusProj_Spinner_Adapter(this,R.layout.spinner_item, company);
+		spinnerAdapter = new MeusProj_Spinner_Adapter(this, company);
 
 		ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this,
 				R.array.clientes_array, R.layout.spinner_item);
@@ -101,6 +90,15 @@ public class MeusProj_Activity extends ListActivity implements
 				Intent appInfo = new Intent(MeusProj_Activity.this,
 						MostraInfoProj_Activity.class);
 				startActivity(appInfo);
+
+				// ....como faço para ir buscar os elementos certo e nao zero
+				// Intent i = new Intent (MeusProj_Activity.this,
+				// MostraInfoProj_Activity.class);
+				// i.putExtra("NomeEmpresa", company.get(0).getNome());
+				// i.putExtra("NomeProjeto", projects.get(0).getNome());
+				// i.putExtra("GestorProjeto", projects.get(0).getGestor());
+				// i.putExtra("Descricao", projects.get(0).getDescricao());
+				// i.putExtra("Horas", projects.get(0).getHoras());
 			}
 		});
 	}
@@ -223,7 +221,8 @@ public class MeusProj_Activity extends ListActivity implements
 						.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				// referencia para o RelativeLayout
 
-				row = inflater.inflate(R.layout.single_row_listview, viewGroup,
+				row = inflater.inflate(
+						R.layout.single_row_listview_mostrarproj, viewGroup,
 						false);
 				holder = new MyViewHolder(row);
 				row.setTag(holder);
@@ -240,15 +239,8 @@ public class MeusProj_Activity extends ListActivity implements
 	}
 
 	@Override
-	public void onItemSelected(AdapterView<?> parent, View view, int position,
-			long id) {
-		// TODO Auto-generated method stub
+	public void callbackCall(ListProjectsUserResponse t) {
 
 	}
 
-	@Override
-	public void onNothingSelected(AdapterView<?> parent) {
-		// TODO Auto-generated method stub
-
-	}
 }
