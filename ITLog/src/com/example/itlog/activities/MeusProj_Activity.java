@@ -22,8 +22,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.itlog.*;
-import com.example.itlog.adapters.MeusProj_ListView_Adapter;
-import com.example.itlog.adapters.MeusProj_Spinner_Adapter;
+//import com.example.itlog.adapters.MeusProj_ListView_Adapter;
+//import com.example.itlog.adapters.MeusProj_Spinner_Adapter;
 import com.example.itlog.communication.CallbackInterface;
 import com.example.itlog.responseobjects.ListProjectsUserResponse;
 import com.example.itlog.responseobjects.ListTotalHoursProjectResponse;
@@ -34,10 +34,10 @@ public class MeusProj_Activity extends ListActivity implements
 	ListView listV;
 	Spinner spinner;
 	// pq assim????????????????????????? Objects General é preciso????
-	ArrayList<Objects_General.Project> projects = new ArrayList<Objects_General.Project>();
-	ArrayList<Company> company = new ArrayList<Company>();
-	MeusProj_ListView_Adapter listVAdapter;
-	MeusProj_Spinner_Adapter spinnerAdapter;
+//	ArrayList<Objects_General.Project> projects = new ArrayList<Objects_General.Project>();
+//	ArrayList<Company> company = new ArrayList<Company>();
+//	MeusProj_ListView_Adapter listVAdapter;
+//	MeusProj_Spinner_Adapter spinnerAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +50,8 @@ public class MeusProj_Activity extends ListActivity implements
 		listV.setAdapter(new Adaptador(this));
 
 		// ERRO AQUI PQ??? NAO FUNCIONA SEM O OBJECTS GENERAL EM CIMA
-		listVAdapter = new MeusProj_ListView_Adapter(this, projects);
-		spinnerAdapter = new MeusProj_Spinner_Adapter(this, company);
+//		listVAdapter = new MeusProj_ListView_Adapter(this, projects);
+//		spinnerAdapter = new MeusProj_Spinner_Adapter(this, company);
 
 		ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this,
 				R.array.clientes_array, R.layout.spinner_item);

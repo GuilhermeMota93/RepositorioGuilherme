@@ -186,7 +186,7 @@ public class ConfirmaHoras_Activity extends Activity implements
 				LayoutInflater inflater = (LayoutInflater) context
 						.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				// referencia para o RelativeLayout
-				row = inflater.inflate(R.layout.single_row_listview_addproj, viewGroup, false);
+				row = inflater.inflate(R.layout.single_row_listview_checkbox, viewGroup, false);
 				holder = new MyViewHolder(row);
 				row.setTag(holder);
 				
