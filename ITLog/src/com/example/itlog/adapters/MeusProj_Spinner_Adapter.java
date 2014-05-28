@@ -9,54 +9,46 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.itlog.R;
 
-public class MeusProj_Spinner_Adapter extends ArrayAdapter<Company> {
+public class MeusProj_Spinner_Adapter extends BaseAdapter {
 
-	private Context context;
 	private ArrayList<Company> company;
-	private LayoutInflater inflater;
-	private boolean notifyOnChange = true;
+	private int recurso;
+	LayoutInflater inflater;
+	boolean notifyOnChange = true;
 
-	public MeusProj_Spinner_Adapter(Context context,
-			ArrayList<Company> company, LayoutInflater inflater) {
-		super(context, R.layout.spinner_item);
-		this.context = context;
-		this.company = new ArrayList<Company>(company);
-		this.inflater = (LayoutInflater) context
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	}
-
-	public MeusProj_Spinner_Adapter(Context context, ArrayList<Company> company) {
-		super(context, R.layout.spinner_item);
-		this.context = context;
-		this.company = new ArrayList<Company>(company);
+	public MeusProj_Spinner_Adapter(final Context context, final int recurso,
+			ArrayList<Company> company) {
+		this.company = company;
+		this.recurso = recurso;
+		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return super.getCount();
+		return getCount();
 	}
 
 	@Override
 	public Company getItem(int position) {
 		// TODO Auto-generated method stub
-		return super.getItem(position);
+		return getItem(position);
 	}
 
-	@Override
 	public int getPosition(Company item) {
 		// TODO Auto-generated method stub
-		return super.getPosition(item);
+		return getPosition(item);
 	}
 
 	@Override
 	public long getItemId(int position) {
 		// TODO Auto-generated method stub
-		return super.getItemId(position);
+		return getItemId(position);
 	}
 
 	@Override
@@ -81,7 +73,8 @@ public class MeusProj_Spinner_Adapter extends ArrayAdapter<Company> {
 			case 1:
 				convertView = inflater.inflate(R.layout.spinner_item, parent,
 						false);
-				holder.name = (TextView) convertView.findViewById(R.id.text1);
+				holder.name = (TextView) convertView
+						.findViewById(R.id.textSpinnerItem);
 				break;
 			}
 			convertView.setTag(holder);
@@ -101,10 +94,9 @@ public class MeusProj_Spinner_Adapter extends ArrayAdapter<Company> {
 		super.notifyDataSetChanged();
 	}
 
-	@Override
 	public void setNotifyOnChange(boolean notifyOnChange) {
 		// TODO Auto-generated method stub
-		super.setNotifyOnChange(notifyOnChange);
+		setNotifyOnChange(notifyOnChange);
 	}
 
 	class ViewHolderSpinnerMeusProj {

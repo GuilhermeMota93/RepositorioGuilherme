@@ -41,7 +41,7 @@ public class ConfirmaHoras_Activity extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.confirmar_horas_layout);
 
-		spinner1 = (Spinner) findViewById(R.id.spinner1);
+		spinner1 = (Spinner) findViewById(R.id.spinnerConfirmarHoras);
 		botaoConfirma = (Button) findViewById(R.id.confirmar);
 		listView = (ListView) findViewById(android.R.id.list);
 

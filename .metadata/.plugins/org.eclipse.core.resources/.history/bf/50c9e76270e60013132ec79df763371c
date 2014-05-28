@@ -1,0 +1,42 @@
+package com.example.itlog.activities;
+
+import java.util.ArrayList;
+
+import Objects_General.Project;
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.ListView;
+import android.widget.Spinner;
+
+import com.example.itlog.R;
+import com.example.itlog.adapters.MeusProj_ListView_Adapter;
+import com.example.itlog.adapters.MeusProj_Spinner_Adapter;
+import com.example.itlog.communication.CallbackInterface;
+import com.example.itlog.responseobjects.ListProjectsUserResponse;
+
+public class MeusProj_Activity2 extends Activity implements
+		CallbackInterface<ListProjectsUserResponse> {
+
+	ArrayList<Project> projects;
+	MeusProj_ListView_Adapter adapterList;
+	MeusProj_Spinner_Adapter adapterSpinner;
+	ListView listView;
+	Spinner spinner;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		
+		spinner = (Spinner) findViewById(R.id.textSpinnerItem);
+		listView = (ListView) findViewById(android.R.id.list);
+		projects = new ArrayList<Project>();
+	}
+
+	@Override
+	public void callbackCall(ListProjectsUserResponse t) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -3,7 +3,7 @@ package com.example.itlog.activities;
 import java.util.ArrayList;
 import java.util.List;
 
-import Objects_General.Company;
+import Objects_General.Project;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -33,8 +33,8 @@ public class MeusProj_Activity extends ListActivity implements
 	String[] meusprojectos;
 	ListView listV;
 	Spinner spinner;
-	// pq assim????????????????????????? Objects General é preciso????
-//	ArrayList<Objects_General.Project> projects = new ArrayList<Objects_General.Project>();
+
+//	ArrayList<Project> projects = new ArrayList<Project>();
 //	ArrayList<Company> company = new ArrayList<Company>();
 //	MeusProj_ListView_Adapter listVAdapter;
 //	MeusProj_Spinner_Adapter spinnerAdapter;
@@ -46,7 +46,7 @@ public class MeusProj_Activity extends ListActivity implements
 		setContentView(R.layout.meusprojs_layout);
 
 		listV = (ListView) findViewById(android.R.id.list);
-		spinner = (Spinner) findViewById(R.id.spinner3);
+		spinner = (Spinner) findViewById(R.id.spinnerMeusProj);
 		listV.setAdapter(new Adaptador(this));
 
 		// ERRO AQUI PQ??? NAO FUNCIONA SEM O OBJECTS GENERAL EM CIMA
@@ -222,7 +222,7 @@ public class MeusProj_Activity extends ListActivity implements
 				// referencia para o RelativeLayout
 
 				row = inflater.inflate(
-						R.layout.single_row_listview_mostrarproj, viewGroup,
+						R.layout.single_row_listview_addproj, viewGroup,
 						false);
 				holder = new MyViewHolder(row);
 				row.setTag(holder);

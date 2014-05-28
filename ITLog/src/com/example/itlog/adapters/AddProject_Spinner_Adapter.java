@@ -82,7 +82,7 @@ public class AddProject_Spinner_Adapter extends ArrayAdapter<Company> {
 			case 1:
 				convertView = inflater.inflate(R.layout.spinner_item, parent,
 						false);
-				holder.name = (TextView) convertView.findViewById(R.id.text1);
+				holder.name = (TextView) convertView.findViewById(R.id.spinnerAddProj);
 				break;
 			}
 			convertView.setTag(holder);

@@ -1,7 +1,0 @@
-package com.example.itlog.activities;
-
-import android.widget.BaseAdapter;
-
-public class CalendarioAdapter2_Activity extends BaseAdapter{
-
-}

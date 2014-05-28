@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
     <Spinner
-        android:id="@+id/spinner1"
+        android:id="@+id/spinnerConfirmarHoras"
         android:name="@string/cliente_select"
         android:layout_width="fill_parent"
         android:layout_height="50dip"

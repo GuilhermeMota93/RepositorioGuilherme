@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="layout" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
+			<item value="single_row_listview_mostrar"/>
+			<item value="openSt"/>
 			<item value="layout"/>
 			<item value="view"/>
 			<item value="view "/>
 			<item value="addPr"/>
 			<item value="meus"/>
 			<item value="arrayadapter"/>
-			<item value="swa"/>
-			<item value="adapter"/>
 		</list>
 		<list key="replacehistory">
 		</list>

@@ -13,44 +13,34 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-public class MeusProj_ListView_Adapter extends ArrayAdapter<Project> {
+public class MeusProj_ListView_Adapter extends BaseAdapter {
 
-	// este adaptor vai listar todos os projetos...como mostrar somente os
-	// do funcionario?
-
-	private Context context;
 	private ArrayList<Project> projects;
-	private LayoutInflater inflater;
-	private boolean notifyOnChange = true;
-
-	public MeusProj_ListView_Adapter(Context context,
-			ArrayList<Project> projects, LayoutInflater inflater) {
-		super(context, R.layout.single_row_listview_mostrarproj);
-		this.context = context;
-		this.projects = new ArrayList<Project>(projects);
-		this.inflater = (LayoutInflater) context
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	}
-
-	public MeusProj_ListView_Adapter(Context context,
+	private int recurso;
+	LayoutInflater inflater;
+	boolean notifyOnChange = true;
+	
+	public MeusProj_ListView_Adapter(final Context context, final int recurso,
 			ArrayList<Project> projects) {
-		super(context, R.layout.single_row_listview_mostrarproj);
-		this.context = context;
-		this.projects = new ArrayList<Project>(projects);
+		this.projects = projects;
+		this.recurso = recurso;
+		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
+	
 
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return super.getCount();
+		return getCount();
 	}
 
 	@Override
 	public Project getItem(int position) {
 		// TODO Auto-generated method stub
-		return super.getItem(position);
+		return getItem(position);
 	}
 
 	@Override
@@ -59,10 +49,9 @@ public class MeusProj_ListView_Adapter extends ArrayAdapter<Project> {
 		return position;
 	}
 
-	@Override
 	public int getPosition(Project item) {
 		// TODO Auto-generated method stub
-		return super.getPosition(item);
+		return getPosition(item);
 	}
 
 	@Override
@@ -84,8 +73,9 @@ public class MeusProj_ListView_Adapter extends ArrayAdapter<Project> {
 			holder = new ViewHolderListViewMeusProj();
 			switch (type) {
 			case 1:
-				convertView = inflater.inflate(R.layout.single_row_listview_mostrarproj,
-						parent, false);
+				convertView = inflater
+						.inflate(R.layout.single_row_listview_addproj,
+								parent, false);
 				holder.name = (TextView) convertView
 						.findViewById(R.id.textView1);
 				break;
