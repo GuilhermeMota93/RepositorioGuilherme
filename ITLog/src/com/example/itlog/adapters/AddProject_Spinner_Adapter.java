@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.example.itlog.R;
 import com.example.itlog.adapters.MeusProj_Spinner_Adapter.ViewHolderSpinnerMeusProj;
+import com.example.itlog.objects.Company;
 
-import Objects_General.Company;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

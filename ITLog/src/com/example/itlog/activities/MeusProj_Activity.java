@@ -3,11 +3,11 @@ package com.example.itlog.activities;
 import java.util.ArrayList;
 import java.util.List;
 
-import Objects_General.Project;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +25,7 @@ import com.example.itlog.*;
 //import com.example.itlog.adapters.MeusProj_ListView_Adapter;
 //import com.example.itlog.adapters.MeusProj_Spinner_Adapter;
 import com.example.itlog.communication.CallbackInterface;
+import com.example.itlog.objects.Project;
 import com.example.itlog.responseobjects.ListProjectsUserResponse;
 import com.example.itlog.responseobjects.ListTotalHoursProjectResponse;
 
@@ -33,6 +34,7 @@ public class MeusProj_Activity extends ListActivity implements
 	String[] meusprojectos;
 	ListView listV;
 	Spinner spinner;
+	Typeface font1, font2;
 
 //	ArrayList<Project> projects = new ArrayList<Project>();
 //	ArrayList<Company> company = new ArrayList<Company>();
@@ -47,6 +49,10 @@ public class MeusProj_Activity extends ListActivity implements
 
 		listV = (ListView) findViewById(android.R.id.list);
 		spinner = (Spinner) findViewById(R.id.spinnerMeusProj);
+		
+		font1 = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Regular.ttf");
+		font2 = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
+		
 		listV.setAdapter(new Adaptador(this));
 
 		// ERRO AQUI PQ??? NAO FUNCIONA SEM O OBJECTS GENERAL EM CIMA
@@ -54,7 +60,7 @@ public class MeusProj_Activity extends ListActivity implements
 //		spinnerAdapter = new MeusProj_Spinner_Adapter(this, company);
 
 		ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this,
-				R.array.clientes_array, R.layout.spinner_item);
+				R.array.clientes_array, R.layout.spinner_item );
 		adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter2);
 		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -101,6 +107,8 @@ public class MeusProj_Activity extends ListActivity implements
 				// i.putExtra("Horas", projects.get(0).getHoras());
 			}
 		});
+		
+		
 	}
 
 	class SingleRow {
@@ -222,7 +230,7 @@ public class MeusProj_Activity extends ListActivity implements
 				// referencia para o RelativeLayout
 
 				row = inflater.inflate(
-						R.layout.single_row_listview_addproj, viewGroup,
+						R.layout.single_row_listview_meusproj, viewGroup,
 						false);
 				holder = new MyViewHolder(row);
 				row.setTag(holder);

@@ -3,7 +3,6 @@ package com.example.itlog.adapters;
 import java.util.ArrayList;
 import java.util.List;
 
-import Objects_General.Company;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.itlog.R;
+import com.example.itlog.objects.Company;
 
 public class MeusProj_Spinner_Adapter extends BaseAdapter {
 

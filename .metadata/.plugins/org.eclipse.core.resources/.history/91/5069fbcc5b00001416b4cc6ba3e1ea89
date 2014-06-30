@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#ebeaed"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
+
+    <Spinner
+        android:id="@+id/spinnerMeusProj"
+        android:name="@string/cliente_select"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:drawSelectorOnTop="true"
+        android:entries="@array/clientes_array"
+        android:prompt="@string/cliente_select" 
+        android:gravity="center"
+        android:background="#ebeaed"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            >
+        </ListView>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="#a3a1a8" />
+
+    </LinearLayout>
+    
+    
+</LinearLayout>

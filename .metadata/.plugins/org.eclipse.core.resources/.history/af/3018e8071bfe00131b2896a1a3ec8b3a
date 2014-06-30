@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ebeaed"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/credencial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/password"
+            android:layout_below="@+id/imgV"
+            android:layout_marginTop="79dp"
+            android:ems="10"
+            android:hint="Credencial"
+            android:textColor="#787878" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/credencial"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:background="#787878"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="#787878" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/loginBut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/password"
+            android:layout_alignRight="@+id/password"
+            android:layout_below="@+id/password"
+            android:layout_marginTop="16dp"
+            android:background="#0e7d9a"
+            android:ems="15"
+            android:text="Login" />
+
+        <ImageView
+            android:id="@+id/imgV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="50dp"
+            android:src="@drawable/ic_itsector_logo_login" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -57,8 +57,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="Objects_General.Funcionario" project="ITLog" 
-    file="/ITLog/src/Objects_General/Funcionario.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="7" language="java" name="com.example.itlog.objects.Funcionario" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/objects/Funcionario.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="606" y="693"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -66,8 +66,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="Objects_General.Project" project="ITLog" 
-    file="/ITLog/src/Objects_General/Project.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="8" language="java" name="com.example.itlog.objects.Project" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/objects/Project.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="298" width="216" x="725" y="465"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -103,8 +103,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="Objects_General.Company" project="ITLog" 
-    file="/ITLog/src/Objects_General/Company.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="12" language="java" name="com.example.itlog.objects.Company" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/objects/Company.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1189" y="695"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -123,59 +123,59 @@
     </display>  
   </class>  
   <generalization id="14">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <generalization id="15">    
     <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="8"/>  
   </generalization>  
-  <generalization id="16">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <generalization id="17">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <generalization id="18">    
+  <generalization id="15">    
     <end type="SOURCE" refId="10"/>    
     <end type="TARGET" refId="13"/>  
   </generalization>  
-  <generalization id="19">    
+  <generalization id="16">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="13"/>  
   </generalization>  
-  <generalization id="20">    
-    <end type="SOURCE" refId="4"/>    
+  <generalization id="17">    
+    <end type="SOURCE" refId="11"/>    
     <end type="TARGET" refId="13"/>  
   </generalization>  
-  <generalization id="21">    
-    <end type="SOURCE" refId="8"/>    
+  <generalization id="18">    
+    <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="13"/>  
   </generalization>  
-  <generalization id="22">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <generalization id="23">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <generalization id="24">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <association id="25">    
+  <association id="19">    
     <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="26" name="projects"/>      
-      <multiplicity id="27" minimum="0" maximum="2147483647"/>    
+      <attribute id="20" name="projects"/>      
+      <multiplicity id="21" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <generalization id="22">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
+  <generalization id="23">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
+  <generalization id="24">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
+  <generalization id="25">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
+  <generalization id="26">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
   <generalization id="28">    
-    <end type="SOURCE" refId="9"/>    
+    <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="13"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

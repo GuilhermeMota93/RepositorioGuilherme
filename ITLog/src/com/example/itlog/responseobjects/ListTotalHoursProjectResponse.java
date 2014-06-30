@@ -3,7 +3,8 @@ package com.example.itlog.responseobjects;
 import java.util.HashMap;
 import java.util.Map;
 
-import Objects_General.Project;
+import com.example.itlog.objects.Project;
+
 import android.R.integer;
 
 

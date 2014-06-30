@@ -8,7 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.example.itlog.activities.AddProj_Activity;
-import com.example.itlog.activities.InfoActivity;
+import com.example.itlog.activities.Info_Activity;
 import com.example.itlog.activities.MeusProj_Activity;
 
 public class TesteAosServicos extends Activity {

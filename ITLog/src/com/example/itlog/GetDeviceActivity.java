@@ -1,7 +1,7 @@
 package com.example.itlog;
 
-import com.example.itlog.activities.InfoActivity;
-import com.example.itlog.activities.LoginActivity;
+import com.example.itlog.activities.Info_Activity;
+import com.example.itlog.activities.Login_Activity;
 import com.example.itlog.communication.CallbackInterface;
 import com.example.itlog.communication.CommunicationCenter;
 import com.example.itlog.responseobjects.LoginResponse;

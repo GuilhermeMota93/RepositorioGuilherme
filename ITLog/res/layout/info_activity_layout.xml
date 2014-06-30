@@ -1,73 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ebeaed"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/credNum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingTop="35dp"
-        android:text="C812" />
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginLeft="10dp"
+        android:background="#ebeaed"
+        android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/nomePess"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingTop="35dp"
-        android:text="Guilherme Morais Mota" />
+        <TextView
+            android:id="@+id/credNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="C812"
+            android:textColor="#0e7d9a"
+            android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/emailIT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingTop="35dp"
-        android:text="guilherme.mota@itsector.pt" />
+        <TextView
+            android:id="@+id/nomePess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="Guilherme Mota"
+            android:textColor="#0e7d9a"
+            android:textSize="42sp" />
+
+        <TextView
+            android:id="@+id/emailIT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="guilherme.mota@itsector.pt"
+            android:textColor="#787878"
+            android:textSize="24sp" />
+    </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingTop="60dp" >
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/linear"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        
+        android:background="#ebeaed"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="#a3a1a8" />
 
         <Button
             android:id="@+id/meusProj"
             android:layout_width="fill_parent"
-            android:layout_height="50dp"
+            android:layout_height="86dp"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:paddingLeft="65dp"
-            android:paddingRight="65dp"
-            android:text="Os Meus Projectos" />
+            android:background="@drawable/selector"
+            android:gravity="left|center_vertical"
+            android:text="Os Meus Projectos"
+            android:textColor="#0e7d9a"
+            android:textSize="24sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="#a3a1a8" />
 
         <Button
             android:id="@+id/addProj"
             android:layout_width="fill_parent"
-            android:layout_height="50dp"
+            android:layout_height="86dp"
             android:layout_gravity="center"
-            android:paddingLeft="63dp"
-            android:paddingRight="63dp"
-            android:text="Adicionar Projectos" />
+            android:background="@drawable/selector"
+            android:gravity="left|center_vertical"
+            android:text="Adicionar Projectos"
+            android:textColor="#0e7d9a"
+            android:textSize="24sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="#a3a1a8" />
 
         <Button
             android:id="@+id/inputHoras"
             android:layout_width="fill_parent"
-            android:layout_height="50dp"
+            android:layout_height="86dp"
             android:layout_gravity="center"
-            android:paddingLeft="83dp"
-            android:paddingRight="83dp"
-            android:text="Imputar Horas" />
+            android:background="@drawable/selector"
+            android:gravity="left|center_vertical"
+            android:text="Imputar Horas"
+            android:textColor="#0e7d9a"
+            android:textSize="24sp" />
 
-        <Button
-            android:id="@+id/testarServicos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Testar" />
-
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="#a3a1a8" />
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

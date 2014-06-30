@@ -2,4 +2,6 @@
     android:id="@+id/textSpinnerItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:textSize="25dp" />
+    android:textSize="25dp" 
+    android:background="#ebeaed"
+    android:textColor="#0e7d9a"/>

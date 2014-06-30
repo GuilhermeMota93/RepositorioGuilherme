@@ -3,8 +3,6 @@ package com.example.itlog.activities;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-import Objects_General.Company;
-import Objects_General.Project;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +15,15 @@ import com.example.itlog.R;
 import com.example.itlog.adapters.MeusProj_ListView_Adapter;
 import com.example.itlog.adapters.MeusProj_Spinner_Adapter;
 import com.example.itlog.communication.CallbackInterface;
+import com.example.itlog.objects.Company;
+import com.example.itlog.objects.Project;
 import com.example.itlog.responseobjects.ListProjectsUserResponse;
+
+
+
+//VER SE ESTA ACTIVITY ESTA MELHOR DO QUE A OUTRA!!!!!!!
+
+
 
 public class MeusProj_Activity2 extends Activity implements
 		CallbackInterface<ListProjectsUserResponse> {

@@ -11,9 +11,9 @@ import java.net.URL;
 
 import org.apache.http.client.ClientProtocolException;
 
-import Objects_General.Funcionario;
 import android.util.Log;
 
+import com.example.itlog.objects.Funcionario;
 import com.google.gson.Gson;
 
 public class CommunicationCenter {
@@ -205,7 +205,7 @@ public class CommunicationCenter {
 				DataOutputStream wr = new DataOutputStream(
 						connection2.getOutputStream());
 				String abc = gson2.toJson(object);
-				wr.writeBytes(gson2.toJson(object));
+				wr.writeBytes(abc);
 				//escrever
 				Log.d("print object", abc);
 				wr.flush();

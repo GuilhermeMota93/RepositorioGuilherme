@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ebeaed"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:text="Cliente XXX"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/textProjecto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="Projecto #17"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textGestor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:text="Gestor aqui"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/textDescr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="45dp"
+            android:text="Pequena descrição aqui..."
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+        
+         <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="#a3a1a8" />
+
+        <TextView
+            android:id="@+id/textHoras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:text="50 Horas"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="#a3a1a8" />
+
+        <Button
+            android:id="@+id/btInput"
+            android:layout_width="fill_parent"
+            android:layout_height="86dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/selector"
+            android:gravity="left|center_vertical"
+            android:text="Imputar Horas"
+            android:textColor="#0e7d9a"
+            android:textSize="24sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="#a3a1a8" />
+
+        <Button
+            android:id="@+id/btEliminar"
+            android:layout_width="fill_parent"
+            android:layout_height="86dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/selector"
+            android:gravity="left|center_vertical"
+            android:text="Eliminar Projecto"
+            android:textColor="#0e7d9a"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+</LinearLayout>

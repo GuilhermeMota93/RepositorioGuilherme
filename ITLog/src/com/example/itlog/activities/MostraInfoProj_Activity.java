@@ -1,6 +1,7 @@
 package com.example.itlog.activities;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,6 +13,7 @@ public class MostraInfoProj_Activity extends Activity {
 
 	TextView textC, textProj, textGestProj, textDescr, textHoras;
 	Button inputH, eliminaProj;
+	Typeface font, font1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,15 @@ public class MostraInfoProj_Activity extends Activity {
 		eliminaProj = (Button) findViewById(id.btEliminar);
 		
 		
-
+		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
+		font1 = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Regular.ttf");
+		textC.setTypeface(font);
+		textDescr.setTypeface(font1);
+		textGestProj.setTypeface(font);
+		textHoras.setTypeface(font);
+		textProj.setTypeface(font);
+		inputH.setTypeface(font);
+		eliminaProj.setTypeface(font);
 	}
 
 }

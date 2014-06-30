@@ -33,7 +33,7 @@ public class PopUp_AddProj extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				 Intent intencao1 = new Intent(PopUp_AddProj.this,
-				 InfoActivity.class);//ao carregar no botao SIM retorna a Info
+				 Info_Activity.class);//ao carregar no botao SIM retorna a Info
 				 PopUp_AddProj.this.startActivity(intencao1);
 
 				finish();

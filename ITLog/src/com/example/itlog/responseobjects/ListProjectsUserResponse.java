@@ -2,8 +2,9 @@ package com.example.itlog.responseobjects;
 
 import java.util.ArrayList;
 
-import Objects_General.Company;
-import Objects_General.Project;
+import com.example.itlog.objects.Company;
+import com.example.itlog.objects.Project;
+
 
 public class ListProjectsUserResponse {
 

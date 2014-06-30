@@ -32,7 +32,7 @@ public class AddProj_Activity extends Activity implements
 
 	int incr = 0;
 	Spinner spinner1;
-	Button botaoAdd;
+	//tirar este Button botaoAdd;
 	ListView listView;
 
 	@Override
@@ -42,7 +42,8 @@ public class AddProj_Activity extends Activity implements
 		setContentView(R.layout.addproj_layout);
 
 		spinner1 = (Spinner) findViewById(R.id.spinnerAddProj);
-		botaoAdd = (Button) findViewById(R.id.addProj);
+		//Em principio tira-se isto
+		//botaoAdd = (Button) findViewById(R.id.addProj);
 		listView = (ListView) findViewById(android.R.id.list);
 
 		listView.setAdapter(new Adaptador(this));
@@ -79,15 +80,16 @@ public class AddProj_Activity extends Activity implements
 		});
 		
 		
-		botaoAdd.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {//accao ao clicar ao ADICIONAR PROJECTO
-				// TODO Auto-generated method stub
-				Intent intencao = new Intent(AddProj_Activity.this, PopUp_AddProj.class);//ao carregar no botao lança pop-up para confirmar addProj
-				AddProj_Activity.this.startActivity(intencao);
-			}
-		});
+		//tirar este botao
+//		botaoAdd.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {//accao ao clicar ao ADICIONAR PROJECTO
+//				// TODO Auto-generated method stub
+//				Intent intencao = new Intent(AddProj_Activity.this, PopUp_AddProj.class);//ao carregar no botao lança pop-up para confirmar addProj
+//				AddProj_Activity.this.startActivity(intencao);
+//			}
+//		});
 		
 
 	}

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.itlog.R;
+import com.example.itlog.objects.Company;
+import com.example.itlog.objects.Project;
 
-import Objects_General.Company;
-import Objects_General.Project;
 import android.content.Context;
 
 import android.view.LayoutInflater;
