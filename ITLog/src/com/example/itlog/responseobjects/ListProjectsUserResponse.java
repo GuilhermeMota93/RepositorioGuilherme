@@ -58,5 +58,7 @@ public class ListProjectsUserResponse {
 				+ getUsername() + ", getProjects()=" + getProjects()
 				+ ", getCompany()=" + getCompany() + "]";
 	}
+	
+	
 
 }

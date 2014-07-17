@@ -12,23 +12,27 @@
 
         <TextView
             android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginBottom="19dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="19dp"
-            android:text="Projecto #1"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:background="@drawable/selector_botao_normal"
+            android:gravity="left|center_vertical"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:textColor="#0e7d9a"
+            android:textSize="20dp" />
 
         <CheckBox
             android:id="@+id/checkBox1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView1"
+            android:layout_alignBottom="@+id/textView1"
             android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/textView1"
-            android:layout_marginRight="18dp" />
+            android:layout_marginRight="28dp" />
     </RelativeLayout>
 
 </LinearLayout>

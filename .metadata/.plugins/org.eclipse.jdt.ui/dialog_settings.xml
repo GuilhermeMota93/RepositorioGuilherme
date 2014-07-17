@@ -74,16 +74,16 @@
 	</section>
 	<section name="DialogBounds_GenerateConstructorUsingFieldsSelectionDialog">
 		<item value="520" key="DIALOG_WIDTH"/>
-		<item value="68" key="DIALOG_Y_ORIGIN"/>
-		<item value="708" key="DIALOG_X_ORIGIN"/>
+		<item value="86" key="DIALOG_Y_ORIGIN"/>
+		<item value="872" key="DIALOG_X_ORIGIN"/>
 		<item value="678" key="DIALOG_HEIGHT"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="DialogBounds_OverrideMethodDialog">
 		<item value="527" key="DIALOG_WIDTH"/>
-		<item value="82" key="DIALOG_Y_ORIGIN"/>
+		<item value="129" key="DIALOG_Y_ORIGIN"/>
 		<item value="650" key="DIALOG_HEIGHT"/>
-		<item value="451" key="DIALOG_X_ORIGIN"/>
+		<item value="796" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="SourceActionDialog.constructors">

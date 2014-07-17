@@ -1,53 +1,59 @@
 package com.example.itlog.activities;
 
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
-import com.example.itlog.R;
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class AddProj_Activity extends Activity implements
+import com.example.itlog.R;
+
+public class AddProj_Activity extends GeneralButtons_Activity implements
 		AdapterView.OnItemSelectedListener {
 
 	int incr = 0;
 	Spinner spinner1;
-	//tirar este Button botaoAdd;
 	ListView listView;
+	Typeface font;
+	TextView tv1, tv2;
+	Button b1, b2;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.addproj_layout);
+		// para o tipo de letra
+		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
 
 		spinner1 = (Spinner) findViewById(R.id.spinnerAddProj);
-		//Em principio tira-se isto
-		//botaoAdd = (Button) findViewById(R.id.addProj);
-		listView = (ListView) findViewById(android.R.id.list);
-
+		listView = (ListView) findViewById(R.id.list);
 		listView.setAdapter(new Adaptador(this));
-
 		ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this,
 				R.array.clientes_array, R.layout.spinner_item);
 		adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -78,20 +84,15 @@ public class AddProj_Activity extends Activity implements
 			}
 
 		});
-		
-		
-		//tirar este botao
-//		botaoAdd.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {//accao ao clicar ao ADICIONAR PROJECTO
-//				// TODO Auto-generated method stub
-//				Intent intencao = new Intent(AddProj_Activity.this, PopUp_AddProj.class);//ao carregar no botao lança pop-up para confirmar addProj
-//				AddProj_Activity.this.startActivity(intencao);
-//			}
-//		});
-		
 
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu items for use in the action bar
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.actionbar_buttons, menu);
+		return super.onCreateOptionsMenu(menu);
 	}
 
 	class SingleRow {
@@ -139,9 +140,47 @@ public class AddProj_Activity extends Activity implements
 
 			// ao carregar na listView
 			listView.setOnItemClickListener(new ListView.OnItemClickListener() {
+
 				@Override
 				public void onItemClick(AdapterView<?> parent, View view,
 						int position, long id) {
+					// TODO Auto-generated method stub
+					LayoutInflater inflate = LayoutInflater
+							.from(AddProj_Activity.this);
+					View layout = inflate.inflate(R.layout.alertdialog_layout,
+							null);
+
+					tv1 = (TextView) layout.findViewById(R.id.titulo);
+					tv1.setText("Adicionar Projeto");
+					tv2 = (TextView) layout.findViewById(R.id.pergunta);
+					tv2.setText("Pretende adicionar este projeto à sua lista de projetos?");
+					b1 = (Button) layout.findViewById(R.id.botaoCancela);
+					b2 = (Button) layout.findViewById(R.id.botaoConfirma);
+
+					final AlertDialog.Builder builder = new AlertDialog.Builder(
+							AddProj_Activity.this);
+					builder.setView(layout);
+					final AlertDialog dialog = builder.create();
+					dialog.show();
+					b1.setOnClickListener(new OnClickListener() {
+
+						@Override
+						public void onClick(View v) {
+
+							dialog.dismiss();
+						}
+					});
+
+					b2.setOnClickListener(new OnClickListener() {
+
+						@Override
+						public void onClick(View v) {
+							Toast.makeText(context,
+									"Projeto adicionado com sucesso! ",
+									Toast.LENGTH_LONG).show();
+							dialog.dismiss();
+						}
+					});
 
 				}
 			});
@@ -168,8 +207,11 @@ public class AddProj_Activity extends Activity implements
 
 		class MyViewHolder {
 			TextView tV;
+
 			public MyViewHolder(View v) {
 				tV = (TextView) v.findViewById(R.id.textView1);
+				// para o tipo de letra
+				((TextView) tV).setTypeface(font);
 			}
 		}
 
@@ -187,13 +229,14 @@ public class AddProj_Activity extends Activity implements
 				LayoutInflater inflater = (LayoutInflater) context
 						.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				// referencia para o RelativeLayout
-				row = inflater.inflate(R.layout.single_row_listview_addproj, viewGroup, false);
+				row = inflater.inflate(R.layout.single_row_listview_addproj,
+						viewGroup, false);
 				holder = new MyViewHolder(row);
 				row.setTag(holder);
-				
+
 			} else {
 				holder = (MyViewHolder) row.getTag();
-				
+
 			}
 			SingleRow temp = listSR.get(i);
 			holder.tV.setText(temp.projecto);
@@ -205,7 +248,6 @@ public class AddProj_Activity extends Activity implements
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int position,
 			long id) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -214,6 +256,5 @@ public class AddProj_Activity extends Activity implements
 		// TODO Auto-generated method stub
 
 	}
-	
-	
+
 }

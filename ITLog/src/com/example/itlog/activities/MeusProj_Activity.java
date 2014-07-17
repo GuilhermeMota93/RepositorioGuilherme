@@ -10,6 +10,8 @@ import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -29,17 +31,17 @@ import com.example.itlog.objects.Project;
 import com.example.itlog.responseobjects.ListProjectsUserResponse;
 import com.example.itlog.responseobjects.ListTotalHoursProjectResponse;
 
-public class MeusProj_Activity extends ListActivity implements
+public class MeusProj_Activity extends GeneralButtons_Activity implements
 		CallbackInterface<ListProjectsUserResponse> {
 	String[] meusprojectos;
 	ListView listV;
 	Spinner spinner;
-	Typeface font1, font2;
+	Typeface font;
 
-//	ArrayList<Project> projects = new ArrayList<Project>();
-//	ArrayList<Company> company = new ArrayList<Company>();
-//	MeusProj_ListView_Adapter listVAdapter;
-//	MeusProj_Spinner_Adapter spinnerAdapter;
+	// ArrayList<Project> projects = new ArrayList<Project>();
+	// ArrayList<Company> company = new ArrayList<Company>();
+	// MeusProj_ListView_Adapter listVAdapter;
+	// MeusProj_Spinner_Adapter spinnerAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,18 +51,18 @@ public class MeusProj_Activity extends ListActivity implements
 
 		listV = (ListView) findViewById(android.R.id.list);
 		spinner = (Spinner) findViewById(R.id.spinnerMeusProj);
-		
-		font1 = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Regular.ttf");
-		font2 = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
-		
+
+		// para o tipo de letra
+		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
+
 		listV.setAdapter(new Adaptador(this));
 
 		// ERRO AQUI PQ??? NAO FUNCIONA SEM O OBJECTS GENERAL EM CIMA
-//		listVAdapter = new MeusProj_ListView_Adapter(this, projects);
-//		spinnerAdapter = new MeusProj_Spinner_Adapter(this, company);
+		// listVAdapter = new MeusProj_ListView_Adapter(this, projects);
+		// spinnerAdapter = new MeusProj_Spinner_Adapter(this, company);
 
 		ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this,
-				R.array.clientes_array, R.layout.spinner_item );
+				R.array.clientes_array, R.layout.spinner_item);
 		adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter2);
 		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -107,8 +109,15 @@ public class MeusProj_Activity extends ListActivity implements
 				// i.putExtra("Horas", projects.get(0).getHoras());
 			}
 		});
-		
-		
+
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		 // Inflate the menu items for use in the action bar
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.actionbar_buttons, menu);
+	    return super.onCreateOptionsMenu(menu);
 	}
 
 	class SingleRow {
@@ -209,6 +218,8 @@ public class MeusProj_Activity extends ListActivity implements
 
 			public MyViewHolder(View v) {
 				tV = (TextView) v.findViewById(R.id.textView1);
+				//para o tipo de letra
+				((TextView)tV).setTypeface(font);
 			}
 		}
 
@@ -229,9 +240,8 @@ public class MeusProj_Activity extends ListActivity implements
 						.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				// referencia para o RelativeLayout
 
-				row = inflater.inflate(
-						R.layout.single_row_listview_meusproj, viewGroup,
-						false);
+				row = inflater.inflate(R.layout.single_row_listview_meusproj,
+						viewGroup, false);
 				holder = new MyViewHolder(row);
 				row.setTag(holder);
 

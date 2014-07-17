@@ -8,9 +8,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -34,6 +37,7 @@ public class ConfirmaHoras_Activity extends Activity implements
 	Spinner spinner1;
 	Button botaoConfirma;
 	ListView listView;
+	Typeface font;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,8 @@ public class ConfirmaHoras_Activity extends Activity implements
 		spinner1 = (Spinner) findViewById(R.id.spinnerConfirmarHoras);
 		botaoConfirma = (Button) findViewById(R.id.confirmar);
 		listView = (ListView) findViewById(android.R.id.list);
+		// para o tipo de letra
+		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
 
 		listView.setAdapter(new Adaptador(this));
 
@@ -77,19 +83,29 @@ public class ConfirmaHoras_Activity extends Activity implements
 			}
 
 		});
-		
-		
-		//FALTA FAZER ACTIVIDADE DE CONFIRMAÇAO DAS HORAS + BOTAO QUE LEVA PARA LA AQUI
-//		confirmar.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				Intent intencao = new Intent(ConfirmaHoras_Activity.this, ConfirmaHoras_Activity.class);//ao carregar no botao IMPUTAR HORAS vai para Confirmar Horas
-//				ConfirmaHoras_Activity.this.startActivity(intencao);
-//			}
-//		});
 
+		// FALTA FAZER ACTIVIDADE DE CONFIRMAÇAO DAS HORAS + BOTAO QUE LEVA PARA
+		// LA AQUI
+		// confirmar.setOnClickListener(new OnClickListener() {
+		//
+		// @Override
+		// public void onClick(View v) {
+		// // TODO Auto-generated method stub
+		// Intent intencao = new Intent(ConfirmaHoras_Activity.this,
+		// ConfirmaHoras_Activity.class);//ao carregar no botao IMPUTAR HORAS
+		// vai para Confirmar Horas
+		// ConfirmaHoras_Activity.this.startActivity(intencao);
+		// }
+		// });
+
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu items for use in the action bar
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.actionbar_buttons, menu);
+		return super.onCreateOptionsMenu(menu);
 	}
 
 	class SingleRow {
@@ -166,8 +182,11 @@ public class ConfirmaHoras_Activity extends Activity implements
 
 		class MyViewHolder {
 			TextView tV;
+
 			public MyViewHolder(View v) {
 				tV = (TextView) v.findViewById(R.id.textView1);
+				// para o tipo de letra
+				((TextView) tV).setTypeface(font);
 			}
 		}
 
@@ -186,28 +205,30 @@ public class ConfirmaHoras_Activity extends Activity implements
 				LayoutInflater inflater = (LayoutInflater) context
 						.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				// referencia para o RelativeLayout
-				row = inflater.inflate(R.layout.single_row_listview_checkbox, viewGroup, false);
+				row = inflater.inflate(R.layout.single_row_listview_checkbox,
+						viewGroup, false);
 				holder = new MyViewHolder(row);
 				row.setTag(holder);
-				
+
 			} else {
 				holder = (MyViewHolder) row.getTag();
-				
+
 			}
 			SingleRow temp = listSR.get(i);
 			holder.tV.setText(temp.projecto);
-			
-			
+
 			// Checkboxes
-			final CheckBox checkBox = (CheckBox) row.findViewById(R.id.checkBox1);
+			final CheckBox checkBox = (CheckBox) row
+					.findViewById(R.id.checkBox1);
 			checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 				@Override
 				public void onCheckedChanged(CompoundButton buttonView,
 						boolean isChecked) {
 					if (isChecked && incr >= 2) {
 						checkBox.setChecked(false);
-						Toast.makeText(context, "Só pode escolher 2 projectos no maximo! ", Toast.LENGTH_LONG)
-								.show();
+						Toast.makeText(context,
+								"Só pode escolher 2 projectos no maximo! ",
+								Toast.LENGTH_LONG).show();
 					} else {
 						// the checkbox either got unchecked
 						// or there are less than 2 other checkboxes checked

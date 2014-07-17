@@ -1,0 +1,106 @@
+package com.example.itlog.objects;
+
+import java.util.ArrayList;
+
+public class Project {
+	String name, manager, descripiton, company;
+	int projectid, hours;
+
+	public Project() {
+
+	}
+
+	public Project(String name, int projectid, String company, String manager,
+			String description, int hours) {
+		this.name = name;
+		this.projectid = projectid;
+		this.company = company;
+		this.manager = manager;
+		this.descripiton = description;
+		this.hours = hours;
+
+	}
+
+	public Project(String name, int projectid, String company, String manager,
+			String description) {
+		this.name = name;
+		this.projectid = projectid;
+		this.company = company;
+		this.manager = manager;
+		this.descripiton = description;
+	}
+
+	public String getNome() {
+		return name;
+	}
+
+	public void setNome(String name) {
+		this.name = name;
+	}
+
+	public String getGestor() {
+		return manager;
+	}
+
+	public void setGestor(String manager) {
+		this.manager = manager;
+	}
+
+	public String getDescricao() {
+		return descripiton;
+	}
+
+	public void setDescricao(String description) {
+		this.descripiton = description;
+	}
+
+	public String getClientInfo() {
+		return company;
+	}
+
+	public void setClientInfo(String company) {
+		this.company = company;
+	}
+
+	public int getId() {
+		return projectid;
+	}
+
+	public void setId(int projectid) {
+		this.projectid = projectid;
+	}
+
+	public int getHoras() {
+		return hours;
+	}
+
+	public void setHoras(int hours) {
+		this.hours = hours;
+	}
+
+	@Override
+	public String toString() {
+		return "Project [name=" + name + "]";
+	}
+
+	public static void main(String args) {
+		ArrayList<Project> projects = new ArrayList<Project>();
+		projects.add(new Project("Projecto A", 1, "ITSector", "António Arroz",
+				"É lindo!", 16));
+		projects.add(new Project("Projecto B", 2, "ITSector", "Baltazar Bolacha",
+				"É fantástico!", 8));
+		projects.add(new Project("Projecto C", 3, "ebankIT", "Cristiano Crouguette",
+				"É excelente!", 4));
+		projects.add(new Project("Projecto D", 4, "ITSector", "Dilma Docinho",
+				"É belissimo!", 32));
+		projects.add(new Project("Projecto E", 5, "ITSector", "Elisio Eletro",
+				"É mel!", 64));
+		projects.add(new Project("Projecto F", 6, "ITSector", "Francisca Filetes",
+				"É bela!", 16));
+		projects.add(new Project("Projecto G", 7, "ebankIT", "Gina Gomas",
+				"É poderosa!", 32));
+		projects.add(new Project("Projecto H", 8, "ebankIT", "Helio Hogurte",
+				"É potente!", 8));
+	}
+
+}

@@ -1,0 +1,59 @@
+package com.example.itlog.activities;
+
+import java.util.ArrayList;
+
+import android.graphics.Typeface;
+import android.os.Bundle;
+import android.widget.ListView;
+import android.widget.Spinner;
+
+import com.example.itlog.R;
+import com.example.itlog.adapters.MeusProj_ListView_Adapter;
+import com.example.itlog.adapters.MeusProj_Spinner_Adapter;
+import com.example.itlog.communication.CallbackInterface;
+import com.example.itlog.objects.Company;
+import com.example.itlog.objects.Project;
+import com.example.itlog.responseobjects.ListProjectsUserResponse;
+
+public class MeusProj_Activity2 extends GeneralButtons_Activity implements
+		CallbackInterface<ListProjectsUserResponse> {
+
+	ArrayList<Project> projects = Project.generateFakeProjects();
+	ArrayList<Project> arrayEspecifico = new ArrayList<Project>();
+	ArrayList<Company> company = Company.generateFakeCompany();
+
+	MeusProj_ListView_Adapter adapterList;
+	MeusProj_Spinner_Adapter adapterSpinner;
+
+	ListView listView;
+	Spinner spinner;
+
+	Typeface font;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.meusprojs_layout);
+
+		// para o tipo de letra
+		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
+
+		listView = (ListView) findViewById(android.R.id.list);
+		spinner = (Spinner) findViewById(R.id.textSpinnerItem);
+		projects = new ArrayList<Project>();
+		company = new ArrayList<Company>();
+		adapterSpinner = new MeusProj_Spinner_Adapter(this,
+				R.layout.spinner_item, company);
+		adapterList = new MeusProj_ListView_Adapter(this,
+				R.layout.single_row_listview_meusproj, projects);
+
+	}
+
+	@Override
+	public void callbackCall(ListProjectsUserResponse t) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

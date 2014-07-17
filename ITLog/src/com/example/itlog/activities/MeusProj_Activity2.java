@@ -1,9 +1,8 @@
 package com.example.itlog.activities;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,38 +18,57 @@ import com.example.itlog.objects.Company;
 import com.example.itlog.objects.Project;
 import com.example.itlog.responseobjects.ListProjectsUserResponse;
 
-
-
-//VER SE ESTA ACTIVITY ESTA MELHOR DO QUE A OUTRA!!!!!!!
-
-
-
-public class MeusProj_Activity2 extends Activity implements
+public class MeusProj_Activity2 extends GeneralButtons_Activity implements
 		CallbackInterface<ListProjectsUserResponse> {
 
-	ArrayList<Project> projects;
-	ArrayList<Company> company;
+	ArrayList<Project> projects = Project.generateFakeProjects();
+	ArrayList<Project> arrayEspecifico = new ArrayList<Project>();
+	ArrayList<Company> company = Company.generateFakeCompany();
+
 	MeusProj_ListView_Adapter adapterList;
 	MeusProj_Spinner_Adapter adapterSpinner;
+
 	ListView listView;
 	Spinner spinner;
+
+	Typeface font;
+	// o user vem em forma de string desde o log in
+	String info;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		listView = (ListView) findViewById(android.R.id.list);
-		spinner = (Spinner) findViewById(R.id.textSpinnerItem);
-		projects = new ArrayList<Project>();
-		company = new ArrayList<Company>();
-		adapterSpinner = new MeusProj_Spinner_Adapter(this,
-				R.layout.spinner_item, company);
-		adapterList = new MeusProj_ListView_Adapter(this, R.layout.single_row_listview_addproj, projects);
-		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+		setContentView(R.layout.meusprojs_layout);
 
+		// para o tipo de letra
+		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
+
+		listView = (ListView) findViewById(R.id.list);
+		spinner = (Spinner) findViewById(R.id.spinnerMeusProj);
+
+		adapterSpinner = new MeusProj_Spinner_Adapter(MeusProj_Activity2.this,
+				R.layout.spinner_item, company, font);
+		spinner.setAdapter(adapterSpinner);
+		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
-					int position, long id) {				
+					int position, long id) {
+				// TODO Auto-generated method stub
+				arrayEspecifico.clear();
+				// buscar info de user de tras, que vem do log in
+				info = getIntent().getExtras().getString("USERNAME");
+				Company valor = adapterSpinner.getItem(position);
+				for (Project auxProject : projects) {
+					if (auxProject.getUserid() != null
+							&& auxProject.getCompanyid() == valor.getId()) {
+						arrayEspecifico.add(auxProject);
+					}
+				}
+				adapterList = new MeusProj_ListView_Adapter(
+						MeusProj_Activity2.this,
+						R.layout.single_row_listview_meusproj, arrayEspecifico,
+						font);
 				listView.setAdapter(adapterList);
 			}
 
@@ -60,7 +78,7 @@ public class MeusProj_Activity2 extends Activity implements
 
 			}
 		});
-		spinner.setAdapter(adapterSpinner);
+
 	}
 
 	@Override

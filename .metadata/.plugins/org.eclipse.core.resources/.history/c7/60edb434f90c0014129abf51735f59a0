@@ -1,0 +1,56 @@
+package com.example.itlog.adapters;
+
+import java.util.ArrayList;
+
+import android.content.Context;
+import android.graphics.Typeface;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+import com.example.itlog.R;
+import com.example.itlog.objects.Project;
+
+public class MeusProj_ListView_Adapter extends ArrayAdapter<Project> {
+
+	private ArrayList<Project> projects;
+	private int recurso;
+	LayoutInflater inflater;
+	boolean notifyOnChange = true;
+	Typeface font;
+
+	public MeusProj_ListView_Adapter(Context context, int resource,
+			ArrayList<Project> projects, int recurso, LayoutInflater inflater) {
+		super(context, resource);
+		this.projects = projects;
+		this.recurso = recurso;
+		this.inflater = (LayoutInflater) context
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+	}
+
+	public MeusProj_ListView_Adapter(Context context, int resource,
+			ArrayList<Project> projects, int recurso, LayoutInflater inflater,
+			Typeface font) {
+		super(context, resource);
+		this.projects = projects;
+		this.recurso = recurso;
+		this.inflater = (LayoutInflater) context
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		this.font = font;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		View v = convertView;
+		if (v == null){
+			v = inflater.inflate(R.layout.single_row_listview_meusproj, null);
+		}
+		Project row = projects.get(position);
+		if (row != null){
+			TextView textView = (TextView)v.findViewById(R.id.textViewMeusProj);
+		}
+		return v;
+	}
+}

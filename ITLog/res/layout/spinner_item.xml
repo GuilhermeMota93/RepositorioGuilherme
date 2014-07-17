@@ -2,6 +2,11 @@
     android:id="@+id/textSpinnerItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:textSize="25dp" 
-    android:background="#ebeaed"
-    android:textColor="#0e7d9a"/>
+    android:background="@drawable/selector_botao_normal"
+    android:paddingBottom="5dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="5dp"
+    android:textColor="#0e7d9a"
+    android:textSize="25dp" />
+

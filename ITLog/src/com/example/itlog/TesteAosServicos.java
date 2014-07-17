@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.example.itlog.activities.AddProj_Activity;
+import com.example.itlog.activities.AddProj_Activity2;
 import com.example.itlog.activities.Info_Activity;
 import com.example.itlog.activities.MeusProj_Activity;
 

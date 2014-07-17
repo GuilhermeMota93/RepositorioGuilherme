@@ -1,106 +1,68 @@
 package com.example.itlog.adapters;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import com.example.itlog.R;
-import com.example.itlog.objects.Company;
-import com.example.itlog.objects.Project;
 
 import android.content.Context;
-
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-public class MeusProj_ListView_Adapter extends BaseAdapter {
+import com.example.itlog.R;
+import com.example.itlog.objects.Project;
+
+public class MeusProj_ListView_Adapter extends ArrayAdapter<Project> {
 
 	private ArrayList<Project> projects;
 	private int recurso;
 	LayoutInflater inflater;
 	boolean notifyOnChange = true;
-	
-	public MeusProj_ListView_Adapter(final Context context, final int recurso,
+	Typeface font;
+
+	public MeusProj_ListView_Adapter(Context context, final int recurso,
 			ArrayList<Project> projects) {
+		super(context, R.layout.meusprojs_layout, projects);
 		this.projects = projects;
 		this.recurso = recurso;
-		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	}
-	
-
-	@Override
-	public int getCount() {
-		// TODO Auto-generated method stub
-		return getCount();
+		this.inflater = (LayoutInflater) context
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 
-	@Override
-	public Project getItem(int position) {
-		// TODO Auto-generated method stub
-		return getItem(position);
-	}
-
-	@Override
-	public long getItemId(int position) {
-		// TODO Auto-generated method stub
-		return position;
-	}
-
-	public int getPosition(Project item) {
-		// TODO Auto-generated method stub
-		return getPosition(item);
-	}
-
-	@Override
-	public int getViewTypeCount() {
-		return 1; // Number of types + 1 !!!!!!!!
-	}
-
-	@Override
-	public int getItemViewType(int position) {
-		return 1;
+	public MeusProj_ListView_Adapter(Context context, final int recurso,
+			ArrayList<Project> projects, Typeface font) {
+		super(context, R.layout.meusprojs_layout, projects);
+		this.projects = projects;
+		this.recurso = recurso;
+		this.inflater = (LayoutInflater) context
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		this.font = font;
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		Project p = projects.get(position);
-		final ViewHolderListViewMeusProj holder;
-		int type = getItemViewType(position);
-		if (convertView == null) {
-			holder = new ViewHolderListViewMeusProj();
-			switch (type) {
-			case 1:
-				convertView = inflater
-						.inflate(R.layout.single_row_listview_addproj,
-								parent, false);
-				holder.name = (TextView) convertView
-						.findViewById(R.id.textView1);
-				break;
-			}
-			convertView.setTag(holder);
-		} else {
-			holder = (ViewHolderListViewMeusProj) convertView.getTag();
+		View v = convertView;
+		if (v == null)
+			v = inflater.inflate(R.layout.single_row_listview_meusproj, null);
+		Project row = projects.get(position);
+		if (row != null) {
+			TextView textView = (TextView) v
+					.findViewById(R.id.textViewMeusProj);
+			textView.setTypeface(font);
+			textView.setText(row.getName());
 		}
-		holder.name.setText(p.getNome());
-		holder.pos = position;
-		return convertView;
+		return v;
 	}
 
+	@Override
 	public void notifyDataSetChanged() {
+		// TODO Auto-generated method stub
 		super.notifyDataSetChanged();
-		notifyOnChange = true;
 	}
 
 	public void setNotifyOnChange(boolean notifyOnChange) {
-		this.notifyOnChange = notifyOnChange;
+		// TODO Auto-generated method stub
+		setNotifyOnChange(notifyOnChange);
 	}
-}
-
-class ViewHolderListViewMeusProj {
-
-	TextView name;
-	int pos; // to store the position of the item within the list
 }

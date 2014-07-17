@@ -20,9 +20,9 @@
             android:layout_marginBottom="15dp"
             android:layout_marginTop="15dp"
             android:text="Cliente XXX"
-            android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#0e7d9a"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textProjecto"
@@ -30,8 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:text="Projecto ABC"
-            android:textSize="42sp"
-            android:textColor="#0e7d9a"/>
+            android:textColor="#0e7d9a"
+            android:textSize="42sp" />
 
         <TextView
             android:id="@+id/textGestor"
@@ -39,9 +39,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
             android:text="Gestor XPTO"
-            android:textAppearance="?android:attr/textAppearanceSmall" 
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="#0e7d9a"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textDescr"
@@ -49,8 +49,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="45dp"
             android:text="Pequena descrição aqui..."
-            android:textAppearance="?android:attr/textAppearanceSmall" 
-            android:textColor="#4c4c4c"/>
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#4c4c4c" />
 
         <View
             android:layout_width="fill_parent"
@@ -61,8 +61,8 @@
             android:id="@+id/textHoras"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:layout_gravity="center"
+            android:layout_marginTop="30dp"
             android:text="50 Horas"
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
@@ -70,11 +70,10 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        
-        android:layout_weight="1"
-        android:orientation="vertical" 
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginRight="10dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
 
         <View
             android:layout_width="fill_parent"
@@ -86,7 +85,7 @@
             android:layout_width="fill_parent"
             android:layout_height="86dp"
             android:layout_gravity="bottom"
-            android:background="@drawable/selector"
+            android:background="@drawable/selector_botao_normal"
             android:gravity="left|center_vertical"
             android:text="Imputar Horas"
             android:textColor="#0e7d9a"
@@ -102,7 +101,7 @@
             android:layout_width="fill_parent"
             android:layout_height="86dp"
             android:layout_gravity="bottom"
-            android:background="@drawable/selector"
+            android:background="@drawable/selector_botao_normal"
             android:gravity="left|center_vertical"
             android:text="Eliminar Projecto"
             android:textColor="#0e7d9a"

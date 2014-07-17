@@ -1,41 +1,54 @@
 package com.example.itlog.objects;
 
-public class Funcionario {
-	String name, email;
-	int userid;
-	
-	public Funcionario(){
-		
+import java.util.ArrayList;
+
+public class Funcionario extends Users {
+	String name, email, numeroFunc;
+
+	public Funcionario(String name, String email, String id) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.numeroFunc = id;
 	}
-	
-	public Funcionario(String nome, String mail, int id){
-		this.name = nome;
-		this.email = mail;
-		this.userid = id;
+
+	public Funcionario() {
+
 	}
-	
-	public String getNome(){
+
+	public String getName() {
 		return name;
 	}
-	
-	public void setNome(String nome){
-		this.name = nome;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	
-	public String getMail(){
+
+	public String getEmail() {
 		return email;
 	}
-	
-	public void setMail(String mail){
-		this.email = mail;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	
-	public int getID(){
-		return userid;
+
+	public String getId() {
+		return numeroFunc;
 	}
-	
-	public void setID(int id){
-		this.userid = id;
+
+	public void setId(String id) {
+		this.numeroFunc = id;
 	}
-	
+
+	public static ArrayList<Funcionario> generateFakeFuncionarios() {
+		ArrayList<Funcionario> funcionario = new ArrayList<Funcionario>();
+		funcionario.add(new Funcionario("Guilherme Mota",
+				"guilherme.mota@itsector.pt", "C812"));
+		funcionario.add(new Funcionario("Alberto Ambibio",
+				"albertini.mail@cenas.pt", "A123"));
+		funcionario.add(new Funcionario("Teste", "testefuncionario@teste.pt",
+				"a"));
+
+		return funcionario;
+	}
 }
