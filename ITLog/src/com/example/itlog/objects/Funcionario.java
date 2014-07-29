@@ -48,6 +48,7 @@ public class Funcionario extends Users {
 				"albertini.mail@cenas.pt", "A123"));
 		funcionario.add(new Funcionario("Teste", "testefuncionario@teste.pt",
 				"a"));
+		
 
 		return funcionario;
 	}

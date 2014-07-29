@@ -1,9 +1,0 @@
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/textSpinnerItem"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/selector_botao_normal"
-    android:paddingBottom="15dp"
-    android:paddingTop="15dp"
-    android:textColor="#0e7d9a"
-    android:textSize="25dp" />

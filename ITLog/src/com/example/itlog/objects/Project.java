@@ -1,10 +1,16 @@
 package com.example.itlog.objects;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Project extends Company {
+public class Project extends Client implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5164160685266480492L;
 	String name, manager, descripiton, userid;
-	int projectid, hours, companyid;
+	int projectId, hours, clientId;
 
 	public Project() {
 
@@ -13,8 +19,8 @@ public class Project extends Company {
 	public Project(String name, int projectid, int companyid, String manager,
 			String description, int hours) {
 		this.name = name;
-		this.projectid = projectid;
-		this.companyid = companyid;
+		this.projectId = projectid;
+		this.clientId = companyid;
 		this.manager = manager;
 		this.descripiton = description;
 		this.hours = hours;
@@ -23,8 +29,8 @@ public class Project extends Company {
 	public Project(String name, int projectid, int companyid, String manager,
 			String description, int hours, String userid) {
 		this.name = name;
-		this.projectid = projectid;
-		this.companyid = companyid;
+		this.projectId = projectid;
+		this.clientId = companyid;
 		this.manager = manager;
 		this.descripiton = description;
 		this.hours = hours;
@@ -35,8 +41,8 @@ public class Project extends Company {
 	public Project(String name, int projectid, int companyid, String manager,
 			String description) {
 		this.name = name;
-		this.projectid = projectid;
-		this.companyid = companyid;
+		this.projectId = projectid;
+		this.clientId = companyid;
 		this.manager = manager;
 		this.descripiton = description;
 	}
@@ -74,11 +80,11 @@ public class Project extends Company {
 	}
 
 	public int getProjectid() {
-		return projectid;
+		return projectId;
 	}
 
 	public void setProjectid(int projectid) {
-		this.projectid = projectid;
+		this.projectId = projectid;
 	}
 
 	public int getHours() {
@@ -90,11 +96,11 @@ public class Project extends Company {
 	}
 
 	public int getCompanyid() {
-		return companyid;
+		return clientId;
 	}
 
 	public void setCompanyid(int companyid) {
-		this.companyid = companyid;
+		this.clientId = companyid;
 	}
 
 	@Override
@@ -102,59 +108,89 @@ public class Project extends Company {
 		return "Project [name=" + name + "]";
 	}
 
-	public static  ArrayList<Project> generateFakeProjects() {
+	public static ArrayList<Project> generateFakeProjects() {
 		ArrayList<Project> projects = new ArrayList<Project>();
-		projects.add(new Project("Projecto A", 1, 1, "António Arroz",
-				"É lindo!", 16, "A123"));
-		projects.add(new Project("Projecto B", 2, 1, "Baltazar Bolacha",
-				"É fantástico!", 8, "C812"));
-		projects.add(new Project("Projecto C", 3, 2, "Cristiano Crouguette",
-				"É excelente!", 4));
-		projects.add(new Project("Projecto D", 4, 1, "Dilma Docinho",
-				"É belissimo!", 32, "C812"));
+		projects.add(new Project(
+				"Projecto A",
+				1,
+				1,
+				"António Arroz",
+				"Este projeto consiste em fazer coisas derivadas de assuntos como cenas!",
+				16, "A123"));
+		projects.add(new Project(
+				"Projecto B",
+				2,
+				1,
+				"Baltazar Bolacha",
+				"Este projeto consiste em fazer coisas derivadas de assuntos como cenas!",
+				8, "C812"));
+		projects.add(new Project(
+				"Projecto C",
+				3,
+				2,
+				"Cristiano Crouguette",
+				"Este projeto consiste em fazer coisas derivadas de assuntos como cenas!",
+				4));
+		projects.add(new Project(
+				"Projecto D",
+				4,
+				1,
+				"Dilma Docinho",
+				"Este projeto consiste em fazer coisas derivadas de assuntos como cenas!",
+				32, "C812"));
 		projects.add(new Project("Projecto E", 5, 1, "Elisio Eletro", "É mel!",
 				64, "A123"));
-		projects.add(new Project("Projecto F", 6, 1, "Francisca Filetes",
-				"É bela!", 16, "C812"));
-		projects.add(new Project("Projecto G", 7, 2, "Gina Gomas",
-				"É poderosa!", 32));
-		projects.add(new Project("Projecto H", 8, 2, "Helio Hogurte",
-				"É potente!", 8, "C812"));
-		projects.add(new Project("Projecto I", 9, 1, "Ilda Ilaria",
-				"É inexplicavel!",16, "A123"));
-		projects.add(new Project("Projecto J", 10, 1, "Jorge Jumento",
-				"É jumanji!"));
-		projects.add(new Project("Projecto K", 11, 1, "Karpem Kiem",
-				"É kool!"));
+		projects.add(new Project(
+				"Projecto F",
+				6,
+				2,
+				"Francisca Filetes",
+				"Este projeto consiste em fazer coisas derivadas de assuntos como cenas!",
+				16, "C812"));
+		projects.add(new Project(
+				"Projecto G",
+				7,
+				2,
+				"Gina Gomas",
+				"Este projeto consiste em fazer coisas derivadas de assuntos como cenas!",
+				32));
+		projects.add(new Project(
+				"Projecto H",
+				8,
+				2,
+				"Helio Hogurte",
+				"Este projeto consiste em fazer coisas derivadas de assuntos como cenas!",
+				8, "C812"));
+		projects.add(new Project(
+				"Projecto I",
+				9,
+				1,
+				"Ilda Ilaria",
+				"Este projeto consiste em fazer coisas derivadas de assuntos como cenas!",
+				16, "A123"));
+		projects.add(new Project(
+				"Projecto J",
+				10,
+				1,
+				"Jorge Jumento",
+				"Este projeto consiste em fazer coisas derivadas de assuntos como cenas!",
+				0, "A123"));
+		projects.add(new Project(
+				"Projecto K",
+				11,
+				2,
+				"Karpem Kiem",
+				"Este projeto consiste em fazer coisas derivadas de assuntos como cenas!",
+				0, "A123"));
 		projects.add(new Project("Projecto L", 12, 1, "Lois Lane",
-				"É lupin!"));
+				"Este projeto consiste em fazer coisas derivadas de assuntos como cenas!"));
 		projects.add(new Project("Projecto M", 13, 1, "Marco Maria",
-				"É maltesears!"));
+				"Este projeto consiste em fazer coisas derivadas de assuntos como cenas!"));
 		projects.add(new Project("Projecto N", 14, 1, "Nando Nespera",
-				"É kitkat!"));
+				"Este projeto consiste em fazer coisas derivadas de assuntos como cenas!"));
 		projects.add(new Project("Projecto O", 15, 1, "Orlando Olivio",
-				"É gingerbread!"));
+				"Este projeto consiste em fazer coisas derivadas de assuntos como cenas!"));
 		return projects;
 	}
-	
-//	
-//	public static ArrayList<Project> generateFakeUsersProjects(){
-//		ArrayList<Project> userProjects = new ArrayList<Project>();
-//		userProjects.add(new Project("Projecto P", 1, 1, "António Arroz",
-//				"É lindo!", 16, "A123"));
-//		userProjects.add(new Project("Projecto Q", 2, 1, "Baltazar Bolacha",
-//				"É fantástico!", 8, "C812"));
-//		userProjects.add(new Project("Projecto R", 3, 2, "Cristiano Crouguette",
-//				"É excelente!", 4, "A123"));
-//		userProjects.add(new Project("Projecto S", 4, 1, "Dilma Docinho",
-//				"É belissimo!", 32, "C812"));
-//		userProjects.add(new Project("Projecto T", 5, 1, "Elisio Eletro", "É mel!",
-//				64, "A123"));
-//		userProjects.add(new Project("Projecto U", 6, 1, "Francisca Filetes",
-//				"É bela!", 16, "C812"));
-//		userProjects.add(new Project("Projecto V", 7, 2, "Gina Gomas",
-//				"É poderosa!", 32, "A123"));
-//		return userProjects;
-//	}
 
 }

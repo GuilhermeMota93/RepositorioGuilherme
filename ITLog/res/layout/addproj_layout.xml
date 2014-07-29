@@ -3,15 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ebeaed"
-    android:descendantFocusability="blocksDescendants"
     android:orientation="vertical" >
 
     <Spinner
         android:id="@+id/spinnerAddProj"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:drawSelectorOnTop="true"
         android:paddingBottom="15dp"
         android:paddingTop="15dp" />
@@ -24,10 +23,7 @@
         <ListView
             android:id="@+id/list"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_above="@+id/addProj"
-            android:layout_weight="0.5"
-            android:background="@drawable/selector_botao_normal" >
+            android:layout_height="fill_parent" >
         </ListView>
     </LinearLayout>
 

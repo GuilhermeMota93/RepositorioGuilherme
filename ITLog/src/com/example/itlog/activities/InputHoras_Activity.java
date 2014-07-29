@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import com.example.itlog.R;
+import com.example.itlog.adapters.Calendario_Adapter;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -23,7 +24,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class InputHoras_Activity extends Activity {
+public class InputHoras_Activity extends GeneralButtons_Activity {
 
 	public Calendar month, itemmonth;// instancias do calendario
 	public Calendario_Adapter adapter;// instacia do adaptador
@@ -40,6 +41,7 @@ public class InputHoras_Activity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.calendar);
+
 		month = Calendar.getInstance();
 		itemmonth = (Calendar) month.clone();
 		items = new ArrayList<String>();

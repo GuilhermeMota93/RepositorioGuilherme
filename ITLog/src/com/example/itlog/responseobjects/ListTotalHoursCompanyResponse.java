@@ -3,7 +3,7 @@ package com.example.itlog.responseobjects;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.itlog.objects.Company;
+import com.example.itlog.objects.Client;
 
 import android.R.integer;
 
@@ -13,10 +13,10 @@ public class ListTotalHoursCompanyResponse {
 	private String username;
 	private String day;
 	private int hours;
-	private Map<Company, integer> companies = new HashMap<Company, integer>();
+	private Map<Client, integer> companies = new HashMap<Client, integer>();
 
 	public ListTotalHoursCompanyResponse(String username, String day,
-			int hours, Map<Company, integer> companies) {
+			int hours, Map<Client, integer> companies) {
 		super();
 		this.username = username;
 		this.day = day;
@@ -48,11 +48,11 @@ public class ListTotalHoursCompanyResponse {
 		this.hours = hours;
 	}
 
-	public Map<Company, integer> getCompanies() {
+	public Map<Client, integer> getCompanies() {
 		return companies;
 	}
 
-	public void setCompanies(Map<Company, integer> companies) {
+	public void setCompanies(Map<Client, integer> companies) {
 		this.companies = companies;
 	}
 

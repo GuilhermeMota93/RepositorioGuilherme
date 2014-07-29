@@ -11,18 +11,18 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.itlog.R;
-import com.example.itlog.objects.Company;
+import com.example.itlog.objects.Client;
 
-public class MeusProj_Spinner_Adapter extends ArrayAdapter<Company> {
+public class MeusProj_Spinner_Adapter extends ArrayAdapter<Client> {
 
-	ArrayList<Company> company;
+	ArrayList<Client> company;
 	private int recurso;
 	LayoutInflater inflater;
 	boolean notifyOnChange = true;
 	Typeface font;
 
 	public MeusProj_Spinner_Adapter(final Context context, final int recurso,
-			ArrayList<Company> company) {
+			ArrayList<Client> company) {
 		super(context, R.layout.meusprojs_layout, company);
 		this.company = company;
 		this.recurso = recurso;
@@ -31,7 +31,7 @@ public class MeusProj_Spinner_Adapter extends ArrayAdapter<Company> {
 	}
 
 	public MeusProj_Spinner_Adapter(Context context, int recurso,
-			ArrayList<Company> company, Typeface font) {
+			ArrayList<Client> company, Typeface font) {
 		super(context, R.layout.meusprojs_layout, company);
 		this.company = company;
 		this.recurso = recurso;
@@ -45,7 +45,7 @@ public class MeusProj_Spinner_Adapter extends ArrayAdapter<Company> {
 		View v = convertView;
 		if (v == null)
 			v = inflater.inflate(R.layout.spinner_item, null);
-		Company row = company.get(position);
+		Client row = company.get(position);
 		if (row != null) {
 			TextView textView = (TextView) v.findViewById(R.id.textSpinnerItem);
 			textView.setTypeface(font);
@@ -60,11 +60,12 @@ public class MeusProj_Spinner_Adapter extends ArrayAdapter<Company> {
 		// TODO Auto-generated method stub
 		View v = convertView;
 		if (v == null) {
-			v = inflater.inflate(R.layout.spinner_item, null);
+			v = inflater.inflate(R.layout.spinner_item_dropdown, null);
 		}
-		Company row = company.get(position);
+		Client row = company.get(position);
 		if (row != null) {
-			TextView textView = (TextView) v.findViewById(R.id.textSpinnerItem);
+			TextView textView = (TextView) v
+					.findViewById(R.id.textSpinnerItemDropdown);
 			textView.setTypeface(font);
 			textView.setText(row.getName());
 		}

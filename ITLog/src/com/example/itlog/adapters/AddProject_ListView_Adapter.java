@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 public class AddProject_ListView_Adapter extends ArrayAdapter<Project> {
 
-	ArrayList<Project> projects;
+	private ArrayList<Project> projects;
 	private int recurso;
 	LayoutInflater inflater ;
 	boolean notifyOnChange = true;

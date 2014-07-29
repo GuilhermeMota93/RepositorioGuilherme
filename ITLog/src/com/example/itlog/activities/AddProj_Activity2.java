@@ -22,7 +22,7 @@ import com.example.itlog.R;
 import com.example.itlog.adapters.AddProject_ListView_Adapter;
 import com.example.itlog.adapters.AddProject_Spinner_Adapter;
 import com.example.itlog.communication.CallbackInterface;
-import com.example.itlog.objects.Company;
+import com.example.itlog.objects.Client;
 import com.example.itlog.objects.Project;
 import com.example.itlog.responseobjects.ListAllProjectsResponse;
 
@@ -31,7 +31,7 @@ public class AddProj_Activity2 extends GeneralButtons_Activity implements
 
 	ArrayList<Project> projects = Project.generateFakeProjects();
 	ArrayList<Project> arrayEspecifico = new ArrayList<Project>();
-	ArrayList<Company> company = Company.generateFakeCompany();
+	ArrayList<Client> company = Client.generateFakeCompany();
 
 	AddProject_ListView_Adapter adapterList;
 	AddProject_Spinner_Adapter adapterSpinner;
@@ -62,7 +62,7 @@ public class AddProj_Activity2 extends GeneralButtons_Activity implements
 					int position, long id) {
 				// TODO Auto-generated method stub
 				arrayEspecifico.clear();
-				Company valor = adapterSpinner.getItem(position);
+				Client valor = adapterSpinner.getItem(position);
 				for (Project auxProject : projects) {
 					if (auxProject.getCompanyid() == valor.getId()
 							&& auxProject.getUserid() == null) {

@@ -21,7 +21,7 @@ public class MeusProj_ListView_Adapter extends ArrayAdapter<Project> {
 	boolean notifyOnChange = true;
 	Typeface font;
 
-	public MeusProj_ListView_Adapter(Context context, final int recurso,
+	public MeusProj_ListView_Adapter(final Context context, final int recurso,
 			ArrayList<Project> projects) {
 		super(context, R.layout.meusprojs_layout, projects);
 		this.projects = projects;
@@ -30,7 +30,7 @@ public class MeusProj_ListView_Adapter extends ArrayAdapter<Project> {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 
-	public MeusProj_ListView_Adapter(Context context, final int recurso,
+	public MeusProj_ListView_Adapter(final Context context, final int recurso,
 			ArrayList<Project> projects, Typeface font) {
 		super(context, R.layout.meusprojs_layout, projects);
 		this.projects = projects;
@@ -44,7 +44,8 @@ public class MeusProj_ListView_Adapter extends ArrayAdapter<Project> {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View v = convertView;
 		if (v == null)
-			v = inflater.inflate(R.layout.single_row_listview_meusproj, null);
+			v = inflater.inflate(
+					R.layout.single_row_listview_meusproj, null);
 		Project row = projects.get(position);
 		if (row != null) {
 			TextView textView = (TextView) v

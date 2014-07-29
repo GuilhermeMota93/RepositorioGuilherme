@@ -6,7 +6,7 @@
     tools:context=".Main_Activity" >
 
    <GridView
-        android:id="@+id/gridViewCustom"
+        android:id="@+id/gridViewCustom2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"

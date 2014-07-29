@@ -110,7 +110,7 @@ public class Info_Activity extends Activity implements
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intencao = new Intent(Info_Activity.this,
-						InputHoras_Activity.class);
+						InputHoras_Activity2.class);
 				intencao.putExtra("USERNAME", info);
 				Info_Activity.this.startActivity(intencao);
 			}

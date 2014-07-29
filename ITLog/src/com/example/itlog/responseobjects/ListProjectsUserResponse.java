@@ -2,7 +2,7 @@ package com.example.itlog.responseobjects;
 
 import java.util.ArrayList;
 
-import com.example.itlog.objects.Company;
+import com.example.itlog.objects.Client;
 import com.example.itlog.objects.Project;
 
 
@@ -10,17 +10,17 @@ public class ListProjectsUserResponse {
 
 	public String username;
 	public ArrayList<Project> projects = new ArrayList<Project>();
-	public ArrayList<Company> company = new ArrayList<Company>();
+	public ArrayList<Client> company = new ArrayList<Client>();
 
 	public ListProjectsUserResponse(String username,
-			ArrayList<Project> projects, ArrayList<Company> company) {
+			ArrayList<Project> projects, ArrayList<Client> company) {
 		super();
 		this.username = username;
 		this.projects = projects;
 		this.company = company;
 	}
 
-	public ListProjectsUserResponse(ArrayList<Project> projects, ArrayList<Company> company) {
+	public ListProjectsUserResponse(ArrayList<Project> projects, ArrayList<Client> company) {
 		super();
 		this.projects = projects;
 		this.company = company;
@@ -43,11 +43,11 @@ public class ListProjectsUserResponse {
 		this.projects = projects;
 	}
 
-	public ArrayList<Company> getCompany() {
+	public ArrayList<Client> getCompany() {
 		return company;
 	}
 
-	public void setCompany(ArrayList<Company> company) {
+	public void setCompany(ArrayList<Client> company) {
 		this.company = company;
 	}
 

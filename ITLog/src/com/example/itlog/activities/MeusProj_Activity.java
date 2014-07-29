@@ -99,13 +99,6 @@ public class MeusProj_Activity extends GeneralButtons_Activity implements
 						MostraInfoProj_Activity.class);
 				startActivity(appInfo);
 
-				// ....como faço para ir buscar os elementos certo e nao zero
-				// Intent i = new Intent (MeusProj_Activity.this,
-				// MostraInfoProj_Activity.class);
-				// i.putExtra("NomeEmpresa", company.get(0).getNome());
-				// i.putExtra("NomeProjeto", projects.get(0).getNome());
-				// i.putExtra("GestorProjeto", projects.get(0).getGestor());
-				// i.putExtra("Descricao", projects.get(0).getDescricao());
 				// i.putExtra("Horas", projects.get(0).getHoras());
 			}
 		});
