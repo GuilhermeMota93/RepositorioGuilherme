@@ -25,23 +25,23 @@ public class Calendario_Adapter extends BaseAdapter {
 
 	private Context mContext;
 	private java.util.Calendar month;
-	
+
 	// instacia para mes anterior
 	public GregorianCalendar pmonth;
-	
+
 	// instancia de mes anterior para ter View completa
 	public GregorianCalendar pmonthmaxset;
-	
+
 	private GregorianCalendar selectedDate;
-	
+
 	int firstDay, maxWeeknumber, maxP, calMaxP, lastWeekDay, leftDays,
 			mnthlength;
-	
+
 	String itemvalue, curentDateString;
-	
+
 	SimpleDateFormat df;
-	
-	int [] checkStates;
+
+	int[] checkStates;
 
 	private ArrayList<String> items;
 	public static List<String> dayString;
@@ -85,67 +85,58 @@ public class Calendario_Adapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View v = convertView;
 		TextView dayView;
-		CheckBox checkBox;
-		
+		// CheckBox checkBox;
+
 		if (convertView == null) { // if it's not recycled, initialize some
 			// attributes
 			LayoutInflater vi = (LayoutInflater) mContext
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			v = vi.inflate(R.layout.calendar_item, null);
+			v = vi.inflate(R.layout.calendario_item2, null);
 
 		}
-		dayView = (TextView) v.findViewById(R.id.date);
-		
-		checkBox = (CheckBox) v.findViewById(R.id.checkBox1);
-		
-		checkStates = new int [dayString.size()];
+		dayView = (TextView) v.findViewById(R.id.textViewCalendarItem2);
+
+		// checkBox = (CheckBox) v.findViewById(R.id.checkBox1);
+
+		checkStates = new int[dayString.size()];
 		for (int i = 0; i < items.size(); i++) {
 			checkStates[i] = 0;
 		}
-		checkBox.setTag(position);
-		
-		checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			//guardar os 'checks' nas checkboxes
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				
-				int pos = (Integer) buttonView.getTag();
-				if(!buttonView.isChecked()){
-					checkStates[pos] = 0;
-				}else{
-					checkStates[pos] = 1;
-				}
-				notifyDataSetChanged();
-			}
-		});
-	
-		
-		
+		// checkBox.setTag(position);
+		//
+		// checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+		// //guardar os 'checks' nas checkboxes
+		// @Override
+		// public void onCheckedChanged(CompoundButton buttonView, boolean
+		// isChecked) {
+		//
+		// int pos = (Integer) buttonView.getTag();
+		// if(!buttonView.isChecked()){
+		// checkStates[pos] = 0;
+		// }else{
+		// checkStates[pos] = 1;
+		// }
+		// notifyDataSetChanged();
+		// }
+		// });
+
 		// separates daystring into parts.
 		String[] separatedTime = dayString.get(position).split("-");
 		// taking last part of date. ie; 2 from 2012-12-02
 		String gridvalue = separatedTime[2].replaceFirst("^0*", "");
-		
-		
-		
+
 		// checking whether the day is in current month or not.
 		if ((Integer.parseInt(gridvalue) > 1) && (position < firstDay)) {
 			// setting offdays to white color.
 			dayView.setTextColor(Color.WHITE);
-			checkBox.setClickable(false);
+			// checkBox.setClickable(false);
 			dayView.setFocusable(false);
-			
-			
+
 		} else if ((Integer.parseInt(gridvalue) < 7) && (position > 28)) {
 			dayView.setTextColor(Color.WHITE);
 			dayView.setClickable(false);
 			dayView.setFocusable(false);
-			
-			
-		} else {
-			// setting curent month's days in blue color.
-			dayView.setTextColor(Color.BLUE);
-			
+
 		}
 
 		if (dayString.get(position).equals(curentDateString)) {
@@ -155,8 +146,6 @@ public class Calendario_Adapter extends BaseAdapter {
 			v.setBackgroundResource(R.drawable.list_item_background);
 		}
 		dayView.setText(gridvalue);
-		
-		
 
 		// create date string for comparison
 		String date = dayString.get(position);
@@ -170,12 +159,12 @@ public class Calendario_Adapter extends BaseAdapter {
 		}
 
 		// show icon if date is not empty and it exists in the items array
-		/*ImageView iw = (ImageView) v.findViewById(R.id.date_icon);
-		if (date.length() > 0 && items != null && items.contains(date)) {
-			iw.setVisibility(View.VISIBLE);
-		} else {
-			iw.setVisibility(View.INVISIBLE);
-		}*/
+		/*
+		 * ImageView iw = (ImageView) v.findViewById(R.id.date_icon); if
+		 * (date.length() > 0 && items != null && items.contains(date)) {
+		 * iw.setVisibility(View.VISIBLE); } else {
+		 * iw.setVisibility(View.INVISIBLE); }
+		 */
 		return v;
 	}
 
@@ -197,7 +186,8 @@ public class Calendario_Adapter extends BaseAdapter {
 		firstDay = month.get(GregorianCalendar.DAY_OF_WEEK);
 		// finding number of weeks in current month.
 		maxWeeknumber = month.getActualMaximum(GregorianCalendar.WEEK_OF_MONTH);
-		if(maxWeeknumber >= 6) maxWeeknumber = 5;
+		if (maxWeeknumber >= 6)
+			maxWeeknumber = 5;
 		// allocating maximum row number for the gridview.
 		mnthlength = maxWeeknumber * 7;
 		maxP = getMaxP(); // previous month maximum day 31,30....
@@ -238,6 +228,5 @@ public class Calendario_Adapter extends BaseAdapter {
 
 		return maxP;
 	}
-	
-	
+
 }

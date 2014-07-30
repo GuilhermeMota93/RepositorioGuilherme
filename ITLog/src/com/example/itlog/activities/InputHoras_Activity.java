@@ -33,48 +33,48 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 	public ArrayList<String> items;// contentor para guardar os items de
 									// calendario necessários para os eventos
 	GridView myGrid;
-	TextView title;
+//	TextView title;
 	Button imputar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.calendar);
+		setContentView(R.layout.calendario_versao2);
 
 		month = Calendar.getInstance();
 		itemmonth = (Calendar) month.clone();
 		items = new ArrayList<String>();
 		adapter = new Calendario_Adapter(this, month);
-		myGrid = (GridView) findViewById(R.id.gridview);
+		myGrid = (GridView) findViewById(R.id.gridViewCustom2);
 		myGrid.setAdapter(adapter);
 		handler = new Handler();
 		handler.post(calendarUpdater);// generate some calendar items
-		title = (TextView) findViewById(R.id.title);
-		title.setText(android.text.format.DateFormat.format("MMMM yyyy", month));
+//		title = (TextView) findViewById(R.id.title);
+//		title.setText(android.text.format.DateFormat.format("MMMM yyyy", month));
 		imputar = (Button) findViewById(R.id.button1);
 
-		RelativeLayout previous = (RelativeLayout) findViewById(R.id.previous);
-
-		previous.setOnClickListener(new OnClickListener() {
-
-			public void onClick(View v) {
-				setPreviousMonth();// mes anterior
-				refreshCalendar();// update ao calendario
-
-			}
-		});
-
-		RelativeLayout next = (RelativeLayout) findViewById(R.id.next);
-		next.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				setNextMonth();// prox mes
-				refreshCalendar();// update ao calendario
-
-			}
-		});
+//		RelativeLayout previous = (RelativeLayout) findViewById(R.id.previous);
+//
+//		previous.setOnClickListener(new OnClickListener() {
+//
+//			public void onClick(View v) {
+//				setPreviousMonth();// mes anterior
+//				refreshCalendar();// update ao calendario
+//
+//			}
+//		});
+//
+//		RelativeLayout next = (RelativeLayout) findViewById(R.id.next);
+//		next.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				setNextMonth();// prox mes
+//				refreshCalendar();// update ao calendario
+//
+//			}
+//		});
 
 		myGrid.setOnItemClickListener(new OnItemClickListener() {
 
@@ -165,13 +165,13 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 	}
 
 	public void refreshCalendar() {
-		TextView title = (TextView) findViewById(R.id.title);
+//		TextView title = (TextView) findViewById(R.id.title);
 
 		adapter.refreshDays();
 		adapter.notifyDataSetChanged();
 		handler.post(calendarUpdater); // generate some calendar items
 
-		title.setText(android.text.format.DateFormat.format("MMMM yyyy", month));
+//		title.setText(android.text.format.DateFormat.format("MMMM yyyy", month));
 	}
 
 	public Runnable calendarUpdater = new Runnable() {

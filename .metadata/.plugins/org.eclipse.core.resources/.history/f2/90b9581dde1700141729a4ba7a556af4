@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ebeaed"
+    android:orientation="vertical" >
+
+    <Spinner
+        android:id="@+id/spinnerGridView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:drawSelectorOnTop="true"
+        android:paddingBottom="25dp"
+        android:paddingTop="15dp" />
+
+    <GridView
+        android:id="@+id/gridViewCustom2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:columnWidth="80dp"
+        android:gravity="center"
+        android:numColumns="5"
+        android:stretchMode="columnWidth" 
+        />
+
+    <RelativeLayout
+        android:id="@+id/aa"
+        android:layout_width="match_parent"
+        android:layout_height="58dp" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/selector_botao_normal"
+            android:gravity="center"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
+            android:text="Imputar"
+            android:textColor="#0e7d9a" />
+    </RelativeLayout>
+
+</LinearLayout>

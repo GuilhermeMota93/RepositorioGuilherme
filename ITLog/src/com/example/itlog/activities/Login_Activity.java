@@ -39,8 +39,8 @@ public class Login_Activity extends Activity implements
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		user = new Users();
-
 		setContentView(R.layout.login_layout);
+		
 		login = (Button) findViewById(R.id.loginBut);
 		password = (EditText) findViewById(R.id.password);
 		credencial = (EditText) findViewById(R.id.credencial);
