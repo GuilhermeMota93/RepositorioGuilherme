@@ -1,0 +1,7 @@
+package com.example.itlog.activities;
+
+import android.support.v4.app.Fragment;
+
+public class Fragment1_Activity extends Fragment{
+
+}

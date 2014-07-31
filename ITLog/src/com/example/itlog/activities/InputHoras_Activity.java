@@ -4,13 +4,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import com.example.itlog.R;
-import com.example.itlog.adapters.Calendario_Adapter;
-
-import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,11 +18,17 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.itlog.R;
+import com.example.itlog.adapters.Calendario_Adapter;
+import com.example.itlog.adapters.InputHoras_Spinner_Adapter;
+import com.example.itlog.objects.Project;
 
 public class InputHoras_Activity extends GeneralButtons_Activity {
 
@@ -32,9 +38,20 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 							// retirar
 	public ArrayList<String> items;// contentor para guardar os items de
 									// calendario necessários para os eventos
+
 	GridView myGrid;
-//	TextView title;
+	// TextView title;
+
+	InputHoras_Spinner_Adapter adapterSpinner;
+	ArrayList<Project> projects = Project.generateFakeProjects();
+	ArrayList<Project> arrayEspecifico = new ArrayList<Project>();
+
 	Button imputar;
+	Typeface font;
+	Spinner spinner;
+	// o username vem em forma de string desde o log in
+	String info;
+	ViewPager viewPager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +59,10 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.calendario_versao2);
 
+		// buscar info de user de tras, que vem do log in
+		info = getIntent().getExtras().getString("USERNAME").toString();
+		// para o tipo de letra
+		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
 		month = Calendar.getInstance();
 		itemmonth = (Calendar) month.clone();
 		items = new ArrayList<String>();
@@ -50,31 +71,41 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		myGrid.setAdapter(adapter);
 		handler = new Handler();
 		handler.post(calendarUpdater);// generate some calendar items
-//		title = (TextView) findViewById(R.id.title);
-//		title.setText(android.text.format.DateFormat.format("MMMM yyyy", month));
-		imputar = (Button) findViewById(R.id.button1);
+		// title = (TextView) findViewById(R.id.title);
+		// title.setText(android.text.format.DateFormat.format("MMMM yyyy",
+		// month));
+		viewPager = (ViewPager) findViewById(R.id.meuViewPager);
 
-//		RelativeLayout previous = (RelativeLayout) findViewById(R.id.previous);
-//
-//		previous.setOnClickListener(new OnClickListener() {
-//
-//			public void onClick(View v) {
-//				setPreviousMonth();// mes anterior
-//				refreshCalendar();// update ao calendario
-//
-//			}
-//		});
-//
-//		RelativeLayout next = (RelativeLayout) findViewById(R.id.next);
-//		next.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				setNextMonth();// prox mes
-//				refreshCalendar();// update ao calendario
-//
-//			}
-//		});
+		imputar = (Button) findViewById(R.id.button1);
+		spinner = (Spinner) findViewById(R.id.spinnerGridView1);
+		getListaProjsUser();
+		adapterSpinner = new InputHoras_Spinner_Adapter(
+				InputHoras_Activity.this, R.layout.spinner_item,
+				arrayEspecifico, font);
+		spinner.setAdapter(adapterSpinner);
+
+		// RelativeLayout previous = (RelativeLayout)
+		// findViewById(R.id.previous);
+		//
+		// previous.setOnClickListener(new OnClickListener() {
+		//
+		// public void onClick(View v) {
+		// setPreviousMonth();// mes anterior
+		// refreshCalendar();// update ao calendario
+		//
+		// }
+		// });
+		//
+		// RelativeLayout next = (RelativeLayout) findViewById(R.id.next);
+		// next.setOnClickListener(new OnClickListener() {
+		//
+		// @Override
+		// public void onClick(View v) {
+		// setNextMonth();// prox mes
+		// refreshCalendar();// update ao calendario
+		//
+		// }
+		// });
 
 		myGrid.setOnItemClickListener(new OnItemClickListener() {
 
@@ -103,17 +134,64 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 			}
 		});
 
+		// imputar.setOnClickListener(new OnClickListener() {
+		//
+		// @Override
+		// public void onClick(View v) {// accao ao clicar ao ADICIONAR
+		// // PROJECTO
+		// // TODO Auto-generated method stub
+		// Intent intencao = new Intent(InputHoras_Activity.this,
+		// ConfirmaHoras_Activity.class);// ao carregar no botao
+		// // IMPUTAR HORAS vai
+		// // para InputHoras
+		// InputHoras_Activity.this.startActivity(intencao);
+		// }
+		// });
+
 		imputar.setOnClickListener(new OnClickListener() {
 
-			@Override
-			public void onClick(View v) {// accao ao clicar ao ADICIONAR
-											// PROJECTO
+			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intencao = new Intent(InputHoras_Activity.this,
-						ConfirmaHoras_Activity.class);// ao carregar no botao
-														// IMPUTAR HORAS vai
-														// para InputHoras
-				InputHoras_Activity.this.startActivity(intencao);
+				LayoutInflater inflate = LayoutInflater
+						.from(InputHoras_Activity.this);
+				View layout = inflate.inflate(R.layout.escolher_horas_layout,
+						null);
+				;
+
+				TextView tv1 = (TextView) layout.findViewById(R.id.titulo);
+				tv1.setText("Quantas Horas pretende adicionar a este projeto?");
+				TextView tv2 = (TextView) layout.findViewById(R.id.pergunta);
+				tv2.setText("Se imputar 8 horas neste projeto, não poderá imputar horas a mais nenhum projecto neste dia!");
+				Button b1 = (Button) layout.findViewById(R.id.botaoQuatroHoras);
+				Button b2 = (Button) layout.findViewById(R.id.botaoOitoHoras);
+
+				final AlertDialog.Builder builder = new AlertDialog.Builder(
+						InputHoras_Activity.this);
+				builder.setView(layout);
+				final AlertDialog dialog = builder.create();
+				dialog.show();
+				b1.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						Toast.makeText(InputHoras_Activity.this,
+								"4 Horas adicionadas com sucesso! ",
+								Toast.LENGTH_LONG).show();
+						dialog.dismiss();
+					}
+				});
+
+				b2.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						Toast.makeText(InputHoras_Activity.this,
+								"8 Horas adicionadas com sucesso! ",
+								Toast.LENGTH_LONG).show();
+						dialog.dismiss();
+					}
+				});
+
 			}
 		});
 
@@ -165,13 +243,14 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 	}
 
 	public void refreshCalendar() {
-//		TextView title = (TextView) findViewById(R.id.title);
+		// TextView title = (TextView) findViewById(R.id.title);
 
 		adapter.refreshDays();
 		adapter.notifyDataSetChanged();
 		handler.post(calendarUpdater); // generate some calendar items
 
-//		title.setText(android.text.format.DateFormat.format("MMMM yyyy", month));
+		// title.setText(android.text.format.DateFormat.format("MMMM yyyy",
+		// month));
 	}
 
 	public Runnable calendarUpdater = new Runnable() {
@@ -193,5 +272,17 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 			adapter.notifyDataSetChanged();
 		}
 	};
+
+	public ArrayList<Project> getListaProjsUser() {
+		arrayEspecifico.clear();
+		for (Project auxProject : projects) {
+			if (auxProject.getUserid() != null
+					&& (auxProject.getUserid()).equals(info)) {
+				arrayEspecifico.add(auxProject);
+			}
+		}
+		return arrayEspecifico;
+
+	}
 
 }

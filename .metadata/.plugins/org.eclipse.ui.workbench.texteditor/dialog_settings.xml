@@ -2,8 +2,8 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
-		<item value="238" key="DIALOG_Y_ORIGIN"/>
-		<item value="129" key="DIALOG_X_ORIGIN"/>
+		<item value="622" key="DIALOG_Y_ORIGIN"/>
+		<item value="1593" key="DIALOG_X_ORIGIN"/>
 		<item value="436" key="DIALOG_HEIGHT"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="calendar_it" key="selection"/>
+		<item value="botaoQuatroHoras" key="selection"/>
 		<list key="findhistory">
-			<item value="calendar_it"/>
-			<item value="checkBox"/>
-			<item value="checkBox1"/>
-			<item value="date"/>
-			<item value="title"/>
-			<item value="Checkbox"/>
-			<item value="check"/>
-			<item value="Calendario_Ad"/>
+			<item value="botaoQuatroHoras"/>
+			<item value="setNextMonth"/>
+			<item value="spinner"/>
+			<item value="info"/>
+			<item value="projectSend"/>
+			<item value="valor"/>
+			<item value="ArrayList&lt;Project&gt; arrayEspecifico = new ArrayList&lt;Project&gt;();ArrayList&lt;Project&gt; arrayEspecifico = new ArrayList&lt;ProArrayList&lt;Project&gt; arrayEspecifico = new ArrayList&lt;Project&gt;(ArrayList&lt;Project&gt; arrayEspecifico = new ArrayList&lt;Project&gt;(););ject&gt;();"/>
+			<item value="selectedDate"/>
 		</list>
 		<list key="replacehistory">
 			<item value="ViewHolderListViewAddProj"/>
