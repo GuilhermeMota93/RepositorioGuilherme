@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,9 +17,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
+import android.widget.CheckedTextView;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +41,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 
 	GridView myGrid;
 	// TextView title;
+	CheckedTextView checkedTv;
 
 	InputHoras_Spinner_Adapter adapterSpinner;
 	ArrayList<Project> projects = Project.generateFakeProjects();
@@ -63,6 +64,8 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		info = getIntent().getExtras().getString("USERNAME").toString();
 		// para o tipo de letra
 		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
+
+		checkedTv = (CheckedTextView) findViewById(R.id.checkedTextView1);
 		month = Calendar.getInstance();
 		itemmonth = (Calendar) month.clone();
 		items = new ArrayList<String>();
@@ -112,6 +115,9 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
+				
+				
+
 				((Calendario_Adapter) parent.getAdapter()).setSelected(view);
 				String selectedGridDate = Calendario_Adapter.dayString
 						.get(position);
@@ -159,7 +165,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 				;
 
 				TextView tv1 = (TextView) layout.findViewById(R.id.titulo);
-				tv1.setText("Quantas Horas pretende adicionar a este projeto?");
+				tv1.setText("Quantas horas pretende adicionar a este projeto?");
 				TextView tv2 = (TextView) layout.findViewById(R.id.pergunta);
 				tv2.setText("Se imputar 8 horas neste projeto, não poderá imputar horas a mais nenhum projecto neste dia!");
 				Button b1 = (Button) layout.findViewById(R.id.botaoQuatroHoras);

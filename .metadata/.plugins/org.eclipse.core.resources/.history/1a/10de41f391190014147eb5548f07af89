@@ -1,0 +1,19 @@
+package com.example.itlog.fragments;
+
+import com.example.itlog.R;
+
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+
+public class Teste_Activity extends FragmentActivity {
+	
+	ViewPager viewPage = null;
+	
+	@Override
+	protected void onCreate(Bundle saveInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(saveInstanceState);
+		setContentView(R.layout.viewpager_layout);
+	}
+	
+}

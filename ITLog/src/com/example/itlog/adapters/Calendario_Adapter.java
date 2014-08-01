@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CheckedTextView;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
@@ -85,6 +86,7 @@ public class Calendario_Adapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View v = convertView;
 		TextView dayView;
+		CheckedTextView checkedTv;
 		// CheckBox checkBox;
 
 		if (convertView == null) { // if it's not recycled, initialize some
@@ -95,6 +97,7 @@ public class Calendario_Adapter extends BaseAdapter {
 
 		}
 		dayView = (TextView) v.findViewById(R.id.textViewCalendarItem2);
+		checkedTv = (CheckedTextView) v.findViewById(R.id.checkedTextView1);
 
 		// checkBox = (CheckBox) v.findViewById(R.id.checkBox1);
 
@@ -131,11 +134,14 @@ public class Calendario_Adapter extends BaseAdapter {
 			dayView.setTextColor(Color.WHITE);
 			// checkBox.setClickable(false);
 			dayView.setFocusable(false);
+			checkedTv.setFocusable(false);
 
 		} else if ((Integer.parseInt(gridvalue) < 7) && (position > 28)) {
 			dayView.setTextColor(Color.WHITE);
 			dayView.setClickable(false);
 			dayView.setFocusable(false);
+			checkedTv.setClickable(false);
+			checkedTv.setFocusable(false);
 
 		}
 
@@ -146,6 +152,7 @@ public class Calendario_Adapter extends BaseAdapter {
 			v.setBackgroundResource(R.drawable.list_item_background);
 		}
 		dayView.setText(gridvalue);
+		checkedTv.setChecked(true);
 
 		// create date string for comparison
 		String date = dayString.get(position);

@@ -39,8 +39,8 @@ public class Calendario2_Adapter extends ArrayAdapter {
 			v = inflater.inflate(R.layout.calendario_item2, null);
 		textView = (TextView) v.findViewById(R.id.textViewCalendarItem2);
 		textView.setText(list.get(position));
-		imageButton = (ImageButton) v
-				.findViewById(R.id.imageButtonCalendarItem2);
+//		imageButton = (ImageButton) v
+//				.findViewById(R.id.imageButtonCalendarItem2);
 		return v;
 	}
 

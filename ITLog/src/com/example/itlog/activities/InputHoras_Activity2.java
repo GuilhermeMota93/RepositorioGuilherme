@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.CheckedTextView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -21,7 +22,7 @@ public class InputHoras_Activity2 extends GeneralButtons_Activity {
 	GridView grid;
 	Calendario2_Adapter calendarioAdapter;
 	TextView tv1;
-	ImageButton imgButton;
+	CheckedTextView checkedTv;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,7 @@ public class InputHoras_Activity2 extends GeneralButtons_Activity {
 		setContentView(R.layout.calendario_versao2);
 
 		grid = (GridView) findViewById(R.id.gridViewCustom2);
-		imgButton = (ImageButton) findViewById(R.id.imageButtonCalendarItem2);
+		checkedTv = (CheckedTextView)findViewById(R.id.checkedTextView1);
 		tv1 = (TextView) findViewById(R.id.textViewCalendarItem2);
 
 		ArrayList<String> list = new ArrayList<String>();
@@ -53,7 +54,7 @@ public class InputHoras_Activity2 extends GeneralButtons_Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				imgButton.setClickable(true);
+				
 			}
 
 		});

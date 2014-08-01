@@ -1,0 +1,10 @@
+<resources>
+
+    <color name="botao_normal">#40a3a1a8</color>
+    <color name="botao_pressionado">#ebeaed</color>
+    <color name="botao_pressionado_cor_azul_claro">#0099cc</color>
+    <color name="botao_pressionado_azul">#0e7d9a</color>
+    <color name="botao_pressionado_branco">#ffffff</color>
+    <color name="gridview_select">#ff8800</color>
+
+</resources>
