@@ -26,12 +26,12 @@ public class InputHoras_Activity2 extends GeneralButtons_Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub 
+		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.calendario_versao2);
 
 		grid = (GridView) findViewById(R.id.gridViewCustom2);
-		checkedTv = (CheckedTextView)findViewById(R.id.checkedTextView1);
+
 		tv1 = (TextView) findViewById(R.id.textViewCalendarItem2);
 
 		ArrayList<String> list = new ArrayList<String>();
@@ -47,14 +47,14 @@ public class InputHoras_Activity2 extends GeneralButtons_Activity {
 				R.layout.calendario_item2, list);
 		grid.setAdapter(calendarioAdapter);
 		grid.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE);
-		
+
 		grid.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 		});

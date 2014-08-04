@@ -15,12 +15,12 @@
         android:gravity="center"
         android:textColor="#ffffff" />
 
-    <CheckedTextView
-        android:id="@+id/checkedTextView1"
+    <ImageView
+        android:id="@+id/imageGrid"
         android:layout_width="match_parent"
-        android:layout_height="40sp" 
-        android:background="@drawable/selector_gridview_item"
+        android:layout_height="40sp"
         android:clickable="true"
-        android:focusableInTouchMode="true"/>
+        android:src="@drawable/selector_gridview_item" 
+        />
 
 </LinearLayout>

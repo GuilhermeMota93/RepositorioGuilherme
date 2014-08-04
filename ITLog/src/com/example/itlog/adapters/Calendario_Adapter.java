@@ -7,20 +7,18 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
 
-import com.example.itlog.R;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CheckedTextView;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.itlog.R;
 
 public class Calendario_Adapter extends BaseAdapter {
 
@@ -86,7 +84,7 @@ public class Calendario_Adapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View v = convertView;
 		TextView dayView;
-		CheckedTextView checkedTv;
+		final ImageView imgViewGrid;
 		// CheckBox checkBox;
 
 		if (convertView == null) { // if it's not recycled, initialize some
@@ -97,7 +95,7 @@ public class Calendario_Adapter extends BaseAdapter {
 
 		}
 		dayView = (TextView) v.findViewById(R.id.textViewCalendarItem2);
-		checkedTv = (CheckedTextView) v.findViewById(R.id.checkedTextView1);
+		imgViewGrid = (ImageView) v.findViewById(R.id.imageGrid);
 
 		// checkBox = (CheckBox) v.findViewById(R.id.checkBox1);
 
@@ -134,25 +132,40 @@ public class Calendario_Adapter extends BaseAdapter {
 			dayView.setTextColor(Color.WHITE);
 			// checkBox.setClickable(false);
 			dayView.setFocusable(false);
-			checkedTv.setFocusable(false);
 
 		} else if ((Integer.parseInt(gridvalue) < 7) && (position > 28)) {
 			dayView.setTextColor(Color.WHITE);
-			dayView.setClickable(false);
-			dayView.setFocusable(false);
-			checkedTv.setClickable(false);
-			checkedTv.setFocusable(false);
+//			dayView.setClickable(false);
+//			dayView.setFocusable(false);
 
 		}
-
+		// dia selecionado aqui
 		if (dayString.get(position).equals(curentDateString)) {
 			setSelected(v);
 			previousView = v;
 		} else {
 			v.setBackgroundResource(R.drawable.list_item_background);
 		}
+
 		dayView.setText(gridvalue);
-		checkedTv.setChecked(true);
+	
+//		VER ISTO MELHOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//		
+//		imgViewGrid.setOnTouchListener(new OnTouchListener() {
+//			
+//			@Override
+//			public boolean onTouch(View v, MotionEvent event) {
+//				// TODO Auto-generated method stub
+//				if(event.getAction() == MotionEvent.ACTION_DOWN){
+//					v.setBackgroundResource(R.drawable.selector_gridview_item);
+//					return true;
+//				}else if(event.getAction() == MotionEvent.ACTION_UP){
+//					v.setBackground(null);
+//				}
+//				
+//				return false;
+//			}
+//		});
 
 		// create date string for comparison
 		String date = dayString.get(position);

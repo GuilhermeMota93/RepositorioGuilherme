@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import android.app.AlertDialog;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -41,7 +42,6 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 
 	GridView myGrid;
 	// TextView title;
-	CheckedTextView checkedTv;
 
 	InputHoras_Spinner_Adapter adapterSpinner;
 	ArrayList<Project> projects = Project.generateFakeProjects();
@@ -65,13 +65,14 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		// para o tipo de letra
 		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
 
-		checkedTv = (CheckedTextView) findViewById(R.id.checkedTextView1);
 		month = Calendar.getInstance();
 		itemmonth = (Calendar) month.clone();
 		items = new ArrayList<String>();
 		adapter = new Calendario_Adapter(this, month);
 		myGrid = (GridView) findViewById(R.id.gridViewCustom2);
+
 		myGrid.setAdapter(adapter);
+		myGrid.setSelected(true);
 		handler = new Handler();
 		handler.post(calendarUpdater);// generate some calendar items
 		// title = (TextView) findViewById(R.id.title);
@@ -116,8 +117,8 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				
+				view.setBackgroundColor(Color.GREEN);
 				
-
 				((Calendario_Adapter) parent.getAdapter()).setSelected(view);
 				String selectedGridDate = Calendario_Adapter.dayString
 						.get(position);

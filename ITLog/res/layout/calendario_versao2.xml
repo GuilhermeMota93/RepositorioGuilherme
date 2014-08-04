@@ -25,7 +25,9 @@
         android:columnWidth="80dp"
         android:gravity="center"
         android:numColumns="7"
-        android:stretchMode="columnWidth" />
+        android:stretchMode="columnWidth" 
+        android:choiceMode="multipleChoice"
+        />
 
     <Button
         android:id="@+id/button1"

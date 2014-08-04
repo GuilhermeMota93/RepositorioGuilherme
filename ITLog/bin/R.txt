@@ -295,7 +295,6 @@ int id buttonAdd 0x7f050041
 int id buttonGet 0x7f05005c
 int id checkBox1 0x7f050075
 int id checkbox 0x7f05002d
-int id checkedTextView1 0x7f050051
 int id collapseActionView 0x7f05000d
 int id confirmar 0x7f050056
 int id container 0x7f05003d
@@ -321,6 +320,7 @@ int id homeAsUp 0x7f050005
 int id icon 0x7f05002a
 int id ifRoom 0x7f05000a
 int id image 0x7f050027
+int id imageGrid 0x7f050051
 int id imgV 0x7f050064
 int id inputHoras 0x7f050061
 int id linear 0x7f050044

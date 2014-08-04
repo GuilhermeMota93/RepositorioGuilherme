@@ -1054,7 +1054,6 @@ containing a value of this type.
         public static final int buttonGet=0x7f05005c;
         public static final int checkBox1=0x7f050075;
         public static final int checkbox=0x7f05002d;
-        public static final int checkedTextView1=0x7f050051;
         public static final int collapseActionView=0x7f05000d;
         public static final int confirmar=0x7f050056;
         public static final int container=0x7f05003d;
@@ -1080,6 +1079,7 @@ containing a value of this type.
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
+        public static final int imageGrid=0x7f050051;
         public static final int imgV=0x7f050064;
         public static final int inputHoras=0x7f050061;
         public static final int linear=0x7f050044;

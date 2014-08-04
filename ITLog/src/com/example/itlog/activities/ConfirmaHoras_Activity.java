@@ -151,15 +151,6 @@ public class ConfirmaHoras_Activity extends Activity implements
 				notifyDataSetChanged();
 			}
 
-			// ao carregar na listView
-			listView.setOnItemClickListener(new ListView.OnItemClickListener() {
-				@Override
-				public void onItemClick(AdapterView<?> parent, View view,
-						int position, long id) {
-
-				}
-			});
-
 		}
 
 		@Override
