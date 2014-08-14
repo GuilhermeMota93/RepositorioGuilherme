@@ -1,7 +1,0 @@
-package com.example.itlog.fragments;
-
-import android.support.v4.app.FragmentActivity;
-
-public class Teste_Activity extends FragmentActivity {
-
-}

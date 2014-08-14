@@ -1,0 +1,48 @@
+package com.example.viewpagertest1;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+
+public class MyPagerAdapter extends FragmentPagerAdapter {
+	
+	private static final String[] titles = { "one", "two", "three", "four",
+	"five" };
+
+	public MyPagerAdapter(FragmentManager fm) {
+		super(fm);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public Fragment getItem(int pos) {
+		// TODO Auto-generated method stub
+		switch (pos) {
+		case 0:
+			return FirstFragment.newInstance("FirstFragment, Instance 1");
+		case 1:
+			return SecondFragment.newInstance("SecondFragment, Instance 1");
+		case 2:
+			return ThirdFragment.newInstance("ThirdFragment, Instance 1");
+		case 3:
+			return ThirdFragment.newInstance("ThirdFragment, Instance 2");
+		case 4:
+			return ThirdFragment.newInstance("ThirdFragment, Instance 3");
+		default:
+			return ThirdFragment.newInstance("ThirdFragment, Default");
+		}
+	}
+
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return 5;
+	}
+
+	@Override
+	public CharSequence getPageTitle(int position) {
+		// TODO Auto-generated method stub
+		return titles[position];
+	}
+
+}

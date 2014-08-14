@@ -22,6 +22,7 @@ public class ViewPager_Adapter extends FragmentPagerAdapter {
 		// TODO Auto-generated method stub
 		Fragment fragment = null;
 		if (i == 0) {
+			//como por info de mes anterior neste fragment?????
 			fragment = new GridView_Anterior();
 
 		}

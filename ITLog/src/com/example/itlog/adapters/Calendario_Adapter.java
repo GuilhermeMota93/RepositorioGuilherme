@@ -12,6 +12,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -135,8 +136,8 @@ public class Calendario_Adapter extends BaseAdapter {
 
 		} else if ((Integer.parseInt(gridvalue) < 7) && (position > 28)) {
 			dayView.setTextColor(Color.WHITE);
-//			dayView.setClickable(false);
-//			dayView.setFocusable(false);
+			// dayView.setClickable(false);
+			// dayView.setFocusable(false);
 
 		}
 		// dia selecionado aqui
@@ -148,24 +149,16 @@ public class Calendario_Adapter extends BaseAdapter {
 		}
 
 		dayView.setText(gridvalue);
-	
-//		VER ISTO MELHOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//		
-//		imgViewGrid.setOnTouchListener(new OnTouchListener() {
-//			
-//			@Override
-//			public boolean onTouch(View v, MotionEvent event) {
-//				// TODO Auto-generated method stub
-//				if(event.getAction() == MotionEvent.ACTION_DOWN){
-//					v.setBackgroundResource(R.drawable.selector_gridview_item);
-//					return true;
-//				}else if(event.getAction() == MotionEvent.ACTION_UP){
-//					v.setBackground(null);
-//				}
-//				
-//				return false;
-//			}
-//		});
+
+		imgViewGrid.setOnTouchListener(new OnTouchListener() {
+
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// TODO Auto-generated method stub
+				imgViewGrid.setSelected(event.getAction() == MotionEvent.ACTION_DOWN);
+				return true;
+			}
+		});
 
 		// create date string for comparison
 		String date = dayString.get(position);
@@ -188,6 +181,7 @@ public class Calendario_Adapter extends BaseAdapter {
 		return v;
 	}
 
+	// Cor azul a volta do dia selecionado!
 	public View setSelected(View view) {
 		if (previousView != null) {
 			previousView.setBackgroundResource(R.drawable.list_item_background);

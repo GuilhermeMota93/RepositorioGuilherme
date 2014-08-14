@@ -19,7 +19,7 @@
         android:id="@+id/imageGrid"
         android:layout_width="match_parent"
         android:layout_height="40sp"
-        android:clickable="true"
+        
         android:src="@drawable/selector_gridview_item" 
         />
 

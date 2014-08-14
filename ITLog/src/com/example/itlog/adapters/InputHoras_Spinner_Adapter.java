@@ -22,6 +22,15 @@ public class InputHoras_Spinner_Adapter extends ArrayAdapter<Project> {
 	Typeface font;
 
 	public InputHoras_Spinner_Adapter(final Context context, final int recurso,
+			ArrayList<Project> projects) {
+		super(context, R.layout.calendario_versao2, projects);
+		this.projects = projects;
+		this.recurso = recurso;
+		this.inflater = (LayoutInflater) context
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+	}
+
+	public InputHoras_Spinner_Adapter(final Context context, final int recurso,
 			ArrayList<Project> projects, Typeface font) {
 		super(context, R.layout.calendario_versao2, projects);
 		this.projects = projects;
@@ -54,11 +63,23 @@ public class InputHoras_Spinner_Adapter extends ArrayAdapter<Project> {
 			v = inflater.inflate(R.layout.spinner_item_dropdown, null);
 		Project row = projects.get(position);
 		if (row != null) {
-			TextView textView = (TextView) v.findViewById(R.id.textSpinnerItemDropdown);
+			TextView textView = (TextView) v
+					.findViewById(R.id.textSpinnerItemDropdown);
 			textView.setTypeface(font);
 			textView.setText(row.getName());
 		}
 		return v;
 	}
 
+	@Override
+	public void notifyDataSetChanged() {
+		// TODO Auto-generated method stub
+		super.notifyDataSetChanged();
+	}
+
+	@Override
+	public void setNotifyOnChange(boolean notifyOnChange) {
+		// TODO Auto-generated method stub
+		super.setNotifyOnChange(notifyOnChange);
+	}
 }

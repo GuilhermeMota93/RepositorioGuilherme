@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff" >
+
+    <TextView
+        android:id="@+id/tvFragFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="View Pager aqui em baixo"
+        android:textSize="26dp" 
+        android:textColor="#619883"/>
+    
+    <android.support.v4.view.ViewPager 
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/viewPager"
+    android:layout_width="fill_parent"
+    android:layout_height="186dp"
+    android:layout_weight="1" />
+
+</RelativeLayout>
+

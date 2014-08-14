@@ -11,7 +11,7 @@ import com.example.itlog.adapters.ViewPager_Adapter;
 
 public class Teste_Activity extends FragmentActivity {
 
-	ViewPager viewPage = null;
+	ViewPager viewPager = null;
 	ViewPager_Adapter viewPageAdapter;
 	FragmentManager fm = getSupportFragmentManager();
 
@@ -21,8 +21,8 @@ public class Teste_Activity extends FragmentActivity {
 		super.onCreate(saveInstanceState);
 		setContentView(R.layout.viewpager_layout);
 		
-		viewPage = (ViewPager) findViewById(R.id.meuViewPager);
-		viewPage.setAdapter(new ViewPager_Adapter(fm));
+		viewPager = (ViewPager) findViewById(R.id.meuViewPager);
+		viewPager.setAdapter(new ViewPager_Adapter(fm));
 	}
 
 }
