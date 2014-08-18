@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="setSelected" key="selection"/>
+		<item value="rel1" key="selection"/>
 		<list key="findhistory">
+			<item value="rel1"/>
+			<item value="pmonth"/>
 			<item value="setSelected"/>
 			<item value="calendar_cel"/>
 			<item value="firstDay"/>
 			<item value="dayView"/>
 			<item value="valor"/>
 			<item value="info"/>
-			<item value="arrayEspecifico"/>
-			<item value="getListaProjsUser"/>
 		</list>
 		<list key="replacehistory">
 			<item value="ViewHolderListViewAddProj"/>

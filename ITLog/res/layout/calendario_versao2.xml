@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lin1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ebeaed"
@@ -9,39 +10,44 @@
         android:id="@+id/spinnerGridView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="25dp"
+        android:layout_margin = "15dp"
         android:drawSelectorOnTop="true"
         android:paddingBottom="15dp" />
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/rel1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
-        android:background="#ebeaed"
-        android:orientation="vertical" >
 
-        <GridView
-            android:id="@+id/gridViewCustom2"
+        android:background="#ebeaed"
+        android:paddingTop="15dp" >
+
+        <android.support.v4.view.ViewPager
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/viewPager"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:background="#FFFFFF"
-            android:choiceMode="multipleChoice"
-            android:columnWidth="80dp"
-            android:gravity="center"
-            android:numColumns="7"
-            android:stretchMode="columnWidth" />
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <android.support.v4.view.PagerTitleStrip
+                android:id="@+id/tituloViewPagerTeste"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_gravity="top"
+                android:background="#0e7d9a"
+                android:textColor="#ffffff" >
+            </android.support.v4.view.PagerTitleStrip>
+        </android.support.v4.view.ViewPager>
 
         <Button
             android:id="@+id/button1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_margin="15dp"
+            android:layout_marginBottom="46dp"
+            android:layout_weight="1"
             android:background="@drawable/selector_botao_azul"
             android:gravity="center"
             android:paddingBottom="15dp"
@@ -49,6 +55,6 @@
             android:text="Imputar"
             android:textColor="#ffffff"
             android:textSize="15sp" />
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>

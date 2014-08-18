@@ -85,18 +85,18 @@ public class Calendario_Adapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View v = convertView;
 		TextView dayView;
-		final ImageView imgViewGrid;
+		final TextView selecionaDias;
 		// CheckBox checkBox;
 
 		if (convertView == null) { // if it's not recycled, initialize some
 			// attributes
 			LayoutInflater vi = (LayoutInflater) mContext
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			v = vi.inflate(R.layout.calendario_item2, null);
+			v = vi.inflate(R.layout.gridview_item, null);
 
 		}
 		dayView = (TextView) v.findViewById(R.id.textViewCalendarItem2);
-		imgViewGrid = (ImageView) v.findViewById(R.id.imageGrid);
+		selecionaDias = (TextView) v.findViewById(R.id.textViewCalendarItem3);
 
 		// checkBox = (CheckBox) v.findViewById(R.id.checkBox1);
 
@@ -150,12 +150,12 @@ public class Calendario_Adapter extends BaseAdapter {
 
 		dayView.setText(gridvalue);
 
-		imgViewGrid.setOnTouchListener(new OnTouchListener() {
+		selecionaDias.setOnTouchListener(new OnTouchListener() {
 
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				// TODO Auto-generated method stub
-				imgViewGrid.setSelected(event.getAction() == MotionEvent.ACTION_DOWN);
+				selecionaDias.setSelected(event.getAction() == MotionEvent.ACTION_DOWN);
 				return true;
 			}
 		});

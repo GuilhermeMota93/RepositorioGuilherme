@@ -32,7 +32,7 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/viewPager"
             android:layout_width="fill_parent"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1" >
 
             <android.support.v4.view.PagerTitleStrip
@@ -44,6 +44,8 @@
                 android:textColor="#ffffff" >
             </android.support.v4.view.PagerTitleStrip>
         </android.support.v4.view.ViewPager>
+
+        
     </RelativeLayout>
 
 </RelativeLayout>

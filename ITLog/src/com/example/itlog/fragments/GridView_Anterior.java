@@ -14,7 +14,7 @@ public class GridView_Anterior extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		return inflater.inflate(R.layout.gridview_anterior, container, false);
+		return inflater.inflate(R.layout.gridview, container, false);
 	}
 	
 	

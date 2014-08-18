@@ -15,7 +15,7 @@ public class MainActivity extends FragmentActivity {
 	TextView textView;
 	ViewPager pager;
 	PagerTitleStrip strip;
-	MyPagerAdapter myPagerAdapter;
+	MyPagerAdapter2 myPagerAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +23,9 @@ public class MainActivity extends FragmentActivity {
 		setContentView(R.layout.activity_main);
 
 		pager = (ViewPager) findViewById(R.id.viewPager);
-		pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+		pager.setAdapter(new MyPagerAdapter2(MainActivity.this));
 
-		strip = (PagerTitleStrip) findViewById(R.id.tituloViewPagerTeste);
+//		strip = (PagerTitleStrip) findViewById(R.id.tituloViewPagerTeste);
 		textView = (TextView) findViewById(R.id.textViewTeste);
 	}
 

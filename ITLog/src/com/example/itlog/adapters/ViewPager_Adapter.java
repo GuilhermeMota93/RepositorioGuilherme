@@ -1,8 +1,6 @@
 package com.example.itlog.adapters;
 
 import com.example.itlog.fragments.GridView_Anterior;
-import com.example.itlog.fragments.GridView_Atual;
-import com.example.itlog.fragments.GridView_Proximo;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -22,16 +20,9 @@ public class ViewPager_Adapter extends FragmentPagerAdapter {
 		// TODO Auto-generated method stub
 		Fragment fragment = null;
 		if (i == 0) {
-			//como por info de mes anterior neste fragment?????
+			// como por info de mes anterior neste fragment?????
 			fragment = new GridView_Anterior();
 
-		}
-		if (i == 1) {
-			fragment = new GridView_Atual();
-
-		}
-		if (i == 2) {
-			fragment = new GridView_Proximo();
 		}
 
 		return fragment;

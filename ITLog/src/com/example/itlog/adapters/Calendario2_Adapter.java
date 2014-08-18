@@ -36,7 +36,7 @@ public class Calendario2_Adapter extends ArrayAdapter {
 		// TODO Auto-generated method stub
 		View v = convertView;
 		if (v == null)
-			v = inflater.inflate(R.layout.calendario_item2, null);
+			v = inflater.inflate(R.layout.gridview_item, null);
 		textView = (TextView) v.findViewById(R.id.textViewCalendarItem2);
 		textView.setText(list.get(position));
 //		imageButton = (ImageButton) v

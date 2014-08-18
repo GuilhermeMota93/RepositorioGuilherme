@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import android.app.AlertDialog;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.view.PagerTitleStrip;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,9 +19,7 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
-import android.widget.CheckedTextView;
 import android.widget.GridView;
-import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,19 +27,13 @@ import android.widget.Toast;
 import com.example.itlog.R;
 import com.example.itlog.adapters.Calendario_Adapter;
 import com.example.itlog.adapters.InputHoras_Spinner_Adapter;
+import com.example.itlog.adapters.MyPagerAdapter2;
 import com.example.itlog.objects.Project;
 
 public class InputHoras_Activity extends GeneralButtons_Activity {
 
 	public Calendar month, itemmonth;// instancias do calendario
 	public Calendario_Adapter adapter;// instacia do adaptador
-	public Handler handler;// para mostrar o 'ponto' nos eventos. futuramente
-							// retirar
-	public ArrayList<String> items;// contentor para guardar os items de
-									// calendario necessários para os eventos
-
-	GridView myGrid;
-	// TextView title;
 
 	InputHoras_Spinner_Adapter adapterSpinner;
 	ArrayList<Project> projects = Project.generateFakeProjects();
@@ -54,7 +46,9 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 	// o username vem em forma de string desde o log in
 	String info;
 
-	ViewPager viewPager;
+	ViewPager pager;
+	PagerTitleStrip strip;
+	MyPagerAdapter2 myPagerAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,20 +61,14 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		// para o tipo de letra
 		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
 
-		month = Calendar.getInstance();
-		itemmonth = (Calendar) month.clone();
-		items = new ArrayList<String>();
-		adapter = new Calendario_Adapter(this, month);
-		myGrid = (GridView) findViewById(R.id.gridViewCustom2);
+		pager = (ViewPager) findViewById(R.id.viewPager);
+		pager.setAdapter(new MyPagerAdapter2(InputHoras_Activity.this));
 
-		myGrid.setAdapter(adapter);
-		myGrid.setSelected(true);
-		handler = new Handler();
-		handler.post(calendarUpdater);// generate some calendar items
+		// generate some calendar items
 		// title = (TextView) findViewById(R.id.title);
 		// title.setText(android.text.format.DateFormat.format("MMMM yyyy",
 		// month));
-		viewPager = (ViewPager) findViewById(R.id.meuViewPager);
+		pager = (ViewPager) findViewById(R.id.viewPager);
 
 		imputar = (Button) findViewById(R.id.button1);
 		spinner = (Spinner) findViewById(R.id.spinnerGridView1);
@@ -113,43 +101,13 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		// }
 		// });
 
-		myGrid.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-
-				
-
-				((Calendario_Adapter) parent.getAdapter()).setSelected(view);
-				String selectedGridDate = Calendario_Adapter.dayString
-						.get(position);
-				String[] separatedTime = selectedGridDate.split("-");
-				// tira ultima parte de uma data. ex: 2 from 2012-12-02
-				String gridvalueString = separatedTime[2].replaceFirst("^0*",
-						"");
-				int gridValue = Integer.parseInt(gridvalueString);
-				// vai para o proximo ou anterior mes ao clickar nos dias 'off'
-				if ((gridValue > 10) && (position < 8)) {
-					setPreviousMonth();
-					refreshCalendar();
-				} else if ((gridValue < 7) && (position > 28)) {
-					setNextMonth();
-					refreshCalendar();
-				}
-				((Calendario_Adapter) parent.getAdapter()).setSelected(view);
-
-				showToast(selectedGridDate);
-			}
-		});
-
 		imputar.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				LayoutInflater inflate = LayoutInflater
 						.from(InputHoras_Activity.this);
-				View layout = inflate.inflate(R.layout.escolher_horas_layout,
+				View layout = inflate.inflate(R.layout.botao_quatro_oito_horas_layout,
 						null);
 				;
 
@@ -211,64 +169,6 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		return true;
 	}
 
-	protected void setNextMonth() {
-		if (month.get(Calendar.MONTH) == month.getActualMaximum(Calendar.MONTH)) {
-			month.set((month.get(Calendar.YEAR) + 1),
-					month.getActualMinimum(Calendar.MONTH), 1);
-		} else {
-			month.set(Calendar.MONTH, month.get(Calendar.MONTH) + 1);
-		}
-		refreshCalendar();
-
-	}
-
-	protected void setPreviousMonth() {
-		if (month.get(Calendar.MONTH) == month.getActualMinimum(Calendar.MONTH)) {
-			month.set((month.get(Calendar.YEAR) - 1),
-					month.getActualMaximum(Calendar.MONTH), 1);
-		} else {
-			month.set(Calendar.MONTH, month.get(Calendar.MONTH) - 1);
-		}
-		refreshCalendar();
-	}
-
-	protected void showToast(String string) {
-		Toast.makeText(this, string, Toast.LENGTH_SHORT).show();
-
-	}
-
-	public void refreshCalendar() {
-		// TextView title = (TextView) findViewById(R.id.title);
-
-		adapter.refreshDays();
-		adapter.notifyDataSetChanged();
-		handler.post(calendarUpdater); // generate some calendar items
-
-		// title.setText(android.text.format.DateFormat.format("MMMM yyyy",
-		// month));
-	}
-
-	public Runnable calendarUpdater = new Runnable() {
-
-		@Override
-		public void run() {
-			items.clear();
-
-			// Print dates of the current week
-			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-			String itemvalue;
-			for (int i = 0; i < 7; i++) {
-				itemvalue = df.format(itemmonth.getTime());
-				itemmonth.add(Calendar.DATE, 1);
-
-			}
-
-			adapter.setItems(items);
-			adapter.notifyDataSetChanged();
-		}
-	};
-
-	//retorna vazio pq?
 	public ArrayList<Project> getListaProjsUser() {
 		arrayEspecifico.clear();
 		for (Project auxProject : projects) {
