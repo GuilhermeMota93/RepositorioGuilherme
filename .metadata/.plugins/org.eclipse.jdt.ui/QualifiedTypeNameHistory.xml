@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.Override"/>
-<fullyQualifiedTypeName name="com.example.itlog.adapters.MeusProj_ListView_Adapter"/>
-<fullyQualifiedTypeName name="com.example.itlog.adapters.AddProject_Spinner_Adapter"/>
-<fullyQualifiedTypeName name="com.example.itlog.objects.Funcionario"/>
-<fullyQualifiedTypeName name="com.example.itlog.activities.MostraInfoProj_Activity"/>
-<fullyQualifiedTypeName name="android.os.Parcelable"/>
 <fullyQualifiedTypeName name="android.os.Bundle"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.MeusProj_Activity2"/>
@@ -18,7 +12,6 @@
 <fullyQualifiedTypeName name="com.example.itlog.activities.GeneralButtons_Activity"/>
 <fullyQualifiedTypeName name="android.graphics.Typeface"/>
 <fullyQualifiedTypeName name="com.example.itlog.adapters.Calendario2_Adapter"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
 <fullyQualifiedTypeName name="com.example.itlog.objects.Project"/>
 <fullyQualifiedTypeName name="com.example.itlog.adapters.InputHoras_Spinner_Adapter"/>
@@ -43,7 +36,6 @@
 <fullyQualifiedTypeName name="android.view.MotionEvent"/>
 <fullyQualifiedTypeName name="android.support.v4.app.FragmentActivity"/>
 <fullyQualifiedTypeName name="android.view.View"/>
-<fullyQualifiedTypeName name="android.support.v4.view.ViewPager"/>
 <fullyQualifiedTypeName name="android.support.v4.app.FragmentPagerAdapter"/>
 <fullyQualifiedTypeName name="com.example.viewpagertest1.R.layout"/>
 <fullyQualifiedTypeName name="com.example.viewpagertest1.FirstFragment"/>
@@ -59,5 +51,13 @@
 <fullyQualifiedTypeName name="com.example.viewpagertest1.MainActivity"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="com.example.itlog.R"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="android.support.v4.view.ViewPager"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.InputHoras_Activity"/>
+<fullyQualifiedTypeName name="android.support.v4.view.ViewPager.OnPageChangeListener"/>
+<fullyQualifiedTypeName name="java.security.acl.LastOwnerException"/>
+<fullyQualifiedTypeName name="com.example.itlog.adapters.MyPagerAdapter2"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
 </qualifiedTypeNameHistroy>

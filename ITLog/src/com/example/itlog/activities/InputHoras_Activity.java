@@ -1,8 +1,11 @@
 package com.example.itlog.activities;
 
+import java.security.acl.LastOwnerException;
+import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Locale;
 
 import android.app.AlertDialog;
 import android.graphics.Typeface;
@@ -10,6 +13,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.PagerTitleStrip;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -78,28 +82,43 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 				arrayEspecifico, font);
 		spinner.setAdapter(adapterSpinner);
 
-		// RelativeLayout previous = (RelativeLayout)
-		// findViewById(R.id.previous);
-		//
-		// previous.setOnClickListener(new OnClickListener() {
-		//
-		// public void onClick(View v) {
-		// setPreviousMonth();// mes anterior
-		// refreshCalendar();// update ao calendario
-		//
-		// }
-		// });
-		//
-		// RelativeLayout next = (RelativeLayout) findViewById(R.id.next);
-		// next.setOnClickListener(new OnClickListener() {
-		//
-		// @Override
-		// public void onClick(View v) {
-		// setNextMonth();// prox mes
-		// refreshCalendar();// update ao calendario
-		//
-		// }
-		// });
+		pager.setCurrentItem(1);
+		pager.setOnPageChangeListener(new OnPageChangeListener() {
+
+			int posicaoAtual = pager.getCurrentItem();
+
+			@Override
+			public void onPageSelected(int arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void onPageScrolled(int arg0, float arg1, int arg2) {
+				// TODO Auto-generated method stub
+				if (arg0 > posicaoAtual) {
+					// scroll para a direita
+					MyPagerAdapter2.setNextMonth();
+
+				} else if (arg0 < posicaoAtual) {
+					// scroll para a esquerda
+					MyPagerAdapter2.setPreviousMonth();
+
+				}
+				// // para criar nova view à esquerda, quando se esta na pagina
+				// 0
+				// // do pager
+				// if (posicaoAtual == 0 && arg0 < posicaoAtual) {
+				//
+				// }
+			}
+
+			@Override
+			public void onPageScrollStateChanged(int arg0) {
+				// TODO Auto-generated method stub
+
+			}
+		});
 
 		imputar.setOnClickListener(new OnClickListener() {
 
@@ -107,10 +126,8 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 				// TODO Auto-generated method stub
 				LayoutInflater inflate = LayoutInflater
 						.from(InputHoras_Activity.this);
-				View layout = inflate.inflate(R.layout.botao_quatro_oito_horas_layout,
-						null);
-				;
-
+				View layout = inflate.inflate(
+						R.layout.botao_quatro_oito_horas_layout, null);
 				TextView tv1 = (TextView) layout.findViewById(R.id.titulo);
 				tv1.setText("Quantas horas pretende adicionar a este projeto?");
 				TextView tv2 = (TextView) layout.findViewById(R.id.pergunta);
@@ -179,5 +196,26 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		return arrayEspecifico;
 
 	}
-
+	// RelativeLayout previous = (RelativeLayout)
+	// findViewById(R.id.previous);
+	//
+	// previous.setOnClickListener(new OnClickListener() {
+	//
+	// public void onClick(View v) {
+	// setPreviousMonth();// mes anterior
+	// refreshCalendar();// update ao calendario
+	//
+	// }
+	// });
+	//
+	// RelativeLayout next = (RelativeLayout) findViewById(R.id.next);
+	// next.setOnClickListener(new OnClickListener() {
+	//
+	// @Override
+	// public void onClick(View v) {
+	// setNextMonth();// prox mes
+	// refreshCalendar();// update ao calendario
+	//
+	// }
+	// });
 }
