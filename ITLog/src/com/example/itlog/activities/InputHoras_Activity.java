@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.support.v4.view.PagerTitleStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -31,11 +32,12 @@ import android.widget.Toast;
 import com.example.itlog.R;
 import com.example.itlog.adapters.Calendario_Adapter;
 import com.example.itlog.adapters.InputHoras_Spinner_Adapter;
-import com.example.itlog.adapters.MyPagerAdapter2;
+import com.example.itlog.adapters.ViewPager_Adapter;
 import com.example.itlog.objects.Project;
 
 public class InputHoras_Activity extends GeneralButtons_Activity {
 
+	protected static final String TAG = null;
 	public Calendar month, itemmonth;// instancias do calendario
 	public Calendario_Adapter adapter;// instacia do adaptador
 
@@ -52,7 +54,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 
 	ViewPager pager;
 	PagerTitleStrip strip;
-	MyPagerAdapter2 myPagerAdapter;
+	ViewPager_Adapter myPagerAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +68,8 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
 
 		pager = (ViewPager) findViewById(R.id.viewPager);
-		pager.setAdapter(new MyPagerAdapter2(InputHoras_Activity.this));
+		myPagerAdapter = new ViewPager_Adapter(InputHoras_Activity.this);
+		pager.setAdapter(myPagerAdapter);
 
 		// generate some calendar items
 		// title = (TextView) findViewById(R.id.title);
@@ -82,35 +85,81 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 				arrayEspecifico, font);
 		spinner.setAdapter(adapterSpinner);
 
-		pager.setCurrentItem(1);
+		// posicao onde começa o ViewPager
+		month = Calendar.getInstance();
+		pager.setCurrentItem(month.get(Calendar.MONTH));
+
 		pager.setOnPageChangeListener(new OnPageChangeListener() {
 
-			int posicaoAtual = pager.getCurrentItem();
+			int posAntes = pager.getCurrentItem();
 
 			@Override
-			public void onPageSelected(int arg0) {
+			public void onPageSelected(int posicaoAtual) {
 				// TODO Auto-generated method stub
+
+				// if (posicaoAtual >= (myPagerAdapter.getCount()- 2)) {
+				// // scroll para a direita
+				// myPagerAdapter.setNextMonth();
+				//
+				// } else if (posicaoAtual == 1) {
+				// // scroll para a esquerda
+				// myPagerAdapter.setPreviousMonth();
+				//
+				// }
+
+				// for (int i = 0; i < myPagerAdapter.getListaMesesMostrar()
+				// .size(); i++) {
+				// if (posicaoAtual >= myPagerAdapter.getListaMesesMostrar()
+				// .get(i).get(Calendar.MONTH))
+				// myPagerAdapter.setNextMonth();
+				// else if (posicaoAtual <= myPagerAdapter
+				// .getListaMesesMostrar().get(i).get(Calendar.MONTH)) {
+				// myPagerAdapter.setPreviousMonth();
+				// }
+				// }
+
+				if (posicaoAtual >= posAntes) {
+					Log.i(TAG, "SWIPING RIGHT");
+
+					// se chegar ao max do viewpager (com o getCount)
+					if (posicaoAtual == myPagerAdapter.getCount()-1) {
+						// limpa a lista, e cria com o (YEAR+1)
+						myPagerAdapter.getListaMesesMostrarMaisUm();
+						myPagerAdapter.notifyDataSetChanged();
+					}
+					posAntes++;
+					
+				} else if (posicaoAtual <= posAntes) {
+					Log.i(TAG, "SWIPING LEFT");
+
+					// se chegar ao min do viewpager (com o getCount)
+					if (posicaoAtual == 0) {
+						// limpa a lista, e cria de novo com (YEAR-1)
+						myPagerAdapter.getListaMesesMostarMenosUm();
+						// progressbar aqui
+						myPagerAdapter.notifyDataSetChanged();
+						pager.setCurrentItem(12);
+					}
+					posAntes--;
+
+				}
+				// myPagerAdapter.notifyDataSetChanged();
 
 			}
 
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
 				// TODO Auto-generated method stub
-				if (arg0 > posicaoAtual) {
-					// scroll para a direita
-					MyPagerAdapter2.setNextMonth();
 
-				} else if (arg0 < posicaoAtual) {
-					// scroll para a esquerda
-					MyPagerAdapter2.setPreviousMonth();
-
-				}
-				// // para criar nova view à esquerda, quando se esta na pagina
-				// 0
-				// // do pager
-				// if (posicaoAtual == 0 && arg0 < posicaoAtual) {
+				// ESTE PEDACO DE CODIGO COMEÇA A DAR ANOS MUITO ELEVADOS
+				// if (arg0 > posAntes)
+				// //scroll direita
+				// myPagerAdapter.setNextMonth();
 				//
-				// }
+				// else if (arg0 < posAntes)
+				// //scroll esquerda
+				// myPagerAdapter.setPreviousMonth();
+
 			}
 
 			@Override

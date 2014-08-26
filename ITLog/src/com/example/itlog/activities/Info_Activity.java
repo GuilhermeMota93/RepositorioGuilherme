@@ -85,7 +85,7 @@ public class Info_Activity extends Activity implements
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intencao = new Intent(Info_Activity.this,
-						MeusProj_Activity2.class);
+						MeusProj_Activity.class);
 				intencao.putExtra("USERNAME", info);
 				// salta para Meus Projectos
 				Info_Activity.this.startActivity(intencao);
@@ -98,7 +98,7 @@ public class Info_Activity extends Activity implements
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intencao = new Intent(Info_Activity.this,
-						AddProj_Activity2.class);
+						AddProj_Activity.class);
 				intencao.putExtra("USERNAME", info);
 				// Vai para Adicionar Projectos
 				Info_Activity.this.startActivity(intencao);

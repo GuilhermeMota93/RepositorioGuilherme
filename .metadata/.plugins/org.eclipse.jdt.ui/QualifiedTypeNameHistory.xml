@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="android.os.Bundle"/>
-<fullyQualifiedTypeName name="java.io.Serializable"/>
-<fullyQualifiedTypeName name="com.example.itlog.activities.MeusProj_Activity2"/>
-<fullyQualifiedTypeName name="android.widget.BaseAdapter"/>
-<fullyQualifiedTypeName name="android.view.LayoutInflater"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.CalendarioAdapter2_Activity"/>
 <fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="com.example.itlog.adapters.CalendarioAdapter2_Activity"/>
@@ -17,7 +12,6 @@
 <fullyQualifiedTypeName name="com.example.itlog.adapters.InputHoras_Spinner_Adapter"/>
 <fullyQualifiedTypeName name="android.widget.ImageButton"/>
 <fullyQualifiedTypeName name="android.widget.CheckedTextView"/>
-<fullyQualifiedTypeName name="com.example.itlog.R.layout"/>
 <fullyQualifiedTypeName name="com.example.itlog.R.id"/>
 <fullyQualifiedTypeName name="com.example.itlog.fragments.GridView_Atual"/>
 <fullyQualifiedTypeName name="com.example.itlog.fragments.GridView_Proximo"/>
@@ -27,7 +21,6 @@
 <fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
 <fullyQualifiedTypeName name="android.os.Handler"/>
 <fullyQualifiedTypeName name="android.widget.ImageView"/>
-<fullyQualifiedTypeName name="com.example.itlog.adapters.Calendario_Adapter"/>
 <fullyQualifiedTypeName name="android.graphics.Color"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView.OnItemSelectedListener"/>
 <fullyQualifiedTypeName name="com.example.itlog.R.drawable"/>
@@ -42,7 +35,6 @@
 <fullyQualifiedTypeName name="android.support.v4.app.Fragment"/>
 <fullyQualifiedTypeName name="org.apache.http.TokenIterator"/>
 <fullyQualifiedTypeName name="android.support.v4.view.PagerTitleStrip"/>
-<fullyQualifiedTypeName name="java.lang.CharSequence"/>
 <fullyQualifiedTypeName name="com.example.viewpagertest1.MyPagerAdapter"/>
 <fullyQualifiedTypeName name="android.support.v4.view.PagerAdapter"/>
 <fullyQualifiedTypeName name="android.widget.GridView"/>
@@ -50,14 +42,22 @@
 <fullyQualifiedTypeName name="com.example.viewpagertest1.MyPagerAdapter2"/>
 <fullyQualifiedTypeName name="com.example.viewpagertest1.MainActivity"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
-<fullyQualifiedTypeName name="com.example.itlog.R"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-<fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="android.support.v4.view.ViewPager"/>
-<fullyQualifiedTypeName name="com.example.itlog.activities.InputHoras_Activity"/>
 <fullyQualifiedTypeName name="android.support.v4.view.ViewPager.OnPageChangeListener"/>
 <fullyQualifiedTypeName name="java.security.acl.LastOwnerException"/>
-<fullyQualifiedTypeName name="com.example.itlog.adapters.MyPagerAdapter2"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.lang.CharSequence"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="com.example.itlog.adapters.Calendario_Adapter"/>
+<fullyQualifiedTypeName name="com.example.itlog.R"/>
+<fullyQualifiedTypeName name="com.example.itlog.R.layout"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.InputHoras_Activity"/>
+<fullyQualifiedTypeName name="java.util.Locale"/>
+<fullyQualifiedTypeName name="java.text.DateFormatSymbols"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="com.example.itlog.adapters.MyPagerAdapter2"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
 </qualifiedTypeNameHistroy>

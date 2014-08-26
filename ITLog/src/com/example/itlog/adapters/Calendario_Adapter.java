@@ -24,7 +24,9 @@ import com.example.itlog.R;
 public class Calendario_Adapter extends BaseAdapter {
 
 	private Context mContext;
-	private java.util.Calendar month;
+	private Calendar month;
+	TextView dayView;
+	TextView selecionaDias;
 
 	// instacia para mes anterior
 	public GregorianCalendar pmonth;
@@ -44,12 +46,13 @@ public class Calendario_Adapter extends BaseAdapter {
 	int[] checkStates;
 
 	private ArrayList<String> items;
-	public static List<String> dayString;
+	private List<String> dayString;
 	private View previousView;
+
 	Calendar cal;
 
 	public Calendario_Adapter(Context c, Calendar month2) {
-		Calendario_Adapter.dayString = new ArrayList<String>();
+		dayString = new ArrayList<String>();
 		month = month2;
 		selectedDate = (GregorianCalendar) month2.clone();
 		mContext = c;
@@ -84,17 +87,41 @@ public class Calendario_Adapter extends BaseAdapter {
 	// create a new view for each item referenced by the Adapter
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View v = convertView;
-		TextView dayView;
-		final TextView selecionaDias;
+
 		// CheckBox checkBox;
 
-		if (convertView == null) { // if it's not recycled, initialize some
-			// attributes
+		if (convertView == null) {
 			LayoutInflater vi = (LayoutInflater) mContext
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			v = vi.inflate(R.layout.gridview_item, null);
+			int layout;
+
+			if (month.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY
+					|| month.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
+				layout = R.layout.gridview_item_transparente;
+			} else {
+				layout = R.layout.gridview_item;
+			}
+			v = vi.inflate(layout, null);
 
 		}
+
+		// CICLO AQUI A CONFIRMAR SE DIA FAZ OU NAO PARTE DO MES?
+		// getCount e getItem para iterar pelas celulas???
+		// if (MyPagerAdapter2.month.getInstance().get(Calendar.DAY_OF_WEEK) ==
+		// Calendar.SUNDAY
+		// || MyPagerAdapter2.month.getInstance().get(
+		// Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
+		//
+		// LayoutInflater vi2 = (LayoutInflater) mContext
+		// .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		// v = vi2.inflate(R.layout.gridview_item_transparente, null);
+		//
+		// dayView = (TextView) v
+		// .findViewById(R.id.textViewCalendarItemTrans);
+		// selecionaDias = (TextView) v
+		// .findViewById(R.id.textViewCalendarItemTrans2);
+		// }
+
 		dayView = (TextView) v.findViewById(R.id.textViewCalendarItem2);
 		selecionaDias = (TextView) v.findViewById(R.id.textViewCalendarItem3);
 
@@ -150,15 +177,16 @@ public class Calendario_Adapter extends BaseAdapter {
 
 		dayView.setText(gridvalue);
 
-		selecionaDias.setOnTouchListener(new OnTouchListener() {
-
-			@Override
-			public boolean onTouch(View v, MotionEvent event) {
-				// TODO Auto-generated method stub
-				selecionaDias.setSelected(event.getAction() == MotionEvent.ACTION_DOWN);
-				return true;
-			}
-		});
+		// selecionaDias.setOnTouchListener(new OnTouchListener() {
+		//
+		// @Override
+		// public boolean onTouch(View v, MotionEvent event) {
+		// // TODO Auto-generated method stub
+		// selecionaDias.setSelected(event.getAction() ==
+		// MotionEvent.ACTION_DOWN);
+		// return true;
+		// }
+		// });
 
 		// create date string for comparison
 		String date = dayString.get(position);
@@ -200,8 +228,8 @@ public class Calendario_Adapter extends BaseAdapter {
 		firstDay = month.get(GregorianCalendar.DAY_OF_WEEK);
 		// finding number of weeks in current month.
 		maxWeeknumber = month.getActualMaximum(GregorianCalendar.WEEK_OF_MONTH);
-		if (maxWeeknumber >= 6)
-			maxWeeknumber = 5;
+		if (maxWeeknumber >= 7)
+			maxWeeknumber = 6;
 		// allocating maximum row number for the gridview.
 		mnthlength = maxWeeknumber * 7;
 		maxP = getMaxP(); // previous month maximum day 31,30....
@@ -241,6 +269,10 @@ public class Calendario_Adapter extends BaseAdapter {
 		maxP = pmonth.getActualMaximum(GregorianCalendar.DAY_OF_MONTH);
 
 		return maxP;
+	}
+
+	public String getDayString(int pos) {
+		return dayString.get(pos);
 	}
 
 }
