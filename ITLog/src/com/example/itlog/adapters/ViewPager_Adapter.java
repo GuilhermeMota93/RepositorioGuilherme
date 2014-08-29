@@ -95,7 +95,7 @@ public class ViewPager_Adapter extends PagerAdapter {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				((Calendario_Adapter) parent.getAdapter()).setSelected(view);
+				adapter.setSelected(view, position);
 				// AQUI BUSCAR CLICK DO DIA. USAR PARA MULTI DIAS SELECTION ????
 				String selectedGridDate = adapter.getDayString(position);
 				String[] separatedTime = selectedGridDate.split("-");
@@ -103,9 +103,15 @@ public class ViewPager_Adapter extends PagerAdapter {
 				String gridvalueString = separatedTime[2].replaceFirst("^0*",
 						"");
 				int gridValue = Integer.parseInt(gridvalueString);
-				((Calendario_Adapter) parent.getAdapter()).setSelected(view);
+
+				if ((gridValue > 1) && (position < adapter.firstDay)
+						|| (gridValue <= 14) && (position > 28)) {
+					adapter.selecionaDias.setClickable(false);
+					adapter.dayView.setClickable(false);
+				}
 				showToast(selectedGridDate);
 			}
+
 		});
 		return v;
 	}

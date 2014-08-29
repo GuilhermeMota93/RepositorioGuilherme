@@ -32,8 +32,9 @@
             <android.support.v4.view.PagerTitleStrip
                 android:id="@+id/tituloViewPagerTeste"
                 android:layout_width="match_parent"
-                android:layout_height="25dp"
+                android:layout_height="50dp"
                 android:layout_gravity="top"
+                android:textAlignment="center"
                 android:background="#0e7d9a"
                 android:textColor="#ffffff" >
             </android.support.v4.view.PagerTitleStrip>

@@ -1,55 +1,45 @@
 package com.example.itlog.adapters;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
 
+import android.R.integer;
 import android.content.Context;
-import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.itlog.R;
 
 public class Calendario_Adapter extends BaseAdapter {
 
+	private static final String TAG = null;
 	private Context mContext;
 	private Calendar month;
-	TextView dayView;
-	TextView selecionaDias;
-
+	TextView dayView, selecionaDias;
 	// instacia para mes anterior
 	public GregorianCalendar pmonth;
-
 	// instancia de mes anterior para ter View completa
 	public GregorianCalendar pmonthmaxset;
-
 	private GregorianCalendar selectedDate;
-
 	int firstDay, maxWeeknumber, maxP, calMaxP, lastWeekDay, leftDays,
 			mnthlength;
-
 	String itemvalue, curentDateString;
-
 	SimpleDateFormat df;
-
 	int[] checkStates;
-
 	private ArrayList<String> items;
+	private ArrayList<Integer> posSelecionadas;
 	private List<String> dayString;
 	private View previousView;
-
-	Calendar cal;
 
 	public Calendario_Adapter(Context c, Calendar month2) {
 		dayString = new ArrayList<String>();
@@ -60,7 +50,12 @@ public class Calendario_Adapter extends BaseAdapter {
 		this.items = new ArrayList<String>();
 		df = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
 		curentDateString = df.format(selectedDate.getTime());
-		refreshDays();
+		try {
+			refreshDays();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void setItems(ArrayList<String> items) {
@@ -85,141 +80,77 @@ public class Calendario_Adapter extends BaseAdapter {
 	}
 
 	// create a new view for each item referenced by the Adapter
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
+		// ViewHolder holder = null;
 		View v = convertView;
-
-		// CheckBox checkBox;
-
 		if (convertView == null) {
+			// holder = new ViewHolder();
 			LayoutInflater vi = (LayoutInflater) mContext
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			int layout;
-
-			if (month.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY
-					|| month.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
-				layout = R.layout.gridview_item_transparente;
-			} else {
-				layout = R.layout.gridview_item;
-			}
-			v = vi.inflate(layout, null);
-
+			v = vi.inflate(R.layout.gridview_item, null);
 		}
-
-		// CICLO AQUI A CONFIRMAR SE DIA FAZ OU NAO PARTE DO MES?
-		// getCount e getItem para iterar pelas celulas???
-		// if (MyPagerAdapter2.month.getInstance().get(Calendar.DAY_OF_WEEK) ==
-		// Calendar.SUNDAY
-		// || MyPagerAdapter2.month.getInstance().get(
-		// Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
-		//
-		// LayoutInflater vi2 = (LayoutInflater) mContext
-		// .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		// v = vi2.inflate(R.layout.gridview_item_transparente, null);
-		//
-		// dayView = (TextView) v
-		// .findViewById(R.id.textViewCalendarItemTrans);
-		// selecionaDias = (TextView) v
-		// .findViewById(R.id.textViewCalendarItemTrans2);
-		// }
 
 		dayView = (TextView) v.findViewById(R.id.textViewCalendarItem2);
 		selecionaDias = (TextView) v.findViewById(R.id.textViewCalendarItem3);
 
-		// checkBox = (CheckBox) v.findViewById(R.id.checkBox1);
-
-		checkStates = new int[dayString.size()];
-		for (int i = 0; i < items.size(); i++) {
-			checkStates[i] = 0;
-		}
-		// checkBox.setTag(position);
-		//
-		// checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-		// //guardar os 'checks' nas checkboxes
-		// @Override
-		// public void onCheckedChanged(CompoundButton buttonView, boolean
-		// isChecked) {
-		//
-		// int pos = (Integer) buttonView.getTag();
-		// if(!buttonView.isChecked()){
-		// checkStates[pos] = 0;
-		// }else{
-		// checkStates[pos] = 1;
-		// }
-		// notifyDataSetChanged();
-		// }
-		// });
-
 		// separates daystring into parts.
-		String[] separatedTime = dayString.get(position).split("-");
+		final String[] separatedTime = dayString.get(position).split("-");
 		// taking last part of date. ie; 2 from 2012-12-02
-		String gridvalue = separatedTime[2].replaceFirst("^0*", "");
+		final String gridvalue = separatedTime[2].replaceFirst("^0*", "");
 
 		// checking whether the day is in current month or not.
 		if ((Integer.parseInt(gridvalue) > 1) && (position < firstDay)) {
-			// setting offdays to white color.
-			dayView.setTextColor(Color.WHITE);
-			// checkBox.setClickable(false);
-			dayView.setFocusable(false);
-
-		} else if ((Integer.parseInt(gridvalue) < 7) && (position > 28)) {
-			dayView.setTextColor(Color.WHITE);
-			// dayView.setClickable(false);
-			// dayView.setFocusable(false);
-
-		}
-		// dia selecionado aqui
-		if (dayString.get(position).equals(curentDateString)) {
-			setSelected(v);
-			previousView = v;
-		} else {
-			v.setBackgroundResource(R.drawable.list_item_background);
+			// setting offdays to black color.
+			// dayView.setTextColor(Color.BLACK);
+			v.setVisibility(View.INVISIBLE);
+		} else if ((Integer.parseInt(gridvalue) <= 14) && (position > 28)) {
+			// dayView.setTextColor(Color.BLACK);
+			v.setVisibility(View.INVISIBLE);
 		}
 
 		dayView.setText(gridvalue);
 
-		// selecionaDias.setOnTouchListener(new OnTouchListener() {
-		//
-		// @Override
-		// public boolean onTouch(View v, MotionEvent event) {
-		// // TODO Auto-generated method stub
-		// selecionaDias.setSelected(event.getAction() ==
-		// MotionEvent.ACTION_DOWN);
-		// return true;
-		// }
-		// });
-
 		// create date string for comparison
 		String date = dayString.get(position);
 
-		if (date.length() == 1) {
+		if (date.length() == 1)
 			date = "0" + date;
-		}
 		String monthStr = "" + (month.get(GregorianCalendar.MONTH) + 1);
-		if (monthStr.length() == 1) {
+		if (monthStr.length() == 1)
 			monthStr = "0" + monthStr;
-		}
-
-		// show icon if date is not empty and it exists in the items array
-		/*
-		 * ImageView iw = (ImageView) v.findViewById(R.id.date_icon); if
-		 * (date.length() > 0 && items != null && items.contains(date)) {
-		 * iw.setVisibility(View.VISIBLE); } else {
-		 * iw.setVisibility(View.INVISIBLE); }
-		 */
 		return v;
 	}
 
-	// Cor azul a volta do dia selecionado!
-	public View setSelected(View view) {
-		if (previousView != null) {
-			previousView.setBackgroundResource(R.drawable.list_item_background);
+	// // Dia selecionado!
+	// public View setSelected(View view, int position) {
+	// if (previousView != null) {
+	// previousView.setBackgroundResource(R.drawable.pressed_color);
+	// }
+	// previousView = view;
+	// view.setBackgroundResource(R.drawable.pressed_color);
+	// return view;
+	// }
+
+	// Dia selecionado!
+	public View setSelected(View view, int position) {
+		
+		//COMO IR BUSCAR POS SELECIOANDA ??? GET ITEM? GET COUNT???
+		position = Integer.valueOf((String) getItem(position));
+		if (posSelecionadas.contains(position)) {
+			view.setBackgroundResource(R.drawable.selector_gridview_item);
+			posSelecionadas.remove(position);
+		} else {
+			view.setBackgroundResource(R.drawable.pressed_color);
 		}
-		previousView = view;
-		view.setBackgroundResource(R.drawable.calendar_cel_selectl);
+		// previousView = view;
+		// previousView.setBackgroundResource(R.drawable.pressed_color);
+
 		return view;
 	}
 
-	public void refreshDays() {
+	public void refreshDays() throws ParseException {
+		Date data;
+		Calendar calendario;
 		// clear items
 		items.clear();
 		dayString.clear();
@@ -227,9 +158,10 @@ public class Calendario_Adapter extends BaseAdapter {
 		// month start day. ie; sun, mon, etc
 		firstDay = month.get(GregorianCalendar.DAY_OF_WEEK);
 		// finding number of weeks in current month.
-		maxWeeknumber = month.getActualMaximum(GregorianCalendar.WEEK_OF_MONTH);
-		if (maxWeeknumber >= 7)
-			maxWeeknumber = 6;
+		maxWeeknumber = month
+				.getActualMaximum(GregorianCalendar.WEEK_OF_MONTH + 1);
+		if (maxWeeknumber >= 6)
+			maxWeeknumber = 5;
 		// allocating maximum row number for the gridview.
 		mnthlength = maxWeeknumber * 7;
 		maxP = getMaxP(); // previous month maximum day 31,30....
@@ -247,13 +179,27 @@ public class Calendario_Adapter extends BaseAdapter {
 		/**
 		 * filling calendar gridview.
 		 */
+
 		for (int n = 0; n < mnthlength; n++) {
 
+			// Mes sem fins de semana para dentro de "dayString"
 			itemvalue = df.format(pmonthmaxset.getTime());
 			pmonthmaxset.add(GregorianCalendar.DATE, 1);
-			dayString.add(itemvalue);
+
+			data = (Date) df.parse(itemvalue);
+			calendario = Calendar.getInstance();
+			calendario.setTime(data);
+
+			if (calendario.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY
+					&& calendario.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
+				dayString.add(itemvalue);
+			}
 
 		}
+		for (int i = 0; i < dayString.size(); i++) {
+			Log.i(TAG, itemvalue);
+		}
+
 	}
 
 	private int getMaxP() {
@@ -274,5 +220,7 @@ public class Calendario_Adapter extends BaseAdapter {
 	public String getDayString(int pos) {
 		return dayString.get(pos);
 	}
+	
+
 
 }

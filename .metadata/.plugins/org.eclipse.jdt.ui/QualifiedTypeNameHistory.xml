@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.example.itlog.activities.CalendarioAdapter2_Activity"/>
-<fullyQualifiedTypeName name="android.R"/>
-<fullyQualifiedTypeName name="com.example.itlog.adapters.CalendarioAdapter2_Activity"/>
-<fullyQualifiedTypeName name="com.example.itlog.activities.InputHoras_Activity2"/>
-<fullyQualifiedTypeName name="com.example.itlog.activities.GeneralButtons_Activity"/>
-<fullyQualifiedTypeName name="android.graphics.Typeface"/>
-<fullyQualifiedTypeName name="com.example.itlog.adapters.Calendario2_Adapter"/>
 <fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
 <fullyQualifiedTypeName name="com.example.itlog.objects.Project"/>
 <fullyQualifiedTypeName name="com.example.itlog.adapters.InputHoras_Spinner_Adapter"/>
@@ -17,18 +10,14 @@
 <fullyQualifiedTypeName name="com.example.itlog.fragments.GridView_Proximo"/>
 <fullyQualifiedTypeName name="com.example.itlog.fragments.GridView_Anterior"/>
 <fullyQualifiedTypeName name="android.support.v4.app.FragmentManager"/>
-<fullyQualifiedTypeName name="com.example.itlog.adapters.ViewPager_Adapter"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
 <fullyQualifiedTypeName name="android.os.Handler"/>
 <fullyQualifiedTypeName name="android.widget.ImageView"/>
 <fullyQualifiedTypeName name="android.graphics.Color"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView.OnItemSelectedListener"/>
-<fullyQualifiedTypeName name="com.example.itlog.R.drawable"/>
-<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="android.view.View.OnTouchListener"/>
 <fullyQualifiedTypeName name="android.view.MotionEvent"/>
 <fullyQualifiedTypeName name="android.support.v4.app.FragmentActivity"/>
-<fullyQualifiedTypeName name="android.view.View"/>
 <fullyQualifiedTypeName name="android.support.v4.app.FragmentPagerAdapter"/>
 <fullyQualifiedTypeName name="com.example.viewpagertest1.R.layout"/>
 <fullyQualifiedTypeName name="com.example.viewpagertest1.FirstFragment"/>
@@ -46,18 +35,29 @@
 <fullyQualifiedTypeName name="android.support.v4.view.ViewPager.OnPageChangeListener"/>
 <fullyQualifiedTypeName name="java.security.acl.LastOwnerException"/>
 <fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.lang.CharSequence"/>
-<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="com.example.itlog.adapters.Calendario_Adapter"/>
 <fullyQualifiedTypeName name="com.example.itlog.R"/>
 <fullyQualifiedTypeName name="com.example.itlog.R.layout"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.InputHoras_Activity"/>
 <fullyQualifiedTypeName name="java.util.Locale"/>
 <fullyQualifiedTypeName name="java.text.DateFormatSymbols"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="com.example.itlog.adapters.MyPagerAdapter2"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+<fullyQualifiedTypeName name="com.example.itlog.services.ListAllProjectsService"/>
+<fullyQualifiedTypeName name="com.example.itlog.adapters.ViewPager_Adapter"/>
+<fullyQualifiedTypeName name="android.graphics.drawable.Drawable"/>
+<fullyQualifiedTypeName name="com.example.itlog.R.drawable"/>
+<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="android.view.View"/>
+<fullyQualifiedTypeName name="android.text.format.DateFormat"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="com.example.itlog.adapters.Calendario_Adapter"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="android.R.integer"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
 </qualifiedTypeNameHistroy>

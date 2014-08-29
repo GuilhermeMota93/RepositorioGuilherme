@@ -70,13 +70,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		pager = (ViewPager) findViewById(R.id.viewPager);
 		myPagerAdapter = new ViewPager_Adapter(InputHoras_Activity.this);
 		pager.setAdapter(myPagerAdapter);
-
-		// generate some calendar items
-		// title = (TextView) findViewById(R.id.title);
-		// title.setText(android.text.format.DateFormat.format("MMMM yyyy",
-		// month));
 		pager = (ViewPager) findViewById(R.id.viewPager);
-
 		imputar = (Button) findViewById(R.id.button1);
 		spinner = (Spinner) findViewById(R.id.spinnerGridView1);
 		getListaProjsUser();
@@ -96,39 +90,17 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 			@Override
 			public void onPageSelected(int posicaoAtual) {
 				// TODO Auto-generated method stub
-
-				// if (posicaoAtual >= (myPagerAdapter.getCount()- 2)) {
-				// // scroll para a direita
-				// myPagerAdapter.setNextMonth();
-				//
-				// } else if (posicaoAtual == 1) {
-				// // scroll para a esquerda
-				// myPagerAdapter.setPreviousMonth();
-				//
-				// }
-
-				// for (int i = 0; i < myPagerAdapter.getListaMesesMostrar()
-				// .size(); i++) {
-				// if (posicaoAtual >= myPagerAdapter.getListaMesesMostrar()
-				// .get(i).get(Calendar.MONTH))
-				// myPagerAdapter.setNextMonth();
-				// else if (posicaoAtual <= myPagerAdapter
-				// .getListaMesesMostrar().get(i).get(Calendar.MONTH)) {
-				// myPagerAdapter.setPreviousMonth();
-				// }
-				// }
-
 				if (posicaoAtual >= posAntes) {
 					Log.i(TAG, "SWIPING RIGHT");
 
 					// se chegar ao max do viewpager (com o getCount)
-					if (posicaoAtual == myPagerAdapter.getCount()-1) {
+					if (posicaoAtual == myPagerAdapter.getCount() - 1) {
 						// limpa a lista, e cria com o (YEAR+1)
 						myPagerAdapter.getListaMesesMostrarMaisUm();
 						myPagerAdapter.notifyDataSetChanged();
 					}
 					posAntes++;
-					
+
 				} else if (posicaoAtual <= posAntes) {
 					Log.i(TAG, "SWIPING LEFT");
 
@@ -143,23 +115,12 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 					posAntes--;
 
 				}
-				// myPagerAdapter.notifyDataSetChanged();
 
 			}
 
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
 				// TODO Auto-generated method stub
-
-				// ESTE PEDACO DE CODIGO COMEÇA A DAR ANOS MUITO ELEVADOS
-				// if (arg0 > posAntes)
-				// //scroll direita
-				// myPagerAdapter.setNextMonth();
-				//
-				// else if (arg0 < posAntes)
-				// //scroll esquerda
-				// myPagerAdapter.setPreviousMonth();
-
 			}
 
 			@Override
@@ -245,26 +206,4 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		return arrayEspecifico;
 
 	}
-	// RelativeLayout previous = (RelativeLayout)
-	// findViewById(R.id.previous);
-	//
-	// previous.setOnClickListener(new OnClickListener() {
-	//
-	// public void onClick(View v) {
-	// setPreviousMonth();// mes anterior
-	// refreshCalendar();// update ao calendario
-	//
-	// }
-	// });
-	//
-	// RelativeLayout next = (RelativeLayout) findViewById(R.id.next);
-	// next.setOnClickListener(new OnClickListener() {
-	//
-	// @Override
-	// public void onClick(View v) {
-	// setNextMonth();// prox mes
-	// refreshCalendar();// update ao calendario
-	//
-	// }
-	// });
 }

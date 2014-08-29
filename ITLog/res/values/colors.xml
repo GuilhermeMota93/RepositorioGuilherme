@@ -6,5 +6,8 @@
     <color name="botao_pressionado_azul">#0e7d9a</color>
     <color name="botao_pressionado_branco">#ffffff</color>
     <color name="gridview_select">#99cc00</color>
-
+    
+    <drawable name="pressed_color">#99cc00</drawable>
+    <drawable name="pressed_color_2">#FFFF66</drawable>
+	<drawable name="normal_color">#FFFFF0</drawable>
 </resources>
