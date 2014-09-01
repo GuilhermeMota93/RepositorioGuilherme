@@ -1,16 +1,20 @@
 package com.example.itlog.adapters;
 
+import java.security.PublicKey;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
 
 import android.R.integer;
+import android.R.string;
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,13 +23,14 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.itlog.R;
+import com.example.itlog.activities.InputHoras_Activity;
 
 public class Calendario_Adapter extends BaseAdapter {
 
 	private static final String TAG = null;
 	private Context mContext;
 	private Calendar month;
-	TextView dayView, selecionaDias;
+	static TextView dayView, selecionaDias;
 	// instacia para mes anterior
 	public GregorianCalendar pmonth;
 	// instancia de mes anterior para ter View completa
@@ -35,9 +40,8 @@ public class Calendario_Adapter extends BaseAdapter {
 			mnthlength;
 	String itemvalue, curentDateString;
 	SimpleDateFormat df;
-	int[] checkStates;
 	private ArrayList<String> items;
-	private ArrayList<Integer> posSelecionadas;
+	private static ArrayList<String> posSelecionadas = new ArrayList<String>();
 	private List<String> dayString;
 	private View previousView;
 
@@ -121,34 +125,21 @@ public class Calendario_Adapter extends BaseAdapter {
 		return v;
 	}
 
-	// // Dia selecionado!
-	// public View setSelected(View view, int position) {
-	// if (previousView != null) {
-	// previousView.setBackgroundResource(R.drawable.pressed_color);
-	// }
-	// previousView = view;
-	// view.setBackgroundResource(R.drawable.pressed_color);
-	// return view;
-	// }
-
 	// Dia selecionado!
-	public View setSelected(View view, int position) {
-		
-		//COMO IR BUSCAR POS SELECIOANDA ??? GET ITEM? GET COUNT???
-		position = Integer.valueOf((String) getItem(position));
+	public View setSelected(View view, String position) {
 		if (posSelecionadas.contains(position)) {
 			view.setBackgroundResource(R.drawable.selector_gridview_item);
 			posSelecionadas.remove(position);
 		} else {
+			posSelecionadas.add(position);
 			view.setBackgroundResource(R.drawable.pressed_color);
 		}
-		// previousView = view;
-		// previousView.setBackgroundResource(R.drawable.pressed_color);
-
+		
 		return view;
 	}
 
 	public void refreshDays() throws ParseException {
+
 		Date data;
 		Calendar calendario;
 		// clear items
@@ -160,7 +151,7 @@ public class Calendario_Adapter extends BaseAdapter {
 		// finding number of weeks in current month.
 		maxWeeknumber = month
 				.getActualMaximum(GregorianCalendar.WEEK_OF_MONTH + 1);
-		if (maxWeeknumber >= 6)
+		if (maxWeeknumber >= 5)
 			maxWeeknumber = 5;
 		// allocating maximum row number for the gridview.
 		mnthlength = maxWeeknumber * 7;
@@ -196,9 +187,6 @@ public class Calendario_Adapter extends BaseAdapter {
 			}
 
 		}
-		for (int i = 0; i < dayString.size(); i++) {
-			Log.i(TAG, itemvalue);
-		}
 
 	}
 
@@ -217,10 +205,14 @@ public class Calendario_Adapter extends BaseAdapter {
 		return maxP;
 	}
 
+	// posicao do dia
 	public String getDayString(int pos) {
 		return dayString.get(pos);
 	}
-	
 
+	// retorna arraylist que contem todas as posiçoes selecionadas
+	public ArrayList<String> getArraySelecionaDias() {
+		return posSelecionadas;
+	}
 
 }

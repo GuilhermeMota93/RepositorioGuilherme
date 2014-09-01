@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
+import android.R.interpolator;
 import android.app.AlertDialog;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -54,7 +55,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 
 	ViewPager pager;
 	PagerTitleStrip strip;
-	ViewPager_Adapter myPagerAdapter;
+	ViewPager_Adapter viewPagerAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +69,8 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
 
 		pager = (ViewPager) findViewById(R.id.viewPager);
-		myPagerAdapter = new ViewPager_Adapter(InputHoras_Activity.this);
-		pager.setAdapter(myPagerAdapter);
+		viewPagerAdapter = new ViewPager_Adapter(InputHoras_Activity.this);
+		pager.setAdapter(viewPagerAdapter);
 		pager = (ViewPager) findViewById(R.id.viewPager);
 		imputar = (Button) findViewById(R.id.button1);
 		spinner = (Spinner) findViewById(R.id.spinnerGridView1);
@@ -94,10 +95,10 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 					Log.i(TAG, "SWIPING RIGHT");
 
 					// se chegar ao max do viewpager (com o getCount)
-					if (posicaoAtual == myPagerAdapter.getCount() - 1) {
+					if (posicaoAtual == viewPagerAdapter.getCount() - 1) {
 						// limpa a lista, e cria com o (YEAR+1)
-						myPagerAdapter.getListaMesesMostrarMaisUm();
-						myPagerAdapter.notifyDataSetChanged();
+						viewPagerAdapter.getListaMesesMostrarMaisUm();
+						viewPagerAdapter.notifyDataSetChanged();
 					}
 					posAntes++;
 
@@ -107,9 +108,9 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 					// se chegar ao min do viewpager (com o getCount)
 					if (posicaoAtual == 0) {
 						// limpa a lista, e cria de novo com (YEAR-1)
-						myPagerAdapter.getListaMesesMostarMenosUm();
+						viewPagerAdapter.getListaMesesMostarMenosUm();
 						// progressbar aqui
-						myPagerAdapter.notifyDataSetChanged();
+						viewPagerAdapter.notifyDataSetChanged();
 						pager.setCurrentItem(12);
 					}
 					posAntes--;
@@ -134,6 +135,10 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+
+				adapter = new Calendario_Adapter(InputHoras_Activity.this,
+						month);
+
 				LayoutInflater inflate = LayoutInflater
 						.from(InputHoras_Activity.this);
 				View layout = inflate.inflate(
@@ -150,6 +155,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 				builder.setView(layout);
 				final AlertDialog dialog = builder.create();
 				dialog.show();
+
 				b1.setOnClickListener(new OnClickListener() {
 
 					@Override
@@ -157,6 +163,18 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 						Toast.makeText(InputHoras_Activity.this,
 								"4 Horas adicionadas com sucesso! ",
 								Toast.LENGTH_LONG).show();
+
+						Toast.makeText(InputHoras_Activity.this,
+								"" + adapter.getArraySelecionaDias().size(),
+								Toast.LENGTH_LONG).show();
+
+						// Para todos os elementos selecionados que estao na
+						// lista
+						for (int i = 0; i < adapter.getArraySelecionaDias().size(); i++) {
+							//fazer arraylist de text views para depois fazer setText() ????'
+							adapter.getArraySelecionaDias().get(i);
+						}
+
 						dialog.dismiss();
 					}
 				});

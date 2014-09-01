@@ -95,10 +95,13 @@ public class ViewPager_Adapter extends PagerAdapter {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				adapter.setSelected(view, position);
-				// AQUI BUSCAR CLICK DO DIA. USAR PARA MULTI DIAS SELECTION ????
 				String selectedGridDate = adapter.getDayString(position);
 				String[] separatedTime = selectedGridDate.split("-");
+				
+				//buscar dia selecionado para mandar para o arraylist de posSelecionadas
+				if (!selectedGridDate.equals(null))
+					adapter.setSelected(view,selectedGridDate);
+								
 				// tira ultima parte de uma data. ex: 2 from 2012-12-02
 				String gridvalueString = separatedTime[2].replaceFirst("^0*",
 						"");

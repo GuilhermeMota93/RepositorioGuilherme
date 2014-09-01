@@ -1,14 +1,37 @@
-2014-08-29 09:55:09.340 [Worker-1] INFO    com.objectaid.uml.model.manage.DiagramManager getFactories: com.objectaid.uml.diagramFactories[ucls]: com.objectaid.uml.cls.model.ClassDiagramFactory@436465ec
-2014-08-29 09:55:10.360 [Worker-1] INFO    com.objectaid.uml.model.manage.DiagramManager getFactories: com.objectaid.uml.diagramFactories[useq]: com.objectaid.uml.seq.model.SequenceDiagramFactory@1ca1514b
-2014-08-29 09:55:13.202 [pool-1-thread-2] INFO    com.objectaid.uml.model.manage.LanguageElementManager getLanguageElementFactories: com.objectaid.uml.languageElementFactories: com.objectaid.uml.java.JavaElementFactory
-2014-08-29 09:55:13.414 [pool-1-thread-4] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.RasterRenderFormat" class="com.objectaid.uml.render.RasterRenderFormat" name="PNG" extension="png" antialias="true" format="5" 
-2014-08-29 09:55:13.444 [pool-1-thread-4] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.RasterRenderFormat" class="com.objectaid.uml.render.RasterRenderFormat" name="JPEG" extension="jpg" antialias="true" format="4" 
-2014-08-29 09:55:13.465 [pool-1-thread-4] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.IndexedRasterRenderFormat" class="com.objectaid.uml.render.IndexedRasterRenderFormat" name="GIF" extension="gif" antialias="false" format="2" 
-2014-08-29 09:55:14.743 [pool-1-thread-3] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=5 in /ITLog/src/com/example/itlog/activities/Class Diagram Activities.ucls
-2014-08-29 09:55:14.744 [pool-1-thread-3] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=8 in /ITLog/src/com/example/itlog/activities/Class Diagram Activities.ucls
-2014-08-29 09:55:14.744 [pool-1-thread-3] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=5 in /ITLog/src/com/example/itlog/activities/Class Diagram Activities.ucls
-2014-08-29 09:55:14.745 [pool-1-thread-3] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=5 in /ITLog/src/com/example/itlog/activities/Class Diagram Activities.ucls
-2014-08-29 09:55:14.905 [pool-1-thread-2] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=15 in /ITLog/src/Class Diagram.ucls
-2014-08-29 09:55:14.906 [pool-1-thread-2] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=15 in /ITLog/src/Class Diagram.ucls
-2014-08-29 09:55:14.908 [pool-1-thread-2] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=44 in /ITLog/src/Class Diagram.ucls
-2014-08-29 09:55:14.910 [pool-1-thread-2] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=15 in /ITLog/src/Class Diagram.ucls
+2014-09-01 09:31:27.971 [Worker-5] INFO    com.objectaid.uml.model.manage.DiagramManager getFactories: com.objectaid.uml.diagramFactories[ucls]: com.objectaid.uml.cls.model.ClassDiagramFactory@7ad678d9
+2014-09-01 09:31:28.257 [Worker-5] INFO    com.objectaid.uml.model.manage.DiagramManager getFactories: com.objectaid.uml.diagramFactories[useq]: com.objectaid.uml.seq.model.SequenceDiagramFactory@20701d4c
+2014-09-01 09:31:30.449 [pool-1-thread-4] INFO    com.objectaid.uml.model.manage.LanguageElementManager getLanguageElementFactories: com.objectaid.uml.languageElementFactories: com.objectaid.uml.java.JavaElementFactory
+2014-09-01 09:31:30.578 [pool-1-thread-3] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.RasterRenderFormat" class="com.objectaid.uml.render.RasterRenderFormat" name="PNG" extension="png" antialias="true" format="5" 
+2014-09-01 09:31:30.583 [pool-1-thread-3] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.RasterRenderFormat" class="com.objectaid.uml.render.RasterRenderFormat" name="JPEG" extension="jpg" antialias="true" format="4" 
+2014-09-01 09:31:30.587 [pool-1-thread-3] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.IndexedRasterRenderFormat" class="com.objectaid.uml.render.IndexedRasterRenderFormat" name="GIF" extension="gif" antialias="false" format="2" 
+2014-09-01 09:31:31.614 [pool-1-thread-2] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=5 in /ITLog/src/com/example/itlog/activities/Class Diagram Activities.ucls
+2014-09-01 09:31:31.615 [pool-1-thread-2] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=8 in /ITLog/src/com/example/itlog/activities/Class Diagram Activities.ucls
+2014-09-01 09:31:31.616 [pool-1-thread-2] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=5 in /ITLog/src/com/example/itlog/activities/Class Diagram Activities.ucls
+2014-09-01 09:31:31.617 [pool-1-thread-2] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=5 in /ITLog/src/com/example/itlog/activities/Class Diagram Activities.ucls
+2014-09-01 09:31:31.687 [pool-1-thread-1] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=15 in /ITLog/src/Class Diagram.ucls
+2014-09-01 09:31:31.689 [pool-1-thread-1] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=15 in /ITLog/src/Class Diagram.ucls
+2014-09-01 09:31:31.691 [pool-1-thread-1] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=44 in /ITLog/src/Class Diagram.ucls
+2014-09-01 09:31:31.695 [pool-1-thread-1] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=15 in /ITLog/src/Class Diagram.ucls
+2014-09-01 17:24:40.685 [ModalContext] SEVERE  com.objectaid.uml.UMLException log: ! understands( javaElement ): ArrayList<View> posicaoTextViewHoras [in setPosicaoTextViewHoras(ArrayList<View>) [in Calendario_Adapter [in [Working copy] Calendario_Adapter.java [in com.example.itlog.adapters [in src [in ITLog]]]]]]
+com.objectaid.uml.UMLException: ! understands( javaElement ): ArrayList<View> posicaoTextViewHoras [in setPosicaoTextViewHoras(ArrayList<View>) [in Calendario_Adapter [in [Working copy] Calendario_Adapter.java [in com.example.itlog.adapters [in src [in ITLog]]]]]]
+	at com.objectaid.uml.java.JavaElementFactory.createIdentifier(JavaElementFactory.java:195)
+	at com.objectaid.uml.java.JavaElementFactory.createIdentifier(JavaElementFactory.java:64)
+	at com.objectaid.uml.util.LanguageHelper.getLanguageElementHandle(LanguageHelper.java:58)
+	at com.objectaid.uml.java.RefactoringHelper.getLanguageElementHandle(RefactoringHelper.java:41)
+	at com.objectaid.uml.java.RefactoringHelper.needsRefactoring(RefactoringHelper.java:102)
+	at com.objectaid.uml.java.JavaRenameParticipant.initialize(JavaRenameParticipant.java:73)
+	at org.eclipse.ltk.core.refactoring.participants.RefactoringParticipant.initialize(RefactoringParticipant.java:105)
+	at org.eclipse.ltk.core.refactoring.participants.ParticipantExtensionPoint.getParticipants(ParticipantExtensionPoint.java:100)
+	at org.eclipse.ltk.core.refactoring.participants.ParticipantManager.loadRenameParticipants(ParticipantManager.java:74)
+	at org.eclipse.jdt.internal.corext.refactoring.rename.RenameModifications.loadParticipants(RenameModifications.java:193)
+	at org.eclipse.jdt.internal.corext.refactoring.rename.JavaRenameProcessor.loadParticipants(JavaRenameProcessor.java:41)
+	at org.eclipse.ltk.core.refactoring.participants.ProcessorBasedRefactoring.checkFinalConditions(ProcessorBasedRefactoring.java:233)
+	at org.eclipse.ltk.core.refactoring.Refactoring.checkAllConditions(Refactoring.java:162)
+	at org.eclipse.jdt.internal.ui.refactoring.RefactoringExecutionHelper$Operation.run(RefactoringExecutionHelper.java:80)
+	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5204)
+	at org.eclipse.jdt.internal.ui.actions.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:106)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+
