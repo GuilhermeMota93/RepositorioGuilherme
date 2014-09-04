@@ -12,20 +12,20 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/titulo"
+            android:id="@+id/titulo1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
             android:textColor="#0e7d9a"
-            android:textSize="20sp" />
+            android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/pergunta"
+            android:id="@+id/descricao"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingTop="10dp"
             android:textColor="#656565"
-            android:textSize="14sp" />
+            android:textSize="18sp" />
     </LinearLayout>
 
     <RelativeLayout
@@ -38,7 +38,7 @@
         android:orientation="vertical" >
 
         <Button
-            android:id="@+id/botaoConfirma"
+            android:id="@+id/botaoOK"
             android:layout_width="145dp"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/botaoCancela"

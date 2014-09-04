@@ -99,7 +99,7 @@ public class AddProj_Activity extends GeneralButtons_Activity implements
 				TextView tv2 = (TextView) layout.findViewById(R.id.pergunta);
 				tv2.setText("Pretende adicionar este projeto à sua lista de projetos?");
 				Button b1 = (Button) layout.findViewById(R.id.botaoCancela);
-				Button b2 = (Button) layout.findViewById(R.id.botaoConfirma);
+				Button b2 = (Button) layout.findViewById(R.id.botaoOK);
 
 				final AlertDialog.Builder builder = new AlertDialog.Builder(
 						AddProj_Activity.this);

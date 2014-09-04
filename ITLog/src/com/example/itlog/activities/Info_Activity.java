@@ -36,8 +36,10 @@ import android.widget.Toast;
 public class Info_Activity extends Activity implements
 		CallbackInterface<GetSessionInformationResponse> {
 
+	LoginResponse token = LoginResponse.getInstance();
 	
-	String email, nome, id, info;
+	String email, nome, id;
+//	String token;
 
 	TextView nrCred, nomeP, mail, tv1, tv2;
 	Button meuProj, addProjectos, addHoras, testarServicos, b1, b2;
@@ -49,6 +51,8 @@ public class Info_Activity extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.info_activity_layout);
 
+//		token = getIntent().getExtras().getString("TOKEN");
+				
 		nrCred = (TextView) findViewById(R.id.credNum);
 		nomeP = (TextView) findViewById(R.id.nomePess);
 		mail = (TextView) findViewById(R.id.emailIT);
@@ -58,24 +62,16 @@ public class Info_Activity extends Activity implements
 
 		// define a custom font
 		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
-		
+
 		nrCred.setTypeface(font);
 		nomeP.setTypeface(font);
 		mail.setTypeface(font);
 		meuProj.setTypeface(font);
 		addProjectos.setTypeface(font);
 		addHoras.setTypeface(font);
-		
-		validacao();
-		nrCred.setText(info);
-		mail.setText(email);
-		nomeP.setText(nome);
 
-		// falta o serviço aqui?!
-		// new GetSessionInformationService(InfoActivity.this,
-		// CommunicationCenter.GetDevices,
-		// new GetSessionInformationRequest(t.getUsername()).execute(new
-		// String[0]);
+		getService();
+		
 
 		meuProj.setOnClickListener(new OnClickListener() {
 
@@ -86,7 +82,8 @@ public class Info_Activity extends Activity implements
 				// TODO Auto-generated method stub
 				Intent intencao = new Intent(Info_Activity.this,
 						MeusProj_Activity.class);
-				intencao.putExtra("USERNAME", info);
+				// intencao.putExtra("USERNAME", info);
+//				intencao.putExtra("TOKEN", token);
 				// salta para Meus Projectos
 				Info_Activity.this.startActivity(intencao);
 
@@ -99,7 +96,7 @@ public class Info_Activity extends Activity implements
 				// TODO Auto-generated method stub
 				Intent intencao = new Intent(Info_Activity.this,
 						AddProj_Activity.class);
-				intencao.putExtra("USERNAME", info);
+//				intencao.putExtra("TOKEN", token);
 				// Vai para Adicionar Projectos
 				Info_Activity.this.startActivity(intencao);
 			}
@@ -111,7 +108,7 @@ public class Info_Activity extends Activity implements
 				// TODO Auto-generated method stub
 				Intent intencao = new Intent(Info_Activity.this,
 						InputHoras_Activity.class);
-				intencao.putExtra("USERNAME", info);
+//				intencao.putExtra("TOKEN", token);
 				Info_Activity.this.startActivity(intencao);
 			}
 		});
@@ -126,26 +123,33 @@ public class Info_Activity extends Activity implements
 		return super.onCreateOptionsMenu(menu);
 	}
 
-	public String[] validacao() {
-		ArrayList<Funcionario> arrayFunc = Funcionario
-				.generateFakeFuncionarios();
-		info = getIntent().getExtras().getString("USERNAME");
-		for (Funcionario funcs : arrayFunc) {
-			if (funcs.getId().equals(info)) {
-				email = funcs.getEmail().toString();
-				nome = funcs.getName().toString();
-			}
-		}
-		return new String[] { email, nome, info };
+	// public String[] validacao() {
+	// ArrayList<Funcionario> arrayFunc = Funcionario
+	// .generateFakeFuncionarios();
+	// info = getIntent().getExtras().getString("USERNAME");
+	// for (Funcionario funcs : arrayFunc) {
+	// if (funcs.getId().equals(info)) {
+	// email = funcs.getEmail().toString();
+	// nome = funcs.getName().toString();
+	// }
+	// }
+	// return new String[] { email, nome, info };
+	// }
+
+	public void getService() {
+
+		new GetSessionInformationService(Info_Activity.this,
+				CommunicationCenter.GetSessionInformationService)
+				.execute(token.getToken());
 	}
 
 	public void callbackCall(GetSessionInformationResponse t) {
-		// // nr funcionario
-		// nrCred.setText(t.getUserid());
-		// // nome funcionario
-		// nomeP.setText(t.getFullname());
-		// // mail funcionario
-		// mail.setText(t.getEmail());
+		// nr funcionario
+		nrCred.setText(t.getUserID());
+		// nome funcionario
+		nomeP.setText(t.getFullname());
+		// mail funcionario
+		mail.setText(t.getEmail());
 
 	}
 
@@ -153,12 +157,12 @@ public class Info_Activity extends Activity implements
 	public void onBackPressed() {
 		LayoutInflater inflate = LayoutInflater.from(Info_Activity.this);
 		View layout = inflate.inflate(R.layout.alertdialog_layout, null);
-		tv1 = (TextView) layout.findViewById(R.id.titulo);
+		tv1 = (TextView) layout.findViewById(R.id.titulo1);
 		tv1.setText("Log Out");
-		tv2 = (TextView) layout.findViewById(R.id.pergunta);
+		tv2 = (TextView) layout.findViewById(R.id.descricao);
 		tv2.setText("Efetuar esta ação sairá da aplicação. \n\nPretende continuar?");
 		b1 = (Button) layout.findViewById(R.id.botaoCancela);
-		b2 = (Button) layout.findViewById(R.id.botaoConfirma);
+		b2 = (Button) layout.findViewById(R.id.botaoOK);
 
 		final AlertDialog.Builder builder = new AlertDialog.Builder(
 				Info_Activity.this);
@@ -183,7 +187,7 @@ public class Info_Activity extends Activity implements
 				intencao.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
 						| IntentCompat.FLAG_ACTIVITY_CLEAR_TASK);
 				Info_Activity.this.startActivity(intencao);
-
+				finish();
 			}
 		});
 	}

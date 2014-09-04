@@ -1,24 +1,28 @@
 package com.example.itlog.requestobjects;
 
-public class GetSessionInformationRequest {
+import java.io.Serializable;
+
+public class GetSessionInformationRequest implements Serializable {
 	
 	
-	//username pq é o login que vem de tras
-	private String username;
-
-	public GetSessionInformationRequest(String username) {
-		super();
-		this.username = username;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
+	//PODE APAGAR!!!
 	
+//	//username pq é o login que vem de tras
+//	private String username;
+//
+//	public GetSessionInformationRequest(String username) {
+//		super();
+//		this.username = username;
+//	}
+//
+//	public String getUsername() {
+//		return username;
+//	}
+//
+//	public void setUsername(String username) {
+//		this.username = username;
+//	}
+//	
 	
 
 }

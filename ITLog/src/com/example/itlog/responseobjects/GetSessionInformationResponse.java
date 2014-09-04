@@ -1,17 +1,36 @@
 package com.example.itlog.responseobjects;
 
+import com.google.gson.annotations.SerializedName;
+
 public class GetSessionInformationResponse {
 
-	public String username, fullname, email;
-	public int userid;
+	@SerializedName("UserName")
+	private String username;
+
+	@SerializedName("FullName")
+	private String fullName;
+
+	@SerializedName("UserID")
+	private String userID;
+
+	@SerializedName("Email")
+	private String email;
+
+	@SerializedName("StatusCd")
+	private String statusCd;
+
+	@SerializedName("StatusTxt")
+	private String statusTxt;
 
 	public GetSessionInformationResponse(String username, String fullname,
-			String email, int userid) {
+			String userID, String email, String statusCd, String statusTxt) {
 		super();
 		this.username = username;
-		this.fullname = fullname;
+		this.fullName = fullname;
+		this.userID = userID;
 		this.email = email;
-		this.userid = userid;
+		this.statusCd = statusCd;
+		this.statusTxt = statusTxt;
 	}
 
 	public String getUsername() {
@@ -23,11 +42,19 @@ public class GetSessionInformationResponse {
 	}
 
 	public String getFullname() {
-		return fullname;
+		return fullName;
 	}
 
 	public void setFullname(String fullname) {
-		this.fullname = fullname;
+		this.fullName = fullname;
+	}
+
+	public String getUserID() {
+		return userID;
+	}
+
+	public void setUserID(String userID) {
+		this.userID = userID;
 	}
 
 	public String getEmail() {
@@ -38,14 +65,20 @@ public class GetSessionInformationResponse {
 		this.email = email;
 	}
 
-	public int getUserid() {
-		return userid;
+	public String getStatusCd() {
+		return statusCd;
 	}
 
-	public void setUserid(int userid) {
-		this.userid = userid;
+	public void setStatusCd(String statusCd) {
+		this.statusCd = statusCd;
 	}
-	
-	
+
+	public String getStatusTxt() {
+		return statusTxt;
+	}
+
+	public void setStatusTxt(String statusTxt) {
+		this.statusTxt = statusTxt;
+	}
 
 }

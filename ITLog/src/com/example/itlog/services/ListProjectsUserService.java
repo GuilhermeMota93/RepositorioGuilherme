@@ -15,9 +15,10 @@ public class ListProjectsUserService extends
 	String nomeServico;
 	ListProjectUserRequest lpur;
 
-	public ListProjectsUserService(String nomeServico,
-			ListProjectUserRequest lpur) {
+	public ListProjectsUserService(CallbackInterface<String> callback,
+			String nomeServico, ListProjectUserRequest lpur) {
 		super();
+		this.callback = callback;
 		this.nomeServico = nomeServico;
 		this.lpur = lpur;
 	}
@@ -25,12 +26,13 @@ public class ListProjectsUserService extends
 	@Override
 	protected ListProjectsUserResponse doInBackground(String... params) {
 
-		//que fazer aqui? Se for callGetServoce receber um String [] info ?!
-		ListProjectsUserResponse listProjectUser = CommunicationCenter.callPostService(
-				nomeServico, lpur, ListProjectsUserResponse.class);
-		
+		// que fazer aqui? Se for callGetServoce receber um String [] info ?!
+		ListProjectsUserResponse listProjectUser = CommunicationCenter
+				.callPostService(nomeServico, lpur,
+						ListProjectsUserResponse.class);
+
 		return listProjectUser;
-		
+
 	}
 
 	@Override

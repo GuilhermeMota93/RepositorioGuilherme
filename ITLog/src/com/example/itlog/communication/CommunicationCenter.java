@@ -19,7 +19,9 @@ import com.google.gson.Gson;
 public class CommunicationCenter {
 
 	private static final String TAG = "CommunicationCenter";
-	private static String BaseUrl = "http://192.168.16.87:8080/millenniumNotificationServer/services";
+	// private static String BaseUrl =
+	// "http://192.168.16.87:8080/millenniumNotificationServer/services";
+	private static String BaseUrl = "http://itlogapidev.ebankit.com/";
 
 	// SERVIÇOS PARA TESTES
 
@@ -29,7 +31,7 @@ public class CommunicationCenter {
 	public static final String AddDevice = "addDevice.php";
 
 	// String de GETs
-	public static final String GetSessionInformationService = "getsession.php?";
+	public static final String GetSessionInformationService = "API/SessionInfo";
 	public static final String ListProjectsOfTheUser = "listprojectsuser.php?";
 	public static final String ListAllProjects = "listallprojects.php?";
 	public static final String GetCalendar = "getcalendar.php?";
@@ -37,9 +39,11 @@ public class CommunicationCenter {
 	public static final String ListTotalHoursPerProject = "listtotalhoursproject.php?";
 
 	// String de POSTs
-	public static final String LoginService = "login.php?";
-	public static final String AddProject = "addproject.php?";
+	public static final String LoginService = "API/Login";
+	public static final String AddProject = "API/Projecto";
 	public static final String AllocateHours = "allocatehours.php?";
+	
+
 	private static int timeoutConnection = 10000;
 
 	public static <T> T callGetService(String nomeServico, String[] info,
@@ -70,15 +74,12 @@ public class CommunicationCenter {
 
 		// falta codigo aqui? ver CommunicationCenter ajuda
 
-		StringBuilder builder = new StringBuilder(BaseUrl).append("/").append(
-				nomeServico);
+		StringBuilder builder = new StringBuilder(BaseUrl).append(
+				nomeServico).append("?");
 
 		if (info != null && info.length > 0) {
 			if (isGetSession) {
-				builder.append("username=" + info[0]).append('&')
-						.append("projects=" + info[1]).append('&')
-						.append("userid=" + info[2]).append('&')
-						.append("email=" + info[3]);
+				builder.append("token=" + info[0]);
 			} else if (isListProjectUser) {
 				builder.append("username=" + info[0]).append('&')
 						.append("projects=" + info[1]).append('&')
@@ -119,12 +120,13 @@ public class CommunicationCenter {
 					|| isGetCalendar || isListTotalHoursCompany
 					|| isListTotalHoursProject || isGetDevices) {
 				try {
-
+					Log.d("Nome servico GET", nomeServico);
 					URL url = new URL(builder.toString());
+					Log.d("Builder GET", url.toString());
 					connection = (HttpURLConnection) url.openConnection();
 					// connection = setConnectTimeout (timeoutConnection);
 					connection.setRequestMethod("GET");
-					connection.setDoInput(true);
+//					connection.setDoInput(true);
 
 					InputStream inputStream = null;
 
@@ -148,7 +150,8 @@ public class CommunicationCenter {
 					}
 
 					String resultString = stringWriter.toString();
-
+					Log.d("Resposta GET", resultString);
+					Log.d("Classe resposta do GET", resposta.toString());
 					return (T) gson.fromJson(resultString, resposta);
 
 				} catch (ClientProtocolException e) {
@@ -162,8 +165,8 @@ public class CommunicationCenter {
 					return null;
 				}
 			}
-		}	
-		//isto esta bem?!
+		}
+		// isto esta bem?!
 		return (T) resposta;
 	}
 
@@ -183,31 +186,34 @@ public class CommunicationCenter {
 		URL url;
 		HttpURLConnection connection2 = null;
 		Gson gson2 = new Gson();
-		if (isLogin || isAddProject || isAllocateHours || isAddDevices
-				|| isGetDevices) {
+		if (isAddProject || isAllocateHours || isAddDevices || isGetDevices
+				|| isLogin) {
 			try {
+				Log.d("Nome servico POST", nomeServico);
 				// Create connection
-				StringBuilder builder = new StringBuilder(BaseUrl).append("/").append(
-						nomeServico);
-				Log.d("builder", builder.toString());
+				StringBuilder builder = new StringBuilder(BaseUrl)
+						.append(nomeServico);
+				Log.d("Builder POST", builder.toString());
 				url = new URL(builder.toString());
 				connection2 = (HttpURLConnection) url.openConnection();
 				connection2.setRequestMethod("POST");
 				// add the content type of the request, most post data is of
 				// this type
 				connection2.addRequestProperty("Content-Type",
-						"application/x-www-form-urlencoded");
-				connection2.setUseCaches(false);
-				connection2.setDoInput(true);
+						"application/json");
+				// connection2.setUseCaches(false);
+				// connection2.setDoInput(true);
 				connection2.setDoOutput(true);
 
 				// Send request -> de JAVA para JSON
 				DataOutputStream wr = new DataOutputStream(
 						connection2.getOutputStream());
+
 				String abc = gson2.toJson(object);
 				wr.writeBytes(abc);
-				//escrever
-				Log.d("print object", abc);
+
+				// escrever
+				Log.d("Print object POST", abc);
 				wr.flush();
 				wr.close();
 
@@ -215,13 +221,13 @@ public class CommunicationCenter {
 				InputStream is = connection2.getInputStream();
 				BufferedReader br = new BufferedReader(
 						new InputStreamReader(is));
-				String line="";
+				String line = "";
 				StringBuffer response = new StringBuffer();
 				while ((line = br.readLine()) != null) {
 					response.append(line);
 					response.append('\r');
 				}
-				Log.d("print line", response.toString());
+				Log.d("Print line POST", response.toString());
 				br.close();
 				return (T) gson2.fromJson(response.toString(), resposta);
 			} catch (Exception e) {

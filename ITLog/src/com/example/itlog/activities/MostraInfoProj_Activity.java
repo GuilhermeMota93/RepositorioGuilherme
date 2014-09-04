@@ -72,6 +72,7 @@ public class MostraInfoProj_Activity extends GeneralButtons_Activity {
 				// TODO Auto-generated method stub
 				Intent intencao = new Intent(MostraInfoProj_Activity.this,
 						InputHoras_Activity.class);
+				intencao.putExtra("USERNAME", info);
 				MostraInfoProj_Activity.this.startActivity(intencao);
 			}
 		});
@@ -91,7 +92,7 @@ public class MostraInfoProj_Activity extends GeneralButtons_Activity {
 				tv2 = (TextView) layout.findViewById(R.id.pergunta);
 				tv2.setText("Pretende eliminar este projeto?");
 				b1 = (Button) layout.findViewById(R.id.botaoCancela);
-				b2 = (Button) layout.findViewById(R.id.botaoConfirma);
+				b2 = (Button) layout.findViewById(R.id.botaoOK);
 
 				final AlertDialog.Builder builder = new AlertDialog.Builder(
 						MostraInfoProj_Activity.this);

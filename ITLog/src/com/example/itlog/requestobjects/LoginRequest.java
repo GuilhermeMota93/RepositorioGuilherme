@@ -1,7 +1,18 @@
 package com.example.itlog.requestobjects;
 
-public class LoginRequest {
-	private String username, password;
+import java.io.Serializable;
+
+import javax.crypto.SecretKey;
+
+import com.google.gson.annotations.SerializedName;
+
+public class LoginRequest implements Serializable {
+
+	@SerializedName("UserName")
+	private String username;
+
+	@SerializedName("Password")
+	private String password;
 
 	public LoginRequest(String username, String password) {
 		super();
@@ -24,6 +35,5 @@ public class LoginRequest {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
 }

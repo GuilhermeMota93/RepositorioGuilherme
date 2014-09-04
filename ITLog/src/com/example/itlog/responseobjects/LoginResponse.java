@@ -2,26 +2,55 @@ package com.example.itlog.responseobjects;
 
 import java.io.Serializable;
 
+import android.util.Log;
+
+import com.google.gson.annotations.SerializedName;
+
 public class LoginResponse implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 3197789451495373620L;
-	private String status;
 
-	public LoginResponse(String status) {
+	@SerializedName("Token")
+	private String token;
+
+	@SerializedName("StatusCd")
+	private String statusCd;
+
+	@SerializedName("StatusTxt")
+	private String statusTxt;
+
+	private static LoginResponse instancia = null;
+
+	public static LoginResponse getInstance() {
+		if (instancia == null)
+			instancia = new LoginResponse();
+		return instancia;
+	}
+
+	private LoginResponse() {
 		super();
-		this.status = status;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getToken() {
+		return token;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setToken(String token) {
+		this.token = token;
 	}
-	
-	
-	
+
+	public String getStatusCd() {
+		return statusCd;
+	}
+
+	public void setStatusCd(String statusCd) {
+		this.statusCd = statusCd;
+	}
+
+	public String getStatusTxt() {
+		return statusTxt;
+	}
+
+	public void setStatusTxt(String statusTxt) {
+		this.statusTxt = statusTxt;
+	}
+
 }

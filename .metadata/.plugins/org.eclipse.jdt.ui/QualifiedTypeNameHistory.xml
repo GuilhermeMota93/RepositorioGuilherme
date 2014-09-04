@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="android.widget.ImageButton"/>
-<fullyQualifiedTypeName name="android.widget.CheckedTextView"/>
-<fullyQualifiedTypeName name="com.example.itlog.R.id"/>
-<fullyQualifiedTypeName name="com.example.itlog.fragments.GridView_Atual"/>
-<fullyQualifiedTypeName name="com.example.itlog.fragments.GridView_Proximo"/>
-<fullyQualifiedTypeName name="com.example.itlog.fragments.GridView_Anterior"/>
-<fullyQualifiedTypeName name="android.support.v4.app.FragmentManager"/>
-<fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
-<fullyQualifiedTypeName name="android.os.Handler"/>
-<fullyQualifiedTypeName name="android.widget.ImageView"/>
-<fullyQualifiedTypeName name="android.widget.AdapterView.OnItemSelectedListener"/>
-<fullyQualifiedTypeName name="android.view.View.OnTouchListener"/>
-<fullyQualifiedTypeName name="android.view.MotionEvent"/>
-<fullyQualifiedTypeName name="android.support.v4.app.FragmentActivity"/>
-<fullyQualifiedTypeName name="android.support.v4.app.FragmentPagerAdapter"/>
-<fullyQualifiedTypeName name="com.example.viewpagertest1.R.layout"/>
-<fullyQualifiedTypeName name="com.example.viewpagertest1.FirstFragment"/>
-<fullyQualifiedTypeName name="android.support.v4.app.Fragment"/>
-<fullyQualifiedTypeName name="org.apache.http.TokenIterator"/>
 <fullyQualifiedTypeName name="android.support.v4.view.PagerTitleStrip"/>
 <fullyQualifiedTypeName name="com.example.viewpagertest1.MyPagerAdapter"/>
 <fullyQualifiedTypeName name="android.support.v4.view.PagerAdapter"/>
@@ -36,7 +17,6 @@
 <fullyQualifiedTypeName name="java.util.Locale"/>
 <fullyQualifiedTypeName name="java.text.DateFormatSymbols"/>
 <fullyQualifiedTypeName name="com.example.itlog.adapters.MyPagerAdapter2"/>
-<fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
 <fullyQualifiedTypeName name="com.example.itlog.services.ListAllProjectsService"/>
 <fullyQualifiedTypeName name="com.example.itlog.adapters.ViewPager_Adapter"/>
@@ -60,4 +40,24 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="android.view.View"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.InputHoras_Activity"/>
+<fullyQualifiedTypeName name="android.app.ProgressDialog"/>
+<fullyQualifiedTypeName name="android.widget.ProgressBar"/>
+<fullyQualifiedTypeName name="com.example.itlog.services.LoginService"/>
+<fullyQualifiedTypeName name="com.example.itlog.requestobjects.LoginRequest"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.SplashScreen_Activity"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.Detecta_Conexao_Internet"/>
+<fullyQualifiedTypeName name="javax.crypto.SecretKey"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="com.google.gson.annotations.SerializedName"/>
+<fullyQualifiedTypeName name="com.example.itlog.communication.CallbackInterface"/>
+<fullyQualifiedTypeName name="com.example.itlog.GetDevice_Service"/>
+<fullyQualifiedTypeName name="com.example.itlog.services.GetSessionInformationService"/>
+<fullyQualifiedTypeName name="com.example.itlog.communication.CommunicationCenter"/>
+<fullyQualifiedTypeName name="com.example.itlog.requestobjects.GetSessionInformationRequest"/>
+<fullyQualifiedTypeName name="com.example.itlog.responseobjects.GetSessionInformationResponse"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.Info_Activity"/>
+<fullyQualifiedTypeName name="com.example.itlog.responseobjects.LoginResponse.Singleton"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="com.example.itlog.responseobjects.LoginResponse"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.Login_Activity"/>
 </qualifiedTypeNameHistroy>

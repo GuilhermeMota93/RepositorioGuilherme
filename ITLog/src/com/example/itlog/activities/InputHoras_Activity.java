@@ -51,7 +51,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 	Spinner spinner;
 
 	// o username vem em forma de string desde o log in
-	String info;
+	// String info;
 
 	ViewPager pager;
 	PagerTitleStrip strip;
@@ -64,7 +64,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		setContentView(R.layout.calendario_versao2);
 
 		// buscar info de user de tras, que vem do log in
-		info = getIntent().getExtras().getString("USERNAME").toString();
+		// info = getIntent().getExtras().getString("USERNAME").toString();
 		// para o tipo de letra
 		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
 
@@ -74,7 +74,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		pager = (ViewPager) findViewById(R.id.viewPager);
 		imputar = (Button) findViewById(R.id.button1);
 		spinner = (Spinner) findViewById(R.id.spinnerGridView1);
-		getListaProjsUser();
+		// getListaProjsUser();
 		adapterSpinner = new InputHoras_Spinner_Adapter(
 				InputHoras_Activity.this, R.layout.spinner_item,
 				arrayEspecifico, font);
@@ -160,19 +160,35 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 
 					@Override
 					public void onClick(View v) {
-						Toast.makeText(InputHoras_Activity.this,
-								"4 Horas adicionadas com sucesso! ",
-								Toast.LENGTH_LONG).show();
 
-						Toast.makeText(InputHoras_Activity.this,
-								"" + adapter.getArraySelecionaDias().size(),
-								Toast.LENGTH_LONG).show();
+						// Toast.makeText(InputHoras_Activity.this,
+						// "4 Horas adicionadas com sucesso! ",
+						// Toast.LENGTH_LONG).show();
+
+						// Toast.makeText(InputHoras_Activity.this,
+						// "" + adapter.getArraySelecionaDias().size(),
+						// Toast.LENGTH_LONG).show();
 
 						// Para todos os elementos selecionados que estao na
 						// lista
-						for (int i = 0; i < adapter.getArraySelecionaDias().size(); i++) {
-							//fazer arraylist de text views para depois fazer setText() ????'
-							adapter.getArraySelecionaDias().get(i);
+						for (int i = 0; i < adapter.getArraySelecionaDias()
+								.size(); i++) {
+							// percorrer a grelha
+							for (int j = 0; j < adapter.getCount(); j++) {
+								// se a posiçao da grelha corresponder ao valor
+								// no array
+								// Toast.makeText(InputHoras_Activity.this,
+								// "" + adapter.getItem(j),
+								// Toast.LENGTH_LONG).show();
+								if (adapter.getArraySelecionaDias().get(i) == adapter
+										.getItem(j)) {
+
+									// escrever "4" na textView / View respetiva
+
+								}
+
+							}
+
 						}
 
 						dialog.dismiss();
@@ -214,14 +230,13 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		return true;
 	}
 
-	public ArrayList<Project> getListaProjsUser() {
-		arrayEspecifico.clear();
-		for (Project auxProject : projects) {
-			if (auxProject.getUserid() != null
-					&& (auxProject.getUserid()).equals(info))
-				arrayEspecifico.add(auxProject);
-		}
-		return arrayEspecifico;
+	// public ArrayList<Project> getListaProjsUser() {
+	// arrayEspecifico.clear();
+	// for (Project auxProject : projects) {
+	// if (auxProject.getUserid() != null
+	// && (auxProject.getUserid()).equals(info))
+	// arrayEspecifico.add(auxProject);
+	// }
+	// return arrayEspecifico;
 
-	}
 }

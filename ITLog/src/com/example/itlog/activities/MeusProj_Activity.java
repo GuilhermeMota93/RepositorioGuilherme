@@ -47,8 +47,10 @@ public class MeusProj_Activity extends GeneralButtons_Activity implements
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.meusprojs_layout);
+		
 		// buscar info de user de tras, que vem do log in
-		info = getIntent().getExtras().getString("USERNAME").toString();
+//		info = getIntent().getExtras().getString("TOKEN").toString();
+		
 		// para o tipo de letra
 		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
 
@@ -91,7 +93,7 @@ public class MeusProj_Activity extends GeneralButtons_Activity implements
 					int position, long id) {
 				// TODO Auto-generated method stub
 				projectSend = adapterList.getItem(position);
-				mandaInfo();
+//				mandaInfo();
 			}
 		});
 	}

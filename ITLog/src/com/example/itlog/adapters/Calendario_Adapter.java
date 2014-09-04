@@ -44,6 +44,7 @@ public class Calendario_Adapter extends BaseAdapter {
 	private static ArrayList<String> posSelecionadas = new ArrayList<String>();
 	private List<String> dayString;
 	private View previousView;
+	String gridvalue;
 
 	public Calendario_Adapter(Context c, Calendar month2) {
 		dayString = new ArrayList<String>();
@@ -100,7 +101,7 @@ public class Calendario_Adapter extends BaseAdapter {
 		// separates daystring into parts.
 		final String[] separatedTime = dayString.get(position).split("-");
 		// taking last part of date. ie; 2 from 2012-12-02
-		final String gridvalue = separatedTime[2].replaceFirst("^0*", "");
+		gridvalue = separatedTime[2].replaceFirst("^0*", "");
 
 		// checking whether the day is in current month or not.
 		if ((Integer.parseInt(gridvalue) > 1) && (position < firstDay)) {
@@ -180,7 +181,8 @@ public class Calendario_Adapter extends BaseAdapter {
 			data = (Date) df.parse(itemvalue);
 			calendario = Calendar.getInstance();
 			calendario.setTime(data);
-
+			
+			//Porque usar "&&" e nao "||"
 			if (calendario.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY
 					&& calendario.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
 				dayString.add(itemvalue);
@@ -210,9 +212,10 @@ public class Calendario_Adapter extends BaseAdapter {
 		return dayString.get(pos);
 	}
 
-	// retorna arraylist que contem todas as posiçoes selecionadas
+	// retorna arraylist que contem todas as posiçoes selecionadas no formato YYYY-MM-DD
 	public ArrayList<String> getArraySelecionaDias() {
 		return posSelecionadas;
 	}
+	
 
 }
