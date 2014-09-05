@@ -12,7 +12,6 @@ public class GetSessionInformationService extends
 
 	private CallbackInterface<GetSessionInformationResponse> callback;
 	String nomeServico;
-	
 
 	public GetSessionInformationService(
 			CallbackInterface<GetSessionInformationResponse> callback,
@@ -26,9 +25,6 @@ public class GetSessionInformationService extends
 	@Override
 	protected GetSessionInformationResponse doInBackground(String... params) {
 		// TODO Auto-generated method stub
-		// GetSessionInformationResponse getSesResponse =
-		// CommunicationCenter.callPostService(nomeServico, gsis,
-		// GetSessionInformationResponse.class);
 		GetSessionInformationResponse getSesResponse = CommunicationCenter
 				.callGetService(nomeServico, params,
 						GetSessionInformationResponse.class);

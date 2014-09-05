@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="android.support.v4.view.PagerTitleStrip"/>
-<fullyQualifiedTypeName name="com.example.viewpagertest1.MyPagerAdapter"/>
-<fullyQualifiedTypeName name="android.support.v4.view.PagerAdapter"/>
-<fullyQualifiedTypeName name="android.widget.GridView"/>
-<fullyQualifiedTypeName name="com.example.viewpagertest1.Calendario_Adapter"/>
-<fullyQualifiedTypeName name="com.example.viewpagertest1.MyPagerAdapter2"/>
-<fullyQualifiedTypeName name="com.example.viewpagertest1.MainActivity"/>
-<fullyQualifiedTypeName name="android.support.v4.view.ViewPager"/>
-<fullyQualifiedTypeName name="android.support.v4.view.ViewPager.OnPageChangeListener"/>
-<fullyQualifiedTypeName name="java.security.acl.LastOwnerException"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.lang.CharSequence"/>
 <fullyQualifiedTypeName name="com.example.itlog.R"/>
-<fullyQualifiedTypeName name="com.example.itlog.R.layout"/>
 <fullyQualifiedTypeName name="java.util.Locale"/>
 <fullyQualifiedTypeName name="java.text.DateFormatSymbols"/>
 <fullyQualifiedTypeName name="com.example.itlog.adapters.MyPagerAdapter2"/>
@@ -37,7 +25,6 @@
 <fullyQualifiedTypeName name="java.security.PublicKey"/>
 <fullyQualifiedTypeName name="com.example.itlog.adapters.Calendario_Adapter"/>
 <fullyQualifiedTypeName name="android.R.interpolator"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="android.view.View"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.InputHoras_Activity"/>
 <fullyQualifiedTypeName name="android.app.ProgressDialog"/>
@@ -46,18 +33,31 @@
 <fullyQualifiedTypeName name="com.example.itlog.requestobjects.LoginRequest"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.SplashScreen_Activity"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.Detecta_Conexao_Internet"/>
-<fullyQualifiedTypeName name="javax.crypto.SecretKey"/>
-<fullyQualifiedTypeName name="java.io.Serializable"/>
-<fullyQualifiedTypeName name="com.google.gson.annotations.SerializedName"/>
-<fullyQualifiedTypeName name="com.example.itlog.communication.CallbackInterface"/>
 <fullyQualifiedTypeName name="com.example.itlog.GetDevice_Service"/>
 <fullyQualifiedTypeName name="com.example.itlog.services.GetSessionInformationService"/>
-<fullyQualifiedTypeName name="com.example.itlog.communication.CommunicationCenter"/>
 <fullyQualifiedTypeName name="com.example.itlog.requestobjects.GetSessionInformationRequest"/>
-<fullyQualifiedTypeName name="com.example.itlog.responseobjects.GetSessionInformationResponse"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.Info_Activity"/>
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.LoginResponse.Singleton"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
-<fullyQualifiedTypeName name="com.example.itlog.responseobjects.LoginResponse"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.Login_Activity"/>
+<fullyQualifiedTypeName name="com.example.itlog.requestobjects.Projecto_2_Request"/>
+<fullyQualifiedTypeName name="com.example.itlog.responseobjects.Projecto_2_Response"/>
+<fullyQualifiedTypeName name="javax.crypto.SecretKey"/>
+<fullyQualifiedTypeName name="com.example.itlog.responseobjects.Lista_Ausencias_Response"/>
+<fullyQualifiedTypeName name="com.example.itlog.responseobjects.Add_Project_Nuc_Lst_Response"/>
+<fullyQualifiedTypeName name="com.example.itlog.adapters.MeusProj_ListView_Adapter"/>
+<fullyQualifiedTypeName name="com.example.itlog.R.layout"/>
+<fullyQualifiedTypeName name="com.example.itlog.objects.Projecto_2"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.MeusProj_Activity"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="com.example.itlog.objects.Cliente_2"/>
+<fullyQualifiedTypeName name="com.google.gson.annotations.SerializedName"/>
+<fullyQualifiedTypeName name="android.os.AsyncTask"/>
+<fullyQualifiedTypeName name="com.example.itlog.responseobjects.GetSessionInformationResponse"/>
+<fullyQualifiedTypeName name="com.example.itlog.communication.CallbackInterface"/>
+<fullyQualifiedTypeName name="com.example.itlog.communication.CommunicationCenter"/>
+<fullyQualifiedTypeName name="com.example.itlog.services.Get_Cliente_Lst_Service"/>
+<fullyQualifiedTypeName name="com.example.itlog.responseobjects.LoginResponse"/>
+<fullyQualifiedTypeName name="com.example.itlog.responseobjects.Get_Cliente_Lst_Response"/>
 </qualifiedTypeNameHistroy>

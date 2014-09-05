@@ -1,44 +1,14 @@
-2014-09-04 09:26:23.547 [Worker-5] INFO    com.objectaid.uml.model.manage.DiagramManager getFactories: com.objectaid.uml.diagramFactories[ucls]: com.objectaid.uml.cls.model.ClassDiagramFactory@300bbb05
-2014-09-04 09:26:23.822 [Worker-5] INFO    com.objectaid.uml.model.manage.DiagramManager getFactories: com.objectaid.uml.diagramFactories[useq]: com.objectaid.uml.seq.model.SequenceDiagramFactory@19fb6840
-2014-09-04 09:26:25.719 [pool-1-thread-3] INFO    com.objectaid.uml.model.manage.LanguageElementManager getLanguageElementFactories: com.objectaid.uml.languageElementFactories: com.objectaid.uml.java.JavaElementFactory
-2014-09-04 09:26:26.921 [pool-1-thread-1] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.RasterRenderFormat" class="com.objectaid.uml.render.RasterRenderFormat" name="PNG" extension="png" antialias="true" format="5" 
-2014-09-04 09:26:26.921 [pool-1-thread-2] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.RasterRenderFormat" class="com.objectaid.uml.render.RasterRenderFormat" name="PNG" extension="png" antialias="true" format="5" 
-2014-09-04 09:26:26.925 [pool-1-thread-2] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.RasterRenderFormat" class="com.objectaid.uml.render.RasterRenderFormat" name="PNG" extension="png" antialias="true" format="5" 
-2014-09-04 09:26:26.925 [pool-1-thread-1] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.RasterRenderFormat" class="com.objectaid.uml.render.RasterRenderFormat" name="PNG" extension="png" antialias="true" format="5" 
-2014-09-04 09:26:26.926 [pool-1-thread-2] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.RasterRenderFormat" class="com.objectaid.uml.render.RasterRenderFormat" name="JPEG" extension="jpg" antialias="true" format="4" 
-2014-09-04 09:26:26.927 [pool-1-thread-1] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.RasterRenderFormat" class="com.objectaid.uml.render.RasterRenderFormat" name="JPEG" extension="jpg" antialias="true" format="4" 
-2014-09-04 09:26:26.928 [pool-1-thread-2] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.IndexedRasterRenderFormat" class="com.objectaid.uml.render.IndexedRasterRenderFormat" name="GIF" extension="gif" antialias="false" format="2" 
-2014-09-04 09:26:26.928 [pool-1-thread-1] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.IndexedRasterRenderFormat" class="com.objectaid.uml.render.IndexedRasterRenderFormat" name="GIF" extension="gif" antialias="false" format="2" 
-2014-09-04 09:26:26.929 [pool-1-thread-2] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.RasterRenderFormat" class="com.objectaid.uml.render.RasterRenderFormat" name="JPEG" extension="jpg" antialias="true" format="4" 
-2014-09-04 09:26:26.929 [pool-1-thread-1] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.RasterRenderFormat" class="com.objectaid.uml.render.RasterRenderFormat" name="JPEG" extension="jpg" antialias="true" format="4" 
-2014-09-04 09:26:26.930 [pool-1-thread-2] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.IndexedRasterRenderFormat" class="com.objectaid.uml.render.IndexedRasterRenderFormat" name="GIF" extension="gif" antialias="false" format="2" 
-2014-09-04 09:26:26.931 [pool-1-thread-1] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.IndexedRasterRenderFormat" class="com.objectaid.uml.render.IndexedRasterRenderFormat" name="GIF" extension="gif" antialias="false" format="2" 
-2014-09-04 09:26:26.962 [pool-1-thread-1] SEVERE  com.objectaid.uml.UMLException log: duplicate id 'JPEG' for com.objectaid.uml.renderFormats
-com.objectaid.uml.UMLException: duplicate id 'JPEG' for com.objectaid.uml.renderFormats
-	at com.objectaid.uml.util.extend.ExecutableExtensionManager.get(ExecutableExtensionManager.java:107)
-	at com.objectaid.uml.model.persistence.PersistedDiagram.getAutomaticImage(PersistedDiagram.java:186)
-	at com.objectaid.uml.model.definition.DiagramDefinition.updateModel(DiagramDefinition.java:45)
-	at com.objectaid.uml.cls.model.definition.ClassDiagramDefinition.updateModel(ClassDiagramDefinition.java:44)
-	at com.objectaid.uml.cls.model.definition.ClassDiagramDefinition.updateModel(ClassDiagramDefinition.java:22)
-	at com.objectaid.uml.model.definition.ModelDefinition.create(ModelDefinition.java:178)
-	at com.objectaid.uml.model.persistence.UnmarshalDiagramVisitor.doVisit(UnmarshalDiagramVisitor.java:78)
-	at com.objectaid.uml.model.persistence.UnmarshalDiagramVisitor.doVisit(UnmarshalDiagramVisitor.java:26)
-	at com.objectaid.uml.util.collection.GenericVisitor.visit(GenericVisitor.java:40)
-	at com.objectaid.uml.model.persistence.PersistedDiagram.accept(PersistedDiagram.java:40)
-	at com.objectaid.uml.model.diagram.DiagramFactory.unmarshal(DiagramFactory.java:241)
-	at com.objectaid.uml.model.DiagramHandle.unmarshalModel(DiagramHandle.java:206)
-	at com.objectaid.uml.model.DiagramHandle.unmarshal(DiagramHandle.java:155)
-	at com.objectaid.uml.model.manage.DiagramManager.add(DiagramManager.java:104)
-	at com.objectaid.uml.model.manage.StartupJob$2.run(StartupJob.java:83)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-
-2014-09-04 09:26:27.127 [pool-1-thread-1] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=5 in /ITLog/src/com/example/itlog/activities/Class Diagram Activities.ucls
-2014-09-04 09:26:27.134 [pool-1-thread-1] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=8 in /ITLog/src/com/example/itlog/activities/Class Diagram Activities.ucls
-2014-09-04 09:26:27.135 [pool-1-thread-1] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=5 in /ITLog/src/com/example/itlog/activities/Class Diagram Activities.ucls
-2014-09-04 09:26:27.137 [pool-1-thread-1] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=5 in /ITLog/src/com/example/itlog/activities/Class Diagram Activities.ucls
-2014-09-04 09:26:27.606 [pool-1-thread-4] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=15 in /ITLog/src/Class Diagram.ucls
-2014-09-04 09:26:27.610 [pool-1-thread-4] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=15 in /ITLog/src/Class Diagram.ucls
-2014-09-04 09:26:27.612 [pool-1-thread-4] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=44 in /ITLog/src/Class Diagram.ucls
-2014-09-04 09:26:27.618 [pool-1-thread-4] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=15 in /ITLog/src/Class Diagram.ucls
+2014-09-05 09:49:08.381 [Worker-2] INFO    com.objectaid.uml.model.manage.DiagramManager getFactories: com.objectaid.uml.diagramFactories[ucls]: com.objectaid.uml.cls.model.ClassDiagramFactory@6a4d7375
+2014-09-05 09:49:09.548 [Worker-2] INFO    com.objectaid.uml.model.manage.DiagramManager getFactories: com.objectaid.uml.diagramFactories[useq]: com.objectaid.uml.seq.model.SequenceDiagramFactory@146987f8
+2014-09-05 09:49:11.510 [pool-1-thread-1] INFO    com.objectaid.uml.model.manage.LanguageElementManager getLanguageElementFactories: com.objectaid.uml.languageElementFactories: com.objectaid.uml.java.JavaElementFactory
+2014-09-05 09:49:11.654 [pool-1-thread-3] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.RasterRenderFormat" class="com.objectaid.uml.render.RasterRenderFormat" name="PNG" extension="png" antialias="true" format="5" 
+2014-09-05 09:49:11.658 [pool-1-thread-3] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.RasterRenderFormat" class="com.objectaid.uml.render.RasterRenderFormat" name="JPEG" extension="jpg" antialias="true" format="4" 
+2014-09-05 09:49:11.659 [pool-1-thread-3] INFO    com.objectaid.uml.util.extend.ExecutableExtensionManager loadExtensions: found com.objectaid.uml.renderFormats="com.objectaid.uml.render.IndexedRasterRenderFormat" class="com.objectaid.uml.render.IndexedRasterRenderFormat" name="GIF" extension="gif" antialias="false" format="2" 
+2014-09-05 09:49:12.106 [pool-1-thread-2] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=5 in /ITLog/src/com/example/itlog/activities/Class Diagram Activities.ucls
+2014-09-05 09:49:12.107 [pool-1-thread-2] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=8 in /ITLog/src/com/example/itlog/activities/Class Diagram Activities.ucls
+2014-09-05 09:49:12.107 [pool-1-thread-2] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=5 in /ITLog/src/com/example/itlog/activities/Class Diagram Activities.ucls
+2014-09-05 09:49:12.108 [pool-1-thread-2] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=5 in /ITLog/src/com/example/itlog/activities/Class Diagram Activities.ucls
+2014-09-05 09:49:12.292 [pool-1-thread-3] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=15 in /ITLog/src/Class Diagram.ucls
+2014-09-05 09:49:12.294 [pool-1-thread-3] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=15 in /ITLog/src/Class Diagram.ucls
+2014-09-05 09:49:12.296 [pool-1-thread-3] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=44 in /ITLog/src/Class Diagram.ucls
+2014-09-05 09:49:12.299 [pool-1-thread-3] WARNING com.objectaid.uml.model.definition.ConnectionDefinition connectEnd: Cannot find ConnectedElement for refId=15 in /ITLog/src/Class Diagram.ucls

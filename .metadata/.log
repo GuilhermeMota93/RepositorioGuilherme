@@ -9807,3 +9807,2093 @@ org.xml.sax.SAXParseException; lineNumber: 23; columnNumber: 1; Element type "ac
 	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SESSION 2014-09-05 09:47:47.689 -----------------------------------------------
+eclipse.buildId=v22.3.0-887826
+java.version=1.7.0_55
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2014-09-05 09:49:03.727
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2014-09-05 09:49:03.731
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Guilherme'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ui.navigator 4 0 2014-09-05 11:31:37.490
+!MESSAGE Cannot add P/ITLog to the list of segments in src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog:: as a parent.
+!STACK 0
+org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add P/ITLog to the list of segments in src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog:: as a parent.
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1704)
+	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:607)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1641)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setExpandedElements(AbstractTreeViewer.java:2424)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:71)
+	at org.eclipse.ui.internal.navigator.CommonNavigatorFrameSource.frameChanged(CommonNavigatorFrameSource.java:50)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.handlePropertyChange(TreeViewerFrameSource.java:172)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.gotoFrame(FrameList.java:162)
+	at org.eclipse.ui.internal.navigator.framelist.GoIntoAction.run(GoIntoAction.java:50)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+
+!ENTRY org.eclipse.ui.navigator 4 0 2014-09-05 11:31:37.628
+!MESSAGE Cannot add src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...) to the list of segments in com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog::src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...):: as a parent.
+!STACK 0
+org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...) to the list of segments in com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog::src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...):: as a parent.
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1704)
+	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:607)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1641)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setExpandedElements(AbstractTreeViewer.java:2424)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:71)
+	at org.eclipse.ui.internal.navigator.CommonNavigatorFrameSource.frameChanged(CommonNavigatorFrameSource.java:50)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.handlePropertyChange(TreeViewerFrameSource.java:172)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.gotoFrame(FrameList.java:162)
+	at org.eclipse.ui.internal.navigator.framelist.GoIntoAction.run(GoIntoAction.java:50)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+
+!ENTRY org.eclipse.ui.navigator 4 0 2014-09-05 11:31:37.632
+!MESSAGE Cannot add P/ITLog to the list of segments in src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog:: as a parent.
+!STACK 0
+org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add P/ITLog to the list of segments in src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog:: as a parent.
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1704)
+	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:607)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1641)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1643)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setExpandedElements(AbstractTreeViewer.java:2424)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:71)
+	at org.eclipse.ui.internal.navigator.CommonNavigatorFrameSource.frameChanged(CommonNavigatorFrameSource.java:50)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.handlePropertyChange(TreeViewerFrameSource.java:172)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.gotoFrame(FrameList.java:162)
+	at org.eclipse.ui.internal.navigator.framelist.GoIntoAction.run(GoIntoAction.java:50)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+
+!ENTRY org.eclipse.ui.navigator 4 0 2014-09-05 11:31:37.637
+!MESSAGE Cannot add src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...) to the list of segments in com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog::src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.objects [in src [in ITLog]]
+  Cliente_2.java (not open)
+  Client.java (not open)
+  Allocate.java (not open)
+  Users.java (not open)
+  Project.java
+    package com.example.itlog.objects
+    import java.io.Serializable
+    import java.util.ArrayList
+    class Project
+      long serialVersionUID
+      String name
+      String manager
+      String descripiton
+      String userid
+      int projectId
+      int hours
+      int clientId
+      Project()
+      Project(String, int, int, String, String, int)
+      Project(String, int, int, String, String, int, String)
+      Project(String, int, int, String, String)
+      String getUserid()
+      void setUserid(String)
+      String getName()
+      void setName(String)
+      String getManager()
+      void setManager(String)
+      String getDescripiton()
+      void setDescripiton(String)
+      int getProjectid()
+      void setProjectid(int)
+      int getHours()
+      void setHours(int)
+      int getCompanyid()
+      void setCompanyid(int)
+      String toString()
+      static ArrayList<Project> generateFakeProjects()
+  Projecto_2.java (not open)
+  Funcionario.java (not open)::Project.java [in com.example.itlog.objects [in src [in ITLog]]]
+  package com.example.itlog.objects
+  import java.io.Serializable
+  import java.util.ArrayList
+  class Project
+    long serialVersionUID
+    String name
+    String manager
+    String descripiton
+    String userid
+    int projectId
+    int hours
+    int clientId
+    Project()
+    Project(String, int, int, String, String, int)
+    Project(String, int, int, String, String, int, String)
+    Project(String, int, int, String, String)
+    String getUserid()
+    void setUserid(String)
+    String getName()
+    void setName(String)
+    String getManager()
+    void setManager(String)
+    String getDescripiton()
+    void setDescripiton(String)
+    int getProjectid()
+    void setProjectid(int)
+    int getHours()
+    void setHours(int)
+    int getCompanyid()
+    void setCompanyid(int)
+    String toString()
+    static ArrayList<Project> generateFakeProjects():: as a parent.
+!STACK 0
+org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...) to the list of segments in com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog::src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.objects [in src [in ITLog]]
+  Cliente_2.java (not open)
+  Client.java (not open)
+  Allocate.java (not open)
+  Users.java (not open)
+  Project.java
+    package com.example.itlog.objects
+    import java.io.Serializable
+    import java.util.ArrayList
+    class Project
+      long serialVersionUID
+      String name
+      String manager
+      String descripiton
+      String userid
+      int projectId
+      int hours
+      int clientId
+      Project()
+      Project(String, int, int, String, String, int)
+      Project(String, int, int, String, String, int, String)
+      Project(String, int, int, String, String)
+      String getUserid()
+      void setUserid(String)
+      String getName()
+      void setName(String)
+      String getManager()
+      void setManager(String)
+      String getDescripiton()
+      void setDescripiton(String)
+      int getProjectid()
+      void setProjectid(int)
+      int getHours()
+      void setHours(int)
+      int getCompanyid()
+      void setCompanyid(int)
+      String toString()
+      static ArrayList<Project> generateFakeProjects()
+  Projecto_2.java (not open)
+  Funcionario.java (not open)::Project.java [in com.example.itlog.objects [in src [in ITLog]]]
+  package com.example.itlog.objects
+  import java.io.Serializable
+  import java.util.ArrayList
+  class Project
+    long serialVersionUID
+    String name
+    String manager
+    String descripiton
+    String userid
+    int projectId
+    int hours
+    int clientId
+    Project()
+    Project(String, int, int, String, String, int)
+    Project(String, int, int, String, String, int, String)
+    Project(String, int, int, String, String)
+    String getUserid()
+    void setUserid(String)
+    String getName()
+    void setName(String)
+    String getManager()
+    void setManager(String)
+    String getDescripiton()
+    void setDescripiton(String)
+    int getProjectid()
+    void setProjectid(int)
+    int getHours()
+    void setHours(int)
+    int getCompanyid()
+    void setCompanyid(int)
+    String toString()
+    static ArrayList<Project> generateFakeProjects():: as a parent.
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1704)
+	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:607)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1641)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setExpandedElements(AbstractTreeViewer.java:2424)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:71)
+	at org.eclipse.ui.internal.navigator.CommonNavigatorFrameSource.frameChanged(CommonNavigatorFrameSource.java:50)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.handlePropertyChange(TreeViewerFrameSource.java:172)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.gotoFrame(FrameList.java:162)
+	at org.eclipse.ui.internal.navigator.framelist.GoIntoAction.run(GoIntoAction.java:50)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+
+!ENTRY org.eclipse.ui.navigator 4 0 2014-09-05 11:31:37.641
+!MESSAGE Cannot add src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...) to the list of segments in com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog::src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.objects [in src [in ITLog]]
+  Cliente_2.java (not open)
+  Client.java (not open)
+  Allocate.java (not open)
+  Users.java (not open)
+  Project.java
+    package com.example.itlog.objects
+    import java.io.Serializable
+    import java.util.ArrayList
+    class Project
+      long serialVersionUID
+      String name
+      String manager
+      String descripiton
+      String userid
+      int projectId
+      int hours
+      int clientId
+      Project()
+      Project(String, int, int, String, String, int)
+      Project(String, int, int, String, String, int, String)
+      Project(String, int, int, String, String)
+      String getUserid()
+      void setUserid(String)
+      String getName()
+      void setName(String)
+      String getManager()
+      void setManager(String)
+      String getDescripiton()
+      void setDescripiton(String)
+      int getProjectid()
+      void setProjectid(int)
+      int getHours()
+      void setHours(int)
+      int getCompanyid()
+      void setCompanyid(int)
+      String toString()
+      static ArrayList<Project> generateFakeProjects()
+  Projecto_2.java (not open)
+  Funcionario.java (not open):: as a parent.
+!STACK 0
+org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...) to the list of segments in com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog::src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.objects [in src [in ITLog]]
+  Cliente_2.java (not open)
+  Client.java (not open)
+  Allocate.java (not open)
+  Users.java (not open)
+  Project.java
+    package com.example.itlog.objects
+    import java.io.Serializable
+    import java.util.ArrayList
+    class Project
+      long serialVersionUID
+      String name
+      String manager
+      String descripiton
+      String userid
+      int projectId
+      int hours
+      int clientId
+      Project()
+      Project(String, int, int, String, String, int)
+      Project(String, int, int, String, String, int, String)
+      Project(String, int, int, String, String)
+      String getUserid()
+      void setUserid(String)
+      String getName()
+      void setName(String)
+      String getManager()
+      void setManager(String)
+      String getDescripiton()
+      void setDescripiton(String)
+      int getProjectid()
+      void setProjectid(int)
+      int getHours()
+      void setHours(int)
+      int getCompanyid()
+      void setCompanyid(int)
+      String toString()
+      static ArrayList<Project> generateFakeProjects()
+  Projecto_2.java (not open)
+  Funcionario.java (not open):: as a parent.
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1704)
+	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:607)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1641)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1643)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setExpandedElements(AbstractTreeViewer.java:2424)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:71)
+	at org.eclipse.ui.internal.navigator.CommonNavigatorFrameSource.frameChanged(CommonNavigatorFrameSource.java:50)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.handlePropertyChange(TreeViewerFrameSource.java:172)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.gotoFrame(FrameList.java:162)
+	at org.eclipse.ui.internal.navigator.framelist.GoIntoAction.run(GoIntoAction.java:50)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+
+!ENTRY org.eclipse.ui.navigator 4 0 2014-09-05 11:31:37.646
+!MESSAGE Cannot add src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...) to the list of segments in com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog::src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...):: as a parent.
+!STACK 0
+org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...) to the list of segments in com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog::src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...):: as a parent.
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1704)
+	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:607)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1641)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1643)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1643)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setExpandedElements(AbstractTreeViewer.java:2424)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:71)
+	at org.eclipse.ui.internal.navigator.CommonNavigatorFrameSource.frameChanged(CommonNavigatorFrameSource.java:50)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.handlePropertyChange(TreeViewerFrameSource.java:172)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.gotoFrame(FrameList.java:162)
+	at org.eclipse.ui.internal.navigator.framelist.GoIntoAction.run(GoIntoAction.java:50)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+
+!ENTRY org.eclipse.ui.navigator 4 0 2014-09-05 11:31:37.650
+!MESSAGE Cannot add P/ITLog to the list of segments in src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog:: as a parent.
+!STACK 0
+org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add P/ITLog to the list of segments in src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog:: as a parent.
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1704)
+	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:607)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1641)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1643)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1643)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1643)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setExpandedElements(AbstractTreeViewer.java:2424)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:71)
+	at org.eclipse.ui.internal.navigator.CommonNavigatorFrameSource.frameChanged(CommonNavigatorFrameSource.java:50)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.handlePropertyChange(TreeViewerFrameSource.java:172)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.gotoFrame(FrameList.java:162)
+	at org.eclipse.ui.internal.navigator.framelist.GoIntoAction.run(GoIntoAction.java:50)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+
+!ENTRY org.eclipse.ui.navigator 4 0 2014-09-05 11:31:37.654
+!MESSAGE Cannot add src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...) to the list of segments in com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog::src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.requestobjects [in src [in ITLog]]
+  GetCalendarRequest.java (not open)
+  [Working copy] LoginRequest.java
+    package com.example.itlog.requestobjects
+    import java.io.Serializable
+    import javax.crypto.SecretKey
+    import com.google.gson.annotations.SerializedName
+    class LoginRequest
+      String username
+      String password
+      LoginRequest(String, String)
+      String getUsername()
+      void setUsername(String)
+      String getPassword()
+      void setPassword(String)
+  AddProjectRequest.java (not open)
+  ListProjectUserRequest.java (not open)
+  AllocateHoursRequest.java (not open)
+  ListTotalHoursProjectRequest.java (not open)
+  ListAllProjectsRequest.java (not open)
+  ListTotalHoursCompanyRequest.java (not open)
+  GetSessionInformationRequest.java (not open):: as a parent.
+!STACK 0
+org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...) to the list of segments in com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog::src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.requestobjects [in src [in ITLog]]
+  GetCalendarRequest.java (not open)
+  [Working copy] LoginRequest.java
+    package com.example.itlog.requestobjects
+    import java.io.Serializable
+    import javax.crypto.SecretKey
+    import com.google.gson.annotations.SerializedName
+    class LoginRequest
+      String username
+      String password
+      LoginRequest(String, String)
+      String getUsername()
+      void setUsername(String)
+      String getPassword()
+      void setPassword(String)
+  AddProjectRequest.java (not open)
+  ListProjectUserRequest.java (not open)
+  AllocateHoursRequest.java (not open)
+  ListTotalHoursProjectRequest.java (not open)
+  ListAllProjectsRequest.java (not open)
+  ListTotalHoursCompanyRequest.java (not open)
+  GetSessionInformationRequest.java (not open):: as a parent.
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1704)
+	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:607)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1641)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setExpandedElements(AbstractTreeViewer.java:2424)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:71)
+	at org.eclipse.ui.internal.navigator.CommonNavigatorFrameSource.frameChanged(CommonNavigatorFrameSource.java:50)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.handlePropertyChange(TreeViewerFrameSource.java:172)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.gotoFrame(FrameList.java:162)
+	at org.eclipse.ui.internal.navigator.framelist.GoIntoAction.run(GoIntoAction.java:50)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+
+!ENTRY org.eclipse.ui.navigator 4 0 2014-09-05 11:31:37.658
+!MESSAGE Cannot add src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...) to the list of segments in com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog::src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...):: as a parent.
+!STACK 0
+org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...) to the list of segments in com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog::src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...):: as a parent.
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1704)
+	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:607)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1641)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1643)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setExpandedElements(AbstractTreeViewer.java:2424)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:71)
+	at org.eclipse.ui.internal.navigator.CommonNavigatorFrameSource.frameChanged(CommonNavigatorFrameSource.java:50)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.handlePropertyChange(TreeViewerFrameSource.java:172)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.gotoFrame(FrameList.java:162)
+	at org.eclipse.ui.internal.navigator.framelist.GoIntoAction.run(GoIntoAction.java:50)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+
+!ENTRY org.eclipse.ui.navigator 4 0 2014-09-05 11:31:37.663
+!MESSAGE Cannot add P/ITLog to the list of segments in src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog:: as a parent.
+!STACK 0
+org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add P/ITLog to the list of segments in src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog:: as a parent.
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1704)
+	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:607)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1641)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1643)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1643)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setExpandedElements(AbstractTreeViewer.java:2424)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:71)
+	at org.eclipse.ui.internal.navigator.CommonNavigatorFrameSource.frameChanged(CommonNavigatorFrameSource.java:50)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.handlePropertyChange(TreeViewerFrameSource.java:172)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.gotoFrame(FrameList.java:162)
+	at org.eclipse.ui.internal.navigator.framelist.GoIntoAction.run(GoIntoAction.java:50)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+
+!ENTRY org.eclipse.ui.navigator 4 0 2014-09-05 11:31:37.667
+!MESSAGE Cannot add src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...) to the list of segments in com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog::src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.responseobjects [in src [in ITLog]]
+  ListProjectsUserResponse.java (not open)
+  AddProjectResponse.java (not open)
+  GetSessionInformationResponse.java (not open)
+  AllocateHoursResponse.java (not open)
+  ListTotalHoursProjectResponse.java (not open)
+  GetCalendarResponse.java (not open)
+  ListAllProjectsResponse.java (not open)
+  [Working copy] LoginResponse.java
+    package com.example.itlog.responseobjects
+    import java.io.Serializable
+    import android.util.Log
+    import com.google.gson.annotations.SerializedName
+    class LoginResponse
+      String token
+      String statusCd
+      String statusTxt
+      LoginResponse instancia
+      static LoginResponse getInstance()
+      LoginResponse()
+      String getToken()
+      void setToken(String)
+      String getStatusCd()
+      void setStatusCd(String)
+      String getStatusTxt()
+      void setStatusTxt(String)
+  ListTotalHoursCompanyResponse.java (not open):: as a parent.
+!STACK 0
+org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...) to the list of segments in com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog::src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.responseobjects [in src [in ITLog]]
+  ListProjectsUserResponse.java (not open)
+  AddProjectResponse.java (not open)
+  GetSessionInformationResponse.java (not open)
+  AllocateHoursResponse.java (not open)
+  ListTotalHoursProjectResponse.java (not open)
+  GetCalendarResponse.java (not open)
+  ListAllProjectsResponse.java (not open)
+  [Working copy] LoginResponse.java
+    package com.example.itlog.responseobjects
+    import java.io.Serializable
+    import android.util.Log
+    import com.google.gson.annotations.SerializedName
+    class LoginResponse
+      String token
+      String statusCd
+      String statusTxt
+      LoginResponse instancia
+      static LoginResponse getInstance()
+      LoginResponse()
+      String getToken()
+      void setToken(String)
+      String getStatusCd()
+      void setStatusCd(String)
+      String getStatusTxt()
+      void setStatusTxt(String)
+  ListTotalHoursCompanyResponse.java (not open):: as a parent.
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1704)
+	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:607)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1641)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setExpandedElements(AbstractTreeViewer.java:2424)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:71)
+	at org.eclipse.ui.internal.navigator.CommonNavigatorFrameSource.frameChanged(CommonNavigatorFrameSource.java:50)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.handlePropertyChange(TreeViewerFrameSource.java:172)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.gotoFrame(FrameList.java:162)
+	at org.eclipse.ui.internal.navigator.framelist.GoIntoAction.run(GoIntoAction.java:50)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+
+!ENTRY org.eclipse.ui.navigator 4 0 2014-09-05 11:31:37.671
+!MESSAGE Cannot add src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...) to the list of segments in com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog::src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...):: as a parent.
+!STACK 0
+org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...) to the list of segments in com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog::src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...):: as a parent.
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1704)
+	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:607)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1641)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1643)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setExpandedElements(AbstractTreeViewer.java:2424)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:71)
+	at org.eclipse.ui.internal.navigator.CommonNavigatorFrameSource.frameChanged(CommonNavigatorFrameSource.java:50)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.handlePropertyChange(TreeViewerFrameSource.java:172)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.gotoFrame(FrameList.java:162)
+	at org.eclipse.ui.internal.navigator.framelist.GoIntoAction.run(GoIntoAction.java:50)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+
+!ENTRY org.eclipse.ui.navigator 4 0 2014-09-05 11:31:37.675
+!MESSAGE Cannot add P/ITLog to the list of segments in src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog:: as a parent.
+!STACK 0
+org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add P/ITLog to the list of segments in src [in ITLog]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.itlog (...)
+  com.example.itlog.activities (...)
+  com.example.itlog.adapters (...)
+  com.example.itlog.communication (...)
+  com.example.itlog.objects (...)
+  com.example.itlog.requestobjects (...)
+  com.example.itlog.responseobjects (...)
+  com.example.itlog.services (...)::com.example.itlog.services [in src [in ITLog]]
+  ListAllProjectsService.java (not open)
+  [Working copy] LoginService.java
+    package com.example.itlog.services
+    import android.os.AsyncTask
+    import android.widget.Toast
+    import com.example.itlog.communication.CallbackInterface
+    import com.example.itlog.communication.CommunicationCenter
+    import com.example.itlog.requestobjects.LoginRequest
+    import com.example.itlog.responseobjects.LoginResponse
+    class LoginService
+      CallbackInterface<LoginResponse> callback
+      String nomeServico
+      LoginRequest lr
+      LoginService(CallbackInterface<LoginResponse>, String, LoginRequest)
+      LoginResponse doInBackground(String ...)
+      void onPostExecute(LoginResponse)
+  ListProjectsUserService.java (not open)
+  GetSessionInformationService.java (not open)
+  ListTotalHoursProjectService.java (not open)
+  ListTotalHoursCompanyService.java (not open)
+  GetCalendarService.java (not open)
+  AllocateHoursService.java (not open)
+  AddProjectService.java (not open)::P/ITLog:: as a parent.
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1704)
+	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:607)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1641)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1643)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1643)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setExpandedElements(AbstractTreeViewer.java:2424)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:71)
+	at org.eclipse.ui.internal.navigator.CommonNavigatorFrameSource.frameChanged(CommonNavigatorFrameSource.java:50)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.handlePropertyChange(TreeViewerFrameSource.java:172)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.gotoFrame(FrameList.java:162)
+	at org.eclipse.ui.internal.navigator.framelist.GoIntoAction.run(GoIntoAction.java:50)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)

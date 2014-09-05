@@ -16,18 +16,32 @@ import com.example.itlog.R;
 import com.example.itlog.adapters.MeusProj_ListView_Adapter;
 import com.example.itlog.adapters.MeusProj_Spinner_Adapter;
 import com.example.itlog.communication.CallbackInterface;
+import com.example.itlog.communication.CommunicationCenter;
 import com.example.itlog.objects.Client;
+import com.example.itlog.objects.Cliente_2;
 import com.example.itlog.objects.Project;
+import com.example.itlog.objects.Projecto_2;
+import com.example.itlog.responseobjects.GetSessionInformationResponse;
+import com.example.itlog.responseobjects.Get_Cliente_Lst_Response;
 import com.example.itlog.responseobjects.ListProjectsUserResponse;
+import com.example.itlog.responseobjects.LoginResponse;
+import com.example.itlog.services.GetSessionInformationService;
+import com.example.itlog.services.Get_Cliente_Lst_Service;
 
 public class MeusProj_Activity extends GeneralButtons_Activity implements
-		CallbackInterface<ListProjectsUserResponse> {
+		CallbackInterface<Get_Cliente_Lst_Response> {
 
-	ArrayList<Project> projects = Project.generateFakeProjects();
+	// ArrayList<Project> projects = Project.generateFakeProjects();
+	// ArrayList<Client> company = Client.generateFakeCompany();
+
+	ArrayList<Projecto_2> projects = new ArrayList<Projecto_2>();
+	ArrayList<Cliente_2> company = new ArrayList<Cliente_2>();
+
 	ArrayList<Project> arrayEspecifico = new ArrayList<Project>();
-	ArrayList<Client> company = Client.generateFakeCompany();
-	Client valor;
-	Project projectSend;
+
+	LoginResponse token = LoginResponse.getInstance();
+	Cliente_2 valor, clientesend;
+	// Project projectSend;
 
 	MeusProj_ListView_Adapter adapterList;
 	MeusProj_Spinner_Adapter adapterSpinner;
@@ -47,10 +61,10 @@ public class MeusProj_Activity extends GeneralButtons_Activity implements
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.meusprojs_layout);
-		
+
 		// buscar info de user de tras, que vem do log in
-//		info = getIntent().getExtras().getString("TOKEN").toString();
-		
+		// info = getIntent().getExtras().getString("TOKEN").toString();
+
 		// para o tipo de letra
 		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
 
@@ -60,46 +74,66 @@ public class MeusProj_Activity extends GeneralButtons_Activity implements
 		adapterSpinner = new MeusProj_Spinner_Adapter(MeusProj_Activity.this,
 				R.layout.spinner_item, company, font);
 		spinner.setAdapter(adapterSpinner);
-		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-			@Override
-			public void onItemSelected(AdapterView<?> parent, View view,
-					int position, long id) {
-				// TODO Auto-generated method stub
-				arrayEspecifico.clear();
-				valor = adapterSpinner.getItem(position);
-				for (Project auxProject : projects) {
-					if (auxProject.getUserid() != null
-							&& (auxProject.getUserid()).equals(info)
-							&& auxProject.getCompanyid() == valor.getId()) {
-						arrayEspecifico.add(auxProject);
-					}
-				}
-				adapterList = new MeusProj_ListView_Adapter(
-						MeusProj_Activity.this,
-						R.layout.single_row_listview_meusproj, arrayEspecifico,
-						font);
-				listView.setAdapter(adapterList);
-			}
+		// spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+		// @Override
+		// public void onItemSelected(AdapterView<?> parent, View view,
+		// int position, long id) {
+		// // TODO Auto-generated method stub
+		// arrayEspecifico.clear();
+		// valor = adapterSpinner.getItem(position);
+		// for (Project auxProject : projects) {
+		// if (auxProject.getUserid() != null
+		// && (auxProject.getUserid()).equals(info)
+		// && auxProject.getCompanyid() == valor.getId()) {
+		// arrayEspecifico.add(auxProject);
+		// }
+		// }
+		// adapterList = new MeusProj_ListView_Adapter(
+		// MeusProj_Activity.this,
+		// R.layout.single_row_listview_meusproj, arrayEspecifico,
+		// font);
+		// listView.setAdapter(adapterList);
+		// }
+		//
+		// @Override
+		// public void onNothingSelected(AdapterView<?> parent) {
+		// // TODO Auto-generated method stub
+		// }
+		// });
 
-			@Override
-			public void onNothingSelected(AdapterView<?> parent) {
-				// TODO Auto-generated method stub
-			}
-		});
+		adapterList = new MeusProj_ListView_Adapter(this,
+				R.layout.single_row_listview_meusproj, company, font);
 
-		listView.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				// TODO Auto-generated method stub
-				projectSend = adapterList.getItem(position);
-//				mandaInfo();
-			}
-		});
+		// listView.setOnItemClickListener(new OnItemClickListener() {
+		// @Override
+		// public void onItemClick(AdapterView<?> parent, View view,
+		// int position, long id) {
+		// // TODO Auto-generated method stub
+		// clientesend = adapterList.getItem(position);
+		// mandaInfo();
+		// }
+		// });
+		//
+
+		// listView.setOnItemClickListener(new OnItemClickListener() {
+		// @Override
+		// public void onItemClick(AdapterView<?> parent, View view,
+		// int position, long id) {
+		// // TODO Auto-generated method stub
+		// projectSend = adapterList.getItem(position);
+		// mandaInfo();
+		// }
+		// });
+	}
+
+	public void getService() {
+
+		new Get_Cliente_Lst_Service(this,
+				CommunicationCenter.GetClientesLst).execute(token.getToken());
 	}
 
 	@Override
-	public void callbackCall(ListProjectsUserResponse t) {
+	public void callbackCall(Get_Cliente_Lst_Response t) {
 		// TODO Auto-generated method stub
 
 	}
@@ -112,7 +146,7 @@ public class MeusProj_Activity extends GeneralButtons_Activity implements
 		Bundle bundle = new Bundle();
 		Bundle bundle2 = new Bundle();
 		bundle.putSerializable("OBJETO_COMPANY", valor);
-		bundle2.putSerializable("OBJETO_PROJETO", projectSend);
+		// bundle2.putSerializable("OBJETO_PROJETO", projectSend);
 
 		intencao.putExtras(bundle);
 		intencao.putExtras(bundle2);
@@ -120,4 +154,21 @@ public class MeusProj_Activity extends GeneralButtons_Activity implements
 
 		startActivity(intencao);
 	}
+
+	// public void mandaInfo() {
+	//
+	// intencao = new Intent(MeusProj_Activity.this,
+	// MostraInfoProj_Activity.class);
+	//
+	// Bundle bundle = new Bundle();
+	// Bundle bundle2 = new Bundle();
+	// bundle.putSerializable("OBJETO_COMPANY", valor);
+	// bundle2.putSerializable("OBJETO_PROJETO", projectSend);
+	//
+	// intencao.putExtras(bundle);
+	// intencao.putExtras(bundle2);
+	// intencao.putExtra("USERNAME", info);
+	//
+	// startActivity(intencao);
+	// }
 }

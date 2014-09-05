@@ -32,6 +32,8 @@ public class CommunicationCenter {
 
 	// String de GETs
 	public static final String GetSessionInformationService = "API/SessionInfo";
+	public static final String GetClientesLst = "API/ClienteLst";
+
 	public static final String ListProjectsOfTheUser = "listprojectsuser.php?";
 	public static final String ListAllProjects = "listallprojects.php?";
 	public static final String GetCalendar = "getcalendar.php?";
@@ -42,7 +44,6 @@ public class CommunicationCenter {
 	public static final String LoginService = "API/Login";
 	public static final String AddProject = "API/Projecto";
 	public static final String AllocateHours = "allocatehours.php?";
-	
 
 	private static int timeoutConnection = 10000;
 
@@ -51,6 +52,8 @@ public class CommunicationCenter {
 
 		// GET
 		boolean isGetSession = nomeServico.equals(GetSessionInformationService);
+		boolean isGetClienteLst = nomeServico.equals(GetClientesLst);
+
 		boolean isListProjectUser = nomeServico.equals(ListProjectsOfTheUser);
 		boolean isListAllProjects = nomeServico.equals(ListAllProjects);
 		boolean isGetCalendar = nomeServico.equals(GetCalendar);
@@ -59,6 +62,7 @@ public class CommunicationCenter {
 		boolean isListTotalHoursProject = nomeServico
 				.equals(ListTotalHoursPerProject);
 
+		
 		// TESTES AQUI
 		boolean isGetDevices = nomeServico.equals(GetDevices);
 
@@ -72,13 +76,13 @@ public class CommunicationCenter {
 			infoSize = info.length;
 		}
 
-		// falta codigo aqui? ver CommunicationCenter ajuda
-
-		StringBuilder builder = new StringBuilder(BaseUrl).append(
-				nomeServico).append("?");
+		StringBuilder builder = new StringBuilder(BaseUrl).append(nomeServico)
+				.append("?");
 
 		if (info != null && info.length > 0) {
 			if (isGetSession) {
+				builder.append("token=" + info[0]);
+			} else if (isGetClienteLst) {
 				builder.append("token=" + info[0]);
 			} else if (isListProjectUser) {
 				builder.append("username=" + info[0]).append('&')
@@ -126,7 +130,7 @@ public class CommunicationCenter {
 					connection = (HttpURLConnection) url.openConnection();
 					// connection = setConnectTimeout (timeoutConnection);
 					connection.setRequestMethod("GET");
-//					connection.setDoInput(true);
+					// connection.setDoInput(true);
 
 					InputStream inputStream = null;
 
