@@ -32,7 +32,8 @@ public class CommunicationCenter {
 
 	// String de GETs
 	public static final String GetSessionInformationService = "API/SessionInfo";
-	public static final String GetClientesLst = "API/ClienteLst";
+	public static final String GetClientesLstService = "API/ClienteLst";
+	public static final String GetProjectosLstService = "API/ProjectosLst";
 
 	public static final String ListProjectsOfTheUser = "listprojectsuser.php?";
 	public static final String ListAllProjects = "listallprojects.php?";
@@ -42,17 +43,23 @@ public class CommunicationCenter {
 
 	// String de POSTs
 	public static final String LoginService = "API/Login";
+	public static final String PostProjectoLstService = "API/AddProjectoToNucLst";
 	public static final String AddProject = "API/Projecto";
+	
+	
 	public static final String AllocateHours = "allocatehours.php?";
 
 	private static int timeoutConnection = 10000;
+	
+	private static String resultString;
 
 	public static <T> T callGetService(String nomeServico, String[] info,
 			Class<T> resposta) {
 
 		// GET
 		boolean isGetSession = nomeServico.equals(GetSessionInformationService);
-		boolean isGetClienteLst = nomeServico.equals(GetClientesLst);
+		boolean isGetClienteLst = nomeServico.equals(GetClientesLstService);
+		boolean isGetProjectoLst = nomeServico.equals(GetProjectosLstService);
 
 		boolean isListProjectUser = nomeServico.equals(ListProjectsOfTheUser);
 		boolean isListAllProjects = nomeServico.equals(ListAllProjects);
@@ -62,7 +69,6 @@ public class CommunicationCenter {
 		boolean isListTotalHoursProject = nomeServico
 				.equals(ListTotalHoursPerProject);
 
-		
 		// TESTES AQUI
 		boolean isGetDevices = nomeServico.equals(GetDevices);
 
@@ -83,6 +89,8 @@ public class CommunicationCenter {
 			if (isGetSession) {
 				builder.append("token=" + info[0]);
 			} else if (isGetClienteLst) {
+				builder.append("token=" + info[0]);
+			} else if (isGetProjectoLst) {
 				builder.append("token=" + info[0]);
 			} else if (isListProjectUser) {
 				builder.append("username=" + info[0]).append('&')
@@ -120,7 +128,7 @@ public class CommunicationCenter {
 				// }
 			}
 
-			if (isGetSession || isListProjectUser || isListAllProjects
+			if (isGetSession || isListProjectUser || isGetProjectoLst || isGetClienteLst || isListAllProjects
 					|| isGetCalendar || isListTotalHoursCompany
 					|| isListTotalHoursProject || isGetDevices) {
 				try {
@@ -153,10 +161,11 @@ public class CommunicationCenter {
 						stringWriter.write(buffer, 0, n);
 					}
 
-					String resultString = stringWriter.toString();
+					resultString = stringWriter.toString();
 					Log.d("Resposta GET", resultString);
 					Log.d("Classe resposta do GET", resposta.toString());
-					return (T) gson.fromJson(resultString, resposta);
+					gson.fromJson(resultString, resposta);
+					// return (T) gson.fromJson(resultString, resposta);
 
 				} catch (ClientProtocolException e) {
 					Log.e(TAG,
@@ -171,7 +180,7 @@ public class CommunicationCenter {
 			}
 		}
 		// isto esta bem?!
-		return (T) resposta;
+		return (T) gson.fromJson(resultString, resposta);
 	}
 
 	// url do serviço, objecto, class resposta
@@ -180,6 +189,8 @@ public class CommunicationCenter {
 
 		// POST
 		boolean isLogin = nomeServico.equals(LoginService);
+		boolean isPostProjecto = nomeServico.equals(PostProjectoLstService);
+		
 		boolean isAddProject = nomeServico.equals(AddProject);
 		boolean isAllocateHours = nomeServico.equals(AllocateHours);
 
@@ -190,7 +201,7 @@ public class CommunicationCenter {
 		URL url;
 		HttpURLConnection connection2 = null;
 		Gson gson2 = new Gson();
-		if (isAddProject || isAllocateHours || isAddDevices || isGetDevices
+		if (isAddProject || isPostProjecto || isAllocateHours || isAddDevices || isGetDevices
 				|| isLogin) {
 			try {
 				Log.d("Nome servico POST", nomeServico);

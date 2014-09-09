@@ -1,7 +1,6 @@
 package com.example.itlog.activities;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 import android.app.AlertDialog;
 import android.graphics.Typeface;
@@ -22,16 +21,32 @@ import com.example.itlog.R;
 import com.example.itlog.adapters.AddProject_ListView_Adapter;
 import com.example.itlog.adapters.AddProject_Spinner_Adapter;
 import com.example.itlog.communication.CallbackInterface;
-import com.example.itlog.objects.Client;
-import com.example.itlog.objects.Project;
-import com.example.itlog.responseobjects.ListAllProjectsResponse;
+import com.example.itlog.communication.CommunicationCenter;
+import com.example.itlog.objects.Cliente_2;
+import com.example.itlog.objects.Projecto_2;
+import com.example.itlog.responseobjects.GET_API_ClienteLst_Response;
+import com.example.itlog.responseobjects.GET_API_ProjectosLst_Response;
+import com.example.itlog.responseobjects.POST_API_AddProjectNucLst_Response;
+import com.example.itlog.responseobjects.POST_API_Login_Response;
+import com.example.itlog.services.GET_API_ClienteLst_Service;
+import com.example.itlog.services.GET_API_ProjectosLst_Service;
 
 public class AddProj_Activity extends GeneralButtons_Activity implements
-		CallbackInterface<ListAllProjectsResponse> {
+		CallbackInterface<GET_API_ClienteLst_Response> {
 
-	ArrayList<Project> projects = Project.generateFakeProjects();
-	ArrayList<Project> arrayEspecifico = new ArrayList<Project>();
-	ArrayList<Client> company = Client.generateFakeCompany();
+	POST_API_Login_Response token = POST_API_Login_Response.getInstance();
+
+	// ArrayList<Project> projects = Project.generateFakeProjects();
+	// ArrayList<Project> arrayEspecifico = new ArrayList<Project>();
+	// ArrayList<Client> company = Client.generateFakeCompany();
+
+	ArrayList<Projecto_2> projects = new ArrayList<Projecto_2>();
+	ArrayList<Projecto_2> arrayEspecifico = new ArrayList<Projecto_2>();
+
+	ArrayList<Cliente_2> company = new ArrayList<Cliente_2>();
+
+	GET_API_ProjectosLst_Response prjObj = new GET_API_ProjectosLst_Response();
+	GET_API_ClienteLst_Response cliObj = new GET_API_ClienteLst_Response();
 
 	AddProject_ListView_Adapter adapterList;
 	AddProject_Spinner_Adapter adapterSpinner;
@@ -52,36 +67,55 @@ public class AddProj_Activity extends GeneralButtons_Activity implements
 
 		listView = (ListView) findViewById(R.id.list);
 		spinner = (Spinner) findViewById(R.id.spinnerAddProj);
+		
+		getService();
+
+	}
+
+	public void getService() {
+
+		new GET_API_ClienteLst_Service(this,
+				CommunicationCenter.GetClientesLstService).execute(token
+				.getToken());
+	}
+
+	@Override
+	public void callbackCall(GET_API_ClienteLst_Response t) {
+		// TODO Auto-generated method stub
+	
+		company = t.getClientes();
+		projects = prjObj.getProjectos();
 
 		adapterSpinner = new AddProject_Spinner_Adapter(AddProj_Activity.this,
 				R.layout.spinner_item, company, font);
 		spinner.setAdapter(adapterSpinner);
-		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-			@Override
-			public void onItemSelected(AdapterView<?> parent, View view,
-					int position, long id) {
-				// TODO Auto-generated method stub
-				arrayEspecifico.clear();
-				Client valor = adapterSpinner.getItem(position);
-				for (Project auxProject : projects) {
-					if (auxProject.getCompanyid() == valor.getId()
-							&& auxProject.getUserid() == null) {
-						arrayEspecifico.add(auxProject);
-					}
-				}
-				adapterList = new AddProject_ListView_Adapter(
-						AddProj_Activity.this,
-						R.layout.single_row_listview_addproj, arrayEspecifico,
-						font);
-				listView.setAdapter(adapterList);
-			}
+		
+		//NESTE ON ITEM SELECT TEM DE FAZER O POST DO CODIGO DE CLIENTE
+//		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+//			@Override
+//			public void onItemSelected(AdapterView<?> parent, View view,
+//					int position, long id) {
+//				// TODO Auto-generated method stub
+//				arrayEspecifico.clear();
+//				Cliente_2 valor = adapterSpinner.getItem(position);
+//				for (Projecto_2 auxProject : projects) {
+//					if (auxProject.getCod() == String.valueOf(valor.getCod())
+//							&& auxProject.getCod() == null) {
+//						arrayEspecifico.add(auxProject);
+//					}
+//				}
+//			}
+//
+//			@Override
+//			public void onNothingSelected(AdapterView<?> parent) {
+//				// TODO Auto-generated method stub
+//
+//			}
+//		});
 
-			@Override
-			public void onNothingSelected(AdapterView<?> parent) {
-				// TODO Auto-generated method stub
-
-			}
-		});
+		adapterList = new AddProject_ListView_Adapter(AddProj_Activity.this,
+				R.layout.single_row_listview_addproj, arrayEspecifico, font);
+		listView.setAdapter(adapterList);
 
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -110,7 +144,6 @@ public class AddProj_Activity extends GeneralButtons_Activity implements
 
 					@Override
 					public void onClick(View v) {
-
 						dialog.dismiss();
 					}
 				});
@@ -128,12 +161,9 @@ public class AddProj_Activity extends GeneralButtons_Activity implements
 			}
 
 		});
+		
+		
 	}
 
-	@Override
-	public void callbackCall(ListAllProjectsResponse t) {
-		// TODO Auto-generated method stub
-
-	}
 
 }

@@ -4,7 +4,7 @@ import com.example.itlog.activities.Info_Activity;
 import com.example.itlog.activities.Login_Activity;
 import com.example.itlog.communication.CallbackInterface;
 import com.example.itlog.communication.CommunicationCenter;
-import com.example.itlog.responseobjects.LoginResponse;
+import com.example.itlog.responseobjects.POST_API_Login_Response;
 
 import android.app.Activity;
 import android.content.Intent;

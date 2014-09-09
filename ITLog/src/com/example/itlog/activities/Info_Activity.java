@@ -11,10 +11,10 @@ import com.example.itlog.TesteAosServicos;
 import com.example.itlog.communication.CallbackInterface;
 import com.example.itlog.communication.CommunicationCenter;
 import com.example.itlog.objects.Funcionario;
-import com.example.itlog.requestobjects.GetSessionInformationRequest;
-import com.example.itlog.responseobjects.GetSessionInformationResponse;
-import com.example.itlog.responseobjects.LoginResponse;
-import com.example.itlog.services.GetSessionInformationService;
+import com.example.itlog.requestobjects.GET_API_SessionInfo_Request;
+import com.example.itlog.responseobjects.GET_API_SessionInfo_Response;
+import com.example.itlog.responseobjects.POST_API_Login_Response;
+import com.example.itlog.services.GET_API_SessionInfo_Service;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -34,9 +34,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Info_Activity extends Activity implements
-		CallbackInterface<GetSessionInformationResponse> {
+		CallbackInterface<GET_API_SessionInfo_Response> {
 
-	LoginResponse token = LoginResponse.getInstance();
+	POST_API_Login_Response token = POST_API_Login_Response.getInstance();
 	
 	String email, nome, id;
 //	String token;
@@ -138,12 +138,12 @@ public class Info_Activity extends Activity implements
 
 	public void getService() {
 
-		new GetSessionInformationService(Info_Activity.this,
+		new GET_API_SessionInfo_Service(Info_Activity.this,
 				CommunicationCenter.GetSessionInformationService)
 				.execute(token.getToken());
 	}
 
-	public void callbackCall(GetSessionInformationResponse t) {
+	public void callbackCall(GET_API_SessionInfo_Response t) {
 		// nr funcionario
 		nrCred.setText(t.getUserID());
 		// nome funcionario

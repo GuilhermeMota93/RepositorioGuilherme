@@ -10,8 +10,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="com.example.itlog.requestobjects.LoginRequest" project="ITLog" 
-    file="/ITLog/src/com/example/itlog/requestobjects/LoginRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="com.example.itlog.requestobjects.POST_API_Login_Request" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/requestobjects/POST_API_Login_Request.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="387" y="647"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -94,8 +94,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="com.example.itlog.requestobjects.GetSessionInformationRequest" project="ITLog" 
-    file="/ITLog/src/com/example/itlog/requestobjects/GetSessionInformationRequest.java" binary="false" 
+  <class id="11" language="java" name="com.example.itlog.requestobjects.GET_API_SessionInfo_Request" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/requestobjects/GET_API_SessionInfo_Request.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1084" y="467"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -124,7 +124,7 @@
     </display>  
   </class>  
   <generalization id="14">    
-    <end type="SOURCE" refId="9"/>    
+    <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="13"/>  
   </generalization>  
   <generalization id="15">    
@@ -132,11 +132,11 @@
     <end type="TARGET" refId="13"/>  
   </generalization>  
   <generalization id="16">    
-    <end type="SOURCE" refId="5"/>    
+    <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="13"/>  
   </generalization>  
   <generalization id="17">    
-    <end type="SOURCE" refId="2"/>    
+    <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="13"/>  
   </generalization>  
   <generalization id="18">    
@@ -144,7 +144,7 @@
     <end type="TARGET" refId="13"/>  
   </generalization>  
   <generalization id="19">    
-    <end type="SOURCE" refId="3"/>    
+    <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="13"/>  
   </generalization>  
   <generalization id="20">    
@@ -152,11 +152,11 @@
     <end type="TARGET" refId="13"/>  
   </generalization>  
   <generalization id="21">    
-    <end type="SOURCE" refId="6"/>    
+    <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="13"/>  
   </generalization>  
   <generalization id="22">    
-    <end type="SOURCE" refId="1"/>    
+    <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="13"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

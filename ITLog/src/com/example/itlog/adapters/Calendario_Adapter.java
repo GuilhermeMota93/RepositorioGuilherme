@@ -31,11 +31,8 @@ public class Calendario_Adapter extends BaseAdapter {
 	private Context mContext;
 	private Calendar month;
 	static TextView dayView, selecionaDias;
-	// instacia para mes anterior
-	public GregorianCalendar pmonth;
 	// instancia de mes anterior para ter View completa
-	public GregorianCalendar pmonthmaxset;
-	private GregorianCalendar selectedDate;
+	public GregorianCalendar pmonth, pmonthmaxset, selectedDate;
 	int firstDay, maxWeeknumber, maxP, calMaxP, lastWeekDay, leftDays,
 			mnthlength;
 	String itemvalue, curentDateString;
@@ -135,7 +132,7 @@ public class Calendario_Adapter extends BaseAdapter {
 			posSelecionadas.add(position);
 			view.setBackgroundResource(R.drawable.pressed_color);
 		}
-		
+
 		return view;
 	}
 
@@ -181,8 +178,8 @@ public class Calendario_Adapter extends BaseAdapter {
 			data = (Date) df.parse(itemvalue);
 			calendario = Calendar.getInstance();
 			calendario.setTime(data);
-			
-			//Porque usar "&&" e nao "||"
+
+			// Porque usar "&&" e nao "||"
 			if (calendario.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY
 					&& calendario.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
 				dayString.add(itemvalue);
@@ -212,10 +209,10 @@ public class Calendario_Adapter extends BaseAdapter {
 		return dayString.get(pos);
 	}
 
-	// retorna arraylist que contem todas as posiçoes selecionadas no formato YYYY-MM-DD
+	// retorna arraylist que contem todas as posiçoes selecionadas no formato
+	// YYYY-MM-DD
 	public ArrayList<String> getArraySelecionaDias() {
 		return posSelecionadas;
 	}
-	
 
 }

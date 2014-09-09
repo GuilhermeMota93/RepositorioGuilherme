@@ -2,6 +2,9 @@ package com.example.itlog.activities;
 
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -21,25 +24,28 @@ import com.example.itlog.objects.Client;
 import com.example.itlog.objects.Cliente_2;
 import com.example.itlog.objects.Project;
 import com.example.itlog.objects.Projecto_2;
-import com.example.itlog.responseobjects.GetSessionInformationResponse;
-import com.example.itlog.responseobjects.Get_Cliente_Lst_Response;
+import com.example.itlog.responseobjects.GET_API_ProjectosLst_Response;
+import com.example.itlog.responseobjects.GET_API_SessionInfo_Response;
+import com.example.itlog.responseobjects.GET_API_ClienteLst_Response;
 import com.example.itlog.responseobjects.ListProjectsUserResponse;
-import com.example.itlog.responseobjects.LoginResponse;
-import com.example.itlog.services.GetSessionInformationService;
-import com.example.itlog.services.Get_Cliente_Lst_Service;
+import com.example.itlog.responseobjects.POST_API_Login_Response;
+import com.example.itlog.services.GET_API_ProjectosLst_Service;
+import com.example.itlog.services.GET_API_SessionInfo_Service;
+import com.example.itlog.services.GET_API_ClienteLst_Service;
+import com.google.gson.JsonArray;
 
 public class MeusProj_Activity extends GeneralButtons_Activity implements
-		CallbackInterface<Get_Cliente_Lst_Response> {
+		CallbackInterface<GET_API_ProjectosLst_Response> {
 
 	// ArrayList<Project> projects = Project.generateFakeProjects();
 	// ArrayList<Client> company = Client.generateFakeCompany();
 
+	// ArrayList<Projecto_2> arrayEspecifico = new ArrayList<Projecto_2>();
+	// ArrayList<Cliente_2> company = new ArrayList<Cliente_2>();
+
 	ArrayList<Projecto_2> projects = new ArrayList<Projecto_2>();
-	ArrayList<Cliente_2> company = new ArrayList<Cliente_2>();
 
-	ArrayList<Project> arrayEspecifico = new ArrayList<Project>();
-
-	LoginResponse token = LoginResponse.getInstance();
+	POST_API_Login_Response token = POST_API_Login_Response.getInstance();
 	Cliente_2 valor, clientesend;
 	// Project projectSend;
 
@@ -69,91 +75,105 @@ public class MeusProj_Activity extends GeneralButtons_Activity implements
 		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
 
 		listView = (ListView) findViewById(R.id.list);
-		spinner = (Spinner) findViewById(R.id.spinnerMeusProj);
 
-		adapterSpinner = new MeusProj_Spinner_Adapter(MeusProj_Activity.this,
-				R.layout.spinner_item, company, font);
-		spinner.setAdapter(adapterSpinner);
-		// spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-		// @Override
-		// public void onItemSelected(AdapterView<?> parent, View view,
-		// int position, long id) {
-		// // TODO Auto-generated method stub
-		// arrayEspecifico.clear();
-		// valor = adapterSpinner.getItem(position);
-		// for (Project auxProject : projects) {
-		// if (auxProject.getUserid() != null
-		// && (auxProject.getUserid()).equals(info)
-		// && auxProject.getCompanyid() == valor.getId()) {
-		// arrayEspecifico.add(auxProject);
-		// }
-		// }
-		// adapterList = new MeusProj_ListView_Adapter(
-		// MeusProj_Activity.this,
-		// R.layout.single_row_listview_meusproj, arrayEspecifico,
-		// font);
-		// listView.setAdapter(adapterList);
-		// }
-		//
-		// @Override
-		// public void onNothingSelected(AdapterView<?> parent) {
-		// // TODO Auto-generated method stub
-		// }
-		// });
+		getService();
 
-		adapterList = new MeusProj_ListView_Adapter(this,
-				R.layout.single_row_listview_meusproj, company, font);
-
-		// listView.setOnItemClickListener(new OnItemClickListener() {
-		// @Override
-		// public void onItemClick(AdapterView<?> parent, View view,
-		// int position, long id) {
-		// // TODO Auto-generated method stub
-		// clientesend = adapterList.getItem(position);
-		// mandaInfo();
-		// }
-		// });
-		//
-
-		// listView.setOnItemClickListener(new OnItemClickListener() {
-		// @Override
-		// public void onItemClick(AdapterView<?> parent, View view,
-		// int position, long id) {
-		// // TODO Auto-generated method stub
-		// projectSend = adapterList.getItem(position);
-		// mandaInfo();
-		// }
-		// });
 	}
 
 	public void getService() {
 
-		new Get_Cliente_Lst_Service(this,
-				CommunicationCenter.GetClientesLst).execute(token.getToken());
+		new GET_API_ProjectosLst_Service(this,
+				CommunicationCenter.GetProjectosLstService).execute(token
+				.getToken());
 	}
 
 	@Override
-	public void callbackCall(Get_Cliente_Lst_Response t) {
+	public void callbackCall(GET_API_ProjectosLst_Response t) {
 		// TODO Auto-generated method stub
+		projects = t.getProjectos();
 
+		adapterList = new MeusProj_ListView_Adapter(this,
+				R.layout.single_row_listview_meusproj, projects, font);
+
+		listView.setAdapter(adapterList);
 	}
 
-	public void mandaInfo() {
+	// spinner = (Spinner) findViewById(R.id.spinnerMeusProj);
+	//
+	// adapterSpinner = new MeusProj_Spinner_Adapter(MeusProj_Activity.this,
+	// R.layout.spinner_item, company, font);
+	// spinner.setAdapter(adapterSpinner);
+	// spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+	// @Override
+	// public void onItemSelected(AdapterView<?> parent, View view,
+	// int position, long id) {
+	// // TODO Auto-generated method stub
+	// arrayEspecifico.clear();
+	// valor = adapterSpinner.getItem(position);
+	// for (Project auxProject : projects) {
+	// if (auxProject.getUserid() != null
+	// && (auxProject.getUserid()).equals(info)
+	// && auxProject.getCompanyid() == valor.getId()) {
+	// arrayEspecifico.add(auxProject);
+	// }
+	// }
+	// adapterList = new MeusProj_ListView_Adapter(
+	// MeusProj_Activity.this,
+	// R.layout.single_row_listview_meusproj, arrayEspecifico,
+	// font);
+	// listView.setAdapter(adapterList);
+	// }
+	//
+	// @Override
+	// public void onNothingSelected(AdapterView<?> parent) {
+	// // TODO Auto-generated method stub
+	// }
+	// });
 
-		intencao = new Intent(MeusProj_Activity.this,
-				MostraInfoProj_Activity.class);
+	// getService();
+	//
+	// adapterList = new MeusProj_ListView_Adapter(this,
+	// R.layout.single_row_listview_meusproj, projects, font);
+	//
+	// listView.setAdapter(adapterList);
 
-		Bundle bundle = new Bundle();
-		Bundle bundle2 = new Bundle();
-		bundle.putSerializable("OBJETO_COMPANY", valor);
-		// bundle2.putSerializable("OBJETO_PROJETO", projectSend);
+	// listView.setOnItemClickListener(new OnItemClickListener() {
+	// @Override
+	// public void onItemClick(AdapterView<?> parent, View view,
+	// int position, long id) {
+	// // TODO Auto-generated method stub
+	// clientesend = adapterList.getItem(position);
+	// mandaInfo();
+	// }
+	// });
+	//
 
-		intencao.putExtras(bundle);
-		intencao.putExtras(bundle2);
-		intencao.putExtra("USERNAME", info);
+	// listView.setOnItemClickListener(new OnItemClickListener() {
+	// @Override
+	// public void onItemClick(AdapterView<?> parent, View view,
+	// int position, long id) {
+	// // TODO Auto-generated method stub
+	// projectSend = adapterList.getItem(position);
+	// mandaInfo();
+	// }
+	// });
 
-		startActivity(intencao);
-	}
+	// public void mandaInfo() {
+	//
+	// intencao = new Intent(MeusProj_Activity.this,
+	// MostraInfoProj_Activity.class);
+	//
+	// Bundle bundle = new Bundle();
+	// Bundle bundle2 = new Bundle();
+	// bundle.putSerializable("OBJETO_COMPANY", valor);
+	// // bundle2.putSerializable("OBJETO_PROJETO", projectSend);
+	//
+	// intencao.putExtras(bundle);
+	// intencao.putExtras(bundle2);
+	// intencao.putExtra("USERNAME", info);
+	//
+	// startActivity(intencao);
+	// }
 
 	// public void mandaInfo() {
 	//
@@ -170,5 +190,15 @@ public class MeusProj_Activity extends GeneralButtons_Activity implements
 	// intencao.putExtra("USERNAME", info);
 	//
 	// startActivity(intencao);
+	// }
+
+	// VER AQUI PARA IR BUSCAR COLLECTION DO JSON!!!!!
+
+	// //jsonNomeServ sera o nome do JSON que tem a collection de Projecto
+	// JSONArray arrayJSON = jsonNomeServ.getJSONArray("Projectos");
+	// for (int i = 0; i < arrayJSON.length(); i++) {
+	// JSONObject objectoJSON = arrayJSON.getJSONObject(i);
+	// String nome = objectoJSON.getString("Nome");
+	// String codigo = objectoJSON.getString("Cod");
 	// }
 }

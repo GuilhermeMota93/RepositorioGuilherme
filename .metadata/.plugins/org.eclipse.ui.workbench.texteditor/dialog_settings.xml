@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="257" key="DIALOG_WIDTH"/>
-		<item value="452" key="DIALOG_Y_ORIGIN"/>
-		<item value="415" key="DIALOG_HEIGHT"/>
-		<item value="540" key="DIALOG_X_ORIGIN"/>
+		<item value="317" key="DIALOG_WIDTH"/>
+		<item value="321" key="DIALOG_Y_ORIGIN"/>
+		<item value="445" key="DIALOG_HEIGHT"/>
+		<item value="822" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="info" key="selection"/>
+		<item value="arrayEspecifico" key="selection"/>
 		<list key="findhistory">
-			<item value="Client"/>
-			<item value="info"/>
-			<item value="finish"/>
-			<item value="gson"/>
+			<item value="arrayEspecifico"/>
+			<item value="company"/>
+			<item value="GET_API_ProjectosLst_Response"/>
+			<item value="GET_API_ProjectosLst_Service"/>
+			<item value="GET_API_SessionInfo_Response"/>
 			<item value="token"/>
-			<item value="isGetSession"/>
-			<item value="AddDevice"/>
-			<item value="RequestPr"/>
+			<item value="application"/>
+			<item value="getName"/>
 		</list>
 		<list key="replacehistory">
 			<item value="ViewHolderListViewAddProj"/>

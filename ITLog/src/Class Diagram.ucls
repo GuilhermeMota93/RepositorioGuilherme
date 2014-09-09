@@ -38,8 +38,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="com.example.itlog.responseobjects.LoginResponse" project="ITLog" 
-    file="/ITLog/src/com/example/itlog/responseobjects/LoginResponse.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="com.example.itlog.responseobjects.POST_API_Login_Response" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/responseobjects/POST_API_Login_Response.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="153" width="157" x="553" y="192"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -74,8 +75,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="com.example.itlog.responseobjects.GetSessionInformationResponse" project="ITLog" 
-    file="/ITLog/src/com/example/itlog/responseobjects/GetSessionInformationResponse.java" binary="false" 
+  <class id="9" language="java" name="com.example.itlog.responseobjects.GET_API_SessionInfo_Response" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/responseobjects/GET_API_SessionInfo_Response.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="297" width="296" x="946" y="192"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -157,8 +158,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="com.example.itlog.services.LoginService" project="ITLog" 
-    file="/ITLog/src/com/example/itlog/services/LoginService.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="18" language="java" name="com.example.itlog.services.POST_API_Login_Service" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/services/POST_API_Login_Service.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="135" width="224" x="6694" y="192"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -176,8 +177,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="com.example.itlog.requestobjects.GetSessionInformationRequest" project="ITLog" 
-    file="/ITLog/src/com/example/itlog/requestobjects/GetSessionInformationRequest.java" binary="false" 
+  <class id="20" language="java" name="com.example.itlog.requestobjects.GET_API_SessionInfo_Request" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/requestobjects/GET_API_SessionInfo_Request.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="135" width="211" x="2201" y="192"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -195,8 +196,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="com.example.itlog.requestobjects.LoginRequest" project="ITLog" 
-    file="/ITLog/src/com/example/itlog/requestobjects/LoginRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="22" language="java" name="com.example.itlog.requestobjects.POST_API_Login_Request" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/requestobjects/POST_API_Login_Request.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="6718" y="494"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -250,8 +251,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="28" language="java" name="com.example.itlog.services.GetSessionInformationService" project="ITLog" 
-    file="/ITLog/src/com/example/itlog/services/GetSessionInformationService.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="28" language="java" name="com.example.itlog.services.GET_API_SessionInfo_Service" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/services/GET_API_SessionInfo_Service.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="135" width="357" x="2452" y="192"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -296,9 +297,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="33" language="java" name="com.example.itlog.requestobjects.Add_Project_Nuc_Lst_Request" project="ITLog" 
-    file="/ITLog/src/com/example/itlog/requestobjects/Add_Project_Nuc_Lst_Request.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="33" language="java" name="com.example.itlog.requestobjects.POST_API_AddProjectToNucLst_Request" 
+    project="ITLog" file="/ITLog/src/com/example/itlog/requestobjects/POST_API_AddProjectToNucLst_Request.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="8610" y="510"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -315,8 +316,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="35" language="java" name="com.example.itlog.services.Add_Project_Nuc_Lst_Service" project="ITLog" 
-    file="/ITLog/src/com/example/itlog/services/Add_Project_Nuc_Lst_Service.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="35" language="java" name="com.example.itlog.services.POST_API_AddProjectNucLst_Service" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/services/POST_API_AddProjectNucLst_Service.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="135" width="374" x="8458" y="192"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -370,158 +372,150 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <realization id="41">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="16"/>  
-  </realization>  
-  <association id="42">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="43" name="lr"/>      
-      <multiplicity id="44" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="22" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="45">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="46" name="callback"/>      
-      <multiplicity id="47" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="48">    
-    <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="49" name="callback"/>      
-      <multiplicity id="50" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="51">    
-    <end type="SOURCE" refId="37" navigable="false">      
-      <attribute id="52" name="lthpr"/>      
-      <multiplicity id="53" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="54">    
-    <end type="SOURCE" refId="35" navigable="false">      
-      <attribute id="55" name="callback"/>      
-      <multiplicity id="56" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="57">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="58" name="lpur"/>      
-      <multiplicity id="59" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="60">    
-    <end type="SOURCE" refId="37" navigable="false">      
-      <attribute id="61" name="callback"/>      
-      <multiplicity id="62" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="63">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="64" name="ahr"/>      
-      <multiplicity id="65" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="66">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="67" name="callback"/>      
-      <multiplicity id="68" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="69">    
-    <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="70" name="lapr"/>      
-      <multiplicity id="71" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="34" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="72">    
-    <end type="SOURCE" refId="35" navigable="false">      
-      <attribute id="73" name="apr"/>      
-      <multiplicity id="74" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="33" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="75">    
+  <association id="41">    
     <end type="SOURCE" refId="40" navigable="false">      
-      <attribute id="76" name="gcr"/>      
-      <multiplicity id="77" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="78">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="79" name="callback"/>      
-      <multiplicity id="80" minimum="0" maximum="1"/>    
+      <attribute id="42" name="callback"/>      
+      <multiplicity id="43" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="81">    
+  <association id="44">    
     <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="82" name="projects"/>      
-      <multiplicity id="83" minimum="0" maximum="2147483647"/>    
+      <attribute id="45" name="projects"/>      
+      <multiplicity id="46" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="84">    
+  <association id="47">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="48" name="callback"/>      
+      <multiplicity id="49" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="50">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="51" name="callback"/>      
+      <multiplicity id="52" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="53">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="54" name="projects"/>      
+      <multiplicity id="55" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="56">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="57" name="callback"/>      
+      <multiplicity id="58" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="59">    
+    <end type="SOURCE" refId="39" navigable="false">      
+      <attribute id="60" name="callback"/>      
+      <multiplicity id="61" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="62">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="85" name="adapter"/>      
-      <multiplicity id="86" minimum="0" maximum="1"/>    
+      <attribute id="63" name="adapter"/>      
+      <multiplicity id="64" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="27" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="87">    
-    <end type="SOURCE" refId="40" navigable="false">      
-      <attribute id="88" name="callback"/>      
-      <multiplicity id="89" minimum="0" maximum="1"/>    
+  <association id="65">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="66" name="lthpr"/>      
+      <multiplicity id="67" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="68">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="69" name="callback"/>      
+      <multiplicity id="70" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="90">    
+  <realization id="71">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="16"/>  
+  </realization>  
+  <association id="72">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="73" name="callback"/>      
+      <multiplicity id="74" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="75">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="76" name="ahr"/>      
+      <multiplicity id="77" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="78">    
     <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="91" name="lthcr"/>      
-      <multiplicity id="92" minimum="0" maximum="1"/>    
+      <attribute id="79" name="lthcr"/>      
+      <multiplicity id="80" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="93">    
-    <end type="SOURCE" refId="36" navigable="false">      
-      <attribute id="94" name="projects"/>      
-      <multiplicity id="95" minimum="0" maximum="2147483647"/>    
+  <association id="81">    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="82" name="gcr"/>      
+      <multiplicity id="83" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="96">    
+  <association id="84">    
+    <end type="SOURCE" refId="39" navigable="false">      
+      <attribute id="85" name="lapr"/>      
+      <multiplicity id="86" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="87">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="88" name="lr"/>      
+      <multiplicity id="89" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="90">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="91" name="lpur"/>      
+      <multiplicity id="92" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="93">    
     <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="97" name="callback"/>      
-      <multiplicity id="98" minimum="0" maximum="1"/>    
+      <attribute id="94" name="callback"/>      
+      <multiplicity id="95" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  

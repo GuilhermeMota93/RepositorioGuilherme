@@ -13,17 +13,18 @@ import android.widget.TextView;
 
 import com.example.itlog.R;
 import com.example.itlog.objects.Client;
+import com.example.itlog.objects.Cliente_2;
 
-public class AddProject_Spinner_Adapter extends ArrayAdapter<Client> {
+public class AddProject_Spinner_Adapter extends ArrayAdapter<Cliente_2> {
 
-	ArrayList<Client> company;
+	ArrayList<Cliente_2> company;
 	private int recurso;
 	LayoutInflater inflater;
 	boolean notifyOnChange = true;
 	Typeface font;
 
 	public AddProject_Spinner_Adapter(final Context context, final int recurso,
-			ArrayList<Client> company) {
+			ArrayList<Cliente_2> company) {
 		super(context, R.layout.addproj_layout, company);
 		this.company = company;
 		this.recurso = recurso;
@@ -33,7 +34,7 @@ public class AddProject_Spinner_Adapter extends ArrayAdapter<Client> {
 	}
 
 	public AddProject_Spinner_Adapter(final Context context, final int recurso,
-			ArrayList<Client> company, Typeface font) {
+			ArrayList<Cliente_2> company, Typeface font) {
 		super(context, R.layout.addproj_layout, company);
 		this.company = company;
 		this.recurso = recurso;
@@ -47,11 +48,11 @@ public class AddProject_Spinner_Adapter extends ArrayAdapter<Client> {
 		View v = convertView;
 		if (v == null)
 			v = inflater.inflate(R.layout.spinner_item, null);
-		Client row = company.get(position);
+		Cliente_2 row = company.get(position);
 		if (row != null) {
 			TextView textView = (TextView) v.findViewById(R.id.textSpinnerItem);
 			textView.setTypeface(font);
-			textView.setText(row.getName());
+			textView.setText(row.getNome());
 		}
 		return v;
 
@@ -62,11 +63,11 @@ public class AddProject_Spinner_Adapter extends ArrayAdapter<Client> {
 		View v = convertView;
 		if (v == null)
 			v = inflater.inflate(R.layout.spinner_item_dropdown, null);
-		Client row = company.get(position);
+		Cliente_2 row = company.get(position);
 		if (row != null) {
 			TextView textView = (TextView) v.findViewById(R.id.textSpinnerItemDropdown);
 			textView.setTypeface(font);
-			textView.setText(row.getName());
+			textView.setText(row.getNome());
 		}
 
 		return v;

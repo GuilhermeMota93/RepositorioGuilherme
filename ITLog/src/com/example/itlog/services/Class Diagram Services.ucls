@@ -28,8 +28,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="com.example.itlog.services.GetSessionInformationService" project="ITLog" 
-    file="/ITLog/src/com/example/itlog/services/GetSessionInformationService.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="4" language="java" name="com.example.itlog.services.GET_API_SessionInfo_Service" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/services/GET_API_SessionInfo_Service.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="176" y="417"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -46,8 +46,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="com.example.itlog.services.LoginService" project="ITLog" 
-    file="/ITLog/src/com/example/itlog/services/LoginService.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="com.example.itlog.services.POST_API_Login_Service" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/services/POST_API_Login_Service.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="774" y="619"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -112,24 +112,24 @@
   </class>  
   <association id="13">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="14" name="callback"/>      
+      <attribute id="14" name="ahr"/>      
       <multiplicity id="15" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="16">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="17" name="ahr"/>      
-      <multiplicity id="18" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="19">    
-    <end type="SOURCE" refId="3"/>    
+  <generalization id="16">    
+    <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="10"/>  
   </generalization>  
+  <association id="17">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="18" name="callback"/>      
+      <multiplicity id="19" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="20">    
     <end type="SOURCE" refId="9" navigable="false">      
       <attribute id="21" name="callback"/>      
@@ -139,85 +139,85 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <generalization id="23">    
-    <end type="SOURCE" refId="6"/>    
+    <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="10"/>  
   </generalization>  
   <generalization id="24">    
-    <end type="SOURCE" refId="1"/>    
+    <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="10"/>  
   </generalization>  
   <generalization id="25">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <generalization id="26">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="10"/>  
   </generalization>  
-  <association id="26">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="27" name="callback"/>      
-      <multiplicity id="28" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <generalization id="28">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
   <association id="29">    
-    <end type="SOURCE" refId="8" navigable="false">      
+    <end type="SOURCE" refId="7" navigable="false">      
       <attribute id="30" name="callback"/>      
       <multiplicity id="31" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="32">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="33" name="callback"/>      
-      <multiplicity id="34" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="35">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="36" name="callback"/>      
-      <multiplicity id="37" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="38">    
+  <generalization id="32">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="10"/>  
   </generalization>  
-  <association id="39">    
+  <association id="33">    
     <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="34" name="callback"/>      
+      <multiplicity id="35" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="36">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="37" name="callback"/>      
+      <multiplicity id="38" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="39">    
+    <end type="SOURCE" refId="5" navigable="false">      
       <attribute id="40" name="callback"/>      
       <multiplicity id="41" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="42">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="43">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="44">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <association id="45">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="46" name="callback"/>      
-      <multiplicity id="47" minimum="0" maximum="1"/>    
+  <association id="42">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="43" name="callback"/>      
+      <multiplicity id="44" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="48">    
-    <end type="SOURCE" refId="4"/>    
+  <generalization id="45">    
+    <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="10"/>  
   </generalization>  
+  <association id="46">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="47" name="callback"/>      
+      <multiplicity id="48" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

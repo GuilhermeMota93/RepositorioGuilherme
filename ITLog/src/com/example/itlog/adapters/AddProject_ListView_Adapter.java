@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.example.itlog.R;
 import com.example.itlog.objects.Project;
+import com.example.itlog.objects.Projecto_2;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -15,16 +16,16 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-public class AddProject_ListView_Adapter extends ArrayAdapter<Project> {
+public class AddProject_ListView_Adapter extends ArrayAdapter<Projecto_2> {
 
-	private ArrayList<Project> projects;
+	private ArrayList<Projecto_2> projects;
 	private int recurso;
 	LayoutInflater inflater ;
 	boolean notifyOnChange = true;
 	Typeface font;
 
 	public AddProject_ListView_Adapter(final Context context,
-			final int recurso, ArrayList<Project> projects) {
+			final int recurso, ArrayList<Projecto_2> projects) {
 		super(context, R.layout.addproj_layout, projects);
 		this.projects = projects;
 		this.recurso = recurso;
@@ -33,7 +34,7 @@ public class AddProject_ListView_Adapter extends ArrayAdapter<Project> {
 	}
 
 	public AddProject_ListView_Adapter(final Context context,
-			final int recurso, ArrayList<Project> projects, Typeface font) {
+			final int recurso, ArrayList<Projecto_2> projects, Typeface font) {
 		super(context, R.layout.addproj_layout, projects);
 		this.projects = projects;
 		this.recurso = recurso;
@@ -53,12 +54,12 @@ public class AddProject_ListView_Adapter extends ArrayAdapter<Project> {
 					R.layout.single_row_listview_addproj, null);
 		// "position" é passado como argumento, refere-se a posiçao na lista
 		// row é o item atual de Project
-		Project row = projects.get(position);
+		Projecto_2 row = projects.get(position);
 		if (row != null) {
 			TextView textView = (TextView) v
 					.findViewById(R.id.textViewAddProj);
 			textView.setTypeface(font);
-			textView.setText(row.getName());
+			textView.setText(row.getNome());
 		}
 		return v;
 
