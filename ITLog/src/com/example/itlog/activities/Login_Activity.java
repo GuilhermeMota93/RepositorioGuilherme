@@ -73,57 +73,6 @@ public class Login_Activity extends Activity implements
 		// objecto para detectar conexao a net
 		detetor = new Detecta_Conexao_Internet(getApplicationContext());
 
-		// login.setOnClickListener(new OnClickListener() {
-		//
-		// /*
-		// * NOTA "COMO PASSAR OBJECTS DO GSON NO BUNDLE":
-		// *
-		// * Initial Activity Intent activity = new
-		// * Intent(MyActivity.this,NextActivity.class);
-		// * activity.putExtra("myObject", new Gson().toJson(myobject);
-		// * startActivity(activity);
-		// *
-		// * Next Activity
-		// *
-		// * Sting jsonMyObject; Bundle extras = getIntent().getExtras(); if
-		// * (extras != null) { jsonMyObject = extras.getString("myObject"); }
-		// * MyObject myObject = new Gson().fromJson(jsonMyObject,
-		// * MyObject.class);
-		// */
-		//
-		// // ao click no botao LOG IN, fazer o servico para ir buscar as info
-		// // depois passar Intents com "Extras" para a prox atividade
-		// // fazer o set.TexView() ???
-		//
-		// @Override
-		// public void onClick(View v) {// accao ao clicar
-		// // TODO Auto-generated method stub
-		// if (credencial.getText().toString().equals("")
-		// && password.getText().toString().equals("")) {
-		// Toast.makeText(Login_Activity.this, "Campos vazios! ",
-		// Toast.LENGTH_LONG).show();
-		// } else {
-		//
-		// if (login() == true) {
-		// progressBar.setVisibility(View.VISIBLE);
-		//
-		// Intent intencao = new Intent(Login_Activity.this,
-		// Info_Activity.class);
-		// // para passar info para prox activity
-		// intencao.putExtra("USERNAME", username);
-		// Login_Activity.this.startActivity(intencao);
-
-		// } else if (login() == false) {
-		// Toast.makeText(Login_Activity.this,
-		// "ERRO! Username ou Password incorrectos ",
-		// Toast.LENGTH_LONG).show();
-		// credencial.setText("");
-		// password.setText("");
-		// }
-		// }
-		// }
-		// });
-
 		login.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -224,6 +173,57 @@ public class Login_Activity extends Activity implements
 		}
 
 	}
+
+	// login.setOnClickListener(new OnClickListener() {
+	//
+	// /*
+	// * NOTA "COMO PASSAR OBJECTS DO GSON NO BUNDLE":
+	// *
+	// * Initial Activity Intent activity = new
+	// * Intent(MyActivity.this,NextActivity.class);
+	// * activity.putExtra("myObject", new Gson().toJson(myobject);
+	// * startActivity(activity);
+	// *
+	// * Next Activity
+	// *
+	// * Sting jsonMyObject; Bundle extras = getIntent().getExtras(); if
+	// * (extras != null) { jsonMyObject = extras.getString("myObject"); }
+	// * MyObject myObject = new Gson().fromJson(jsonMyObject,
+	// * MyObject.class);
+	// */
+	//
+	// // ao click no botao LOG IN, fazer o servico para ir buscar as info
+	// // depois passar Intents com "Extras" para a prox atividade
+	// // fazer o set.TexView() ???
+	//
+	// @Override
+	// public void onClick(View v) {// accao ao clicar
+	// // TODO Auto-generated method stub
+	// if (credencial.getText().toString().equals("")
+	// && password.getText().toString().equals("")) {
+	// Toast.makeText(Login_Activity.this, "Campos vazios! ",
+	// Toast.LENGTH_LONG).show();
+	// } else {
+	//
+	// if (login() == true) {
+	// progressBar.setVisibility(View.VISIBLE);
+	//
+	// Intent intencao = new Intent(Login_Activity.this,
+	// Info_Activity.class);
+	// // para passar info para prox activity
+	// intencao.putExtra("USERNAME", username);
+	// Login_Activity.this.startActivity(intencao);
+
+	// } else if (login() == false) {
+	// Toast.makeText(Login_Activity.this,
+	// "ERRO! Username ou Password incorrectos ",
+	// Toast.LENGTH_LONG).show();
+	// credencial.setText("");
+	// password.setText("");
+	// }
+	// }
+	// }
+	// });
 
 	// public boolean login() {
 	// ArrayList<Users> arrayUsers = Users.generateFakeUsers();

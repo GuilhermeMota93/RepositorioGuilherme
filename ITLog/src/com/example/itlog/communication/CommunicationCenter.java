@@ -43,14 +43,14 @@ public class CommunicationCenter {
 
 	// String de POSTs
 	public static final String LoginService = "API/Login";
-	public static final String PostProjectoLstService = "API/AddProjectoToNucLst";
+	public static final String PostAddProjectoLstService = "API/AddProjectoToNucLst";
 	public static final String AddProject = "API/Projecto";
-	
-	
+	public static final String ProjectosByCli = "API/ProjectosByCli";
+
 	public static final String AllocateHours = "allocatehours.php?";
 
 	private static int timeoutConnection = 10000;
-	
+
 	private static String resultString;
 
 	public static <T> T callGetService(String nomeServico, String[] info,
@@ -128,9 +128,10 @@ public class CommunicationCenter {
 				// }
 			}
 
-			if (isGetSession || isListProjectUser || isGetProjectoLst || isGetClienteLst || isListAllProjects
-					|| isGetCalendar || isListTotalHoursCompany
-					|| isListTotalHoursProject || isGetDevices) {
+			if (isGetSession || isListProjectUser || isGetProjectoLst
+					|| isGetClienteLst || isListAllProjects || isGetCalendar
+					|| isListTotalHoursCompany || isListTotalHoursProject
+					|| isGetDevices) {
 				try {
 					Log.d("Nome servico GET", nomeServico);
 					URL url = new URL(builder.toString());
@@ -189,8 +190,9 @@ public class CommunicationCenter {
 
 		// POST
 		boolean isLogin = nomeServico.equals(LoginService);
-		boolean isPostProjecto = nomeServico.equals(PostProjectoLstService);
-		
+		boolean isPostProjecto = nomeServico.equals(PostAddProjectoLstService);
+		boolean isProjectosByCli = nomeServico.equals(ProjectosByCli);
+
 		boolean isAddProject = nomeServico.equals(AddProject);
 		boolean isAllocateHours = nomeServico.equals(AllocateHours);
 
@@ -201,8 +203,8 @@ public class CommunicationCenter {
 		URL url;
 		HttpURLConnection connection2 = null;
 		Gson gson2 = new Gson();
-		if (isAddProject || isPostProjecto || isAllocateHours || isAddDevices || isGetDevices
-				|| isLogin) {
+		if (isAddProject || isPostProjecto || isProjectosByCli
+				|| isAllocateHours || isAddDevices || isGetDevices || isLogin) {
 			try {
 				Log.d("Nome servico POST", nomeServico);
 				// Create connection

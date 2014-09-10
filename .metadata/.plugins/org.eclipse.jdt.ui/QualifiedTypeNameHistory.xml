@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="java.util.Calendar"/>
-<fullyQualifiedTypeName name="android.R.integer"/>
-<fullyQualifiedTypeName name="java.lang.Object"/>
-<fullyQualifiedTypeName name="android.graphics.Color"/>
-<fullyQualifiedTypeName name="android.R.string"/>
-<fullyQualifiedTypeName name="android.widget.TextView"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="java.security.PublicKey"/>
 <fullyQualifiedTypeName name="com.example.itlog.adapters.Calendario_Adapter"/>
 <fullyQualifiedTypeName name="android.R.interpolator"/>
 <fullyQualifiedTypeName name="android.view.View"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.InputHoras_Activity"/>
 <fullyQualifiedTypeName name="android.app.ProgressDialog"/>
-<fullyQualifiedTypeName name="android.widget.ProgressBar"/>
 <fullyQualifiedTypeName name="com.example.itlog.services.LoginService"/>
 <fullyQualifiedTypeName name="com.example.itlog.requestobjects.LoginRequest"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.SplashScreen_Activity"/>
@@ -40,11 +30,7 @@
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.Get_Cliente_Lst_Response"/>
 <fullyQualifiedTypeName name="com.example.itlog.services.GET_API_ProjectosLst_Service"/>
 <fullyQualifiedTypeName name="android.os.AsyncTask"/>
-<fullyQualifiedTypeName name="com.example.itlog.communication.CallbackInterface"/>
-<fullyQualifiedTypeName name="com.example.itlog.communication.CommunicationCenter"/>
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.GET_API_ProjectosLst_Response"/>
-<fullyQualifiedTypeName name="java.io.Serializable"/>
-<fullyQualifiedTypeName name="com.google.gson.annotations.SerializedName"/>
 <fullyQualifiedTypeName name="com.example.itlog.services.POST_API_Login_Service"/>
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.POST_API_Login_Response"/>
 <fullyQualifiedTypeName name="org.json.JSONArray"/>
@@ -54,10 +40,24 @@
 <fullyQualifiedTypeName name="com.google.gson.JsonArray"/>
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.POST_API_AddProjectNucLst_Response"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="com.example.itlog.objects.Projecto_2"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.example.itlog.objects.Cliente_2"/>
-<fullyQualifiedTypeName name="com.example.itlog.activities.AddProj_Activity"/>
 <fullyQualifiedTypeName name="com.example.itlog.services.GET_API_ClienteLst_Service"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="com.google.gson.annotations.SerializedName"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.example.itlog.objects.Projecto_2"/>
+<fullyQualifiedTypeName name="com.example.itlog.services.POST_API_ProjectosByCli__Service"/>
+<fullyQualifiedTypeName name="com.example.itlog.services.POST_API_ProjectosByCli_Service"/>
+<fullyQualifiedTypeName name="com.example.itlog.requestobjects.POST_API_ProjectosByCli_Request"/>
+<fullyQualifiedTypeName name="com.example.itlog.communication.Callback_Interface_2"/>
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.GET_API_ClienteLst_Response"/>
+<fullyQualifiedTypeName name="com.example.itlog.communication.CallbackInterface"/>
+<fullyQualifiedTypeName name="com.example.itlog.responseobjects.POST_API_ProjectosByCli_Response"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.AddProj_Activity.CallbackClientes.CallbackProjects"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.AddProj_Activity"/>
+<fullyQualifiedTypeName name="android.widget.ProgressBar"/>
+<fullyQualifiedTypeName name="com.example.itlog.R.id"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.AddProj_Activity.CallbackClientes"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.AddProj_Activity.CallbackProjects"/>
+<fullyQualifiedTypeName name="com.example.itlog.communication.CommunicationCenter"/>
 </qualifiedTypeNameHistroy>

@@ -9,9 +9,9 @@
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="220dp"
-        android:layout_marginLeft="10dp"
         android:background="#ebeaed"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:paddingLeft="10dp" >
 
         <TextView
             android:id="@+id/credNum"
@@ -42,8 +42,6 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@+id/linear"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:background="#ebeaed"
         android:orientation="vertical" >
 
@@ -59,6 +57,8 @@
             android:layout_gravity="center"
             android:background="@drawable/selector_botao_normal"
             android:gravity="left|center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="Os Meus Projectos"
             android:textColor="#0e7d9a"
             android:textSize="24sp" />
@@ -75,6 +75,8 @@
             android:layout_gravity="center"
             android:background="@drawable/selector_botao_normal"
             android:gravity="left|center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="Adicionar Projectos"
             android:textColor="#0e7d9a"
             android:textSize="24sp" />
@@ -91,6 +93,8 @@
             android:layout_gravity="center"
             android:background="@drawable/selector_botao_normal"
             android:gravity="left|center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="Imputar Horas"
             android:textColor="#0e7d9a"
             android:textSize="24sp" />
