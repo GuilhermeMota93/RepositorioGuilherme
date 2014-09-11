@@ -17,74 +17,48 @@ import com.example.itlog.objects.Funcionario;
 import com.google.gson.Gson;
 
 public class CommunicationCenter {
-
 	private static final String TAG = "CommunicationCenter";
-	// private static String BaseUrl =
-	// "http://192.168.16.87:8080/millenniumNotificationServer/services";
 	private static String BaseUrl = "http://itlogapidev.ebankit.com/";
-
-	// SERVIÇOS PARA TESTES
-
 	// PARA GET E POST
 	public static final String GetDevices = "getDevices.php";
 	// PARA POST
 	public static final String AddDevice = "addDevice.php";
-
 	// String de GETs
-	public static final String GetSessionInformationService = "API/SessionInfo";
 	public static final String GetClientesLstService = "API/ClienteLst";
 	public static final String GetProjectosLstService = "API/ProjectosLst";
-
-	public static final String ListProjectsOfTheUser = "listprojectsuser.php?";
-	public static final String ListAllProjects = "listallprojects.php?";
-	public static final String GetCalendar = "getcalendar.php?";
-	public static final String ListTotalHoursPerCompany = "listtotalhourscompany.php?";
-	public static final String ListTotalHoursPerProject = "listtotalhoursproject.php?";
-
+	public static final String GetLstAusencias = "API/MovAusLst";
+	public static final String GetLstProjsEAusencias = "API/ProjectosAndAusLst";
+	public static final String GetSessionInformationService = "API/SessionInfo";
 	// String de POSTs
-	public static final String LoginService = "API/Login";
+	public static final String PostInfoCliente = "API/Cliente";
+	public static final String PostLoginService = "API/Login";
 	public static final String PostAddProjectoLstService = "API/AddProjectoToNucLst";
-	public static final String AddProject = "API/Projecto";
+	public static final String PostProject = "API/Projecto";
 	public static final String ProjectosByCli = "API/ProjectosByCli";
-
-	public static final String AllocateHours = "allocatehours.php?";
+	public static final String PostDelProjecto = "API/DelProjectoFromNucLst";
 
 	private static int timeoutConnection = 10000;
-
 	private static String resultString;
 
 	public static <T> T callGetService(String nomeServico, String[] info,
 			Class<T> resposta) {
-
 		// GET
 		boolean isGetSession = nomeServico.equals(GetSessionInformationService);
 		boolean isGetClienteLst = nomeServico.equals(GetClientesLstService);
+		boolean isGetLstAusencias = nomeServico.equals(GetLstAusencias);
 		boolean isGetProjectoLst = nomeServico.equals(GetProjectosLstService);
-
-		boolean isListProjectUser = nomeServico.equals(ListProjectsOfTheUser);
-		boolean isListAllProjects = nomeServico.equals(ListAllProjects);
-		boolean isGetCalendar = nomeServico.equals(GetCalendar);
-		boolean isListTotalHoursCompany = nomeServico
-				.equals(ListTotalHoursPerCompany);
-		boolean isListTotalHoursProject = nomeServico
-				.equals(ListTotalHoursPerProject);
-
-		// TESTES AQUI
-		boolean isGetDevices = nomeServico.equals(GetDevices);
+		boolean isGetProjsEAusencias = nomeServico
+				.equals(GetLstProjsEAusencias);
 
 		BufferedReader readerBuffer = null;
 		HttpURLConnection connection = null;
-
 		Gson gson = new Gson();
-
 		int infoSize = 0;
 		if (info != null) {
 			infoSize = info.length;
 		}
-
 		StringBuilder builder = new StringBuilder(BaseUrl).append(nomeServico)
 				.append("?");
-
 		if (info != null && info.length > 0) {
 			if (isGetSession) {
 				builder.append("token=" + info[0]);
@@ -92,46 +66,14 @@ public class CommunicationCenter {
 				builder.append("token=" + info[0]);
 			} else if (isGetProjectoLst) {
 				builder.append("token=" + info[0]);
-			} else if (isListProjectUser) {
-				builder.append("username=" + info[0]).append('&')
-						.append("projects=" + info[1]).append('&')
-						.append("fullname=" + info[2]).append('&')
-						.append("projectid=" + info[3]).append('&')
-						.append("company=" + info[4])
-						.append("manager=" + info[5])
-						.append("descritption=" + info[6]);
-			} else if (isListAllProjects) {
-				builder.append("projects=" + info[0]).append('&')
-						.append("fullname=" + info[1]).append('&')
-						.append("projectid=" + info[2]).append('&')
-						.append("company=" + info[3])
-						.append("manager=" + info[4])
-						.append("descritption=" + info[5]);
-			} else if (isGetCalendar) {
-				builder.append("month=" + info[0]).append('&')
-						.append("business days=" + info[1]).append('&')
-						.append("holidays=" + info[2]).append('&');
-			} else if (isListTotalHoursCompany) {
-				builder.append("username=" + info[0]).append('&')
-						.append("companies=" + info[1]).append('&')
-						.append("company=" + info[2]).append('&')
-						.append("hours=" + info[3]).append('&');
-			} else if (isListTotalHoursProject) {
-				builder.append("username=" + info[0]).append('&')
-						.append("projects=" + info[1]).append('&')
-						.append("project=" + info[2]).append('&')
-						.append("hours=" + info[3]).append('&');
-				// } else if (isGetDevices) {
-				// builder.append("response=" + info[0]).append('&')
-				// .append("gcmId=" + info[1]).append('&')
-				// .append("number=" + info[2]).append('&');
-				// }
+			} else if (isGetProjsEAusencias) {
+				builder.append("token=" + info[0]);
+			} else if (isGetLstAusencias) {
+				builder.append("token=" + info[0]);
 			}
 
-			if (isGetSession || isListProjectUser || isGetProjectoLst
-					|| isGetClienteLst || isListAllProjects || isGetCalendar
-					|| isListTotalHoursCompany || isListTotalHoursProject
-					|| isGetDevices) {
+			if (isGetSession || isGetClienteLst || isGetProjsEAusencias
+					|| isGetProjectoLst || isGetLstAusencias) {
 				try {
 					Log.d("Nome servico GET", nomeServico);
 					URL url = new URL(builder.toString());
@@ -166,8 +108,6 @@ public class CommunicationCenter {
 					Log.d("Resposta GET", resultString);
 					Log.d("Classe resposta do GET", resposta.toString());
 					gson.fromJson(resultString, resposta);
-					// return (T) gson.fromJson(resultString, resposta);
-
 				} catch (ClientProtocolException e) {
 					Log.e(TAG,
 							"Got an ClientProtocolException: " + e.getMessage());
@@ -180,7 +120,6 @@ public class CommunicationCenter {
 				}
 			}
 		}
-		// isto esta bem?!
 		return (T) gson.fromJson(resultString, resposta);
 	}
 
@@ -189,22 +128,19 @@ public class CommunicationCenter {
 			Class<T> resposta) {
 
 		// POST
-		boolean isLogin = nomeServico.equals(LoginService);
-		boolean isPostProjecto = nomeServico.equals(PostAddProjectoLstService);
+		boolean isInfoCliente = nomeServico.equals(PostInfoCliente);
+		boolean isLogin = nomeServico.equals(PostLoginService);
+		boolean isPostProjectoLista = nomeServico
+				.equals(PostAddProjectoLstService);
 		boolean isProjectosByCli = nomeServico.equals(ProjectosByCli);
-
-		boolean isAddProject = nomeServico.equals(AddProject);
-		boolean isAllocateHours = nomeServico.equals(AllocateHours);
-
-		// TESTE AQUI
-		boolean isAddDevices = nomeServico.equals(AddDevice);
-		boolean isGetDevices = nomeServico.equals(GetDevices);
+		boolean isDelProject = nomeServico.equals(PostDelProjecto);
+		boolean isAddProject = nomeServico.equals(PostProject);
 
 		URL url;
 		HttpURLConnection connection2 = null;
 		Gson gson2 = new Gson();
-		if (isAddProject || isPostProjecto || isProjectosByCli
-				|| isAllocateHours || isAddDevices || isGetDevices || isLogin) {
+		if (isInfoCliente || isAddProject || isPostProjectoLista
+				|| isProjectosByCli || isDelProject || isLogin) {
 			try {
 				Log.d("Nome servico POST", nomeServico);
 				// Create connection
@@ -218,8 +154,6 @@ public class CommunicationCenter {
 				// this type
 				connection2.addRequestProperty("Content-Type",
 						"application/json");
-				// connection2.setUseCaches(false);
-				// connection2.setDoInput(true);
 				connection2.setDoOutput(true);
 
 				// Send request -> de JAVA para JSON

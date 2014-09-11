@@ -30,17 +30,16 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class Info_Activity extends Activity implements
 		CallbackInterface<GET_API_SessionInfo_Response> {
 
+	private ProgressBar progressBar;
 	POST_API_Login_Response token = POST_API_Login_Response.getInstance();
-	
 	String email, nome, id;
-//	String token;
-
 	TextView nrCred, nomeP, mail, tv1, tv2;
 	Button meuProj, addProjectos, addHoras, testarServicos, b1, b2;
 	Typeface font;
@@ -50,9 +49,7 @@ public class Info_Activity extends Activity implements
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.info_activity_layout);
-
-//		token = getIntent().getExtras().getString("TOKEN");
-				
+		progressBar = (ProgressBar) findViewById(R.id.progressBar2);
 		nrCred = (TextView) findViewById(R.id.credNum);
 		nomeP = (TextView) findViewById(R.id.nomePess);
 		mail = (TextView) findViewById(R.id.emailIT);
@@ -62,7 +59,6 @@ public class Info_Activity extends Activity implements
 
 		// define a custom font
 		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
-
 		nrCred.setTypeface(font);
 		nomeP.setTypeface(font);
 		mail.setTypeface(font);
@@ -71,20 +67,15 @@ public class Info_Activity extends Activity implements
 		addHoras.setTypeface(font);
 
 		getService();
-		
 
 		meuProj.setOnClickListener(new OnClickListener() {
 
-			// aqui tem de se fazer os Intents com Extras
-			// aqui tem de se fazer o "new Service" com em ADD_DEVICE_ACTIVITY
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				progressBar.setVisibility(View.VISIBLE);
 				Intent intencao = new Intent(Info_Activity.this,
 						MeusProj_Activity.class);
-				// intencao.putExtra("USERNAME", info);
-//				intencao.putExtra("TOKEN", token);
-				// salta para Meus Projectos
 				Info_Activity.this.startActivity(intencao);
 
 			}
@@ -94,10 +85,9 @@ public class Info_Activity extends Activity implements
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				progressBar.setVisibility(View.VISIBLE);
 				Intent intencao = new Intent(Info_Activity.this,
 						AddProj_Activity.class);
-//				intencao.putExtra("TOKEN", token);
-				// Vai para Adicionar Projectos
 				Info_Activity.this.startActivity(intencao);
 			}
 		});
@@ -106,9 +96,9 @@ public class Info_Activity extends Activity implements
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				progressBar.setVisibility(View.VISIBLE);
 				Intent intencao = new Intent(Info_Activity.this,
 						InputHoras_Activity.class);
-//				intencao.putExtra("TOKEN", token);
 				Info_Activity.this.startActivity(intencao);
 			}
 		});
@@ -123,24 +113,11 @@ public class Info_Activity extends Activity implements
 		return super.onCreateOptionsMenu(menu);
 	}
 
-	// public String[] validacao() {
-	// ArrayList<Funcionario> arrayFunc = Funcionario
-	// .generateFakeFuncionarios();
-	// info = getIntent().getExtras().getString("USERNAME");
-	// for (Funcionario funcs : arrayFunc) {
-	// if (funcs.getId().equals(info)) {
-	// email = funcs.getEmail().toString();
-	// nome = funcs.getName().toString();
-	// }
-	// }
-	// return new String[] { email, nome, info };
-	// }
-
 	public void getService() {
-
+		progressBar.setVisibility(View.VISIBLE);
 		new GET_API_SessionInfo_Service(Info_Activity.this,
-				CommunicationCenter.GetSessionInformationService)
-				.execute(token.getToken());
+				CommunicationCenter.GetSessionInformationService).execute(token
+				.getToken());
 	}
 
 	public void callbackCall(GET_API_SessionInfo_Response t) {
@@ -150,17 +127,18 @@ public class Info_Activity extends Activity implements
 		nomeP.setText(t.getFullname());
 		// mail funcionario
 		mail.setText(t.getEmail());
+		progressBar.setVisibility(View.GONE);
 
 	}
 
 	@Override
 	public void onBackPressed() {
 		LayoutInflater inflate = LayoutInflater.from(Info_Activity.this);
-		View layout = inflate.inflate(R.layout.alertdialog_layout, null);
+		View layout = inflate.inflate(R.layout.logou_layout, null);
 		tv1 = (TextView) layout.findViewById(R.id.titulo1);
 		tv1.setText("Log Out");
 		tv2 = (TextView) layout.findViewById(R.id.descricao);
-		tv2.setText("Efetuar esta ação sairá da aplicação. \n\nPretende continuar?");
+		tv2.setText("Efetuar esta ação terminará a sua sessão. \n\nPretende continuar?");
 		b1 = (Button) layout.findViewById(R.id.botaoCancela);
 		b2 = (Button) layout.findViewById(R.id.botaoOK);
 

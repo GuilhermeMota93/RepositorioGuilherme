@@ -36,6 +36,14 @@
             android:paddingTop="10dp"
             android:textColor="#787878"
             android:textSize="24sp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+        
     </LinearLayout>
 
     <LinearLayout

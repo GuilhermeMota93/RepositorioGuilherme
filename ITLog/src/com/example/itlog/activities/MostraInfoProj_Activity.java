@@ -84,7 +84,7 @@ public class MostraInfoProj_Activity extends GeneralButtons_Activity {
 				LayoutInflater inflate = LayoutInflater
 						.from(MostraInfoProj_Activity.this);
 				View layout = inflate
-						.inflate(R.layout.alertdialog_layout, null);
+						.inflate(R.layout.logou_layout, null);
 				;
 
 				tv1 = (TextView) layout.findViewById(R.id.titulo);

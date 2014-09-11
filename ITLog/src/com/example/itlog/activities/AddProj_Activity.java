@@ -26,13 +26,16 @@ import com.example.itlog.communication.Callback_Interface_2;
 import com.example.itlog.communication.CommunicationCenter;
 import com.example.itlog.objects.Cliente_2;
 import com.example.itlog.objects.Projecto_2;
+import com.example.itlog.requestobjects.POST_API_AddProjectToNucLst_Request;
 import com.example.itlog.requestobjects.POST_API_Login_Request;
 import com.example.itlog.requestobjects.POST_API_ProjectosByCli_Request;
 import com.example.itlog.responseobjects.GET_API_ClienteLst_Response;
 import com.example.itlog.responseobjects.GET_API_ProjectosLst_Response;
+import com.example.itlog.responseobjects.POST_API_AddProjectNucLst_Response;
 import com.example.itlog.responseobjects.POST_API_Login_Response;
 import com.example.itlog.responseobjects.POST_API_ProjectosByCli_Response;
 import com.example.itlog.services.GET_API_ClienteLst_Service;
+import com.example.itlog.services.POST_API_AddProjectNucLst_Service;
 import com.example.itlog.services.POST_API_Login_Service;
 import com.example.itlog.services.POST_API_ProjectosByCli_Service;
 
@@ -75,12 +78,19 @@ public class AddProj_Activity extends GeneralButtons_Activity {
 				.execute(new String[0]);
 	}
 
+	public void getServiceAddProjecto(String prjCod) {
+		new POST_API_AddProjectNucLst_Service(new CallBackAddProj(),
+				CommunicationCenter.PostAddProjectoLstService,
+				new POST_API_AddProjectToNucLst_Request(prjCod,
+						token.getToken())).execute(new String[0]);
+	}
+
 	private class CallbackClientes implements
 			CallbackInterface<GET_API_ClienteLst_Response> {
 		@Override
 		public void callbackCall(GET_API_ClienteLst_Response t) {
 			// TODO Auto-generated method stub
-			
+
 			company = t.getClientes();
 			adapterSpinner = new AddProject_Spinner_Adapter(
 					AddProj_Activity.this, R.layout.spinner_item, company, font);
@@ -114,8 +124,80 @@ public class AddProj_Activity extends GeneralButtons_Activity {
 					AddProj_Activity.this,
 					R.layout.single_row_listview_addproj, projects, font);
 			listView.setAdapter(adapterList);
+
+			listView.setOnItemClickListener(new OnItemClickListener() {
+
+				@Override
+				public void onItemClick(AdapterView<?> parent, View view,
+						final int position, long id) {
+					// TODO Auto-generated method stub
+					LayoutInflater inflate = LayoutInflater
+							.from(AddProj_Activity.this);
+					View layout = inflate.inflate(
+							R.layout.adiciona_projecto_layout, null);
+
+					TextView tv1 = (TextView) layout.findViewById(R.id.titulo1);
+					tv1.setText("Adicionar Projeto");
+					TextView tv2 = (TextView) layout
+							.findViewById(R.id.descricao);
+					tv2.setText("\nPretende adicionar este projeto à sua lista de projetos?");
+					Button b1 = (Button) layout
+							.findViewById(R.id.botaoCancelar);
+					Button b2 = (Button) layout
+							.findViewById(R.id.botaoAdicionarProj);
+
+					final AlertDialog.Builder builder = new AlertDialog.Builder(
+							AddProj_Activity.this);
+					builder.setView(layout);
+					final AlertDialog dialog = builder.create();
+					dialog.show();
+					b1.setOnClickListener(new OnClickListener() {
+
+						@Override
+						public void onClick(View v) {
+
+							dialog.dismiss();
+						}
+					});
+
+					b2.setOnClickListener(new OnClickListener() {
+
+						@Override
+						public void onClick(View v) {
+							getServiceAddProjecto(projects.get(position)
+									.getCod());
+							dialog.dismiss();
+						}
+					});
+
+				}
+			});
+
 		}
 	}
+
+	private class CallBackAddProj implements
+			CallbackInterface<POST_API_AddProjectNucLst_Response> {
+
+		@Override
+		public void callbackCall(POST_API_AddProjectNucLst_Response t3) {
+			// TODO Auto-generated method stub
+			
+			if(t3.getStatusCd().equals("OK")){
+
+				Toast.makeText(AddProj_Activity.this,
+						"Projeto adicionado à sua lista com sucesso! ",
+						Toast.LENGTH_LONG).show();
+			}else if(t3.getStatusCd().equals("KO")){
+
+				Toast.makeText(AddProj_Activity.this,
+						"Desculpe, mas não foi possível adicionar o projecto!",
+						Toast.LENGTH_LONG).show();
+			}
+			
+			
+		}
+
+	}
+
 }
-
-

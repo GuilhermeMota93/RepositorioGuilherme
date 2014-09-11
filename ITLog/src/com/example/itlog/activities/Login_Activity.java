@@ -78,14 +78,14 @@ public class Login_Activity extends Activity implements
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-
+				progressBar.setVisibility(View.VISIBLE);
 				// info da Internet
 				verificaLigacaoNet = detetor.existeConexao();
 
 				// se existir conexao, faz pedido
 				if (verificaLigacaoNet) {
 					new POST_API_Login_Service(Login_Activity.this,
-							CommunicationCenter.LoginService,
+							CommunicationCenter.PostLoginService,
 							new POST_API_Login_Request(credencial.getText()
 									.toString(), password.getText().toString()))
 							.execute(new String[0]);
@@ -115,35 +115,38 @@ public class Login_Activity extends Activity implements
 							dialog.dismiss();
 						}
 					});
-				} else if (new POST_API_Login_Service(Login_Activity.this,
-						CommunicationCenter.LoginService,
-						new POST_API_Login_Request(credencial.getText()
-								.toString(), password.getText().toString()))
-						.execute(new String[0]) == null) {
-					LayoutInflater inflate = LayoutInflater
-							.from(Login_Activity.this);
-					View layout = inflate.inflate(
-							R.layout.mensagem_erro_login_servico, null);
-					tv3 = (TextView) layout.findViewById(R.id.titulo1);
-					tv3.setText("Erro!");
-					tv4 = (TextView) layout.findViewById(R.id.declaracao);
-					tv4.setText("Ocorreu um problema na ligação ao servidor. \nPedimos desculpa pelo incomodo");
-					b2 = (Button) layout.findViewById(R.id.botaoClickOk);
-
-					final AlertDialog.Builder builder = new AlertDialog.Builder(
-							Login_Activity.this);
-					builder.setView(layout);
-					final AlertDialog dialog = builder.create();
-					dialog.show();
-
-					b2.setOnClickListener(new OnClickListener() {
-
-						@Override
-						public void onClick(View v) {
-							dialog.dismiss();
-						}
-					});
-
+					// } else if (new
+					// POST_API_Login_Service(Login_Activity.this,
+					// CommunicationCenter.PostLoginService,
+					// new POST_API_Login_Request(credencial.getText()
+					// .toString(), password.getText().toString()))
+					// .execute(new String[0]) == null) {
+					// LayoutInflater inflate = LayoutInflater
+					// .from(Login_Activity.this);
+					// View layout = inflate.inflate(
+					// R.layout.mensagem_erro_login_servico, null);
+					// tv3 = (TextView) layout.findViewById(R.id.titulo1);
+					// tv3.setText("Erro!");
+					// tv4 = (TextView) layout.findViewById(R.id.declaracao);
+					// tv4.setText("Ocorreu um problema na ligação ao servidor. \nPedimos desculpa pelo incomodo");
+					// b2 = (Button) layout.findViewById(R.id.botaoClickOk);
+					//
+					// final AlertDialog.Builder builder = new
+					// AlertDialog.Builder(
+					// Login_Activity.this);
+					// builder.setView(layout);
+					// final AlertDialog dialog = builder.create();
+					// dialog.show();
+					//
+					// b2.setOnClickListener(new OnClickListener() {
+					//
+					// @Override
+					// public void onClick(View v) {
+					// dialog.dismiss();
+					// }
+					// });
+					//
+					// }
 				}
 			}
 		});
@@ -153,88 +156,21 @@ public class Login_Activity extends Activity implements
 	@Override
 	public void callbackCall(POST_API_Login_Response t) {
 		// TODO Auto-generated method stub
-
 		String valorStatusCd = t.getStatusCd();
 		String valorStatusTxT = t.getStatusTxt();
 		String valorToken = t.getToken();
 
 		if (valorStatusCd.equals("OK") && valorStatusTxT.equals("Sucesso")) {
-			progressBar.setVisibility(View.VISIBLE);
-
 			Intent intencao = new Intent(Login_Activity.this,
 					Info_Activity.class);
-			// para passar info para prox activity
-			// intencao.putExtra("TOKEN", valorToken);
 			Login_Activity.this.startActivity(intencao);
 		} else if (valorStatusCd.equals("KO")
 				&& valorStatusTxT.equals("Credenciais inválidas.")) {
 			Toast.makeText(Login_Activity.this, "Credenciais inválidas.",
 					Toast.LENGTH_LONG).show();
+			progressBar.setVisibility(View.GONE);
 		}
 
 	}
-
-	// login.setOnClickListener(new OnClickListener() {
-	//
-	// /*
-	// * NOTA "COMO PASSAR OBJECTS DO GSON NO BUNDLE":
-	// *
-	// * Initial Activity Intent activity = new
-	// * Intent(MyActivity.this,NextActivity.class);
-	// * activity.putExtra("myObject", new Gson().toJson(myobject);
-	// * startActivity(activity);
-	// *
-	// * Next Activity
-	// *
-	// * Sting jsonMyObject; Bundle extras = getIntent().getExtras(); if
-	// * (extras != null) { jsonMyObject = extras.getString("myObject"); }
-	// * MyObject myObject = new Gson().fromJson(jsonMyObject,
-	// * MyObject.class);
-	// */
-	//
-	// // ao click no botao LOG IN, fazer o servico para ir buscar as info
-	// // depois passar Intents com "Extras" para a prox atividade
-	// // fazer o set.TexView() ???
-	//
-	// @Override
-	// public void onClick(View v) {// accao ao clicar
-	// // TODO Auto-generated method stub
-	// if (credencial.getText().toString().equals("")
-	// && password.getText().toString().equals("")) {
-	// Toast.makeText(Login_Activity.this, "Campos vazios! ",
-	// Toast.LENGTH_LONG).show();
-	// } else {
-	//
-	// if (login() == true) {
-	// progressBar.setVisibility(View.VISIBLE);
-	//
-	// Intent intencao = new Intent(Login_Activity.this,
-	// Info_Activity.class);
-	// // para passar info para prox activity
-	// intencao.putExtra("USERNAME", username);
-	// Login_Activity.this.startActivity(intencao);
-
-	// } else if (login() == false) {
-	// Toast.makeText(Login_Activity.this,
-	// "ERRO! Username ou Password incorrectos ",
-	// Toast.LENGTH_LONG).show();
-	// credencial.setText("");
-	// password.setText("");
-	// }
-	// }
-	// }
-	// });
-
-	// public boolean login() {
-	// ArrayList<Users> arrayUsers = Users.generateFakeUsers();
-	// username = credencial.getText().toString();
-	// pass = password.getText().toString();
-	// for (Users user : arrayUsers) {
-	// if (user.getUser().equals(username) && user.getPass().equals(pass)) {
-	// return true;
-	// }
-	// }
-	// return false;
-	// }
 
 }

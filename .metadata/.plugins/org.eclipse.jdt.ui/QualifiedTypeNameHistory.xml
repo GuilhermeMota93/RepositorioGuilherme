@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.example.itlog.adapters.Calendario_Adapter"/>
-<fullyQualifiedTypeName name="android.R.interpolator"/>
-<fullyQualifiedTypeName name="android.view.View"/>
-<fullyQualifiedTypeName name="com.example.itlog.activities.InputHoras_Activity"/>
-<fullyQualifiedTypeName name="android.app.ProgressDialog"/>
-<fullyQualifiedTypeName name="com.example.itlog.services.LoginService"/>
-<fullyQualifiedTypeName name="com.example.itlog.requestobjects.LoginRequest"/>
-<fullyQualifiedTypeName name="com.example.itlog.activities.SplashScreen_Activity"/>
-<fullyQualifiedTypeName name="com.example.itlog.activities.Detecta_Conexao_Internet"/>
-<fullyQualifiedTypeName name="com.example.itlog.GetDevice_Service"/>
-<fullyQualifiedTypeName name="com.example.itlog.services.GetSessionInformationService"/>
 <fullyQualifiedTypeName name="com.example.itlog.requestobjects.GetSessionInformationRequest"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.Info_Activity"/>
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.LoginResponse.Singleton"/>
@@ -23,7 +12,6 @@
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.Add_Project_Nuc_Lst_Response"/>
 <fullyQualifiedTypeName name="com.example.itlog.adapters.MeusProj_ListView_Adapter"/>
 <fullyQualifiedTypeName name="com.example.itlog.R.layout"/>
-<fullyQualifiedTypeName name="com.example.itlog.activities.MeusProj_Activity"/>
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.GetSessionInformationResponse"/>
 <fullyQualifiedTypeName name="com.example.itlog.services.Get_Cliente_Lst_Service"/>
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.LoginResponse"/>
@@ -38,7 +26,6 @@
 <fullyQualifiedTypeName name="android.os.Handler"/>
 <fullyQualifiedTypeName name="java.lang.Runnable"/>
 <fullyQualifiedTypeName name="com.google.gson.JsonArray"/>
-<fullyQualifiedTypeName name="com.example.itlog.responseobjects.POST_API_AddProjectNucLst_Response"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="com.example.itlog.objects.Cliente_2"/>
 <fullyQualifiedTypeName name="com.example.itlog.services.GET_API_ClienteLst_Service"/>
@@ -51,13 +38,26 @@
 <fullyQualifiedTypeName name="com.example.itlog.requestobjects.POST_API_ProjectosByCli_Request"/>
 <fullyQualifiedTypeName name="com.example.itlog.communication.Callback_Interface_2"/>
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.GET_API_ClienteLst_Response"/>
-<fullyQualifiedTypeName name="com.example.itlog.communication.CallbackInterface"/>
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.POST_API_ProjectosByCli_Response"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.AddProj_Activity.CallbackClientes.CallbackProjects"/>
-<fullyQualifiedTypeName name="com.example.itlog.activities.AddProj_Activity"/>
-<fullyQualifiedTypeName name="android.widget.ProgressBar"/>
 <fullyQualifiedTypeName name="com.example.itlog.R.id"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.AddProj_Activity.CallbackClientes"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.AddProj_Activity.CallbackProjects"/>
+<fullyQualifiedTypeName name="com.example.itlog.responseobjects.POST_API_DelProjectoFromNucLst_Response"/>
+<fullyQualifiedTypeName name="com.example.itlog.requestobjects.POST_API_DelProjectoFromNucLst_Request"/>
+<fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
+<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.InputHoras_Activity"/>
+<fullyQualifiedTypeName name="com.example.itlog.services.POST_API_DelProjectoFromNucLst_Service"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.MeusProj_Activity"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.MeusProj_Activity.CallBackElimnaProj"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.AddProj_Activity"/>
+<fullyQualifiedTypeName name="com.example.itlog.communication.CallbackInterface"/>
+<fullyQualifiedTypeName name="com.example.itlog.responseobjects.POST_API_AddProjectNucLst_Response"/>
+<fullyQualifiedTypeName name="com.example.itlog.services.POST_API_AddProjectNucLst_Service"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.AddProj_Activity.CallBackAddProj"/>
 <fullyQualifiedTypeName name="com.example.itlog.communication.CommunicationCenter"/>
+<fullyQualifiedTypeName name="com.example.itlog.requestobjects.POST_API_AddProjectToNucLst_Request"/>
+<fullyQualifiedTypeName name="android.widget.ProgressBar"/>
 </qualifiedTypeNameHistroy>
