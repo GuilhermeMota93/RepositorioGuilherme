@@ -35,16 +35,23 @@ public class Calendario_Adapter extends BaseAdapter {
 	public GregorianCalendar pmonth, pmonthmaxset, selectedDate;
 	int firstDay, maxWeeknumber, maxP, calMaxP, lastWeekDay, leftDays,
 			mnthlength;
+
+	private Calendar testeCal;
 	String itemvalue, curentDateString;
 	SimpleDateFormat df;
 	private ArrayList<String> items;
 	private static ArrayList<String> posSelecionadas = new ArrayList<String>();
 	private List<String> dayString;
 	private View previousView;
-	String gridvalue;
+	String gridvalue, gridvalueMes;
+	int count = 0;
+	String[] separatedTime = new String [3];
+
+	private ArrayList<View> listaViewsEliminar = new ArrayList<View>();
 
 	public Calendario_Adapter(Context c, Calendar month2) {
 		dayString = new ArrayList<String>();
+		testeCal = (Calendar) month2.clone();
 		month = month2;
 		selectedDate = (GregorianCalendar) month2.clone();
 		mContext = c;
@@ -96,18 +103,40 @@ public class Calendario_Adapter extends BaseAdapter {
 		selecionaDias = (TextView) v.findViewById(R.id.textViewCalendarItem3);
 
 		// separates daystring into parts.
-		final String[] separatedTime = dayString.get(position).split("-");
+		try{
+			separatedTime = dayString.get(position).split("-");
+		}catch(IndexOutOfBoundsException e){
+			return v;
+		}
+		
+
+		// String value do mes atual ex: ie; 12 from 2012-12-02
+		gridvalueMes = separatedTime[1].replaceFirst("^0*", "");
 		// taking last part of date. ie; 2 from 2012-12-02
 		gridvalue = separatedTime[2].replaceFirst("^0*", "");
 
-		// checking whether the day is in current month or not.
-		if ((Integer.parseInt(gridvalue) > 1) && (position < firstDay)) {
-			// setting offdays to black color.
-			// dayView.setTextColor(Color.BLACK);
+		
+		//ERRO AQUI
+		if ((Integer.parseInt(gridvalueMes) != testeCal.get(Calendar.MONTH) + 1)) {
 			v.setVisibility(View.INVISIBLE);
-		} else if ((Integer.parseInt(gridvalue) <= 14) && (position > 28)) {
-			// dayView.setTextColor(Color.BLACK);
-			v.setVisibility(View.INVISIBLE);
+			// estas views numa lista
+			listaViewsEliminar.add(v);
+			// conta
+			count++;
+		} else {
+			// ver se count chegou a 5 (fim da row)
+			if (count == 5) {
+				// se sim, GONE em todas as views (as 5)
+				for (View v2 : listaViewsEliminar)
+					v.setVisibility(View.GONE);
+				for (int j = 0; j < 4; j++) {
+					dayString.remove(0);
+				}
+				notifyDataSetChanged();
+				return v;
+			}
+			// break ao count. flag para parar
+
 		}
 
 		dayView.setText(gridvalue);
@@ -147,9 +176,8 @@ public class Calendario_Adapter extends BaseAdapter {
 		// month start day. ie; sun, mon, etc
 		firstDay = month.get(GregorianCalendar.DAY_OF_WEEK);
 		// finding number of weeks in current month.
-		maxWeeknumber = month
-				.getActualMaximum(GregorianCalendar.WEEK_OF_MONTH + 1);
-		if (maxWeeknumber >= 5)
+		maxWeeknumber = month.getActualMaximum(GregorianCalendar.WEEK_OF_MONTH);
+		if (maxWeeknumber >= 6)
 			maxWeeknumber = 5;
 		// allocating maximum row number for the gridview.
 		mnthlength = maxWeeknumber * 7;

@@ -1,16 +1,11 @@
 package com.example.itlog.activities;
 
 import java.util.ArrayList;
-
-import com.example.itlog.GetDeviceActivity;
-import com.example.itlog.GetDevice_RequestObj;
-import com.example.itlog.GetDevice_Service;
 import com.example.itlog.R;
 import com.example.itlog.R.array;
-import com.example.itlog.TesteAosServicos;
 import com.example.itlog.communication.CallbackInterface;
 import com.example.itlog.communication.CommunicationCenter;
-import com.example.itlog.objects.Funcionario;
+
 import com.example.itlog.requestobjects.GET_API_SessionInfo_Request;
 import com.example.itlog.responseobjects.GET_API_SessionInfo_Response;
 import com.example.itlog.responseobjects.POST_API_Login_Response;
@@ -73,7 +68,7 @@ public class Info_Activity extends Activity implements
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				progressBar.setVisibility(View.VISIBLE);
+//				progressBar.setVisibility(View.VISIBLE);
 				Intent intencao = new Intent(Info_Activity.this,
 						MeusProj_Activity.class);
 				Info_Activity.this.startActivity(intencao);
@@ -85,7 +80,7 @@ public class Info_Activity extends Activity implements
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				progressBar.setVisibility(View.VISIBLE);
+//				progressBar.setVisibility(View.VISIBLE);
 				Intent intencao = new Intent(Info_Activity.this,
 						AddProj_Activity.class);
 				Info_Activity.this.startActivity(intencao);
@@ -96,7 +91,7 @@ public class Info_Activity extends Activity implements
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				progressBar.setVisibility(View.VISIBLE);
+//				progressBar.setVisibility(View.VISIBLE);
 				Intent intencao = new Intent(Info_Activity.this,
 						InputHoras_Activity.class);
 				Info_Activity.this.startActivity(intencao);

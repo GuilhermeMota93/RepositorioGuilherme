@@ -21,11 +21,10 @@ import android.widget.Toast;
 
 import com.example.itlog.R;
 import com.example.itlog.adapters.MeusProj_ListView_Adapter;
-import com.example.itlog.adapters.MeusProj_Spinner_Adapter;
 import com.example.itlog.communication.CallbackInterface;
 import com.example.itlog.communication.CommunicationCenter;
-import com.example.itlog.objects.Cliente_2;
-import com.example.itlog.objects.Projecto_2;
+import com.example.itlog.objects.Cliente;
+import com.example.itlog.objects.Projecto;
 import com.example.itlog.requestobjects.POST_API_DelProjectoFromNucLst_Request;
 import com.example.itlog.responseobjects.GET_API_ProjectosLst_Response;
 import com.example.itlog.responseobjects.POST_API_DelProjectoFromNucLst_Response;
@@ -34,13 +33,12 @@ import com.example.itlog.services.GET_API_ProjectosLst_Service;
 import com.example.itlog.services.POST_API_DelProjectoFromNucLst_Service;
 
 public class MeusProj_Activity extends GeneralButtons_Activity {
-	
+
 	ProgressBar progressBar;
-	ArrayList<Projecto_2> projects = new ArrayList<Projecto_2>();
+	ArrayList<Projecto> projects = new ArrayList<Projecto>();
 	POST_API_Login_Response token = POST_API_Login_Response.getInstance();
-	Cliente_2 valor, clientesend;
+	Cliente valor, clientesend;
 	MeusProj_ListView_Adapter adapterList;
-	MeusProj_Spinner_Adapter adapterSpinner;
 	Intent intencao;
 	ListView listView;
 	Spinner spinner;
@@ -57,7 +55,7 @@ public class MeusProj_Activity extends GeneralButtons_Activity {
 		progressBar = (ProgressBar) findViewById(R.id.progressBar3);
 		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
 		listView = (ListView) findViewById(R.id.list);
-		
+
 		getServiceListaMeusProjs();
 	}
 
@@ -69,6 +67,8 @@ public class MeusProj_Activity extends GeneralButtons_Activity {
 	}
 
 	public void getServiceEliminaProj(String prjCod) {
+//		progressBar.setVisibility(View.VISIBLE);
+
 		new POST_API_DelProjectoFromNucLst_Service(new CallBackElimnaProj(),
 				CommunicationCenter.PostDelProjecto,
 				new POST_API_DelProjectoFromNucLst_Request(prjCod,
@@ -81,7 +81,7 @@ public class MeusProj_Activity extends GeneralButtons_Activity {
 		@Override
 		public void callbackCall(final GET_API_ProjectosLst_Response t) {
 			// TODO Auto-generated method stub
-			
+
 			projects = t.getProjectos();
 			adapterList = new MeusProj_ListView_Adapter(MeusProj_Activity.this,
 					R.layout.single_row_listview_meusproj, projects, font);
@@ -123,7 +123,7 @@ public class MeusProj_Activity extends GeneralButtons_Activity {
 							adapterList.remove(adapterList.getItem(position));
 							adapterList.notifyDataSetChanged();
 							dialog.dismiss();
-							
+
 						}
 					});
 
@@ -151,6 +151,8 @@ public class MeusProj_Activity extends GeneralButtons_Activity {
 		public void callbackCall(POST_API_DelProjectoFromNucLst_Response t2) {
 			// TODO Auto-generated method stub
 			// getServiceListaMeusProjs();
+			progressBar.setVisibility(View.GONE);
+
 			if (t2.getStatusCd().equals("KO")) {
 				Toast.makeText(MeusProj_Activity.this,
 						"Erro ao remover projecto da sua lista!",

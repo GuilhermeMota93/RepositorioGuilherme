@@ -8,12 +8,8 @@ import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
 import org.apache.http.client.ClientProtocolException;
-
 import android.util.Log;
-
-import com.example.itlog.objects.Funcionario;
 import com.google.gson.Gson;
 
 public class CommunicationCenter {
@@ -36,6 +32,7 @@ public class CommunicationCenter {
 	public static final String PostProject = "API/Projecto";
 	public static final String ProjectosByCli = "API/ProjectosByCli";
 	public static final String PostDelProjecto = "API/DelProjectoFromNucLst";
+	public static final String PostTimeSheets = "API/TimeSheets";
 
 	private static int timeoutConnection = 10000;
 	private static String resultString;
@@ -135,12 +132,13 @@ public class CommunicationCenter {
 		boolean isProjectosByCli = nomeServico.equals(ProjectosByCli);
 		boolean isDelProject = nomeServico.equals(PostDelProjecto);
 		boolean isAddProject = nomeServico.equals(PostProject);
+		boolean isTimeSheets = nomeServico.equals(PostTimeSheets);
 
 		URL url;
 		HttpURLConnection connection2 = null;
 		Gson gson2 = new Gson();
 		if (isInfoCliente || isAddProject || isPostProjectoLista
-				|| isProjectosByCli || isDelProject || isLogin) {
+				|| isProjectosByCli || isDelProject || isLogin || isTimeSheets) {
 			try {
 				Log.d("Nome servico POST", nomeServico);
 				// Create connection

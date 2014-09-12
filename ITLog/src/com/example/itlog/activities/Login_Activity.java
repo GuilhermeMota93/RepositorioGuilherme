@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import com.example.itlog.R;
 import com.example.itlog.communication.CallbackInterface;
 import com.example.itlog.communication.CommunicationCenter;
-import com.example.itlog.objects.Users;
 import com.example.itlog.requestobjects.POST_API_Login_Request;
 import com.example.itlog.responseobjects.POST_API_Login_Response;
 import com.example.itlog.services.POST_API_Login_Service;
@@ -36,15 +35,12 @@ public class Login_Activity extends Activity implements
 
 	// em vez de progress bar pode ser PROGRESS DIALOG!!!!
 	private ProgressBar progressBar;
-	private Users user;
 	String username, pass;
-
 	Button login, b1, b2; // butao de log in
 	EditText password, credencial;// texto de inserçao de credencial/password
 	ImageView imgV; // imagem no topo
 	TextView bemvindo, tv1, tv2, tv3, tv4;
 	Typeface font;
-
 	Boolean verificaLigacaoNet = false;
 	Detecta_Conexao_Internet detetor;
 
@@ -52,7 +48,6 @@ public class Login_Activity extends Activity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		user = new Users();
 		setContentView(R.layout.login_layout);
 		progressBar = (ProgressBar) findViewById(R.id.progressBar1);
 		progressBar.setVisibility(View.GONE);
@@ -113,6 +108,7 @@ public class Login_Activity extends Activity implements
 						@Override
 						public void onClick(View v) {
 							dialog.dismiss();
+							progressBar.setVisibility(View.GONE);
 						}
 					});
 					// } else if (new
@@ -156,6 +152,9 @@ public class Login_Activity extends Activity implements
 	@Override
 	public void callbackCall(POST_API_Login_Response t) {
 		// TODO Auto-generated method stub
+
+		//ver se t == null || status ko
+		
 		String valorStatusCd = t.getStatusCd();
 		String valorStatusTxT = t.getStatusTxt();
 		String valorToken = t.getToken();

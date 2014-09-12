@@ -26,6 +26,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,17 +35,27 @@ import com.example.itlog.R;
 import com.example.itlog.adapters.Calendario_Adapter;
 import com.example.itlog.adapters.InputHoras_Spinner_Adapter;
 import com.example.itlog.adapters.ViewPager_Adapter;
-import com.example.itlog.objects.Project;
+import com.example.itlog.communication.CallbackInterface;
+import com.example.itlog.communication.CommunicationCenter;
+import com.example.itlog.objects.Projecto;
+import com.example.itlog.requestobjects.POST_API_TimeSheets_Request;
+import com.example.itlog.responseobjects.GET_API_ProjectosAndAusLst_Response;
+import com.example.itlog.responseobjects.POST_API_Login_Response;
+import com.example.itlog.responseobjects.POST_API_TimeSheets_Response;
+import com.example.itlog.services.GET_API_ProjectosAndAusLst_Service;
+import com.example.itlog.services.POST_API_TimeSheets_Service;
 
 public class InputHoras_Activity extends GeneralButtons_Activity {
 
+	POST_API_Login_Response token = POST_API_Login_Response.getInstance();
 	protected static final String TAG = null;
 	public Calendar month, itemmonth;// instancias do calendario
 	public Calendario_Adapter adapter;// instacia do adaptador
 
 	InputHoras_Spinner_Adapter adapterSpinner;
-	ArrayList<Project> projects = Project.generateFakeProjects();
-	ArrayList<Project> arrayEspecifico = new ArrayList<Project>();
+	ArrayList<Projecto> projects = new ArrayList<Projecto>();
+	// ArrayList<Project> projects = Project.generateFakeProjects();
+	// ArrayList<Project> arrayEspecifico = new ArrayList<Project>();
 
 	Button imputar;
 	Typeface font;
@@ -56,29 +67,24 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 	ViewPager pager;
 	PagerTitleStrip strip;
 	ViewPager_Adapter viewPagerAdapter;
+	ProgressBar progressBar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.calendario_versao2);
-
-		// buscar info de user de tras, que vem do log in
-		// info = getIntent().getExtras().getString("USERNAME").toString();
 		// para o tipo de letra
 		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
-
+		progressBar = (ProgressBar) findViewById(R.id.progressBar4);
 		pager = (ViewPager) findViewById(R.id.viewPager);
 		viewPagerAdapter = new ViewPager_Adapter(InputHoras_Activity.this);
 		pager.setAdapter(viewPagerAdapter);
 		pager = (ViewPager) findViewById(R.id.viewPager);
 		imputar = (Button) findViewById(R.id.button1);
 		spinner = (Spinner) findViewById(R.id.spinnerGridView1);
-		// getListaProjsUser();
-		adapterSpinner = new InputHoras_Spinner_Adapter(
-				InputHoras_Activity.this, R.layout.spinner_item,
-				arrayEspecifico, font);
-		spinner.setAdapter(adapterSpinner);
+
+		getServiceListaProjsAus();
 
 		// posicao onde começa o ViewPager
 		month = Calendar.getInstance();
@@ -184,13 +190,9 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 										.getItem(j)) {
 
 									// escrever "4" na textView / View respetiva
-
 								}
-
 							}
-
 						}
-
 						dialog.dismiss();
 					}
 				});
@@ -208,6 +210,47 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 
 			}
 		});
+
+	}
+
+	public void getServiceListaProjsAus() {
+		progressBar.setVisibility(View.VISIBLE);
+		new GET_API_ProjectosAndAusLst_Service(new CallbackListaProjsAus(),
+				CommunicationCenter.GetLstProjsEAusencias).execute(token
+				.getToken());
+	}
+
+	private class CallbackListaProjsAus implements
+			CallbackInterface<GET_API_ProjectosAndAusLst_Response> {
+
+		@Override
+		public void callbackCall(GET_API_ProjectosAndAusLst_Response t) {
+			// TODO Auto-generated method stub
+			projects = t.getProjectos();
+			adapterSpinner = new InputHoras_Spinner_Adapter(
+					InputHoras_Activity.this, R.layout.spinner_item, projects,
+					font);
+			spinner.setAdapter(adapterSpinner);
+		}
+
+	}
+			
+	
+	public void getServiceTimeSheets(int ano, int mes) {
+		new POST_API_TimeSheets_Service(new CallbackTimeSheet(),
+				CommunicationCenter.PostTimeSheets,
+				new POST_API_TimeSheets_Request(ano, mes, token.getToken()))
+				.execute(new String[0]);
+	}
+
+	public class CallbackTimeSheet implements
+			CallbackInterface<POST_API_TimeSheets_Response> {
+
+		@Override
+		public void callbackCall(POST_API_TimeSheets_Response t2) {
+			// TODO Auto-generated method stub
+
+		}
 
 	}
 

@@ -24,8 +24,8 @@ import com.example.itlog.adapters.AddProject_Spinner_Adapter;
 import com.example.itlog.communication.CallbackInterface;
 import com.example.itlog.communication.Callback_Interface_2;
 import com.example.itlog.communication.CommunicationCenter;
-import com.example.itlog.objects.Cliente_2;
-import com.example.itlog.objects.Projecto_2;
+import com.example.itlog.objects.Cliente;
+import com.example.itlog.objects.Projecto;
 import com.example.itlog.requestobjects.POST_API_AddProjectToNucLst_Request;
 import com.example.itlog.requestobjects.POST_API_Login_Request;
 import com.example.itlog.requestobjects.POST_API_ProjectosByCli_Request;
@@ -42,8 +42,8 @@ import com.example.itlog.services.POST_API_ProjectosByCli_Service;
 public class AddProj_Activity extends GeneralButtons_Activity {
 
 	POST_API_Login_Response token = POST_API_Login_Response.getInstance();
-	ArrayList<Projecto_2> projects = new ArrayList<Projecto_2>();
-	ArrayList<Cliente_2> company = new ArrayList<Cliente_2>();
+	ArrayList<Projecto> projects = new ArrayList<Projecto>();
+	ArrayList<Cliente> company = new ArrayList<Cliente>();
 	AddProject_ListView_Adapter adapterList;
 	AddProject_Spinner_Adapter adapterSpinner;
 	ListView listView;
@@ -59,19 +59,20 @@ public class AddProj_Activity extends GeneralButtons_Activity {
 		// para o tipo de letra
 		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
 		progressBar = (ProgressBar) findViewById(R.id.progressBar2);
-		progressBar.setVisibility(View.GONE);
 		listView = (ListView) findViewById(R.id.list);
 		spinner = (Spinner) findViewById(R.id.spinnerAddProj);
 		getServiceClientes();
 	}
 
 	public void getServiceClientes() {
+		progressBar.setVisibility(View.VISIBLE);
 		new GET_API_ClienteLst_Service(new CallbackClientes(),
 				CommunicationCenter.GetClientesLstService).execute(token
 				.getToken());
 	}
 
 	public void getServiceProjectos(int cod) {
+		progressBar.setVisibility(View.VISIBLE);
 		new POST_API_ProjectosByCli_Service(new CallbackProjects(),
 				CommunicationCenter.ProjectosByCli,
 				new POST_API_ProjectosByCli_Request(cod, token.getToken()))
@@ -79,6 +80,7 @@ public class AddProj_Activity extends GeneralButtons_Activity {
 	}
 
 	public void getServiceAddProjecto(String prjCod) {
+		progressBar.setVisibility(View.VISIBLE);
 		new POST_API_AddProjectNucLst_Service(new CallBackAddProj(),
 				CommunicationCenter.PostAddProjectoLstService,
 				new POST_API_AddProjectToNucLst_Request(prjCod,
@@ -90,7 +92,7 @@ public class AddProj_Activity extends GeneralButtons_Activity {
 		@Override
 		public void callbackCall(GET_API_ClienteLst_Response t) {
 			// TODO Auto-generated method stub
-
+			progressBar.setVisibility(View.VISIBLE);
 			company = t.getClientes();
 			adapterSpinner = new AddProject_Spinner_Adapter(
 					AddProj_Activity.this, R.layout.spinner_item, company, font);
@@ -102,9 +104,9 @@ public class AddProj_Activity extends GeneralButtons_Activity {
 				public void onItemSelected(AdapterView<?> parent, View view,
 						int position, long id) {
 					// TODO Auto-generated method stub
-					getServiceProjectos(company.get(position).getCod());
-					// LOADING AQUI
 					progressBar.setVisibility(View.VISIBLE);
+					getServiceProjectos(company.get(position).getCod());
+				
 				}
 
 				@Override
@@ -157,6 +159,7 @@ public class AddProj_Activity extends GeneralButtons_Activity {
 						public void onClick(View v) {
 
 							dialog.dismiss();
+							progressBar.setVisibility(View.VISIBLE);
 						}
 					});
 
@@ -167,6 +170,7 @@ public class AddProj_Activity extends GeneralButtons_Activity {
 							getServiceAddProjecto(projects.get(position)
 									.getCod());
 							dialog.dismiss();
+							progressBar.setVisibility(View.VISIBLE);
 						}
 					});
 
@@ -182,20 +186,19 @@ public class AddProj_Activity extends GeneralButtons_Activity {
 		@Override
 		public void callbackCall(POST_API_AddProjectNucLst_Response t3) {
 			// TODO Auto-generated method stub
-			
-			if(t3.getStatusCd().equals("OK")){
+
+			if (t3.getStatusCd().equals("OK")) {
 
 				Toast.makeText(AddProj_Activity.this,
 						"Projeto adicionado à sua lista com sucesso! ",
 						Toast.LENGTH_LONG).show();
-			}else if(t3.getStatusCd().equals("KO")){
+			} else if (t3.getStatusCd().equals("KO")) {
 
 				Toast.makeText(AddProj_Activity.this,
 						"Desculpe, mas não foi possível adicionar o projecto!",
 						Toast.LENGTH_LONG).show();
 			}
-			
-			
+
 		}
 
 	}

@@ -11,18 +11,18 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.itlog.R;
-import com.example.itlog.objects.Project;
+import com.example.itlog.objects.Projecto;
 
-public class InputHoras_Spinner_Adapter extends ArrayAdapter<Project> {
+public class InputHoras_Spinner_Adapter extends ArrayAdapter<Projecto> {
 
-	ArrayList<Project> projects;
+	ArrayList<Projecto> projects;
 	private int recurso;
 	LayoutInflater inflater;
 	boolean notifyOnChange = true;
 	Typeface font;
 
 	public InputHoras_Spinner_Adapter(final Context context, final int recurso,
-			ArrayList<Project> projects) {
+			ArrayList<Projecto> projects) {
 		super(context, R.layout.calendario_versao2, projects);
 		this.projects = projects;
 		this.recurso = recurso;
@@ -31,7 +31,7 @@ public class InputHoras_Spinner_Adapter extends ArrayAdapter<Project> {
 	}
 
 	public InputHoras_Spinner_Adapter(final Context context, final int recurso,
-			ArrayList<Project> projects, Typeface font) {
+			ArrayList<Projecto> projects, Typeface font) {
 		super(context, R.layout.calendario_versao2, projects);
 		this.projects = projects;
 		this.recurso = recurso;
@@ -46,11 +46,11 @@ public class InputHoras_Spinner_Adapter extends ArrayAdapter<Project> {
 		View v = convertView;
 		if (v == null)
 			v = inflater.inflate(R.layout.spinner_item, null);
-		Project row = projects.get(position);
+		Projecto row = projects.get(position);
 		if (row != null) {
 			TextView textView = (TextView) v.findViewById(R.id.textSpinnerItem);
 			textView.setTypeface(font);
-			textView.setText(row.getName());
+			textView.setText(row.getNome());
 		}
 		return v;
 	}
@@ -61,12 +61,12 @@ public class InputHoras_Spinner_Adapter extends ArrayAdapter<Project> {
 		View v = convertView;
 		if (v == null)
 			v = inflater.inflate(R.layout.spinner_item_dropdown, null);
-		Project row = projects.get(position);
+		Projecto row = projects.get(position);
 		if (row != null) {
 			TextView textView = (TextView) v
 					.findViewById(R.id.textSpinnerItemDropdown);
 			textView.setTypeface(font);
-			textView.setText(row.getName());
+			textView.setText(row.getNome());
 		}
 		return v;
 	}

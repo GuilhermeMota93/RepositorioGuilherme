@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
@@ -17,9 +16,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.Toast;
-
 import com.example.itlog.R;
-import com.example.itlog.services.ListAllProjectsService;
 
 public class ViewPager_Adapter extends PagerAdapter {
 
@@ -86,10 +83,6 @@ public class ViewPager_Adapter extends PagerAdapter {
 		myGrid.setAdapter(adapter);
 		((ViewPager) container).addView(v, 1);
 
-		/*
-		 * ao clickar num dia fora do mes corrente, "salta" para esse mes e muda
-		 * no calendario na view atual
-		 */
 		myGrid.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -97,11 +90,12 @@ public class ViewPager_Adapter extends PagerAdapter {
 					int position, long id) {
 				String selectedGridDate = adapter.getDayString(position);
 				String[] separatedTime = selectedGridDate.split("-");
-				
-				//buscar dia selecionado para mandar para o arraylist de posSelecionadas
+
+				// buscar dia selecionado para mandar para o arraylist de
+				// posSelecionadas
 				if (!selectedGridDate.equals(null))
-					adapter.setSelected(view,selectedGridDate);
-								
+					adapter.setSelected(view, selectedGridDate);
+
 				// tira ultima parte de uma data. ex: 2 from 2012-12-02
 				String gridvalueString = separatedTime[2].replaceFirst("^0*",
 						"");
@@ -114,8 +108,8 @@ public class ViewPager_Adapter extends PagerAdapter {
 				}
 				showToast(selectedGridDate);
 			}
-
 		});
+
 		return v;
 	}
 
