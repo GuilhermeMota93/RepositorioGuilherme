@@ -21,12 +21,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.itlog.R;
 import com.example.itlog.activities.InputHoras_Activity;
+import com.example.itlog.activities.MeusProj_Activity;
+import com.example.itlog.communication.CallbackInterface;
+import com.example.itlog.communication.CommunicationCenter;
+import com.example.itlog.requestobjects.POST_API_TimeSheets_Request;
+import com.example.itlog.responseobjects.POST_API_Login_Response;
+import com.example.itlog.responseobjects.POST_API_TimeSheets_Response;
+import com.example.itlog.services.POST_API_AddProjectNucLst_Service;
+import com.example.itlog.services.POST_API_TimeSheets_Service;
 
 public class Calendario_Adapter extends BaseAdapter {
 
+	POST_API_Login_Response token = POST_API_Login_Response.getInstance();
 	private static final String TAG = null;
 	private Context mContext;
 	private Calendar month;
@@ -45,20 +55,22 @@ public class Calendario_Adapter extends BaseAdapter {
 	private View previousView;
 	String gridvalue, gridvalueMes;
 	int count = 0;
-	String[] separatedTime = new String [3];
+	String[] separatedTime = new String[3];
 
 	private ArrayList<View> listaViewsEliminar = new ArrayList<View>();
 
 	public Calendario_Adapter(Context c, Calendar month2) {
-		dayString = new ArrayList<String>();
 		testeCal = (Calendar) month2.clone();
+		getTimeSheets(testeCal.get(Calendar.YEAR),
+				testeCal.get(Calendar.MONTH) + 1);
+		dayString = new ArrayList<String>();
 		month = month2;
-		selectedDate = (GregorianCalendar) month2.clone();
+//		selectedDate = (GregorianCalendar) month2.clone();
 		mContext = c;
 		month.set(GregorianCalendar.DAY_OF_MONTH, 1);
 		this.items = new ArrayList<String>();
 		df = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
-		curentDateString = df.format(selectedDate.getTime());
+		curentDateString = df.format(testeCal.getTime());
 		try {
 			refreshDays();
 		} catch (ParseException e) {
@@ -103,41 +115,41 @@ public class Calendario_Adapter extends BaseAdapter {
 		selecionaDias = (TextView) v.findViewById(R.id.textViewCalendarItem3);
 
 		// separates daystring into parts.
-		try{
+		try {
 			separatedTime = dayString.get(position).split("-");
-		}catch(IndexOutOfBoundsException e){
+		} catch (IndexOutOfBoundsException e) {
 			return v;
 		}
-		
 
 		// String value do mes atual ex: ie; 12 from 2012-12-02
 		gridvalueMes = separatedTime[1].replaceFirst("^0*", "");
 		// taking last part of date. ie; 2 from 2012-12-02
 		gridvalue = separatedTime[2].replaceFirst("^0*", "");
 
-		
-		//ERRO AQUI
+		// ERRO AQUI
 		if ((Integer.parseInt(gridvalueMes) != testeCal.get(Calendar.MONTH) + 1)) {
 			v.setVisibility(View.INVISIBLE);
-			// estas views numa lista
-			listaViewsEliminar.add(v);
+		} 
+		
+		// estas views numa lista
+			// listaViewsEliminar.add(v);
 			// conta
-			count++;
-		} else {
-			// ver se count chegou a 5 (fim da row)
-			if (count == 5) {
-				// se sim, GONE em todas as views (as 5)
-				for (View v2 : listaViewsEliminar)
-					v.setVisibility(View.GONE);
-				for (int j = 0; j < 4; j++) {
-					dayString.remove(0);
-				}
-				notifyDataSetChanged();
-				return v;
-			}
-			// break ao count. flag para parar
-
-		}
+			// count++;
+			// } else {
+			// // ver se count chegou a 5 (fim da row)
+			// if (count == 5) {
+			// // se sim, GONE em todas as views (as 5)
+			// for (View v2 : listaViewsEliminar)
+			// v.setVisibility(View.GONE);
+			// for (int j = 0; j < 4; j++) {
+			// dayString.remove(0);
+			// }
+			// notifyDataSetChanged();
+			// return v;
+			// }
+			// // break ao count. flag para parar
+			//
+			// }
 
 		dayView.setText(gridvalue);
 
@@ -149,6 +161,7 @@ public class Calendario_Adapter extends BaseAdapter {
 		String monthStr = "" + (month.get(GregorianCalendar.MONTH) + 1);
 		if (monthStr.length() == 1)
 			monthStr = "0" + monthStr;
+
 		return v;
 	}
 
@@ -241,6 +254,40 @@ public class Calendario_Adapter extends BaseAdapter {
 	// YYYY-MM-DD
 	public ArrayList<String> getArraySelecionaDias() {
 		return posSelecionadas;
+	}
+
+	public void getTimeSheets(int ano, int mes) {
+
+		new POST_API_TimeSheets_Service(new CallbackTimeSheets(),
+				CommunicationCenter.PostTimeSheets,
+				new POST_API_TimeSheets_Request(ano, mes, token.getToken()))
+				.execute(new String[0]);
+
+	}
+
+	public class CallbackTimeSheets implements
+			CallbackInterface<POST_API_TimeSheets_Response> {
+
+		@Override
+		public void callbackCall(POST_API_TimeSheets_Response t2) {
+			// TODO Auto-generated method stub
+
+			if (t2.getStatusCd().equals("KO")) {
+				Toast.makeText(mContext, "ERRO AO CARREGAR MES",
+						Toast.LENGTH_LONG).show();
+			} else if (t2.getStatusCd().equals("OK")) {
+				Toast.makeText(
+						mContext,
+						"Ano: " + t2.getImpt().getAno() + "\n" + "Mes: "
+								+ t2.getImpt().getMes() + "\n"
+								+ "Horas Dia Multiplo: "
+								+ t2.getImpt().getHorasDiaMultiplo() + "\n"
+								+ "Horas Dia Max: "
+								+ t2.getImpt().getHorasDiaMax(),
+						Toast.LENGTH_LONG).show();
+			}
+
+		}
 	}
 
 }

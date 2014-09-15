@@ -127,6 +127,9 @@ public class ViewPager_Adapter extends PagerAdapter {
 
 	}
 
+	
+	
+	
 	public ArrayList<Calendar> getListaMesesMostrar() {
 		janeiro = Calendar.getInstance();
 		janeiro.set(Calendar.MONTH, Calendar.JANUARY);

@@ -68,7 +68,6 @@ public class Info_Activity extends Activity implements
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-//				progressBar.setVisibility(View.VISIBLE);
 				Intent intencao = new Intent(Info_Activity.this,
 						MeusProj_Activity.class);
 				Info_Activity.this.startActivity(intencao);
@@ -80,7 +79,7 @@ public class Info_Activity extends Activity implements
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-//				progressBar.setVisibility(View.VISIBLE);
+
 				Intent intencao = new Intent(Info_Activity.this,
 						AddProj_Activity.class);
 				Info_Activity.this.startActivity(intencao);
@@ -91,7 +90,6 @@ public class Info_Activity extends Activity implements
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-//				progressBar.setVisibility(View.VISIBLE);
 				Intent intencao = new Intent(Info_Activity.this,
 						InputHoras_Activity.class);
 				Info_Activity.this.startActivity(intencao);
@@ -103,8 +101,55 @@ public class Info_Activity extends Activity implements
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu items for use in the action bar
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.actionbar_buttons, menu);
+//		MenuInflater inflater = getMenuInflater();
+//		inflater.inflate(R.menu.actionbar_buttons, menu);
+//		Button about = (Button) findViewById(R.menu.actionbar_buttons);
+//		Button logout = (Button) findViewById(R.id.logout);
+//
+//		logout.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				// TODO Auto-generated method stub
+//				LayoutInflater inflate = LayoutInflater
+//						.from(Info_Activity.this);
+//				View layout = inflate.inflate(R.layout.logou_layout, null);
+//				tv1 = (TextView) layout.findViewById(R.id.titulo1);
+//				tv1.setText("Log Out");
+//				tv2 = (TextView) layout.findViewById(R.id.descricao);
+//				tv2.setText("Efetuar esta ação terminará a sua sessão. \n\nPretende continuar?");
+//				b1 = (Button) layout.findViewById(R.id.botaoCancela);
+//				b2 = (Button) layout.findViewById(R.id.botaoOK);
+//
+//				final AlertDialog.Builder builder = new AlertDialog.Builder(
+//						Info_Activity.this);
+//				builder.setView(layout);
+//				final AlertDialog dialog = builder.create();
+//				dialog.show();
+//				b1.setOnClickListener(new OnClickListener() {
+//
+//					@Override
+//					public void onClick(View v) {
+//
+//						dialog.dismiss();
+//					}
+//				});
+//
+//				b2.setOnClickListener(new OnClickListener() {
+//
+//					@Override
+//					public void onClick(View v) {
+//						Intent intencao = new Intent(Info_Activity.this,
+//								Login_Activity.class);
+//						intencao.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+//								| IntentCompat.FLAG_ACTIVITY_CLEAR_TASK);
+//						Info_Activity.this.startActivity(intencao);
+//						finish();
+//					}
+//				});
+//			}
+//		});
+
 		return super.onCreateOptionsMenu(menu);
 	}
 

@@ -12,6 +12,7 @@ import android.app.AlertDialog;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.PagerTitleStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -51,19 +52,11 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 	protected static final String TAG = null;
 	public Calendar month, itemmonth;// instancias do calendario
 	public Calendario_Adapter adapter;// instacia do adaptador
-
 	InputHoras_Spinner_Adapter adapterSpinner;
 	ArrayList<Projecto> projects = new ArrayList<Projecto>();
-	// ArrayList<Project> projects = Project.generateFakeProjects();
-	// ArrayList<Project> arrayEspecifico = new ArrayList<Project>();
-
 	Button imputar;
 	Typeface font;
 	Spinner spinner;
-
-	// o username vem em forma de string desde o log in
-	// String info;
-
 	ViewPager pager;
 	PagerTitleStrip strip;
 	ViewPager_Adapter viewPagerAdapter;
@@ -98,6 +91,8 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 			public void onPageSelected(int posicaoAtual) {
 				// TODO Auto-generated method stub
 				if (posicaoAtual >= posAntes) {
+					// progressBar.setVisibility(View.VISIBLE);
+
 					Log.i(TAG, "SWIPING RIGHT");
 
 					// se chegar ao max do viewpager (com o getCount)
@@ -105,10 +100,13 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 						// limpa a lista, e cria com o (YEAR+1)
 						viewPagerAdapter.getListaMesesMostrarMaisUm();
 						viewPagerAdapter.notifyDataSetChanged();
+
 					}
 					posAntes++;
+					// progressBar.setVisibility(View.GONE);
 
 				} else if (posicaoAtual <= posAntes) {
+					// progressBar.setVisibility(View.VISIBLE);
 					Log.i(TAG, "SWIPING LEFT");
 
 					// se chegar ao min do viewpager (com o getCount)
@@ -120,14 +118,15 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 						pager.setCurrentItem(12);
 					}
 					posAntes--;
+					// progressBar.setVisibility(View.GONE);
 
 				}
-
 			}
 
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
 				// TODO Auto-generated method stub
+				// progressBar.setVisibility(View.GONE);
 			}
 
 			@Override
@@ -166,15 +165,6 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 
 					@Override
 					public void onClick(View v) {
-
-						// Toast.makeText(InputHoras_Activity.this,
-						// "4 Horas adicionadas com sucesso! ",
-						// Toast.LENGTH_LONG).show();
-
-						// Toast.makeText(InputHoras_Activity.this,
-						// "" + adapter.getArraySelecionaDias().size(),
-						// Toast.LENGTH_LONG).show();
-
 						// Para todos os elementos selecionados que estao na
 						// lista
 						for (int i = 0; i < adapter.getArraySelecionaDias()
@@ -182,10 +172,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 							// percorrer a grelha
 							for (int j = 0; j < adapter.getCount(); j++) {
 								// se a posiçao da grelha corresponder ao valor
-								// no array
-								// Toast.makeText(InputHoras_Activity.this,
-								// "" + adapter.getItem(j),
-								// Toast.LENGTH_LONG).show();
+
 								if (adapter.getArraySelecionaDias().get(i) == adapter
 										.getItem(j)) {
 
@@ -231,12 +218,13 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 					InputHoras_Activity.this, R.layout.spinner_item, projects,
 					font);
 			spinner.setAdapter(adapterSpinner);
+			progressBar.setVisibility(View.GONE);
 		}
 
 	}
-			
-	
+
 	public void getServiceTimeSheets(int ano, int mes) {
+		progressBar.setVisibility(View.VISIBLE);
 		new POST_API_TimeSheets_Service(new CallbackTimeSheet(),
 				CommunicationCenter.PostTimeSheets,
 				new POST_API_TimeSheets_Request(ano, mes, token.getToken()))
@@ -249,7 +237,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		@Override
 		public void callbackCall(POST_API_TimeSheets_Response t2) {
 			// TODO Auto-generated method stub
-
+			progressBar.setVisibility(View.GONE);
 		}
 
 	}
@@ -268,18 +256,8 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		switch (item.getItemId()) {
 		case android.R.id.home:
 			finish();
-
 		}
 		return true;
 	}
-
-	// public ArrayList<Project> getListaProjsUser() {
-	// arrayEspecifico.clear();
-	// for (Project auxProject : projects) {
-	// if (auxProject.getUserid() != null
-	// && (auxProject.getUserid()).equals(info))
-	// arrayEspecifico.add(auxProject);
-	// }
-	// return arrayEspecifico;
 
 }

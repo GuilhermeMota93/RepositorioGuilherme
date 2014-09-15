@@ -35,6 +35,9 @@ public class Login_Activity extends Activity implements
 
 	// em vez de progress bar pode ser PROGRESS DIALOG!!!!
 	private ProgressBar progressBar;
+
+	private ProgressDialog progressDialog;
+	
 	String username, pass;
 	Button login, b1, b2; // butao de log in
 	EditText password, credencial;// texto de inserçao de credencial/password
@@ -55,6 +58,7 @@ public class Login_Activity extends Activity implements
 		login = (Button) findViewById(R.id.loginBut);
 		password = (EditText) findViewById(R.id.password);
 		credencial = (EditText) findViewById(R.id.credencial);
+		credencial.requestFocus();
 		imgV = (ImageView) findViewById(R.id.imgV);
 		bemvindo = (TextView) findViewById(R.id.textView1);
 
@@ -73,6 +77,25 @@ public class Login_Activity extends Activity implements
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+//
+//				progressDialog = ProgressDialog.show(Login_Activity.this, "Aguarde, por favor",  "A validar os seus dados...", true);
+//                progressDialog.setCancelable(true);
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        try {
+//                            //Do some stuff that take some time...
+//                        	
+//                            Thread.sleep(3000); // Let's wait for some time
+//                        } catch (Exception e) {
+//                             
+//                        }
+//                        progressDialog.dismiss();
+//                    }
+//                }).start();
+//				
+				
+				
 				progressBar.setVisibility(View.VISIBLE);
 				// info da Internet
 				verificaLigacaoNet = detetor.existeConexao();
@@ -153,8 +176,8 @@ public class Login_Activity extends Activity implements
 	public void callbackCall(POST_API_Login_Response t) {
 		// TODO Auto-generated method stub
 
-		//ver se t == null || status ko
-		
+		// ver se t == null || status ko
+
 		String valorStatusCd = t.getStatusCd();
 		String valorStatusTxT = t.getStatusTxt();
 		String valorToken = t.getToken();
