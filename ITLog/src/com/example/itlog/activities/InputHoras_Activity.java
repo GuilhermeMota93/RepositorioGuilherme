@@ -9,7 +9,9 @@ import java.util.Locale;
 
 import android.R.interpolator;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.PagerTabStrip;
@@ -61,6 +63,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 	PagerTitleStrip strip;
 	ViewPager_Adapter viewPagerAdapter;
 	ProgressBar progressBar;
+	ProgressDialog progressDialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +73,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		// para o tipo de letra
 		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
 		progressBar = (ProgressBar) findViewById(R.id.progressBar4);
+		progressBar.setVisibility(View.GONE);
 		pager = (ViewPager) findViewById(R.id.viewPager);
 		viewPagerAdapter = new ViewPager_Adapter(InputHoras_Activity.this);
 		pager.setAdapter(viewPagerAdapter);
@@ -90,6 +94,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 			@Override
 			public void onPageSelected(int posicaoAtual) {
 				// TODO Auto-generated method stub
+
 				if (posicaoAtual >= posAntes) {
 					// progressBar.setVisibility(View.VISIBLE);
 
@@ -107,6 +112,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 
 				} else if (posicaoAtual <= posAntes) {
 					// progressBar.setVisibility(View.VISIBLE);
+
 					Log.i(TAG, "SWIPING LEFT");
 
 					// se chegar ao min do viewpager (com o getCount)
@@ -161,39 +167,39 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 				final AlertDialog dialog = builder.create();
 				dialog.show();
 
-				b1.setOnClickListener(new OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-						// Para todos os elementos selecionados que estao na
-						// lista
-						for (int i = 0; i < adapter.getArraySelecionaDias()
-								.size(); i++) {
-							// percorrer a grelha
-							for (int j = 0; j < adapter.getCount(); j++) {
-								// se a posiçao da grelha corresponder ao valor
-
-								if (adapter.getArraySelecionaDias().get(i) == adapter
-										.getItem(j)) {
-
-									// escrever "4" na textView / View respetiva
-								}
-							}
-						}
-						dialog.dismiss();
-					}
-				});
-
-				b2.setOnClickListener(new OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-						Toast.makeText(InputHoras_Activity.this,
-								"8 Horas adicionadas com sucesso! ",
-								Toast.LENGTH_LONG).show();
-						dialog.dismiss();
-					}
-				});
+//				b1.setOnClickListener(new OnClickListener() {
+//
+//					@Override
+//					public void onClick(View v) {
+//						// Para todos os elementos selecionados que estao na
+//						// lista
+//						for (int i = 0; i < adapter.getArraySelecionaDias()
+//								.size(); i++) {
+//							// percorrer a grelha
+//							for (int j = 0; j < adapter.getCount(); j++) {
+//								// se a posiçao da grelha corresponder ao valor
+//								if (adapter.getArraySelecionaDias().get(i) == adapter
+//										.getItem(j)) {
+//
+//								//escrever o 4 ???
+//							
+//								}
+//							}
+//						}
+//						dialog.dismiss();
+//					}
+//				});
+//
+//				b2.setOnClickListener(new OnClickListener() {
+//
+//					@Override
+//					public void onClick(View v) {
+//						Toast.makeText(InputHoras_Activity.this,
+//								"8 Horas adicionadas com sucesso! ",
+//								Toast.LENGTH_LONG).show();
+//						dialog.dismiss();
+//					}
+//				});
 
 			}
 		});
@@ -201,7 +207,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 	}
 
 	public void getServiceListaProjsAus() {
-		progressBar.setVisibility(View.VISIBLE);
+		// progressBar.setVisibility(View.VISIBLE);
 		new GET_API_ProjectosAndAusLst_Service(new CallbackListaProjsAus(),
 				CommunicationCenter.GetLstProjsEAusencias).execute(token
 				.getToken());
@@ -218,29 +224,29 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 					InputHoras_Activity.this, R.layout.spinner_item, projects,
 					font);
 			spinner.setAdapter(adapterSpinner);
-			progressBar.setVisibility(View.GONE);
+			// progressBar.setVisibility(View.GONE);
 		}
 
 	}
 
-	public void getServiceTimeSheets(int ano, int mes) {
-		progressBar.setVisibility(View.VISIBLE);
-		new POST_API_TimeSheets_Service(new CallbackTimeSheet(),
-				CommunicationCenter.PostTimeSheets,
-				new POST_API_TimeSheets_Request(ano, mes, token.getToken()))
-				.execute(new String[0]);
-	}
-
-	public class CallbackTimeSheet implements
-			CallbackInterface<POST_API_TimeSheets_Response> {
-
-		@Override
-		public void callbackCall(POST_API_TimeSheets_Response t2) {
-			// TODO Auto-generated method stub
-			progressBar.setVisibility(View.GONE);
-		}
-
-	}
+	// public void getServiceTimeSheets(int ano, int mes) {
+	// // progressBar.setVisibility(View.VISIBLE);
+	// new POST_API_TimeSheets_Service(new CallbackTimeSheet(),
+	// CommunicationCenter.PostTimeSheets,
+	// new POST_API_TimeSheets_Request(ano, mes, token.getToken()))
+	// .execute(new String[0]);
+	// }
+	//
+	// public class CallbackTimeSheet implements
+	// CallbackInterface<POST_API_TimeSheets_Response> {
+	//
+	// @Override
+	// public void callbackCall(POST_API_TimeSheets_Response t2) {
+	// // TODO Auto-generated method stub
+	// // progressBar.setVisibility(View.GONE);
+	// }
+	//
+	// }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

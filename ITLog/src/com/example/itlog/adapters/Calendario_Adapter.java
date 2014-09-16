@@ -13,13 +13,17 @@ import java.util.Locale;
 
 import android.R.integer;
 import android.R.string;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView.FindListener;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +32,8 @@ import com.example.itlog.activities.InputHoras_Activity;
 import com.example.itlog.activities.MeusProj_Activity;
 import com.example.itlog.communication.CallbackInterface;
 import com.example.itlog.communication.CommunicationCenter;
+import com.example.itlog.objects.TimeSheet;
+import com.example.itlog.objects.TimeSheetDay;
 import com.example.itlog.requestobjects.POST_API_TimeSheets_Request;
 import com.example.itlog.responseobjects.POST_API_Login_Response;
 import com.example.itlog.responseobjects.POST_API_TimeSheets_Response;
@@ -58,20 +64,26 @@ public class Calendario_Adapter extends BaseAdapter {
 	String[] separatedTime = new String[3];
 
 	private ArrayList<View> listaViewsEliminar = new ArrayList<View>();
+	ProgressDialog progressDialog;
+	private POST_API_TimeSheets_Response resposta;
+
+	ArrayList<TimeSheet> tamanhoArray = new ArrayList<TimeSheet>();
 
 	public Calendario_Adapter(Context c, Calendar month2) {
 		testeCal = (Calendar) month2.clone();
-		getTimeSheets(testeCal.get(Calendar.YEAR),
-				testeCal.get(Calendar.MONTH) + 1);
+
 		dayString = new ArrayList<String>();
 		month = month2;
-//		selectedDate = (GregorianCalendar) month2.clone();
+		// selectedDate = (GregorianCalendar) month2.clone();
 		mContext = c;
+		getTimeSheets(testeCal.get(Calendar.YEAR),
+				testeCal.get(Calendar.MONTH) + 1);
 		month.set(GregorianCalendar.DAY_OF_MONTH, 1);
 		this.items = new ArrayList<String>();
 		df = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
 		curentDateString = df.format(testeCal.getTime());
 		try {
+
 			refreshDays();
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -114,6 +126,32 @@ public class Calendario_Adapter extends BaseAdapter {
 		dayView = (TextView) v.findViewById(R.id.textViewCalendarItem2);
 		selecionaDias = (TextView) v.findViewById(R.id.textViewCalendarItem3);
 
+//		// Ao carregar no botao 4 horas
+//		Button bt1 = (Button) convertView.findViewById(R.id.botaoQuatroHoras);
+//		bt1.setOnClickListener(new Button.OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				// TODO Auto-generated method stub
+//				
+//				((InputHoras_Activity)mContext).
+//				
+//				selecionaDias.setText("4");
+//				v.setBackgroundColor(Color.GREEN);
+//			}
+//		});
+//
+//		Button bt2 = (Button) convertView.findViewById(R.id.botaoOitoHoras);
+//		bt2.setOnClickListener(new Button.OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				// TODO Auto-generated method stub
+//				selecionaDias.setText("8");
+//				v.setBackgroundColor(Color.GREEN);
+//			}
+//		});
+
 		// separates daystring into parts.
 		try {
 			separatedTime = dayString.get(position).split("-");
@@ -126,30 +164,85 @@ public class Calendario_Adapter extends BaseAdapter {
 		// taking last part of date. ie; 2 from 2012-12-02
 		gridvalue = separatedTime[2].replaceFirst("^0*", "");
 
-		// ERRO AQUI
+		// POE A INVISIVEL AS VIEWS QUE NAO FAZEM PARTE DO MES
 		if ((Integer.parseInt(gridvalueMes) != testeCal.get(Calendar.MONTH) + 1)) {
 			v.setVisibility(View.INVISIBLE);
-		} 
-		
+			// AS QUE FAZEM
+		} else if (resposta != null) {
+
+			int tamanhoArrayDia = resposta.getImpt().getDia().size();
+			// //COMPARAR DIA DO MES ATUAL COM DIA DO SERVICO
+			for (int i = 0; i < tamanhoArrayDia; i++) {
+				if (Integer.parseInt(gridvalue) == resposta.getImpt().getDia()
+						.get(i).getDia()) {
+					// validacoes
+					int tamanhoArrayAllocate = resposta.getImpt().getDia()
+							.get(i).getDiaAllocate().size();
+					// se for feriado, nao permite clickar e pinta de preto
+					if (resposta.getImpt().getDia().get(i).isDiaFeriado() == true) {
+						v.setClickable(false);
+						v.setBackgroundColor(0x0A0A0A);
+						// se tipo de alocação for 3 (horas aprovadas) e tiver
+						// horas noutros projecto
+					} else {
+						// "entra" dentro do array Impt -> Dia -> DiaAllocate
+						for (int j = 0; j < tamanhoArrayAllocate; j++) {
+							int contadorHoras = 0;
+							if (resposta.getImpt().getDia().get(i)
+									.getDiaAllocate().get(j).getAllocType() == 3) {
+								v.setClickable(false);
+								// cor verde
+								v.setBackgroundColor(0x3CF005);
+							} else if (resposta.getImpt().getDia().get(i)
+									.getDiaAllocate().get(j).getAllocType() == 2) {
+								v.setClickable(false);
+								// cor vermelha
+								v.setBackgroundColor(0xF00505);
+							} else if (resposta.getImpt().getDia().get(i)
+									.getDiaAllocate().get(j).getAllocType() == 1) {
+								v.setClickable(false);
+								// cor azul
+								v.setBackgroundColor(0x1D05F0);
+							} else if (!resposta.getImpt().getDia().get(i)
+									.getDiaAllocate().get(j).getClass()
+									.equals("")) {
+								// conta as horas no projecto?
+								contadorHoras += resposta.getImpt().getDia()
+										.get(i).getDiaAllocate().get(j)
+										.getHoras();
+							}
+							// FALTA PARA ALLOCTYPE = 0 -> que significa?
+						}
+					}
+
+				}
+			}
+
+		}
+
+		// for (TimeSheetDay auxiliar : resposta.getImpt().getDia()) {
+		//
+		// }
+
 		// estas views numa lista
-			// listaViewsEliminar.add(v);
-			// conta
-			// count++;
-			// } else {
-			// // ver se count chegou a 5 (fim da row)
-			// if (count == 5) {
-			// // se sim, GONE em todas as views (as 5)
-			// for (View v2 : listaViewsEliminar)
-			// v.setVisibility(View.GONE);
-			// for (int j = 0; j < 4; j++) {
-			// dayString.remove(0);
-			// }
-			// notifyDataSetChanged();
-			// return v;
-			// }
-			// // break ao count. flag para parar
-			//
-			// }
+		// listaViewsEliminar.add(v);
+		// conta
+		// count++;
+		// } else {
+		// // ver se count chegou a 5 (fim da row)
+		// if (count == 5) {
+		// // se sim, GONE em todas as views (as 5)
+		// for (View v2 : listaViewsEliminar)
+		// v.setVisibility(View.GONE);
+		// for (int j = 0; j < 4; j++) {
+		// dayString.remove(0);
+		// }
+		// notifyDataSetChanged();
+		// return v;
+		// }
+		// // break ao count. flag para parar
+		//
+		// }
 
 		dayView.setText(gridvalue);
 
@@ -162,6 +255,8 @@ public class Calendario_Adapter extends BaseAdapter {
 		if (monthStr.length() == 1)
 			monthStr = "0" + monthStr;
 
+		// resposta.getImpt().getDia();
+		// notifyDataSetChanged();
 		return v;
 	}
 
@@ -258,6 +353,10 @@ public class Calendario_Adapter extends BaseAdapter {
 
 	public void getTimeSheets(int ano, int mes) {
 
+		progressDialog = ProgressDialog.show(mContext, "Aguarde, por favor",
+				"A carregar dados...", true);
+		progressDialog.setCancelable(true);
+
 		new POST_API_TimeSheets_Service(new CallbackTimeSheets(),
 				CommunicationCenter.PostTimeSheets,
 				new POST_API_TimeSheets_Request(ano, mes, token.getToken()))
@@ -287,7 +386,33 @@ public class Calendario_Adapter extends BaseAdapter {
 						Toast.LENGTH_LONG).show();
 			}
 
+			progressDialog.dismiss();
+
 		}
 	}
+
+	// private class TaskService extends AsyncTask<Void, Void, Void> {
+	//
+	// @Override
+	// protected void onPreExecute() {
+	// // TODO Auto-generated method stub
+	// // super.onPreExecute();
+	//
+	// }
+	//
+	// @Override
+	// protected void onPostExecute(Void result) {
+	// // TODO Auto-generated method stub
+	// progressDialog.dismiss();
+	// }
+	//
+	// @Override
+	// protected Void doInBackground(Void... params) {
+	// // TODO Auto-generated method stub
+	//
+	// return null;
+	// }
+	//
+	// }
 
 }

@@ -14,6 +14,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.content.IntentCompat;
@@ -30,19 +31,18 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Login_Activity extends Activity implements
-		CallbackInterface<POST_API_Login_Response> {
+public class Login_Activity extends Activity {
 
 	// em vez de progress bar pode ser PROGRESS DIALOG!!!!
 	private ProgressBar progressBar;
 
 	private ProgressDialog progressDialog;
-	
+
 	String username, pass;
-	Button login, b1, b2; // butao de log in
+	Button login, b1, b2, b3; // butao de log in
 	EditText password, credencial;// texto de inserçao de credencial/password
 	ImageView imgV; // imagem no topo
-	TextView bemvindo, tv1, tv2, tv3, tv4;
+	TextView bemvindo, tv1, tv2, tv3, tv4, tv5, tv6;
 	Typeface font;
 	Boolean verificaLigacaoNet = false;
 	Detecta_Conexao_Internet detetor;
@@ -77,36 +77,10 @@ public class Login_Activity extends Activity implements
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-//
-//				progressDialog = ProgressDialog.show(Login_Activity.this, "Aguarde, por favor",  "A validar os seus dados...", true);
-//                progressDialog.setCancelable(true);
-//                new Thread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        try {
-//                            //Do some stuff that take some time...
-//                        	
-//                            Thread.sleep(3000); // Let's wait for some time
-//                        } catch (Exception e) {
-//                             
-//                        }
-//                        progressDialog.dismiss();
-//                    }
-//                }).start();
-//				
-				
-				
-				progressBar.setVisibility(View.VISIBLE);
-				// info da Internet
 				verificaLigacaoNet = detetor.existeConexao();
-
 				// se existir conexao, faz pedido
 				if (verificaLigacaoNet) {
-					new POST_API_Login_Service(Login_Activity.this,
-							CommunicationCenter.PostLoginService,
-							new POST_API_Login_Request(credencial.getText()
-									.toString(), password.getText().toString()))
-							.execute(new String[0]);
+					new TaskService().execute();
 
 				} else if (!verificaLigacaoNet) {
 
@@ -116,7 +90,7 @@ public class Login_Activity extends Activity implements
 							null);
 					tv1 = (TextView) layout.findViewById(R.id.titulo);
 					tv1.setText("Erro!");
-					tv2 = (TextView) layout.findViewById(R.id.pergunta);
+					tv2 = (TextView) layout.findViewById(R.id.texto);
 					tv2.setText("Não se encontra ligado à rede.");
 					b1 = (Button) layout.findViewById(R.id.botaoConfirma);
 
@@ -131,66 +105,128 @@ public class Login_Activity extends Activity implements
 						@Override
 						public void onClick(View v) {
 							dialog.dismiss();
-							progressBar.setVisibility(View.GONE);
 						}
 					});
-					// } else if (new
-					// POST_API_Login_Service(Login_Activity.this,
-					// CommunicationCenter.PostLoginService,
-					// new POST_API_Login_Request(credencial.getText()
-					// .toString(), password.getText().toString()))
-					// .execute(new String[0]) == null) {
-					// LayoutInflater inflate = LayoutInflater
-					// .from(Login_Activity.this);
-					// View layout = inflate.inflate(
-					// R.layout.mensagem_erro_login_servico, null);
-					// tv3 = (TextView) layout.findViewById(R.id.titulo1);
-					// tv3.setText("Erro!");
-					// tv4 = (TextView) layout.findViewById(R.id.declaracao);
-					// tv4.setText("Ocorreu um problema na ligação ao servidor. \nPedimos desculpa pelo incomodo");
-					// b2 = (Button) layout.findViewById(R.id.botaoClickOk);
-					//
-					// final AlertDialog.Builder builder = new
-					// AlertDialog.Builder(
-					// Login_Activity.this);
-					// builder.setView(layout);
-					// final AlertDialog dialog = builder.create();
-					// dialog.show();
-					//
-					// b2.setOnClickListener(new OnClickListener() {
-					//
-					// @Override
-					// public void onClick(View v) {
-					// dialog.dismiss();
-					// }
-					// });
-					//
-					// }
+
 				}
+
 			}
+
 		});
 
 	}
 
-	@Override
-	public void callbackCall(POST_API_Login_Response t) {
-		// TODO Auto-generated method stub
+	private class TaskService extends AsyncTask<Void, Void, Void> {
 
-		// ver se t == null || status ko
+		@Override
+		protected void onPreExecute() {
+			// TODO Auto-generated method stub
+			// super.onPreExecute();
+			progressDialog = ProgressDialog.show(Login_Activity.this,
+					"Aguarde, por favor", "A validar os seus dados...", true);
+			progressDialog.setCancelable(true);
+		}
 
-		String valorStatusCd = t.getStatusCd();
-		String valorStatusTxT = t.getStatusTxt();
-		String valorToken = t.getToken();
+		@Override
+		protected void onPostExecute(Void result) {
+			// TODO Auto-generated method stub
+			progressDialog.dismiss();
+		}
 
-		if (valorStatusCd.equals("OK") && valorStatusTxT.equals("Sucesso")) {
-			Intent intencao = new Intent(Login_Activity.this,
-					Info_Activity.class);
-			Login_Activity.this.startActivity(intencao);
-		} else if (valorStatusCd.equals("KO")
-				&& valorStatusTxT.equals("Credenciais inválidas.")) {
-			Toast.makeText(Login_Activity.this, "Credenciais inválidas.",
-					Toast.LENGTH_LONG).show();
-			progressBar.setVisibility(View.GONE);
+		@Override
+		protected Void doInBackground(Void... params) {
+			// TODO Auto-generated method stub
+			getServiceLogIn();
+//			try {
+//				Thread.sleep(1500);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			return null;
+		}
+
+	}
+
+	private void getServiceLogIn() {
+		new POST_API_Login_Service(new CallBackLogInService(),
+				CommunicationCenter.PostLoginService,
+				new POST_API_Login_Request(credencial.getText().toString(),
+						password.getText().toString())).execute(new String[0]);
+	}
+
+	private class CallBackLogInService implements
+			CallbackInterface<POST_API_Login_Response> {
+
+		@Override
+		public void callbackCall(POST_API_Login_Response t) {
+			// TODO Auto-generated method stub
+
+			// //se o token for invalido
+			// if(t.getToken()== null){
+			// LayoutInflater inflate = LayoutInflater
+			// .from(Login_Activity.this);
+			// View layout = inflate.inflate(R.layout.mensagem_erro_login,
+			// null);
+			// tv3 = (TextView) layout.findViewById(R.id.titulo);
+			// tv3.setText("Credenciais inválidas!");
+			// tv4 = (TextView) layout.findViewById(R.id.texto);
+			// tv4.setText("Volte a introduzir o seu Username e Password, por favor.");
+			// b1 = (Button) layout.findViewById(R.id.botaoConfirma);
+			//
+			// final AlertDialog.Builder builder = new AlertDialog.Builder(
+			// Login_Activity.this);
+			// builder.setView(layout);
+			// final AlertDialog dialog = builder.create();
+			// dialog.show();
+			//
+			// b1.setOnClickListener(new OnClickListener() {
+			//
+			// @Override
+			// public void onClick(View v) {
+			// dialog.dismiss();
+			// }
+			// });
+			// }
+
+			if (t.getStatusCd().equals("OK")
+					&& t.getStatusTxt().equals("Sucesso")) {
+
+				Intent intencao = new Intent(Login_Activity.this,
+						Info_Activity.class);
+				Login_Activity.this.startActivity(intencao);
+
+			} else if (t.getStatusCd().equals("KO")
+					&& t.getStatusTxt().equals("Credenciais inválidas.")) {
+
+				LayoutInflater inflate = LayoutInflater
+						.from(Login_Activity.this);
+				View layout = inflate.inflate(R.layout.mensagem_erro_login,
+						null);
+				tv3 = (TextView) layout.findViewById(R.id.titulo);
+				tv3.setText("Credenciais inválidas!");
+				tv4 = (TextView) layout.findViewById(R.id.texto);
+				tv4.setText("Volte a introduzir o seu Username e Password, por favor.");
+				b2 = (Button) layout.findViewById(R.id.botaoConfirma);
+
+				final AlertDialog.Builder builder = new AlertDialog.Builder(
+						Login_Activity.this);
+				builder.setView(layout);
+				final AlertDialog dialog = builder.create();
+				dialog.show();
+
+				b2.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						dialog.dismiss();
+					}
+				});
+
+				// Toast.makeText(Login_Activity.this, "Credenciais inválidas.",
+				// Toast.LENGTH_LONG).show();
+				//
+			}
 		}
 
 	}

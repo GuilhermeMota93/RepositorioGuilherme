@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.google.gson.JsonArray"/>
-<fullyQualifiedTypeName name="com.example.itlog.objects.Cliente_2"/>
-<fullyQualifiedTypeName name="com.example.itlog.services.GET_API_ClienteLst_Service"/>
-<fullyQualifiedTypeName name="com.example.itlog.services.POST_API_ProjectosByCli__Service"/>
-<fullyQualifiedTypeName name="com.example.itlog.services.POST_API_ProjectosByCli_Service"/>
-<fullyQualifiedTypeName name="com.example.itlog.requestobjects.POST_API_ProjectosByCli_Request"/>
 <fullyQualifiedTypeName name="com.example.itlog.communication.Callback_Interface_2"/>
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.GET_API_ClienteLst_Response"/>
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.POST_API_ProjectosByCli_Response"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.AddProj_Activity.CallbackClientes.CallbackProjects"/>
-<fullyQualifiedTypeName name="com.example.itlog.R.id"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.AddProj_Activity.CallbackClientes"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.AddProj_Activity.CallbackProjects"/>
 <fullyQualifiedTypeName name="com.example.itlog.responseobjects.POST_API_DelProjectoFromNucLst_Response"/>
 <fullyQualifiedTypeName name="com.example.itlog.requestobjects.POST_API_DelProjectoFromNucLst_Request"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
-<fullyQualifiedTypeName name="com.example.itlog.activities.InputHoras_Activity"/>
 <fullyQualifiedTypeName name="com.example.itlog.services.POST_API_DelProjectoFromNucLst_Service"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.MeusProj_Activity"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.MeusProj_Activity.CallBackElimnaProj"/>
@@ -28,7 +20,6 @@
 <fullyQualifiedTypeName name="com.example.itlog.objects.Projecto_2"/>
 <fullyQualifiedTypeName name="com.example.itlog.objects.TimeSheetAllocate"/>
 <fullyQualifiedTypeName name="com.example.itlog.objects.TimeSheetDay"/>
-<fullyQualifiedTypeName name="com.example.itlog.objects.TimeSheet"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="com.example.itlog.objects.Projecto"/>
 <fullyQualifiedTypeName name="com.google.gson.annotations.SerializedName"/>
@@ -38,12 +29,9 @@
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.lang.Void"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.InputHoras_Activity.CallbackTimeSheet"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="android.view.View"/>
 <fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.example.itlog.communication.CallbackInterface"/>
-<fullyQualifiedTypeName name="com.example.itlog.responseobjects.POST_API_TimeSheets_Response"/>
 <fullyQualifiedTypeName name="com.example.itlog.services.POST_API_AddProjectNucLst_Service"/>
 <fullyQualifiedTypeName name="com.example.itlog.communication.CommunicationCenter"/>
 <fullyQualifiedTypeName name="com.example.itlog.requestobjects.POST_API_TimeSheets_Request"/>
@@ -51,13 +39,25 @@
 <fullyQualifiedTypeName name="android.content.Context"/>
 <fullyQualifiedTypeName name="com.example.itlog.adapters.Calendario_Adapter"/>
 <fullyQualifiedTypeName name="com.example.itlog.adapters.Calendario_Adapter.CallbackTimeSheets"/>
-<fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="android.support.v4.view.PagerTabStrip"/>
 <fullyQualifiedTypeName name="com.example.itlog.activities.Login_Activity.ProgressTask"/>
-<fullyQualifiedTypeName name="android.os.AsyncTask"/>
-<fullyQualifiedTypeName name="android.app.ProgressDialog"/>
-<fullyQualifiedTypeName name="com.example.itlog.activities.Login_Activity"/>
-<fullyQualifiedTypeName name="android.widget.Button"/>
-<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="com.example.itlog.R.menu"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.Login_Activity.CallBackLogInService"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.Login_Activity"/>
+<fullyQualifiedTypeName name="android.os.AsyncTask"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.Login_Activity.TaskService"/>
+<fullyQualifiedTypeName name="android.app.ProgressDialog"/>
+<fullyQualifiedTypeName name="com.example.itlog.adapters.Calendario_Adapter.TaskService"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="android.graphics.Color"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.example.itlog.objects.TimeSheet"/>
+<fullyQualifiedTypeName name="com.example.itlog.responseobjects.POST_API_TimeSheets_Response"/>
+<fullyQualifiedTypeName name="android.widget.Button"/>
+<fullyQualifiedTypeName name="android.webkit.WebView.FindListener"/>
+<fullyQualifiedTypeName name="com.example.itlog.R.id"/>
+<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="com.example.itlog.activities.InputHoras_Activity"/>
 </qualifiedTypeNameHistroy>
