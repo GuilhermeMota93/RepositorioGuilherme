@@ -6,8 +6,14 @@
     <color name="botao_pressionado_azul">#0e7d9a</color>
     <color name="botao_pressionado_branco">#ffffff</color>
     <color name="gridview_select">#99cc00</color>
-    
-    <drawable name="pressed_color">#99cc00</drawable>
+
+    <!-- <drawable name="pressed_color">#99cc00</drawable> -->
+    <drawable name="pressed_color">#ccff99</drawable>
     <drawable name="pressed_color_2">#FFFF66</drawable>
-	<drawable name="normal_color">#FFFFF0</drawable>
+    <drawable name="normal_color">#FFFFF0</drawable>
+    <drawable name="feriado_naoaloca_bloq_preto">#0A0A0A</drawable>
+    <drawable name="horas_aprovadas_cor">#3CF005</drawable>
+    <drawable name="horas_rejeitadas_cor">#F00505</drawable>
+    <drawable name="horas_impt_pode_alterar">#1D05F0</drawable>
+
 </resources>

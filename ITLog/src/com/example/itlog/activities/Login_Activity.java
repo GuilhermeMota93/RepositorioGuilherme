@@ -80,7 +80,9 @@ public class Login_Activity extends Activity {
 				verificaLigacaoNet = detetor.existeConexao();
 				// se existir conexao, faz pedido
 				if (verificaLigacaoNet) {
-					new TaskService().execute();
+					// new TaskService().execute();
+
+					getServiceLogIn();
 
 				} else if (!verificaLigacaoNet) {
 
@@ -116,39 +118,44 @@ public class Login_Activity extends Activity {
 
 	}
 
-	private class TaskService extends AsyncTask<Void, Void, Void> {
-
-		@Override
-		protected void onPreExecute() {
-			// TODO Auto-generated method stub
-			// super.onPreExecute();
-			progressDialog = ProgressDialog.show(Login_Activity.this,
-					"Aguarde, por favor", "A validar os seus dados...", true);
-			progressDialog.setCancelable(true);
-		}
-
-		@Override
-		protected void onPostExecute(Void result) {
-			// TODO Auto-generated method stub
-			progressDialog.dismiss();
-		}
-
-		@Override
-		protected Void doInBackground(Void... params) {
-			// TODO Auto-generated method stub
-			getServiceLogIn();
-//			try {
-//				Thread.sleep(1500);
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-			return null;
-		}
-
-	}
+	// private class TaskService extends AsyncTask<Void, Void, Void> {
+	//
+	// @Override
+	// protected void onPreExecute() {
+	// // TODO Auto-generated method stub
+	// // super.onPreExecute();
+	// progressDialog = ProgressDialog.show(Login_Activity.this,
+	// "Aguarde, por favor", "A validar os seus dados...", true);
+	// progressDialog.setCancelable(true);
+	// }
+	//
+	// @Override
+	// protected void onPostExecute(Void result) {
+	// // TODO Auto-generated method stub
+	// progressDialog.dismiss();
+	// }
+	//
+	// @Override
+	// protected Void doInBackground(Void... params) {
+	// // TODO Auto-generated method stub
+	// getServiceLogIn();
+	// // try {
+	// // Thread.sleep(1500);
+	// // } catch (InterruptedException e) {
+	// // // TODO Auto-generated catch block
+	// // e.printStackTrace();
+	// // }
+	// return null;
+	// }
+	//
+	// }
 
 	private void getServiceLogIn() {
+
+		progressDialog = ProgressDialog.show(this, "Aguarde, por favor",
+				"A validar dados de acesso...", true);
+		progressDialog.setCancelable(true);
+
 		new POST_API_Login_Service(new CallBackLogInService(),
 				CommunicationCenter.PostLoginService,
 				new POST_API_Login_Request(credencial.getText().toString(),
@@ -227,6 +234,7 @@ public class Login_Activity extends Activity {
 				// Toast.LENGTH_LONG).show();
 				//
 			}
+			progressDialog.dismiss();
 		}
 
 	}

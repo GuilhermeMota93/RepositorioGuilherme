@@ -178,6 +178,10 @@ public class CommunicationCenter {
 				}
 				Log.d("Print line POST", response.toString());
 				br.close();
+				
+				
+				T t = gson2.fromJson(response.toString(), resposta);
+				Log.d("Print line Object", gson2.toJson(t));
 				return (T) gson2.fromJson(response.toString(), resposta);
 			} catch (Exception e) {
 				e.printStackTrace();
