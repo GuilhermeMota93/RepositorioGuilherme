@@ -8,7 +8,7 @@
     <color name="gridview_select">#99cc00</color>
 
     <!-- <drawable name="pressed_color">#99cc00</drawable> -->
-    <drawable name="pressed_color">#ccff99</drawable>
+    <drawable name="pressed_color">#99ff33</drawable>
     <drawable name="pressed_color_2">#FFFF66</drawable>
     <drawable name="normal_color">#FFFFF0</drawable>
     <drawable name="feriado_naoaloca_bloq_preto">#0A0A0A</drawable>

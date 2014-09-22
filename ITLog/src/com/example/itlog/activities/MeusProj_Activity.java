@@ -67,8 +67,6 @@ public class MeusProj_Activity extends GeneralButtons_Activity {
 	}
 
 	public void getServiceEliminaProj(String prjCod) {
-//		progressBar.setVisibility(View.VISIBLE);
-
 		new POST_API_DelProjectoFromNucLst_Service(new CallBackElimnaProj(),
 				CommunicationCenter.PostDelProjecto,
 				new POST_API_DelProjectoFromNucLst_Request(prjCod,
@@ -143,6 +141,8 @@ public class MeusProj_Activity extends GeneralButtons_Activity {
 			});
 		}
 	}
+			
+		
 
 	public class CallBackElimnaProj implements
 			CallbackInterface<POST_API_DelProjectoFromNucLst_Response> {

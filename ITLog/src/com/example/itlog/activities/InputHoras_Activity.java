@@ -1,20 +1,13 @@
 package com.example.itlog.activities;
 
-import java.security.acl.LastOwnerException;
-import java.text.DateFormatSymbols;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Locale;
 
-import android.R.interpolator;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.graphics.Typeface;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.PagerTitleStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -25,14 +18,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
-import android.widget.GridView;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.itlog.R;
 import com.example.itlog.adapters.Calendario_Adapter;
@@ -40,18 +28,26 @@ import com.example.itlog.adapters.InputHoras_Spinner_Adapter;
 import com.example.itlog.adapters.ViewPager_Adapter;
 import com.example.itlog.communication.CallbackInterface;
 import com.example.itlog.communication.CommunicationCenter;
+import com.example.itlog.communication.GetCalendario;
+import com.example.itlog.communication.GetCalendario.GetCalendarioListener;
 import com.example.itlog.objects.Projecto;
-import com.example.itlog.requestobjects.POST_API_TimeSheets_Request;
+import com.example.itlog.objects.TimeSheetAllocate;
+import com.example.itlog.objects.TimeSheetDay;
+import com.example.itlog.objects.TimeSheetPut;
+import com.example.itlog.requestobjects.POST_API_TimeSheetsPut_Request;
 import com.example.itlog.responseobjects.GET_API_ProjectosAndAusLst_Response;
 import com.example.itlog.responseobjects.POST_API_Login_Response;
+import com.example.itlog.responseobjects.POST_API_TimeSheetsPut_Response;
 import com.example.itlog.responseobjects.POST_API_TimeSheets_Response;
 import com.example.itlog.services.GET_API_ProjectosAndAusLst_Service;
-import com.example.itlog.services.POST_API_TimeSheets_Service;
+import com.example.itlog.services.POST_API_TimeSheetsPut_Service;
 
-public class InputHoras_Activity extends GeneralButtons_Activity {
+public class InputHoras_Activity extends GeneralButtons_Activity implements
+		GetCalendarioListener {
 
 	POST_API_Login_Response token = POST_API_Login_Response.getInstance();
 	protected static final String TAG = null;
+	TimeSheetPut alocaHoras;
 	public Calendar month, itemmonth;// instancias do calendario
 	public Calendario_Adapter adapter;// instacia do adaptador
 	InputHoras_Spinner_Adapter adapterSpinner;
@@ -62,8 +58,14 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 	ViewPager pager;
 	PagerTitleStrip strip;
 	ViewPager_Adapter viewPagerAdapter;
-	ProgressBar progressBar;
 	ProgressDialog progressDialog;
+
+	Calendar mesAtual, mesMais, mesMenos, mesMaisDois, mesMenosDois, janeiro,
+			fevereiro, marco, abril, maio, junho, julho, agosto, setembro,
+			outubro, novembro, dezembro;
+	ArrayList<Calendar> listaMesesMostrar = new ArrayList<Calendar>();
+
+	ArrayList<Calendario_Adapter> arrayCalendarioAdapter = new ArrayList<Calendario_Adapter>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -72,12 +74,12 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		setContentView(R.layout.calendario_versao2);
 		// para o tipo de letra
 		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
-		progressBar = (ProgressBar) findViewById(R.id.progressBar4);
-		progressBar.setVisibility(View.GONE);
+		getListaMesesMostrar();
+		GetCalendario getCalendario = new GetCalendario(this, token, this,
+				listaMesesMostrar);
+
 		pager = (ViewPager) findViewById(R.id.viewPager);
-		viewPagerAdapter = new ViewPager_Adapter(InputHoras_Activity.this);
-		pager.setAdapter(viewPagerAdapter);
-		pager = (ViewPager) findViewById(R.id.viewPager);
+
 		imputar = (Button) findViewById(R.id.button1);
 		spinner = (Spinner) findViewById(R.id.spinnerGridView1);
 
@@ -85,7 +87,6 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 
 		// posicao onde começa o ViewPager
 		month = Calendar.getInstance();
-		pager.setCurrentItem(month.get(Calendar.MONTH));
 
 		pager.setOnPageChangeListener(new OnPageChangeListener() {
 
@@ -96,36 +97,32 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 				// TODO Auto-generated method stub
 
 				if (posicaoAtual >= posAntes) {
-					// progressBar.setVisibility(View.VISIBLE);
-
 					Log.i(TAG, "SWIPING RIGHT");
 
 					// se chegar ao max do viewpager (com o getCount)
 					if (posicaoAtual == viewPagerAdapter.getCount() - 1) {
 						// limpa a lista, e cria com o (YEAR+1)
-						viewPagerAdapter.getListaMesesMostrarMaisUm();
-						viewPagerAdapter.notifyDataSetChanged();
 
+						if (arrayCalendarioAdapter.get(posAntes) != null) {
+							viewPagerAdapter.getListaMesesMostrarMaisUm();
+							viewPagerAdapter.notifyDataSetChanged();
+							posAntes++;
+						}
 					}
-					posAntes++;
-					// progressBar.setVisibility(View.GONE);
-
 				} else if (posicaoAtual <= posAntes) {
-					// progressBar.setVisibility(View.VISIBLE);
-
 					Log.i(TAG, "SWIPING LEFT");
 
 					// se chegar ao min do viewpager (com o getCount)
 					if (posicaoAtual == 0) {
 						// limpa a lista, e cria de novo com (YEAR-1)
-						viewPagerAdapter.getListaMesesMostarMenosUm();
-						// progressbar aqui
-						viewPagerAdapter.notifyDataSetChanged();
-						pager.setCurrentItem(12);
+						if (arrayCalendarioAdapter.get(posAntes) == null) {
+							viewPagerAdapter.getListaMesesMostarMenosUm();
+							// progressbar aqui
+							viewPagerAdapter.notifyDataSetChanged();
+							pager.setCurrentItem(12);
+							posAntes--;
+						}
 					}
-					posAntes--;
-					// progressBar.setVisibility(View.GONE);
-
 				}
 			}
 
@@ -147,8 +144,8 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 
-				adapter = new Calendario_Adapter(InputHoras_Activity.this,
-						month);
+				// adapter = new Calendario_Adapter(InputHoras_Activity.this,
+				// month,);
 
 				LayoutInflater inflate = LayoutInflater
 						.from(InputHoras_Activity.this);
@@ -158,56 +155,94 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 				tv1.setText("Quantas horas pretende adicionar a este projeto?");
 				TextView tv2 = (TextView) layout.findViewById(R.id.pergunta);
 				tv2.setText("Se imputar 8 horas neste projeto, não poderá imputar horas a mais nenhum projecto neste dia!");
-				Button b1 = (Button) layout.findViewById(R.id.botaoQuatroHoras);
-				Button b2 = (Button) layout.findViewById(R.id.botaoOitoHoras);
-
+				Button quatroHoras = (Button) layout
+						.findViewById(R.id.botaoQuatroHoras);
+				Button oitoHoras = (Button) layout
+						.findViewById(R.id.botaoOitoHoras);
+				Button zeroHoras = (Button) layout
+						.findViewById(R.id.botaoZeroHoras);
 				final AlertDialog.Builder builder = new AlertDialog.Builder(
 						InputHoras_Activity.this);
 				builder.setView(layout);
 				final AlertDialog dialog = builder.create();
 				dialog.show();
 
-//				b1.setOnClickListener(new OnClickListener() {
-//
-//					@Override
-//					public void onClick(View v) {
-//						// Para todos os elementos selecionados que estao na
-//						// lista
-//						for (int i = 0; i < adapter.getArraySelecionaDias()
-//								.size(); i++) {
-//							// percorrer a grelha
-//							for (int j = 0; j < adapter.getCount(); j++) {
-//								// se a posiçao da grelha corresponder ao valor
-//								if (adapter.getArraySelecionaDias().get(i) == adapter
-//										.getItem(j)) {
-//
-//								//escrever o 4 ???
-//							
-//								}
-//							}
-//						}
-//						dialog.dismiss();
-//					}
-//				});
-//
-//				b2.setOnClickListener(new OnClickListener() {
-//
-//					@Override
-//					public void onClick(View v) {
-//						Toast.makeText(InputHoras_Activity.this,
-//								"8 Horas adicionadas com sucesso! ",
-//								Toast.LENGTH_LONG).show();
-//						dialog.dismiss();
-//					}
-//				});
+				quatroHoras.setOnClickListener(new OnClickListener() {
 
+					@Override
+					public void onClick(View v) {
+						arrayCalendarioAdapter.get(pager.getCurrentItem())
+								.escreveQuatro();
+						for (int i = 0; i < arrayCalendarioAdapter
+								.get(pager.getCurrentItem())
+								.getViewsPreencher().size(); i++) {
+							arrayCalendarioAdapter.get(pager.getCurrentItem())
+									.getViewsPreencher().get(i)
+									.setBackgroundColor(Color.WHITE);
+						}
+						arrayCalendarioAdapter.get(pager.getCurrentItem())
+								.getViewsPreencher().clear();
+						arrayCalendarioAdapter.get(pager.getCurrentItem())
+								.getArraySelecionaDias().clear();
+						dialog.dismiss();
+					}
+				});
+
+				oitoHoras.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						arrayCalendarioAdapter.get(pager.getCurrentItem())
+								.escreveOito();
+						for (int i = 0; i < arrayCalendarioAdapter
+								.get(pager.getCurrentItem())
+								.getViewsPreencher().size(); i++) {
+							arrayCalendarioAdapter.get(pager.getCurrentItem())
+									.getViewsPreencher().get(i)
+									.setBackgroundColor(Color.WHITE);
+						}
+						arrayCalendarioAdapter.get(pager.getCurrentItem())
+								.getViewsPreencher().clear();
+						arrayCalendarioAdapter.get(pager.getCurrentItem())
+								.getArraySelecionaDias().clear();
+						dialog.dismiss();
+
+					}
+				});
+
+				zeroHoras.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						arrayCalendarioAdapter.get(pager.getCurrentItem())
+								.escreveZero();
+						for (int i = 0; i < arrayCalendarioAdapter
+								.get(pager.getCurrentItem())
+								.getViewsPreencher().size(); i++) {
+							arrayCalendarioAdapter.get(pager.getCurrentItem())
+									.getViewsPreencher().get(i)
+									.setBackgroundColor(Color.WHITE);
+						}
+						arrayCalendarioAdapter.get(pager.getCurrentItem())
+								.getViewsPreencher().clear();
+						arrayCalendarioAdapter.get(pager.getCurrentItem())
+								.getArraySelecionaDias().clear();
+						dialog.dismiss();
+					}
+				});
+
+				dialog.setCanceledOnTouchOutside(true);
 			}
 		});
 
 	}
 
 	public void getServiceListaProjsAus() {
-		// progressBar.setVisibility(View.VISIBLE);
+
+		progressDialog = ProgressDialog.show(this, "Um momento, por favor",
+				"A carregar dados...", true);
+		progressDialog.setCancelable(true);
 		new GET_API_ProjectosAndAusLst_Service(new CallbackListaProjsAus(),
 				CommunicationCenter.GetLstProjsEAusencias).execute(token
 				.getToken());
@@ -224,29 +259,11 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 					InputHoras_Activity.this, R.layout.spinner_item, projects,
 					font);
 			spinner.setAdapter(adapterSpinner);
-			// progressBar.setVisibility(View.GONE);
+
+			progressDialog.dismiss();
 		}
 
 	}
-
-	// public void getServiceTimeSheets(int ano, int mes) {
-	// // progressBar.setVisibility(View.VISIBLE);
-	// new POST_API_TimeSheets_Service(new CallbackTimeSheet(),
-	// CommunicationCenter.PostTimeSheets,
-	// new POST_API_TimeSheets_Request(ano, mes, token.getToken()))
-	// .execute(new String[0]);
-	// }
-	//
-	// public class CallbackTimeSheet implements
-	// CallbackInterface<POST_API_TimeSheets_Response> {
-	//
-	// @Override
-	// public void callbackCall(POST_API_TimeSheets_Response t2) {
-	// // TODO Auto-generated method stub
-	// // progressBar.setVisibility(View.GONE);
-	// }
-	//
-	// }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -262,8 +279,121 @@ public class InputHoras_Activity extends GeneralButtons_Activity {
 		switch (item.getItemId()) {
 		case android.R.id.home:
 			finish();
+		case R.id.enviar:
+			// alocarHorasMetodo();
+			// getTimeSheetsPut(alocaHoras);
 		}
 		return true;
 	}
 
+	@Override
+	public void onGetCalendarioComplete(
+			ArrayList<POST_API_TimeSheets_Response> respostasArray) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < 12; i++) {
+
+			Calendario_Adapter adapter = null;
+			if (respostasArray.get(i).getStatusCd().equals("OK")) {
+				adapter = new Calendario_Adapter(this,
+						listaMesesMostrar.get(i), respostasArray.get(i));
+
+			}
+
+			arrayCalendarioAdapter.add(adapter);
+
+		}
+		viewPagerAdapter = new ViewPager_Adapter(InputHoras_Activity.this,
+				arrayCalendarioAdapter);
+
+		pager.setAdapter(viewPagerAdapter);
+		pager.setCurrentItem(month.get(Calendar.MONTH));
+		progressDialog.dismiss();
+
+	}
+
+	public ArrayList<Calendar> getListaMesesMostrar() {
+		janeiro = Calendar.getInstance();
+		janeiro.set(Calendar.MONTH, Calendar.JANUARY);
+		fevereiro = Calendar.getInstance();
+		fevereiro.set(Calendar.MONTH, Calendar.FEBRUARY);
+		marco = Calendar.getInstance();
+		marco.set(Calendar.MONTH, Calendar.MARCH);
+		abril = Calendar.getInstance();
+		abril.set(Calendar.MONTH, Calendar.APRIL);
+		maio = Calendar.getInstance();
+		maio.set(Calendar.MONTH, Calendar.MAY);
+		junho = Calendar.getInstance();
+		junho.set(Calendar.MONTH, Calendar.JUNE);
+		julho = Calendar.getInstance();
+		julho.set(Calendar.MONTH, Calendar.JULY);
+		agosto = Calendar.getInstance();
+		agosto.set(Calendar.MONTH, Calendar.AUGUST);
+		setembro = Calendar.getInstance();
+		setembro.set(Calendar.MONTH, Calendar.SEPTEMBER);
+		outubro = Calendar.getInstance();
+		outubro.set(Calendar.MONTH, Calendar.OCTOBER);
+		novembro = Calendar.getInstance();
+		novembro.set(Calendar.MONTH, Calendar.NOVEMBER);
+		dezembro = Calendar.getInstance();
+		dezembro.set(Calendar.MONTH, Calendar.DECEMBER);
+
+		listaMesesMostrar.add(janeiro);
+		listaMesesMostrar.add(fevereiro);
+		listaMesesMostrar.add(marco);
+		listaMesesMostrar.add(abril);
+		listaMesesMostrar.add(maio);
+		listaMesesMostrar.add(junho);
+		listaMesesMostrar.add(julho);
+		listaMesesMostrar.add(agosto);
+		listaMesesMostrar.add(setembro);
+		listaMesesMostrar.add(outubro);
+		listaMesesMostrar.add(novembro);
+		listaMesesMostrar.add(dezembro);
+
+		return listaMesesMostrar;
+
+	}
+
+	public void getTimeSheetsPut(TimeSheetPut allocTS) {
+
+		new POST_API_TimeSheetsPut_Service(new CallbackTimeSheetsPut(),
+				CommunicationCenter.PostTimeSheetsPut,
+				new POST_API_TimeSheetsPut_Request(allocTS, token.getToken()))
+				.execute(new String[0]);
+
+	}
+
+	public class CallbackTimeSheetsPut implements
+			CallbackInterface<POST_API_TimeSheetsPut_Response> {
+
+		@Override
+		public void callbackCall(POST_API_TimeSheetsPut_Response t3) {
+			// TODO Auto-generated method stub
+			// respostaDoCallbackTSPut = t3;
+		}
+
+	}
+
+	// Metodo para o serviço de alocar horas. Criar objectos que vao enviar para
+	// o serviço
+	// Falta cria o obj TimeSheetAllocate e o TimeSheetDay
+	public TimeSheetPut alocarHorasMetodo() {
+				
+		// TimeSheetAllocate timeSheetAllocate;
+		// TimeSheetDay timeSheetDay;
+		// Calendario_Adapter mesAtual =
+		// arrayCalendarioAdapter.get(pager.getCurrentItem());
+		// for (int i = 0; i < arrayCalendarioAdapter.size(); i++) {
+		// timeSheetAllocate = new TimeSheetAllocate(mesAtual.);
+		// }
+		// // for (int j = 0; j < arrayCalendarioAdapter.size(); j++) {
+		// alocaHoras = new
+		// TimeSheetPut(arrayCalendarioAdapter.get(Calendar.YEAR),
+		// arrayCalendarioAdapter.get(pager.getCurrentItem()),
+		// arrayCalendarioAdapter.get(pager.getCurrentItem())
+		// .getArraySelecionaDias());
+		//
+		// }
+		return alocaHoras;
+	}
 }

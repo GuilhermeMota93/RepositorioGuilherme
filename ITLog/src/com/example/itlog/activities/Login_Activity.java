@@ -3,11 +3,15 @@ package com.example.itlog.activities;
 import java.util.ArrayList;
 
 import com.example.itlog.R;
+
 import com.example.itlog.communication.CallbackInterface;
 import com.example.itlog.communication.CommunicationCenter;
 import com.example.itlog.requestobjects.POST_API_Login_Request;
+import com.example.itlog.requestobjects.POST_API_TimeSheets_Request;
 import com.example.itlog.responseobjects.POST_API_Login_Response;
+import com.example.itlog.responseobjects.POST_API_TimeSheets_Response;
 import com.example.itlog.services.POST_API_Login_Service;
+import com.example.itlog.services.POST_API_TimeSheets_Service;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -118,38 +122,6 @@ public class Login_Activity extends Activity {
 
 	}
 
-	// private class TaskService extends AsyncTask<Void, Void, Void> {
-	//
-	// @Override
-	// protected void onPreExecute() {
-	// // TODO Auto-generated method stub
-	// // super.onPreExecute();
-	// progressDialog = ProgressDialog.show(Login_Activity.this,
-	// "Aguarde, por favor", "A validar os seus dados...", true);
-	// progressDialog.setCancelable(true);
-	// }
-	//
-	// @Override
-	// protected void onPostExecute(Void result) {
-	// // TODO Auto-generated method stub
-	// progressDialog.dismiss();
-	// }
-	//
-	// @Override
-	// protected Void doInBackground(Void... params) {
-	// // TODO Auto-generated method stub
-	// getServiceLogIn();
-	// // try {
-	// // Thread.sleep(1500);
-	// // } catch (InterruptedException e) {
-	// // // TODO Auto-generated catch block
-	// // e.printStackTrace();
-	// // }
-	// return null;
-	// }
-	//
-	// }
-
 	private void getServiceLogIn() {
 
 		progressDialog = ProgressDialog.show(this, "Aguarde, por favor",
@@ -168,34 +140,6 @@ public class Login_Activity extends Activity {
 		@Override
 		public void callbackCall(POST_API_Login_Response t) {
 			// TODO Auto-generated method stub
-
-			// //se o token for invalido
-			// if(t.getToken()== null){
-			// LayoutInflater inflate = LayoutInflater
-			// .from(Login_Activity.this);
-			// View layout = inflate.inflate(R.layout.mensagem_erro_login,
-			// null);
-			// tv3 = (TextView) layout.findViewById(R.id.titulo);
-			// tv3.setText("Credenciais inválidas!");
-			// tv4 = (TextView) layout.findViewById(R.id.texto);
-			// tv4.setText("Volte a introduzir o seu Username e Password, por favor.");
-			// b1 = (Button) layout.findViewById(R.id.botaoConfirma);
-			//
-			// final AlertDialog.Builder builder = new AlertDialog.Builder(
-			// Login_Activity.this);
-			// builder.setView(layout);
-			// final AlertDialog dialog = builder.create();
-			// dialog.show();
-			//
-			// b1.setOnClickListener(new OnClickListener() {
-			//
-			// @Override
-			// public void onClick(View v) {
-			// dialog.dismiss();
-			// }
-			// });
-			// }
-
 			if (t.getStatusCd().equals("OK")
 					&& t.getStatusTxt().equals("Sucesso")) {
 
@@ -230,11 +174,8 @@ public class Login_Activity extends Activity {
 					}
 				});
 
-				// Toast.makeText(Login_Activity.this, "Credenciais inválidas.",
-				// Toast.LENGTH_LONG).show();
-				//
 			}
-			progressDialog.dismiss();
+
 		}
 
 	}

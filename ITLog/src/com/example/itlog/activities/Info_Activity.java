@@ -1,18 +1,25 @@
 package com.example.itlog.activities;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+
 import com.example.itlog.R;
 import com.example.itlog.R.array;
+import com.example.itlog.adapters.ViewPager_Adapter;
 import com.example.itlog.communication.CallbackInterface;
 import com.example.itlog.communication.CommunicationCenter;
 
 import com.example.itlog.requestobjects.GET_API_SessionInfo_Request;
+import com.example.itlog.requestobjects.POST_API_TimeSheets_Request;
 import com.example.itlog.responseobjects.GET_API_SessionInfo_Response;
 import com.example.itlog.responseobjects.POST_API_Login_Response;
+import com.example.itlog.responseobjects.POST_API_TimeSheets_Response;
 import com.example.itlog.services.GET_API_SessionInfo_Service;
+import com.example.itlog.services.POST_API_TimeSheets_Service;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -38,6 +45,9 @@ public class Info_Activity extends Activity implements
 	TextView nrCred, nomeP, mail, tv1, tv2;
 	Button meuProj, addProjectos, addHoras, testarServicos, b1, b2;
 	Typeface font;
+	ArrayList<Calendar> monthLista = new ArrayList<Calendar>();
+	ArrayList<POST_API_TimeSheets_Response> listaRespostaTS = new ArrayList<POST_API_TimeSheets_Response>();
+	ViewPager_Adapter viewPager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -101,54 +111,54 @@ public class Info_Activity extends Activity implements
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu items for use in the action bar
-//		MenuInflater inflater = getMenuInflater();
-//		inflater.inflate(R.menu.actionbar_buttons, menu);
-//		Button about = (Button) findViewById(R.menu.actionbar_buttons);
-//		Button logout = (Button) findViewById(R.id.logout);
-//
-//		logout.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				LayoutInflater inflate = LayoutInflater
-//						.from(Info_Activity.this);
-//				View layout = inflate.inflate(R.layout.logou_layout, null);
-//				tv1 = (TextView) layout.findViewById(R.id.titulo1);
-//				tv1.setText("Log Out");
-//				tv2 = (TextView) layout.findViewById(R.id.descricao);
-//				tv2.setText("Efetuar esta ação terminará a sua sessão. \n\nPretende continuar?");
-//				b1 = (Button) layout.findViewById(R.id.botaoCancela);
-//				b2 = (Button) layout.findViewById(R.id.botaoOK);
-//
-//				final AlertDialog.Builder builder = new AlertDialog.Builder(
-//						Info_Activity.this);
-//				builder.setView(layout);
-//				final AlertDialog dialog = builder.create();
-//				dialog.show();
-//				b1.setOnClickListener(new OnClickListener() {
-//
-//					@Override
-//					public void onClick(View v) {
-//
-//						dialog.dismiss();
-//					}
-//				});
-//
-//				b2.setOnClickListener(new OnClickListener() {
-//
-//					@Override
-//					public void onClick(View v) {
-//						Intent intencao = new Intent(Info_Activity.this,
-//								Login_Activity.class);
-//						intencao.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-//								| IntentCompat.FLAG_ACTIVITY_CLEAR_TASK);
-//						Info_Activity.this.startActivity(intencao);
-//						finish();
-//					}
-//				});
-//			}
-//		});
+		// MenuInflater inflater = getMenuInflater();
+		// inflater.inflate(R.menu.actionbar_buttons, menu);
+		// Button about = (Button) findViewById(R.menu.actionbar_buttons);
+		// Button logout = (Button) findViewById(R.id.logout);
+		//
+		// logout.setOnClickListener(new OnClickListener() {
+		//
+		// @Override
+		// public void onClick(View v) {
+		// // TODO Auto-generated method stub
+		// LayoutInflater inflate = LayoutInflater
+		// .from(Info_Activity.this);
+		// View layout = inflate.inflate(R.layout.logou_layout, null);
+		// tv1 = (TextView) layout.findViewById(R.id.titulo1);
+		// tv1.setText("Log Out");
+		// tv2 = (TextView) layout.findViewById(R.id.descricao);
+		// tv2.setText("Efetuar esta ação terminará a sua sessão. \n\nPretende continuar?");
+		// b1 = (Button) layout.findViewById(R.id.botaoCancela);
+		// b2 = (Button) layout.findViewById(R.id.botaoOK);
+		//
+		// final AlertDialog.Builder builder = new AlertDialog.Builder(
+		// Info_Activity.this);
+		// builder.setView(layout);
+		// final AlertDialog dialog = builder.create();
+		// dialog.show();
+		// b1.setOnClickListener(new OnClickListener() {
+		//
+		// @Override
+		// public void onClick(View v) {
+		//
+		// dialog.dismiss();
+		// }
+		// });
+		//
+		// b2.setOnClickListener(new OnClickListener() {
+		//
+		// @Override
+		// public void onClick(View v) {
+		// Intent intencao = new Intent(Info_Activity.this,
+		// Login_Activity.class);
+		// intencao.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+		// | IntentCompat.FLAG_ACTIVITY_CLEAR_TASK);
+		// Info_Activity.this.startActivity(intencao);
+		// finish();
+		// }
+		// });
+		// }
+		// });
 
 		return super.onCreateOptionsMenu(menu);
 	}

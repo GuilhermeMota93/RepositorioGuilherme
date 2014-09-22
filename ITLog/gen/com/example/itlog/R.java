@@ -1034,8 +1034,7 @@ containing a value of this type.
         public static final int selector_gridview_item=0x7f02006f;
     }
     public static final class id {
-        public static final int aa=0x7f050054;
-        public static final int about=0x7f050089;
+        public static final int aa=0x7f050055;
         public static final int action_bar=0x7f05001c;
         public static final int action_bar_activity_content=0x7f050015;
         public static final int action_bar_container=0x7f05001b;
@@ -1047,7 +1046,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f05008b;
+        public static final int action_settings=0x7f05008a;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int addDevice=0x7f05003e;
         public static final int addProj=0x7f050067;
@@ -1062,12 +1061,13 @@ containing a value of this type.
         public static final int botaoImputarHoras=0x7f050082;
         public static final int botaoOK=0x7f050070;
         public static final int botaoOitoHoras=0x7f05004f;
-        public static final int botaoQuatroHoras=0x7f05004d;
+        public static final int botaoQuatroHoras=0x7f050050;
+        public static final int botaoZeroHoras=0x7f05004e;
         public static final int btEliminar=0x7f05007d;
         public static final int btInput=0x7f05007c;
         public static final int btNAO=0x7f050080;
         public static final int btSIM=0x7f05007f;
-        public static final int button1=0x7f050055;
+        public static final int button1=0x7f050056;
         public static final int buttonAdd=0x7f050041;
         public static final int buttonGet=0x7f05005d;
         public static final int checkBox1=0x7f050084;
@@ -1086,12 +1086,13 @@ containing a value of this type.
         public static final int edit_query=0x7f050030;
         public static final int emailIT=0x7f050065;
         public static final int end=0x7f050013;
+        public static final int enviar=0x7f050089;
         public static final int expand_activities_button=0x7f050026;
         public static final int expanded_menu=0x7f05002c;
         public static final int getDevice=0x7f05003f;
         public static final int gridViewCustom2=0x7f05005e;
-        public static final int gridview=0x7f050053;
-        public static final int header=0x7f050050;
+        public static final int gridview=0x7f050054;
+        public static final int header=0x7f050051;
         public static final int home=0x7f050014;
         public static final int homeAsUp=0x7f050005;
         public static final int icon=0x7f05002a;
@@ -1099,35 +1100,33 @@ containing a value of this type.
         public static final int image=0x7f050027;
         public static final int imgV=0x7f05006a;
         public static final int inputHoras=0x7f050068;
-        public static final int lin1=0x7f050056;
+        public static final int lin1=0x7f050057;
         public static final int linear=0x7f050045;
         public static final int linear2=0x7f050048;
-        public static final int linear3=0x7f05004e;
+        public static final int linear3=0x7f05004d;
         public static final int list=0x7f050043;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
         public static final int loginBut=0x7f05006e;
         public static final int logoTipo=0x7f05003c;
-        public static final int logout=0x7f05008a;
         public static final int meusProj=0x7f050066;
         public static final int middle=0x7f050012;
         public static final int never=0x7f050009;
-        public static final int next=0x7f050052;
+        public static final int next=0x7f050053;
         public static final int nomePess=0x7f050064;
         public static final int none=0x7f050010;
         public static final int normal=0x7f050000;
         public static final int overflow_button=0x7f050088;
         public static final int password=0x7f05006d;
         public static final int pergunta=0x7f05004c;
-        public static final int previous=0x7f050051;
+        public static final int previous=0x7f050052;
         public static final int progressBar1=0x7f05006f;
         public static final int progressBar2=0x7f050044;
         public static final int progressBar3=0x7f050076;
-        public static final int progressBar4=0x7f05005b;
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
         public static final int radio=0x7f05002f;
-        public static final int rel1=0x7f050058;
+        public static final int rel1=0x7f050059;
         public static final int relativeLayout1=0x7f050069;
         public static final int relativeLayout2=0x7f05006b;
         public static final int search_badge=0x7f050032;
@@ -1145,7 +1144,7 @@ containing a value of this type.
         public static final int showHome=0x7f050004;
         public static final int showTitle=0x7f050006;
         public static final int spinnerAddProj=0x7f050042;
-        public static final int spinnerGridView1=0x7f050057;
+        public static final int spinnerGridView1=0x7f050058;
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
@@ -1167,12 +1166,12 @@ containing a value of this type.
         public static final int title=0x7f05002b;
         public static final int titulo=0x7f05004b;
         public static final int titulo1=0x7f050046;
-        public static final int tituloViewPagerTeste=0x7f05005a;
+        public static final int tituloViewPagerTeste=0x7f05005b;
         public static final int top_action_bar=0x7f050020;
         public static final int tvPergunta=0x7f05007e;
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;
-        public static final int viewPager=0x7f050059;
+        public static final int viewPager=0x7f05005a;
         public static final int withText=0x7f05000c;
     }
     public static final class integer {

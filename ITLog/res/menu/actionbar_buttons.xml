@@ -7,13 +7,9 @@
         android:showAsAction="always">
         <menu>
             <item
-                android:id="@+id/about"
+                android:id="@+id/enviar"
                 android:showAsAction="always"
-                android:title="About"/>
-            <item
-                android:id="@+id/logout"
-                android:showAsAction="never"
-                android:title="Log Out"/>
+                android:title="Enviar"/>
         </menu>
     </item>
 

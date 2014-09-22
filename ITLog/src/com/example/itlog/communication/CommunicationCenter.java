@@ -33,6 +33,7 @@ public class CommunicationCenter {
 	public static final String ProjectosByCli = "API/ProjectosByCli";
 	public static final String PostDelProjecto = "API/DelProjectoFromNucLst";
 	public static final String PostTimeSheets = "API/TimeSheets";
+	public static final String PostTimeSheetsPut = "API/TimeSheetsPut";
 
 	private static int timeoutConnection = 10000;
 	private static String resultString;
@@ -133,12 +134,14 @@ public class CommunicationCenter {
 		boolean isDelProject = nomeServico.equals(PostDelProjecto);
 		boolean isAddProject = nomeServico.equals(PostProject);
 		boolean isTimeSheets = nomeServico.equals(PostTimeSheets);
+		boolean isTimeSheetsPut = nomeServico.equals(PostTimeSheetsPut);
 
 		URL url;
 		HttpURLConnection connection2 = null;
 		Gson gson2 = new Gson();
 		if (isInfoCliente || isAddProject || isPostProjectoLista
-				|| isProjectosByCli || isDelProject || isLogin || isTimeSheets) {
+				|| isProjectosByCli || isDelProject || isLogin || isTimeSheets
+				|| isTimeSheetsPut) {
 			try {
 				Log.d("Nome servico POST", nomeServico);
 				// Create connection
@@ -178,8 +181,7 @@ public class CommunicationCenter {
 				}
 				Log.d("Print line POST", response.toString());
 				br.close();
-				
-				
+
 				T t = gson2.fromJson(response.toString(), resposta);
 				Log.d("Print line Object", gson2.toJson(t));
 				return (T) gson2.fromJson(response.toString(), resposta);

@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ public class ViewPager_Adapter extends PagerAdapter {
 	ArrayList<Calendar> listaMesesMostrar = new ArrayList<Calendar>();
 	ArrayList<Calendar> listaRetornoNovoAno = new ArrayList<Calendar>();
 	ArrayList<Calendar> listaRetornoMenosAno = new ArrayList<Calendar>();
+	ArrayList<Calendario_Adapter> arrayCalendarioAdapter = new ArrayList<Calendario_Adapter>();
 
 	Calendar month, itemmonth, mesAtual, mesMais, mesMenos, mesMaisDois,
 			mesMenosDois, janeiro, fevereiro, marco, abril, maio, junho, julho,
@@ -35,9 +37,11 @@ public class ViewPager_Adapter extends PagerAdapter {
 	private LayoutInflater inflater;
 	private Context context;
 
-	public ViewPager_Adapter(final Context context) {
+	public ViewPager_Adapter(final Context context,
+			ArrayList<Calendario_Adapter> arrayCalendarioAdapter) {
 		super();
 		this.context = context;
+		this.arrayCalendarioAdapter = arrayCalendarioAdapter;
 		getListaMesesMostrar();
 	}
 
@@ -75,40 +79,38 @@ public class ViewPager_Adapter extends PagerAdapter {
 		// TODO Auto-generated method stub
 		inflater = (LayoutInflater) container.getContext().getSystemService(
 				Context.LAYOUT_INFLATER_SERVICE);
-		View v = inflater.inflate(R.layout.gridview, null);
+		View v = inflater.inflate(R.layout.gridview, container, false);
 		month = listaMesesMostrar.get(position);
-		final Calendario_Adapter adapter = new Calendario_Adapter(context,
-				month);
-		myGrid = (GridView) v.findViewById(R.id.gridViewCustom2);
-		myGrid.setAdapter(adapter);
-		((ViewPager) container).addView(v, 1);
+		final Calendario_Adapter adapter = arrayCalendarioAdapter.get(position);
 
-		myGrid.setOnItemClickListener(new OnItemClickListener() {
+		if (adapter != null) {
+			myGrid = (GridView) v.findViewById(R.id.gridViewCustom2);
+			myGrid.setAdapter(adapter);
+			((ViewPager) container).addView(v, 1);
 
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				String selectedGridDate = adapter.getDayString(position);
-				String[] separatedTime = selectedGridDate.split("-");
+			myGrid.setOnItemClickListener(new OnItemClickListener() {
 
-				// buscar dia selecionado para mandar para o arraylist de
-				// posSelecionadas
-				if (!selectedGridDate.equals(null))
-					adapter.setSelected(view, selectedGridDate);
+				@Override
+				public void onItemClick(AdapterView<?> parent, View view,
+						int position, long id) {
+					String selectedGridDate = adapter.getDayString(position);
+					String[] separatedTime = selectedGridDate.split("-");
 
-				// tira ultima parte de uma data. ex: 2 from 2012-12-02
-				String gridvalueString = separatedTime[2].replaceFirst("^0*",
-						"");
-				int gridValue = Integer.parseInt(gridvalueString);
+					// buscar dia selecionado para mandar para o arraylist de
+					// posSelecionadas
+					if (!selectedGridDate.equals(null))
+						adapter.setSelected(view,
+								selectedGridDate, position);
 
-				if ((gridValue > 1) && (position < adapter.firstDay)
-						|| (gridValue <= 14) && (position > 28)) {
-					adapter.selecionaDias.setClickable(false);
-					adapter.dayView.setClickable(false);
+					// tira ultima parte de uma data. ex: 2 from 2012-12-02
+					String gridvalueString = separatedTime[2].replaceFirst(
+							"^0*", "");
+					int gridValue = Integer.parseInt(gridvalueString);
+					
+//					 showToast(selectedGridDate);
 				}
-				showToast(selectedGridDate);
-			}
-		});
+			});
+		}
 
 		return v;
 	}
@@ -127,9 +129,6 @@ public class ViewPager_Adapter extends PagerAdapter {
 
 	}
 
-	
-	
-	
 	public ArrayList<Calendar> getListaMesesMostrar() {
 		janeiro = Calendar.getInstance();
 		janeiro.set(Calendar.MONTH, Calendar.JANUARY);

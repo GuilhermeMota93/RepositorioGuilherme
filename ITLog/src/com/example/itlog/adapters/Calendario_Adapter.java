@@ -1,27 +1,21 @@
 package com.example.itlog.adapters;
 
-import java.security.PublicKey;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
 
-import android.R.integer;
-import android.R.string;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView.FindListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
@@ -29,17 +23,17 @@ import android.widget.Toast;
 
 import com.example.itlog.R;
 import com.example.itlog.activities.InputHoras_Activity;
-import com.example.itlog.activities.MeusProj_Activity;
 import com.example.itlog.communication.CallbackInterface;
 import com.example.itlog.communication.CommunicationCenter;
 import com.example.itlog.objects.TimeSheet;
 import com.example.itlog.objects.TimeSheetAllocate;
 import com.example.itlog.objects.TimeSheetDay;
-import com.example.itlog.requestobjects.POST_API_TimeSheets_Request;
+import com.example.itlog.objects.TimeSheetPut;
+import com.example.itlog.requestobjects.POST_API_TimeSheetsPut_Request;
 import com.example.itlog.responseobjects.POST_API_Login_Response;
+import com.example.itlog.responseobjects.POST_API_TimeSheetsPut_Response;
 import com.example.itlog.responseobjects.POST_API_TimeSheets_Response;
-import com.example.itlog.services.POST_API_AddProjectNucLst_Service;
-import com.example.itlog.services.POST_API_TimeSheets_Service;
+import com.example.itlog.services.POST_API_TimeSheetsPut_Service;
 
 public class Calendario_Adapter extends BaseAdapter {
 
@@ -47,42 +41,50 @@ public class Calendario_Adapter extends BaseAdapter {
 	private static final String TAG = null;
 	private Context mContext;
 	private Calendar month;
-	static TextView dayView, selecionaDias;
+	TextView textoDia, selecionaDias;
 	// instancia de mes anterior para ter View completa
 	public GregorianCalendar pmonth, pmonthmaxset, selectedDate;
 	int firstDay, maxWeeknumber, maxP, calMaxP, lastWeekDay, leftDays,
 			mnthlength;
 
-	private Calendar testeCal;
+	private Calendar calendarioUsado;
 	String itemvalue, curentDateString;
-	SimpleDateFormat df;
+	SimpleDateFormat dataFormat;
 	private ArrayList<String> items;
-	private static ArrayList<String> posSelecionadas = new ArrayList<String>();
-	private List<String> dayString;
+
+	private List<String> listaDiasPopular;
 	private View previousView;
-	String gridvalue, gridvalueMes;
-	int count = 0;
-	String[] separatedTime = new String[3];
+	String[] dataSeparada = new String[3];
 
 	private ArrayList<View> listaViewsEliminar = new ArrayList<View>();
 	ProgressDialog progressDialog;
-	private POST_API_TimeSheets_Response resposta;
+	private POST_API_TimeSheets_Response respostaDoCallbackTS;
+	private POST_API_TimeSheetsPut_Response respostaDoCallbackTSPut;
 
 	ArrayList<TimeSheet> tamanhoArray = new ArrayList<TimeSheet>();
+	private static ArrayList<View> listaViewsPreencher = new ArrayList<View>();
+	private String tempoMes;
+	private String tempoDia;
+	private static ArrayList<String> posSelecionadas = new ArrayList<String>();
+	ArrayList<Boolean> listaPopuladaBool = new ArrayList<Boolean>();
+	ArrayList<String> listaPopuladaString = new ArrayList<String>();
 
-	public Calendario_Adapter(Context c, Calendar month2) {
-		testeCal = (Calendar) month2.clone();
+	InputHoras_Activity inputHorasObjecto;
 
-		dayString = new ArrayList<String>();
+	public Calendario_Adapter(Context c, Calendar month2,
+			POST_API_TimeSheets_Response respostaDoCallbackTS) {
+
+		this.respostaDoCallbackTS = respostaDoCallbackTS;
+		// CallbackTimeSheets callbackTS = new CallbackTimeSheets();
+		// callbackTS.callbackCall(respostaDoCallbackTS);
+		calendarioUsado = (Calendar) month2.clone();
+		listaDiasPopular = new ArrayList<String>();
 		month = month2;
-		// selectedDate = (GregorianCalendar) month2.clone();
 		mContext = c;
-		getTimeSheets(testeCal.get(Calendar.YEAR),
-				testeCal.get(Calendar.MONTH) + 1);
 		month.set(GregorianCalendar.DAY_OF_MONTH, 1);
 		this.items = new ArrayList<String>();
-		df = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
-		curentDateString = df.format(testeCal.getTime());
+		dataFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+		curentDateString = dataFormat.format(calendarioUsado.getTime());
 		try {
 
 			refreshDays();
@@ -90,6 +92,9 @@ public class Calendario_Adapter extends BaseAdapter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		// getTimeSheets(calendarioUsado.get(Calendar.YEAR),
+		// calendarioUsado.get(Calendar.MONTH) + 1);
+
 	}
 
 	public void setItems(ArrayList<String> items) {
@@ -102,11 +107,11 @@ public class Calendario_Adapter extends BaseAdapter {
 	}
 
 	public int getCount() {
-		return dayString.size();
+		return listaDiasPopular.size();
 	}
 
 	public Object getItem(int position) {
-		return dayString.get(position);
+		return listaDiasPopular.get(position);
 	}
 
 	public long getItemId(int position) {
@@ -115,100 +120,37 @@ public class Calendario_Adapter extends BaseAdapter {
 
 	// create a new view for each item referenced by the Adapter
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		// ViewHolder holder = null;
+
 		View currentView = convertView;
 		if (convertView == null) {
-			// holder = new ViewHolder();
 			LayoutInflater vi = (LayoutInflater) mContext
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			currentView = vi.inflate(R.layout.gridview_item, null);
-		}
 
-		dayView = (TextView) currentView
+		}
+		textoDia = (TextView) currentView
 				.findViewById(R.id.textViewCalendarItem2);
 		selecionaDias = (TextView) currentView
 				.findViewById(R.id.textViewCalendarItem3);
 
-		// // Ao carregar no botao 4 horas
-		// Button bt1 = (Button)
-		// convertView.findViewById(R.id.botaoQuatroHoras);
-		// bt1.setOnClickListener(new Button.OnClickListener() {
-		//
-		// @Override
-		// public void onClick(View v) {
-		// // TODO Auto-generated method stub
-		//
-		// ((InputHoras_Activity)mContext).
-		//
-		// selecionaDias.setText("4");
-		// v.setBackgroundColor(Color.GREEN);
-		// }
-		// });
-		//
-		// Button bt2 = (Button) convertView.findViewById(R.id.botaoOitoHoras);
-		// bt2.setOnClickListener(new Button.OnClickListener() {
-		//
-		// @Override
-		// public void onClick(View v) {
-		// // TODO Auto-generated method stub
-		// selecionaDias.setText("8");
-		// v.setBackgroundColor(Color.GREEN);
-		// }
-		// });
-
 		// separates daystring into parts.
 		try {
-			separatedTime = dayString.get(position).split("-");
+			dataSeparada = listaDiasPopular.get(position).split("-");
 		} catch (IndexOutOfBoundsException e) {
 			return currentView;
 		}
 
 		// String value do mes atual ex: ie; 12 from 2012-12-02
-		gridvalueMes = separatedTime[1].replaceFirst("^0*", "");
+		tempoMes = dataSeparada[1].replaceFirst("^0*", "");
 		// taking last part of date. ie; 2 from 2012-12-02
-		gridvalue = separatedTime[2].replaceFirst("^0*", "");
+		tempoDia = dataSeparada[2].replaceFirst("^0*", "");
 
-		// POE A INVISIVEL AS VIEWS QUE NAO FAZEM PARTE DO MES
-		if ((Integer.parseInt(gridvalueMes) != testeCal.get(Calendar.MONTH) + 1)) {
-			currentView.setVisibility(View.INVISIBLE);
-			// AS QUE FAZEM
-			// (Integer.parseInt(gridvalueMes) == testeCal
-			// .get(Calendar.MONTH) + 1) &&
-		} else if (resposta != null) {
-			// tamanho do arraylist "Dia" dentro de "Impt"
-
-			// COMPARAR DIA DO MES ATUAL COM DIA DO SERVICO
-			for (int i = 0; i < resposta.getImpt().getDia().size(); i++) {
-				// Compara dia do calendario com dia do serviço
-				// if (Integer.parseInt(gridvalue) ==
-				// resposta.getImpt().getDia()
-				// .get(i).getDia()) {
-				// Verifica se "Dia" é feriado ou nao se pode imputar
-
-				TimeSheetDay dia = resposta.getImpt().getDia().get(i);
-
-				if (Integer.parseInt(gridvalue) == dia.getDia()) {
-					checkIfFeriadoOrNotAvlAllocate(dia, currentView);
-					// tamanho do arraylist "DiaAllocate", dentro de "Dia"
-					// "entra" dentro de "DiaAllocate"
-					for (int j = 0; j < dia.getDiaAllocate().size(); j++) {
-
-						TimeSheetAllocate diaAllocate = dia.getDiaAllocate()
-								.get(j);
-
-						int contadorHoras = 0;
-						checkAllocType(dia, diaAllocate, currentView);
-						checkHorasNoDia(contadorHoras, dia, diaAllocate,
-								currentView);
-					}
-				}
-			}
-
-		}
-		dayView.setText(gridvalue);
+		// textoDia.setText(tempoDia + "-" + calendarioUsado.get(Calendar.MONTH)
+		// + "-" + tempoMes);
+		textoDia.setText(tempoDia);
 
 		// create date string for comparison
-		String date = dayString.get(position);
+		String date = listaDiasPopular.get(position);
 
 		if (date.length() == 1)
 			date = "0" + date;
@@ -216,27 +158,55 @@ public class Calendario_Adapter extends BaseAdapter {
 		if (monthStr.length() == 1)
 			monthStr = "0" + monthStr;
 
+		// POE A INVISIVEL AS VIEWS QUE NAO FAZEM PARTE DO MES
+		if ((Integer.parseInt(tempoMes) != calendarioUsado.get(Calendar.MONTH) + 1)) {
+			currentView.setVisibility(View.INVISIBLE);
+		} else if (respostaDoCallbackTS != null) {
+			// COMPARAR DIA DO MES ATUAL COM DIA DO SERVICO
+			selecionaDias.setText(listaPopuladaString.get(position));
+			for (int i = 0; i < respostaDoCallbackTS.getImpt().getDia().size(); i++) {
+				TimeSheetDay dia = respostaDoCallbackTS.getImpt().getDia()
+						.get(i);
+				if (Integer.parseInt(tempoDia) == dia.getDia()) {
+
+					checkIfFeriadoOrNotAvlAllocate(dia, currentView);
+					for (int j = 0; j < dia.getDiaAllocate().size(); j++) {
+
+						TimeSheetAllocate diaAllocate = dia.getDiaAllocate()
+								.get(j);
+						int contadorHoras = 0;
+						checkAllocType(dia, diaAllocate, currentView);
+						checkHorasNoDia(contadorHoras, dia, diaAllocate,
+								currentView);
+					}
+					break;
+				}
+			}
+
+		}
+
+		verificaNumero(position);
+
 		return currentView;
 	}
 
 	public void checkIfFeriadoOrNotAvlAllocate(TimeSheetDay dia,
 			View currentView) {
-		// se for feriado ou, dia que nao permite alocar horas, nao
-		// permite clickar e pinta de preto
-		if (dia.isDiaFeriado() || !dia.isDiaAvlbToAllocate()) {
-			// v.setBackgroundResource(R.drawable.feriado_naoaloca_bloq_preto);
-			currentView.setVisibility(View.INVISIBLE);
+		if (dia.isDiaFeriado() || dia.isDiaAvlbToAllocate()) {
+			selecionaDias.setText("Bloqueado");
+			selecionaDias.setClickable(false);
+			selecionaDias.setSelected(false);
+			selecionaDias.setBackgroundColor(Color.RED);
+			currentView.setBackgroundColor(Color.RED);
+			currentView.setSelected(false);
+			currentView.setClickable(false);
 		}
+
 	}
 
 	public void checkHorasNoDia(int contadorHoras, TimeSheetDay dia,
 			TimeSheetAllocate diaAllocate, View v) {
-		// conta as horas no projecto?
 		contadorHoras += diaAllocate.getHoras();
-
-	}
-
-	public void checkIfProject() {
 
 	}
 
@@ -258,17 +228,21 @@ public class Calendario_Adapter extends BaseAdapter {
 			currentView
 					.setBackgroundResource(R.drawable.horas_impt_pode_alterar);
 		}
-		// FALTA PARA ALLOCTYPE = 0 -> que significa?
 	}
 
 	// Dia selecionado!
-	public View setSelected(View view, String position) {
+	public View setSelected(View view, String position, int position2) {
 		if (posSelecionadas.contains(position)) {
-			view.setBackgroundResource(R.drawable.selector_gridview_item);
+			view.setBackgroundColor(Color.WHITE);
 			posSelecionadas.remove(position);
+			listaViewsPreencher.remove(view);
+			listaPopuladaBool.set(position2, false);
+
 		} else {
 			posSelecionadas.add(position);
-			view.setBackgroundResource(R.drawable.pressed_color);
+			listaViewsPreencher.add(view);
+			view.setBackgroundColor(Color.GRAY);
+			listaPopuladaBool.set(position2, true);
 		}
 
 		return view;
@@ -280,7 +254,7 @@ public class Calendario_Adapter extends BaseAdapter {
 		Calendar calendario;
 		// clear items
 		items.clear();
-		dayString.clear();
+		listaDiasPopular.clear();
 		pmonth = (GregorianCalendar) month.clone();
 		// month start day. ie; sun, mon, etc
 		firstDay = month.get(GregorianCalendar.DAY_OF_WEEK);
@@ -309,17 +283,21 @@ public class Calendario_Adapter extends BaseAdapter {
 		for (int n = 0; n < mnthlength; n++) {
 
 			// Mes sem fins de semana para dentro de "dayString"
-			itemvalue = df.format(pmonthmaxset.getTime());
+			itemvalue = dataFormat.format(pmonthmaxset.getTime());
 			pmonthmaxset.add(GregorianCalendar.DATE, 1);
 
-			data = (Date) df.parse(itemvalue);
+			data = (Date) dataFormat.parse(itemvalue);
 			calendario = Calendar.getInstance();
 			calendario.setTime(data);
 
-			// Porque usar "&&" e nao "||"
 			if (calendario.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY
 					&& calendario.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
-				dayString.add(itemvalue);
+				// lista de String com data
+				listaDiasPopular.add(itemvalue);
+				// lista de Bool para ver se foi selected
+				listaPopuladaBool.add(false);
+				// lista de String para escrever 4 ou 8
+				listaPopuladaString.add(" ");
 			}
 
 		}
@@ -343,7 +321,7 @@ public class Calendario_Adapter extends BaseAdapter {
 
 	// posicao do dia
 	public String getDayString(int pos) {
-		return dayString.get(pos);
+		return listaDiasPopular.get(pos);
 	}
 
 	// retorna arraylist que contem todas as posiçoes selecionadas no formato
@@ -352,17 +330,8 @@ public class Calendario_Adapter extends BaseAdapter {
 		return posSelecionadas;
 	}
 
-	public void getTimeSheets(int ano, int mes) {
-
-		progressDialog = ProgressDialog.show(mContext, "Aguarde, por favor",
-				"A carregar dados...", true);
-		progressDialog.setCancelable(true);
-
-		new POST_API_TimeSheets_Service(new CallbackTimeSheets(),
-				CommunicationCenter.PostTimeSheets,
-				new POST_API_TimeSheets_Request(ano, mes, token.getToken()))
-				.execute(new String[0]);
-
+	public ArrayList<View> getViewsPreencher() {
+		return listaViewsPreencher;
 	}
 
 	public class CallbackTimeSheets implements
@@ -371,7 +340,7 @@ public class Calendario_Adapter extends BaseAdapter {
 		@Override
 		public void callbackCall(POST_API_TimeSheets_Response t2) {
 			// TODO Auto-generated method stub
-			resposta = t2;
+			respostaDoCallbackTS = t2;
 			if (t2.getStatusCd().equals("KO")) {
 				Toast.makeText(mContext, "ERRO AO CARREGAR MES",
 						Toast.LENGTH_LONG).show();
@@ -379,16 +348,57 @@ public class Calendario_Adapter extends BaseAdapter {
 				Toast.makeText(
 						mContext,
 						"Ano: " + t2.getImpt().getAno() + "\n" + "Mes: "
-								+ t2.getImpt().getMes() + "\n",
-						// + "Horas Dia Multiplo: "
-						// + t2.getImpt().getHorasDiaMultiplo() + "\n"
-						// + "Horas Dia Max: "
-						// + t2.getImpt().getHorasDiaMax(),
-						Toast.LENGTH_LONG).show();
+								+ t2.getImpt().getMes(), Toast.LENGTH_LONG)
+						.show();
 			}
-
 			progressDialog.dismiss();
-
 		}
 	}
+
+
+
+	// metodo void setSelected4 (sem parametros)
+	public void escreveQuatro() {
+		for (int i = 0; i < listaPopuladaBool.size(); i++) {
+			if (listaPopuladaBool.get(i) == true) {
+				listaPopuladaString.set(i, "4");
+				listaPopuladaBool.set(i, false);
+			}
+		}
+		notifyDataSetChanged();
+	}
+
+	public void escreveOito() {
+		for (int i = 0; i < listaPopuladaBool.size(); i++) {
+			if (listaPopuladaBool.get(i) == true) {
+				listaPopuladaString.set(i, "8");
+				listaPopuladaBool.set(i, false);
+			}
+		}
+		notifyDataSetChanged();
+	}
+
+	public void escreveZero() {
+		for (int i = 0; i < listaPopuladaBool.size(); i++) {
+			if (listaPopuladaBool.get(i) == true) {
+				listaPopuladaString.set(i, " ");
+				listaPopuladaBool.set(i, false);
+			}
+		}
+		notifyDataSetChanged();
+	}
+
+	public void verificaNumero(int position) {
+		if (listaPopuladaString.get(position).equals("8")) {
+			selecionaDias.setBackgroundColor(Color.rgb(153, 242, 131));
+		} else if (listaPopuladaString.get(position).equals("4")) {
+			selecionaDias.setBackgroundColor(Color.rgb(141, 240, 189));
+		} else if (listaPopuladaString.get(position).equals("Limpar")) {
+			selecionaDias.setBackgroundColor(Color.parseColor("#ebeaed"));
+		} else {
+			selecionaDias.setBackgroundColor(Color.rgb(250, 250, 250));
+		}
+
+	}
+
 }
