@@ -1,5 +1,6 @@
 package com.example.itlog.activities;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -31,6 +32,7 @@ import com.example.itlog.communication.CommunicationCenter;
 import com.example.itlog.communication.GetCalendario;
 import com.example.itlog.communication.GetCalendario.GetCalendarioListener;
 import com.example.itlog.objects.Projecto;
+import com.example.itlog.objects.TimeSheet;
 import com.example.itlog.objects.TimeSheetAllocate;
 import com.example.itlog.objects.TimeSheetDay;
 import com.example.itlog.objects.TimeSheetPut;
@@ -59,13 +61,15 @@ public class InputHoras_Activity extends GeneralButtons_Activity implements
 	PagerTitleStrip strip;
 	ViewPager_Adapter viewPagerAdapter;
 	ProgressDialog progressDialog;
-
 	Calendar mesAtual, mesMais, mesMenos, mesMaisDois, mesMenosDois, janeiro,
 			fevereiro, marco, abril, maio, junho, julho, agosto, setembro,
 			outubro, novembro, dezembro;
 	ArrayList<Calendar> listaMesesMostrar = new ArrayList<Calendar>();
-
 	ArrayList<Calendario_Adapter> arrayCalendarioAdapter = new ArrayList<Calendario_Adapter>();
+
+	TimeSheetPut allocTS;
+	GetCalendario getCalendario;
+	private ArrayList<POST_API_TimeSheets_Response> respostaLocal;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +79,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity implements
 		// para o tipo de letra
 		font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
 		getListaMesesMostrar();
-		GetCalendario getCalendario = new GetCalendario(this, token, this,
-				listaMesesMostrar);
+		getCalendario = new GetCalendario(this, token, this, listaMesesMostrar);
 
 		pager = (ViewPager) findViewById(R.id.viewPager);
 
@@ -280,8 +283,8 @@ public class InputHoras_Activity extends GeneralButtons_Activity implements
 		case android.R.id.home:
 			finish();
 		case R.id.enviar:
-			// alocarHorasMetodo();
-			// getTimeSheetsPut(alocaHoras);
+			alocarHorasMetodo();
+			getTimeSheetsPut(alocaHoras);
 		}
 		return true;
 	}
@@ -289,22 +292,19 @@ public class InputHoras_Activity extends GeneralButtons_Activity implements
 	@Override
 	public void onGetCalendarioComplete(
 			ArrayList<POST_API_TimeSheets_Response> respostasArray) {
+
+		respostaLocal = respostasArray;
 		// TODO Auto-generated method stub
 		for (int i = 0; i < 12; i++) {
-
 			Calendario_Adapter adapter = null;
 			if (respostasArray.get(i).getStatusCd().equals("OK")) {
 				adapter = new Calendario_Adapter(this,
 						listaMesesMostrar.get(i), respostasArray.get(i));
-
 			}
-
 			arrayCalendarioAdapter.add(adapter);
-
 		}
 		viewPagerAdapter = new ViewPager_Adapter(InputHoras_Activity.this,
 				arrayCalendarioAdapter);
-
 		pager.setAdapter(viewPagerAdapter);
 		pager.setCurrentItem(month.get(Calendar.MONTH));
 		progressDialog.dismiss();
@@ -369,7 +369,7 @@ public class InputHoras_Activity extends GeneralButtons_Activity implements
 		@Override
 		public void callbackCall(POST_API_TimeSheetsPut_Response t3) {
 			// TODO Auto-generated method stub
-			// respostaDoCallbackTSPut = t3;
+			POST_API_TimeSheetsPut_Response respostaDoCallbackTSPut = t3;
 		}
 
 	}
@@ -377,23 +377,59 @@ public class InputHoras_Activity extends GeneralButtons_Activity implements
 	// Metodo para o serviço de alocar horas. Criar objectos que vao enviar para
 	// o serviço
 	// Falta cria o obj TimeSheetAllocate e o TimeSheetDay
+
 	public TimeSheetPut alocarHorasMetodo() {
-				
-		// TimeSheetAllocate timeSheetAllocate;
-		// TimeSheetDay timeSheetDay;
-		// Calendario_Adapter mesAtual =
-		// arrayCalendarioAdapter.get(pager.getCurrentItem());
-		// for (int i = 0; i < arrayCalendarioAdapter.size(); i++) {
-		// timeSheetAllocate = new TimeSheetAllocate(mesAtual.);
-		// }
-		// // for (int j = 0; j < arrayCalendarioAdapter.size(); j++) {
-		// alocaHoras = new
-		// TimeSheetPut(arrayCalendarioAdapter.get(Calendar.YEAR),
-		// arrayCalendarioAdapter.get(pager.getCurrentItem()),
-		// arrayCalendarioAdapter.get(pager.getCurrentItem())
-		// .getArraySelecionaDias());
-		//
-		// }
-		return alocaHoras;
+		trataTodosDias();
+		// TimeSheetPut allocTS = new TimeSheetPut(arrayCalendarioAdapter.get(
+		// pager.getCurrentItem()), mes, trataDiasAlocar());
+
+		return allocTS;
 	}
+
+	public ArrayList<TimeSheetDay> trataTodosDias() {
+		trataDiasAlocar();
+		ArrayList<TimeSheetDay> diasTodosAlocar = new ArrayList<TimeSheetDay>();
+		TimeSheetDay alocaTodos;
+		Calendario_Adapter mes = arrayCalendarioAdapter.get(pager
+				.getCurrentItem());
+
+		onGetCalendarioComplete(respostaLocal);
+		
+		for (int i = 0; i < arrayCalendarioAdapter.size(); i++) {
+			TimeSheetDay dia = respostaLocal.get(i).getImpt().getDia().get(i);
+//			alocaTodos = new  TimeSheetDay(
+//					dia.getDia(),
+//					dia.getDiaDaSemana(),
+//					dia.isDiaFeriado(),
+//					dia.isDiaAvlbToAllocate(),
+//					);
+			
+			
+			//UTILIZAR "respostaLocal" criado la em cima!!!!
+//
+//			 alocaTodos = new TimeSheetDay(month.get(Calendar.DAY_OF_MONTH),
+//			 month.get(Calendar.DAY_OF_WEEK_IN_MONTH),
+//			 ,
+//			 diaAvlbToAllocate,
+//			 trataDiasAlocar());
+		}
+
+		return diasTodosAlocar;
+
+	}
+
+	public ArrayList<TimeSheetAllocate> trataDiasAlocar() {
+		ArrayList<TimeSheetAllocate> diasAlocar = new ArrayList<TimeSheetAllocate>();
+		TimeSheetAllocate aloca;
+		ArrayList<View> tamanhoMes = arrayCalendarioAdapter.get(
+				pager.getCurrentItem()).getViewsPreencher();
+		for (int i = 0; i < tamanhoMes.size(); i++) {
+			aloca = new TimeSheetAllocate(spinner.getSelectedItem().toString(),
+					Integer.parseInt(adapter.getListaPopuladaString().get(i)),
+					0);
+			diasAlocar.add(aloca);
+		}
+		return diasAlocar;
+	}
+
 }

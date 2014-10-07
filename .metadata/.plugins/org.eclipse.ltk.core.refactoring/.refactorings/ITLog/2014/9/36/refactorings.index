@@ -1,0 +1,12 @@
+1409580500070	Rename field 'myPagerAdapter'
+1409588653308	Rename field 'posicaoTextViewHoras'
+1409675592615	Rename method 'isConnectingToInternet'
+1409675608268	Rename local variable 'info'
+1409675617289	Rename local variable 'connectivity'
+1409755198393	Rename field 'fullame'
+1409755213706	Rename field 'fullname'
+1409913057209	Delete element
+1409913060280	Delete element
+1409922209425	Rename type 'AddProjectRequest'
+1409922217930	Rename type 'AddProjectResponse'
+1409922228169	Rename type 'AddProjectService'

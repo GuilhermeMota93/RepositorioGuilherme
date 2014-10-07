@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.itlog.R;
 import com.example.itlog.objects.Projecto;
+import com.example.itlog.objects.TimeSheetAllocate;
 
 public class InputHoras_Spinner_Adapter extends ArrayAdapter<Projecto> {
 
@@ -82,4 +83,6 @@ public class InputHoras_Spinner_Adapter extends ArrayAdapter<Projecto> {
 		// TODO Auto-generated method stub
 		super.setNotifyOnChange(notifyOnChange);
 	}
+
+	
 }

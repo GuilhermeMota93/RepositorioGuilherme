@@ -12,6 +12,7 @@ import java.util.Locale;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v4.view.PagerTabStrip;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,6 +69,8 @@ public class Calendario_Adapter extends BaseAdapter {
 	private static ArrayList<String> posSelecionadas = new ArrayList<String>();
 	ArrayList<Boolean> listaPopuladaBool = new ArrayList<Boolean>();
 	ArrayList<String> listaPopuladaString = new ArrayList<String>();
+	// ArrayList<Integer> lista
+	int contadorHoras = 0;
 
 	InputHoras_Activity inputHorasObjecto;
 
@@ -168,38 +171,48 @@ public class Calendario_Adapter extends BaseAdapter {
 				TimeSheetDay dia = respostaDoCallbackTS.getImpt().getDia()
 						.get(i);
 				if (Integer.parseInt(tempoDia) == dia.getDia()) {
-
-					checkIfFeriadoOrNotAvlAllocate(dia, currentView);
 					for (int j = 0; j < dia.getDiaAllocate().size(); j++) {
-
 						TimeSheetAllocate diaAllocate = dia.getDiaAllocate()
 								.get(j);
-						int contadorHoras = 0;
-						checkAllocType(dia, diaAllocate, currentView);
+
 						checkHorasNoDia(contadorHoras, dia, diaAllocate,
 								currentView);
+						checkIfFeriado(dia, currentView, diaAllocate);
+						checkIfAvlAllocate(contadorHoras,dia, currentView, diaAllocate);
+						checkAllocType(dia, diaAllocate, currentView);
+
 					}
 					break;
 				}
 			}
-
 		}
-
 		verificaNumero(position);
-
 		return currentView;
 	}
 
-	public void checkIfFeriadoOrNotAvlAllocate(TimeSheetDay dia,
-			View currentView) {
-		if (dia.isDiaFeriado() || dia.isDiaAvlbToAllocate()) {
-			selecionaDias.setText("Bloqueado");
-			selecionaDias.setClickable(false);
-			selecionaDias.setSelected(false);
-			selecionaDias.setBackgroundColor(Color.RED);
+	public void checkIfFeriado(TimeSheetDay dia, View currentView,
+			TimeSheetAllocate diaAllocate) {
+		if (dia.isDiaFeriado()) {
+			selecionaDias.setText(String.valueOf(diaAllocate.getHoras()));
 			currentView.setBackgroundColor(Color.RED);
 			currentView.setSelected(false);
 			currentView.setClickable(false);
+		}
+	}
+
+	public void checkIfAvlAllocate(int contadorHoras,TimeSheetDay dia, View currentView,
+			TimeSheetAllocate diaAllocate) {
+		if (dia.isDiaAvlbToAllocate()) {
+			if (contadorHoras == 4) {
+				selecionaDias.setText(String.valueOf(diaAllocate.getHoras()));
+//				currentView.setBackgroundColor(Color.BLUE);
+			} else if (contadorHoras == 8) {
+				selecionaDias.setText(String.valueOf(diaAllocate.getHoras()));
+				selecionaDias.setClickable(false);
+				currentView.setClickable(false);
+//				currentView.setBackgroundColor(Color.YELLOW);
+			}
+
 		}
 
 	}
@@ -334,29 +347,6 @@ public class Calendario_Adapter extends BaseAdapter {
 		return listaViewsPreencher;
 	}
 
-	public class CallbackTimeSheets implements
-			CallbackInterface<POST_API_TimeSheets_Response> {
-
-		@Override
-		public void callbackCall(POST_API_TimeSheets_Response t2) {
-			// TODO Auto-generated method stub
-			respostaDoCallbackTS = t2;
-			if (t2.getStatusCd().equals("KO")) {
-				Toast.makeText(mContext, "ERRO AO CARREGAR MES",
-						Toast.LENGTH_LONG).show();
-			} else if (t2.getStatusCd().equals("OK")) {
-				Toast.makeText(
-						mContext,
-						"Ano: " + t2.getImpt().getAno() + "\n" + "Mes: "
-								+ t2.getImpt().getMes(), Toast.LENGTH_LONG)
-						.show();
-			}
-			progressDialog.dismiss();
-		}
-	}
-
-
-
 	// metodo void setSelected4 (sem parametros)
 	public void escreveQuatro() {
 		for (int i = 0; i < listaPopuladaBool.size(); i++) {
@@ -401,4 +391,7 @@ public class Calendario_Adapter extends BaseAdapter {
 
 	}
 
+	public ArrayList<String> getListaPopuladaString() {
+		return listaPopuladaString;
+	}
 }

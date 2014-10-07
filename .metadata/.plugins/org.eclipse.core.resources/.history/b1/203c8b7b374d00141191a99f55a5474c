@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.6" icons="true">  
+  <object id="1" language="java" name="com.example.itlog.activities.InputHoras_Activity" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/InputHoras_Activity.java" binary="false" label="inputHoras_Activity" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="73" y="0"/>    
+    <execution id="2">      
+      <position height="63" width="0" x="0" y="233"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="63" width="0" x="0" y="123"/>    
+    </execution>    
+    <execution id="8">      
+      <position height="84" width="0" x="0" y="350"/>    
+    </execution>    
+    <execution id="10">      
+      <position height="21" width="0" x="0" y="392"/>    
+    </execution>  
+  </object>  
+  <object id="11" language="java" name="com.example.itlog.activities.InputHoras_Activity.CallbackTimeSheetsPut" 
+    project="ITLog" file="/ITLog/src/com/example/itlog/activities/InputHoras_Activity.java" binary="false" 
+    label="callbackTimeSheetsPut" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="7">      
+      <position height="21" width="0" x="0" y="144"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="63" width="0" x="0" y="281"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="com.example.itlog.requestobjects.POST_API_TimeSheets_Request" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/requestobjects/POST_API_TimeSheets_Request.java" binary="false" 
+    label="post_API_TimeSheets_Request1" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="14">      
+      <position height="21" width="0" x="0" y="302"/>    
+    </execution>    
+    <execution id="16">      
+      <position height="63" width="0" x="0" y="403"/>    
+    </execution>  
+  </object>  
+  <object id="19" language="java" name="com.example.itlog.responseobjects.POST_API_TimeSheets_Response" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/responseobjects/POST_API_TimeSheets_Response.java" binary="false" 
+    label="post_API_TimeSheets_Response" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="18">      
+      <position height="21" width="0" x="0" y="424"/>    
+    </execution>  
+  </object>  
+  <object id="20" language="java" name="com.example.itlog.activities.InputHoras_Activity.CallbackListaProjsAus" 
+    project="ITLog" file="/ITLog/src/com/example/itlog/activities/InputHoras_Activity.java" binary="false" 
+    label="callbackListaProjsAus" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="4">      
+      <position height="21" width="0" x="0" y="254"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="callbackCall(com.example.itlog.responseobjects.GET_API_ProjectosAndAusLst_Response):void">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="callbackCall(com.example.itlog.responseobjects.POST_API_TimeSheetsPut_Response):void">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" 
+    operation="onGetCalendarioComplete(java.util.ArrayList&lt;com.example.itlog.responseobjects.POST_API_TimeSheets_Response&gt;):void">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="13" operation="POST_API_TimeSheets_Request()">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="17" 
+    operation="POST_API_TimeSheets_Response(com.example.itlog.objects.TimeSheet,java.lang.String,java.lang.String)" 
+    x="413" y="401">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>
+</sequence-diagram>

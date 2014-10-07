@@ -1,0 +1,49 @@
+1410186926371	Rename type 'Projecto_2_Request'
+1410186935080	Rename type 'POST_API_Projecto'
+1410186963476	Rename type 'Projecto_2_Response'
+1410190201540	Rename type 'GetSessionInformationService'
+1410190224531	Rename type 'GetSessionInformationResponse'
+1410190236315	Rename type 'GetSessionInformationRequest'
+1410190256384	Rename type 'Get_Cliente_Lst_Request'
+1410190273472	Rename type 'Get_Cliente_Lst_Response'
+1410190285549	Rename type 'Get_Cliente_Lst_Service'
+1410190720728	Rename type 'LoginRequest'
+1410190731476	Rename type 'LoginResponse'
+1410190740824	Rename type 'LoginService'
+1410195387959	Rename type 'Projecto_2_Service'
+1410195482466	Rename type 'Lista_Ausencias_Response'
+1410195490466	Rename type 'Lista_Ausencias_Services'
+1410195497387	Rename type 'Lista_Ausencias_Request'
+1410269289052	Rename field 'GetClientesLst'
+1410269295809	Rename field 'GetProjectosLst'
+1410273956440	Rename type 'Add_Project_Nuc_Lst_Request'
+1410273971733	Rename type 'Add_Project_Nuc_Lst_Response'
+1410273981862	Rename type 'Add_Project_Nuc_Lst_Service'
+1410341022750	Rename type 'POST_API_ProjectosByCli__Service'
+1410343292204	Delete element
+1410343296775	Move compilation unit
+1410348122528	Rename field 'PostProjectoLstService'
+1410429431925	Rename resource 'alertdialog_layout.xml'
+1410429652816	Rename resource 'meusprojs_apagar_proj.xml'
+1410431997927	Rename method 'getService'
+1410432112097	Rename field 'AddProject'
+1410432119122	Rename field 'LoginService'
+1410432124007	Rename field 'DelProjecto'
+1410445704586	Rename field 'PostAddProject'
+1410445833726	Rename local variable 'isPostProjecto'
+1410512529336	Delete element
+1410512538437	Delete element
+1410512550039	Delete element
+1410512561980	Delete element
+1410513014863	Delete elements
+1410513023775	Delete elements
+1410513247222	Delete element
+1410513439944	Rename type 'Cliente_2'
+1410513446726	Rename type 'Projecto_2'
+1410513584192	Rename type 'Allocate'
+1410513903486	Delete elements
+1410513912790	Delete element
+1410513933670	Delete element
+1410513947818	Delete element
+1410513952003	Delete element
+1410513955417	Delete element

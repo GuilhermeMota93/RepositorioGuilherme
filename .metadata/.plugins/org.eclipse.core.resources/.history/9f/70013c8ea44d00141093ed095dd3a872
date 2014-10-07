@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.6" icons="true">  
+  <object id="1" language="java" name="com.example.itlog.activities.InputHoras_Activity" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/activities/InputHoras_Activity.java" binary="false" label="inputHoras_Activity" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="73" y="0"/>    
+    <execution id="2">      
+      <position height="114" width="0" x="0" y="335"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="84" width="0" x="0" y="470"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="21" width="0" x="0" y="512"/>    
+    </execution>    
+    <execution id="8">      
+      <position height="145" width="0" x="0" y="158"/>    
+    </execution>    
+    <execution id="11">      
+      <position height="21" width="7" x="68" y="240"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="21" width="7" x="68" y="386"/>    
+    </execution>    
+    <execution id="13">      
+      <position height="63" width="0" x="0" y="78"/>    
+    </execution>  
+  </object>  
+  <object id="16" language="java" name="com.example.itlog.adapters.ViewPager_Adapter" project="ITLog" 
+    file="/ITLog/src/com/example/itlog/adapters/ViewPager_Adapter.java" binary="false" label="viewPager_Adapter" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="15">      
+      <position height="21" width="0" x="0" y="99"/>    
+    </execution>  
+  </object>  
+  <object id="17" language="java" name="com.example.itlog.activities.InputHoras_Activity.CallbackListaProjsAus" 
+    project="ITLog" file="/ITLog/src/com/example/itlog/activities/InputHoras_Activity.java" binary="false" 
+    label="callbackListaProjsAus" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="10">      
+      <position height="103" width="0" x="0" y="179"/>    
+    </execution>  
+  </object>  
+  <object id="19" language="java" name="com.example.itlog.activities.InputHoras_Activity.CallbackTimeSheetsPut" 
+    project="ITLog" file="/ITLog/src/com/example/itlog/activities/InputHoras_Activity.java" binary="false" 
+    label="callbackTimeSheetsPut" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="4">      
+      <position height="72" width="0" x="0" y="356"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="callbackCall(com.example.itlog.responseobjects.POST_API_TimeSheetsPut_Response):void">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" 
+    operation="onGetCalendarioComplete(java.util.ArrayList&lt;com.example.itlog.responseobjects.POST_API_TimeSheets_Response&gt;):void">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" operation="callbackCall(com.example.itlog.responseobjects.GET_API_ProjectosAndAusLst_Response):void">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="14" 
+    operation="ViewPager_Adapter(android.content.Context,java.util.ArrayList&lt;com.example.itlog.adapters.Calendario_Adapter&gt;)">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="15"/>  
+  </message>  
+  <message id="18">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="20">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>
+</sequence-diagram>

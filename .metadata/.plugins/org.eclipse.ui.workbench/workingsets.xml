@@ -147,4 +147,13 @@
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1411338401153_144" label="Window Working Set" name="Aggregate for window 1411338401152"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1411375360664_145" label="Window Working Set" name="Aggregate for window 1411375360663"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1411376765247_146" label="Window Working Set" name="Aggregate for window 1411376765247"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1411555597767_147" label="Window Working Set" name="Aggregate for window 1411555597767"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1412002505670_148" label="Window Working Set" name="Aggregate for window 1412002505670"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1412072194198_149" label="Window Working Set" name="Aggregate for window 1412072194197"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1412521904986_150" label="Window Working Set" name="Aggregate for window 1412521904986"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1412522529782_151" label="Window Working Set" name="Aggregate for window 1412522529782"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1412522959509_152" label="Window Working Set" name="Aggregate for window 1412522959508"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1412582781043_153" label="Window Working Set" name="Aggregate for window 1412582781042"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1412622376413_154" label="Window Working Set" name="Aggregate for window 1412622376412"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1412668453474_155" label="Window Working Set" name="Aggregate for window 1412668453474"/>
 </workingSetManager>

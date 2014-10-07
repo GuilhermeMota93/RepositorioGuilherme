@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="#ebeaed"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:paddingTop="10dp"
+            android:textColor="#0e7d9a"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/pergunta"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:paddingTop="10dp"
+            android:textColor="#656565"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/linear3"
+        android:layout_width="wrap_content"
+        android:layout_height="85dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linear"
+        android:orientation="vertical" >
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/botaoZeroHoras"
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/botaoOitoHoras"
+        android:layout_alignBottom="@+id/botaoOitoHoras"
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/selector_botao_azul"
+        android:text="Limpar"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/botaoOitoHoras"
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/linear3"
+        android:background="@drawable/selector_botao_azul"
+        android:layout_marginRight="15dp"
+        android:text="8"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/botaoQuatroHoras"
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/botaoOitoHoras"
+        android:layout_alignBottom="@+id/botaoOitoHoras"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/selector_botao_azul"
+        android:text="4"
+        android:textColor="#ffffff" />
+
+</RelativeLayout>
